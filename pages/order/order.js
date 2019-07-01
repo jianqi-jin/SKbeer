@@ -1,4 +1,5 @@
 // pages/order/order.js
+const app = getApp();
 Page({
 
   /**
@@ -40,8 +41,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.openid)
+    this.getorderList();
     wx.setNavigationBarTitle({
       title: '我的订单'
+    })
+  },
+  getorderList(){
+    wx.request({
+      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
+      data: {
+        status: 5
+      },
+      header: {},
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
   changeNav(item){

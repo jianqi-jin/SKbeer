@@ -16,3 +16,92 @@
   font-weight:800;
   color:rgba(130,76,31,1);
 }
+
+.itemBox{
+  margin: 24rpx 24rpx 0rpx 24rpx;
+}
+.titleBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #fff;
+  padding: 23rpx;
+}
+
+.ordNo{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.status{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(130,76,31,1);
+}
+
+.contentBox{
+  padding: 23rpx;
+  background: #fff;
+  margin-top: 2rpx;
+  display: flex;
+  flex-direction: column;
+}
+.infoBox{
+  display: flex;
+  flex-direction: row;
+}
+.infoBox image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.infoTextBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.infoPriceBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.priceBox{
+  margin-top: 34rpx;
+}
+.priceBox .dedBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.totlePriceBox{
+  display: flex;
+  margin-top: 16rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btnBox{
+  margin-top: 4rpx;
+  background: #fff;
+  padding: 23rpx;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.btnBox .btn{
+  text-align: center;
+  line-height: 47rpx;
+  width:133rpx;
+  height:47rpx;
+  background:rgba(255,255,255,1);
+  border:2rpx solid rgba(130, 76, 31, 1);
+  border-radius:24rpx;
+
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(130,76,31,1);
+}
+

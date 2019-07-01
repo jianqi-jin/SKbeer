@@ -13,3 +13,7 @@ page{
   background:rgba(245,245,245,1);
   margin-bottom: 150rpx;
 }
+
+image{
+  border: 1px solid #ccc;
+}
