@@ -1,1 +1,18 @@
 /* pages/order/order.wxss */
+.navList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  background: #fff;
+  padding: 30rpx 0 30rpx 0;
+}
+.activeNav{
+  font-size:30rpx;
+  font-family:PingFang-SC-Heavy;
+  font-weight:800;
+  color:rgba(130,76,31,1);
+}

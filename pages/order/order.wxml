@@ -1,3 +1,44 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+
+<view class='navHeader'>
+  <view class='navList'>
+    <view wx:for='{{navHeaderList}}' bindtap='changeNav' data-id='{{item.id}}' wx:key='index' class='"navItem "+{{currentShowPageId == item.id ? "activeNav" : ""}}' >
+      {{item.title}}
+    </view>
+  </view>
+</view>
+
+
+
+<view class='main'>
+  <view class='itemBox'>
+    <view class='titleBox'></view>
+    <view class='contentBox'>
+      <view class='infoBox'>
+        <view class='imgBox'><image></image></view>
+        <view class='infoTextBox'>
+          <view class='infoText'>阿斯顿无法发斯蒂芬看见了</view>
+          <view class='infoPrice'>￥299.00</view>
+          <view class='infoNum'>x1</view>
+        </view>
+      </view><!--商品详情-->
+      <view class='priceBox'>
+        <view class='dedBox'>
+          <view>储值抵扣</view>
+          <view>-￥0.01</view>
+        </view>
+        <view class='totlePriceBox'>
+          <view>合计</view>
+          <view>-￥299.00</view>
+        </view>
+      </view><!--价格统计-->
+    </view>
+    <view class='btnBox'>
+      <view class='btn'>去付款</view>
+    </view>
+  </view>
+
+</view>
+
+
 <nav-bottom selected-index='2'></nav-bottom>
