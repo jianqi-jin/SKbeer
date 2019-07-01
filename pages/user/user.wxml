@@ -1,0 +1,3 @@
+<!--pages/user/user.wxml-->
+<text>pages/user/user.wxml</text>
+<nav-bottom selected-index='3'></nav-bottom>

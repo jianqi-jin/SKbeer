@@ -1,0 +1,43 @@
+<!--pages/refer/refer.wxml-->
+<!--顶部img-->
+<view class='titleImg'>图片
+  <image src=""></image>
+</view>
+
+<view class='main'>
+  <view class='mainNav'>
+    <view class='referNavBox' bindtap='changeNav' data-index='0' class='{{showIndex == 0 ? "activeNav" : ""}}'>推荐</view>
+    <view class='rankNavBox' bindtap='changeNav' data-index='1' class='{{showIndex == 1 ? "activeNav" : ""}}'>排行</view>
+  </view>
+
+  <view class='mainList'>
+    <view class='mainItem' wx:for="{{referList}}" wx:key="index">
+      <view class='headerImgBox'>
+        <image class='headerImg' src="{{item.tp}}"></image>
+      </view>
+      <view class='contentBox'> 
+        <view class='titleBox'>
+          <view class='userName'>{{}}</view>
+          <view class='time'>{{item.creatime}}</view>
+        </view>
+        <view class='contentText'>{{item.tgy}}</view>
+        <view class='contentImgBox'>
+          <image class='contentImg' src='{{item.tp}}'></image>
+        </view>
+        <view class='contentInfoBox'>
+          <view class='infoBoxUserList'>
+            <image wx:if='{{item}}' wx:for="{{item.avatar}}" wx:key='index' src='{{item ? item : ""}}'></image>
+          </view>
+          <view class='infoBoxText'>等{{item.fx_num}}人已分享</view>
+        </view>
+        <view class='btnBox'>
+          <view class='btnSave' bindtap='navToShare'>一键保存</view>
+          <view class='btnShare' bindtap='share' data-id='{{item.tgy_id}}'>一键分享</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<nav-bottom selected-index='1'></nav-bottom>

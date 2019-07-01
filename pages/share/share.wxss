@@ -1,0 +1,71 @@
+/* pages/share/share.wxss */
+
+.bottomBox{
+  position: fixed;
+  bottom: 0rpx;
+  background: #fff;
+  height: 192rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+}
+.bottomBox view{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.bottomBox view image{
+  width:102rpx;
+  height:102rpx;
+  background:rgba(255,255,255,1);
+  border:2rpx solid rgba(218,218,218,1);
+  border-radius:50%;
+  margin-bottom: 10rpx;
+}
+
+page{
+  background:#575757;
+}
+.shareBox{
+  position: relative;
+  width: 540rpx;
+  height: 940rpx;
+  background: #000;
+  margin: auto;
+}
+
+.chareBoxBottom{
+  padding-top: 30rpx;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  height: 174rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.userBox{
+font-size:24rpx;
+font-family:PingFang-SC-Regular;
+font-weight:400;
+width: 100rpx;
+color:rgba(102,102,102,1);
+line-height:78rpx;
+margin-left: 32rpx;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.userBox image{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}

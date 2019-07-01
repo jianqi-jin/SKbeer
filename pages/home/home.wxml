@@ -1,0 +1,12 @@
+<!--pages/home/home.wxml-->
+
+<view wx:for='{{imgList}}' wx:key="index">
+  <image class='imgItem' src='{{item.thumb}}'></image>
+</view>
+
+
+
+
+
+<nav-bottom selected-index='0'></nav-bottom>
+

@@ -1,0 +1,3 @@
+<!--pages/order/order.wxml-->
+<text>pages/order/order.wxml</text>
+<nav-bottom selected-index='2'></nav-bottom>

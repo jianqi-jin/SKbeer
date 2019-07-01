@@ -1,0 +1,27 @@
+<!--pages/share/share.wxml-->
+
+
+<view class='shareBox'>
+
+  <image></image>
+  <view class='chareBoxBottom'>
+    <view class='userBox'>
+      <image></image>
+      <view class='userName'>用户昵称</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class='bottomBox'>
+  <view class='shareFriend'>
+    <image src=''></image>
+    分享好友
+  </view>
+  <view class='saveImg'>
+    <image src=''></image>
+    保存海报
+  </view>
+</view>
