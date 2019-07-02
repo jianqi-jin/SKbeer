@@ -27,7 +27,8 @@ App({
           dataType: 'json',
           responseType: 'text',
           success: function(res) {
-            that.globalData.openid = res.data.data.openid;
+            that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
+            //that.globalData.openid = res.data.data.openid;
           },
           fail: function(res) {},
           complete: function(res) {},

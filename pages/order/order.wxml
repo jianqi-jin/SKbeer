@@ -11,19 +11,21 @@
 
 
 <view class='main'>
-  <view class='itemBox'>
+  <view class='itemBox' wx:for='{{orderList}}' wx:key='index'>
     <view class='titleBox'>
-      <view class='ordNo'>订单编号:2019465466523</view>
-      <view class='status'>待付款</view>
+      <view class='ordNo'>{{item.ordersn}}</view>
+      <view class='status'>
+        {{item.status == -1 ? goodStatus[5].statusTitle: goodStatus[item.status].statusTitle}}
+      </view>
     </view>
     <view class='contentBox'>
       <view class='infoBox'>
-        <view class='imgBox'><image></image></view>
+        <view class='imgBox'><image src='{{item.listimg}}'></image></view>
         <view class='infoTextBox'>
-          <view class='infoText'>阿斯顿无法发斯蒂芬看见了</view>
+          <view class='infoText'>{{item.title}}{{item.optionname}}</view>
           <view class='infoPriceBox'>
-          <view class='infoPrice'>￥299.00</view>
-            <view class='infoNum'>x1</view>
+          <view class='infoPrice'>￥{{item.price}}</view>
+            <view class='infoNum'>x{{item.total}}</view>
             
           </view>
           
@@ -32,16 +34,16 @@
       <view class='priceBox'>
         <view class='dedBox'>
           <view>储值抵扣</view>
-          <view>-￥0.01</view>
+          <view>-￥{{item.dikou_money}}</view>
         </view>
         <view class='totlePriceBox'>
-          <view>合计</view>
-          <view>￥299.00</view>
+          <view class='totlePriceTitle'>合计</view>
+          <view class='totlePricePrice'>￥{{item.pay_money}}</view>
         </view>
       </view><!--价格统计-->
     </view>
     <view class='btnBox'>
-      <view class='btn'>去付款</view>
+      <view class='btn' wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}" data-item='{{item}}' bindtap='btnFun'>{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
     </view>
   </view>
 

@@ -6,6 +6,7 @@
     "pages/refer/refer",
     "pages/user/user",
     "pages/order/order",
+    "pages/order/orderdetail/orderdetail",
     "pages/share/share"
   ],
   "window": {

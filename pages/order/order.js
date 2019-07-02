@@ -6,6 +6,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    goodStatus: [
+      {
+        statusTitle: '待付款',
+        btnTitle: '去付款'
+      }, {
+        statusTitle: '待发货',
+        btnTitle: ''
+      }, {
+        statusTitle: '待发货',
+        btnTitle: '查看物流'
+      }, {
+        statusTitle: '成功',
+        btnTitle: ''
+      }, {
+        statusTitle: '退款申请',
+        btnTitle: ''
+      }, {
+        statusTitle: '取消订单',
+        btnTitle: ''
+      }
+    ],
+    orderList: [],
     currentShowPageId: 0,
     navHeaderList: [
       {
@@ -41,35 +63,119 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.openid)
-    this.getorderList();
+    this.getorderList(5);
     wx.setNavigationBarTitle({
       title: '我的订单'
     })
   },
-  getorderList(){
+  getorderList(status){
+    let that = this;
     wx.request({
       url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
       data: {
-        status: 5
+        status
       },
-      header: {},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        console.log(res)
+        let data = res.data
+        console.log(data)
+        if (res.data.error != "0"){
+          wx.showToast({
+            title: 'error: ' + res.data.error,
+            icon: 'none'
+          })
+        }else{
+          that.setData({
+            orderList: data.order_list
+          })
+        }
+
       },
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  btnFun(ev){
+    let item = ev.currentTarget.dataset.item;
+    console.log(item);
+    let id = parseInt(item.status);
+    switch (id) {
+      case -1: {//取消
+        break;
+      }
+      case 0: {//待付款
+        wx.navigateTo({
+          url: './orderdetail/orderdetail?orderId=' + item.id,
+        })
+        break;
+      }
+      case 1: {//待发货
+        break;
+      }
+      case 2: {//待收货
+        break;
+      }
+      case 3: {//已完成
+        break;
+      }
+      case 4: {//申请退款
+        break;
+      }//申请退款？？
+      default: {
+        showToast({
+          title: '获取错误',
+          icon: 'none'
+        })
+        break;
+      }
+    }
+
   },
   changeNav(item){
     let id = item.currentTarget.dataset.id;
     this.setData({
       currentShowPageId: id
     })
-    console.log(this.data.currentShowPageId)
+    switch(id){
+      case 0:{//全部
+        this.getorderList(5)
+        break;
+      }
+      case 1: {//待付款
+        this.getorderList(0)
+        break;
+      }
+      case 2: {//待发货
+        this.getorderList(1)
+        break;
+      }
+      case 3: {//待收货
+        this.getorderList(2)
+        break;
+      }
+      case 4: {//已完成
+        this.getorderList(3)
+        break;
+      }
+      case 5: {//已取消
+        this.getorderList(-1)
+        break;
+      }//申请退款？？
+      default :{
+        showToast({
+          title: '获取错误',
+          icon: 'none'
+        })
+        break;
+      }
+    }
+
+    
   },
 
   /**

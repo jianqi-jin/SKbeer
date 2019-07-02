@@ -27,8 +27,10 @@ Page({
     let id = item.currentTarget.dataset.id;
     wx.request({
       url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid='+app.globalData.openid,
-      data: 'id='+id,
-      header: {},
+      data: {id},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
