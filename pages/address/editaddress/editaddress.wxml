@@ -1,0 +1,64 @@
+<!--pages/address/editaddress/editaddress.wxml-->
+
+<form>
+
+  <view class='inputItem'>
+    <view class='fontTitle'>联系人</view>
+    <view class='input'>
+      <input name='name' placeholder='姓名'></input>
+    </view>
+  </view>
+
+  <view class='inputItem radioSex'>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{radioSex}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>
+        {{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  
+
+  <view class='inputItem'>
+    <view class='fontTitle'>电话</view>
+    <view class='input'>
+      <input name='name' placeholder='手机号码'></input>
+    </view>
+  </view>
+
+  
+  <view class='inputItem'>
+    <view class='fontTitle'>地址</view>
+    <view class='input'>
+      <input name='name' placeholder='请选择收货地址'></input>
+    </view>
+  </view>
+
+  <view class='inputItem'>
+    <view class='text'>例：紫金相府A栋1705</view>
+  </view>
+
+  <view class='inputItem'>
+    <view class='fontTitle'>标签</view>
+    <view class='input radioLabel'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{radioSex}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}"/>
+          {{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+
+    <view class='inputItem'>
+    <view class='fontTitle'>设为默认</view>
+    <view class='input switchBox'>
+      <switch color='#6C4127' checked bindchange="switch1Change"/>
+    </view>
+  </view>
+
+
+<view class='btnSpecialBlock'>保存</view>
+
+</form>

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -74,6 +74,27 @@
 					"id": -1,
 					"name": "wuliu",
 					"pathName": "pages/wuliu/wuliu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "editaddress",
+					"pathName": "pages/address/editaddress/editaddress",
 					"query": "",
 					"scene": null
 				}

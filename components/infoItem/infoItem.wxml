@@ -1,0 +1,8 @@
+<view class='infoItem'>
+  <view class='title'>
+    <image src='{{info.iconImg}}'></image>
+    <view class='titleText'>{{info.title}}</view>
+  </view>
+  <view class='icon'><image src='{{info.iconArr}}'></image></view>
+</view>
+

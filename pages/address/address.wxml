@@ -1,0 +1,36 @@
+<!--pages/address/address.wxml-->
+
+<view class='addressList'>
+  <view class='addressItem' wx:for='{{addressList}}' wx:key='index'>
+
+
+  <view class='titleBox'>
+    <view class='nameBox'><view class='fontTitle'>{{item.realname}} {{item.sex == "1" ? '（先生）' : '女士'}}</view></view>
+    <view class='mobile fontTitle'>{{item.mobile}}</view>
+  </view>
+
+  <view class='contentBox fontInfo'>
+    <view>{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+  </view>
+
+  <view class='addrFoot'>
+    <view class='footLeft'>
+      <view class='iconSelect'><image src='{{item.isdefault == "1" ?  "./res/img/icon-sel-pre.png" : "./res/img/icon-sel-normal.png"}}'></image></view>
+      <view class='fontTitle'>默认地址</view>
+    </view>
+    <view class='footRight'>
+      <view class='btn'>
+        <view class='iconEdit'><image src='./res/img/icon-edit.png'></image></view>
+        <view class='fontTitle' bindtap='navToEdit' data-addressId='{{item.id}}'>编辑</view>
+      <view class='btn'>
+        <view class='iconDel'><image src='./res/img/icon-delete.png'></image></view>
+        <view class='fontTitle'>删除</view>
+      </view>
+      </view><!--两个btn-->
+    </view>
+  </view>
+
+  </view>
+</view>
+
+<view class='btnSpecialBlock' bindtap='navToEdit' data-type='newAddress'>添加收货地址</view>

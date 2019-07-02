@@ -8,7 +8,9 @@
     "pages/order/order",
     "pages/order/orderdetail/orderdetail",
     "pages/share/share",
-    "pages/wuliu/wuliu"
+    "pages/wuliu/wuliu",
+    "pages/address/address",
+    "pages/address/editaddress/editaddress"
   ],
   "window": {
     "backgroundTextStyle": "light",

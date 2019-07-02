@@ -1,1 +1,155 @@
 /* pages/user/user.wxss */
+
+.userBox{
+  height: 350rpx;
+  width: 100%;
+  background: #060100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgBox image{
+  width:140rpx;
+  height:139rpx;
+  background:rgba(245,245,245,1);
+  border-radius:50%;
+}
+.userName{
+  font-size:26rpx;
+  font-family:HiraginoSansGB-W3;
+  font-weight:normal;
+  color:rgba(255,255,255,1);
+}
+.money{
+  width:209rpx;
+  height:43rpx;
+  background: #3F230E;
+  border-radius:21rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 43rpx;
+}
+
+.money .title{
+  font-size:22rpx;
+  font-family:HiraginoSansGB-W3;
+  font-weight:normal;
+  color:rgba(255,255,255,1);
+  opacity:0.31;
+  margin-left: 10rpx;
+}
+.money .value{
+  margin-left: 10rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,192,17,1);
+}
+.money .icon{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.money .icon image{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.chongZhiBox{
+  background: #fff;
+  padding: 42rpx 0 42rpx 0;
+
+}
+.chognzhiTitle{
+  padding-left: 27rpx;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+
+.itemCard{
+  width:219rpx;
+  height:148rpx;
+  border:2rpx solid rgba(130,76,31,1);
+  border-radius:6rpx;
+  position: relative;
+}
+.itemCard .cardTitle{
+  width:110rpx;
+  height:36rpx;
+  position: absolute;
+  background:rgba(130,76,31,1);
+  border-radius:18rpx;
+  font-size:18rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  line-height: 36rpx;
+  text-align: center;
+  top: -13rpx;
+  left: -10rpx;
+}
+
+
+.itemCard .cardContent{
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.itemCard .cardContent .cardPrice{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.cardPrice0{
+font-size:22rpx;
+font-family:PingFang-SC-Regular;
+font-weight:400;
+color:rgba(51,51,51,1);
+}
+.cardPrice1{
+font-size:52rpx;
+font-family:HelveticaInserat-Roman-SemiB;
+font-weight:400;
+color:rgba(51,51,51,1);
+}
+
+.cardImg{
+  position: absolute;
+  top: 0;
+  width: 102rpx;
+  height: 32rpx;
+
+}
+.cardInfoBox{
+  position: relative;
+  width: 102rpx;
+  height: 32rpx;
+}
+.cardImg image{
+  width: 102rpx;
+  height: 32rpx;
+}
+.cardInfo{
+  width: 102rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 46rpx;
+  font-size:20rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:bold;
+  color:rgba(255,192,17,1);
+  position: absolute;
+  top: 0;
+}
+.cardList{
+  margin-top: 42rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+

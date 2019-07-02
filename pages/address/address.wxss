@@ -1,0 +1,60 @@
+/* pages/address/address.wxss */
+
+
+.addressItem{
+  background: #fff;
+  margin: 35rpx 24rpx 0 35rpx;
+  padding: 39rpx 26rpx;
+}
+
+.titleBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contentBox{
+  margin-top: 24rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+.iconSelect image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.footLeft{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.fontTitle{
+  margin: 0 10rpx 0 10rpx;
+}
+.iconEdit image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.iconDel image{
+  width: 32rpx;
+  height: 35rpx;
+}
+
+.addrFoot{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.footRight{
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-end;
+}
+.btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.btnSpecialBlock{
+  margin: 35rpx;
+  width: auto;
+}
