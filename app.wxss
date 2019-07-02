@@ -88,3 +88,24 @@ image{
   font-weight:500;
   color:rgba(255,255,255,1);
 }
+.btnSpecialBlock{
+  background:linear-gradient(90deg,rgba(130,76,31,1),rgba(151,79,10,1));
+  border-radius:42px;
+
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  height:84rpx;
+  line-height: 84rpx;
+  width: 100%;
+  margin-left: 20rpx;
+  text-align: center;
+}
+
+.fontInfo{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+}

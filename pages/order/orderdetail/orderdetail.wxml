@@ -1,12 +1,21 @@
 <!--pages/order/orderdetail/orderdetail.wxml-->
 
 
-<view class='statusBox'>
+<view bindtap='navTo' data-flag='{{orderDetail.top.status == "3" ? true : false}}' class='statusBox'>
   <view class='titleBox'>
     <view class='icon'><image src='./res/img/icon-order.png'></image></view>
-    <view class='fontTitle'>订单状态:{{orderDetail.top.status}}</view>
+    <view class='fontTitle'>订单状态: {{orderDetail.top.status == -1 ? goodStatus[5].statusTitle : goodStatus[orderDetail.top.status].statusTitle}}</view>
   </view>
-  <view class='fontSpecial'>支付剩余时间:{{orderDetail.top.time}}</view>
+  <view wx:if='{{orderDetail.top.status == "0"}}' class='fontSpecial'>支付剩余时间:{{orderDetail.top.time}}</view>
+  <view  wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.wuliu}}</view>
+  <view wx:if='{{orderDetail.top.status == "3"}}' class=''>
+    <view class='left'>
+      <view class='fontSpecial'>快递已签收，签收人： {{orderDetail.top.realname}}</view>
+      <view class='fontInfo'>{{orderDetail.top.finishtime}}</view>
+    </view>
+    <view class='icon'><!--右箭头--></view>
+
+  </view>
 </view>
 
 
@@ -65,8 +74,14 @@
   <view class='fontTitle'>下单时间:{{orderDetail.oother.createtime}}</view>
 </view>
 
-
+<!--
+-1取消订单0待付款1代发货2已发货3成功4退款申请
+-->
 <view class='btnFoot'>
-  <view class='btnSpecial'>立即支付</view>
-  <view class='btnCancel'>取消订单</view>
+  <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' class='btnSpecial'>删除订单</view>
+  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'>立即支付</view>
+  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnCancel'>取消订单</view>
+  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecial'>取消订单</view>
+  <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
+  <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
 </view>

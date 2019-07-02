@@ -1,0 +1,70 @@
+/* pages/wuliu/wuliu.wxss */
+
+.titleBox{
+  height: 122rpx;
+  background: #fff;
+  padding: 36rpx 0 36rpx 39rpx;
+}
+.titleBox .titleItem{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5rpx;
+}
+
+.mainBox{
+  padding: 60rpx;
+  background: #fff;
+  margin-top: 16rpx;
+}
+.mainItem{
+  display: flex;
+  flex-direction: row;
+}
+.textBox view{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:40rpx;
+}
+.mainItem:first-child .textBox view{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:800;
+  line-height:40rpx;
+  color:rgba(28,28,28,1);
+}
+
+
+
+.time{
+  width: 118rpx;
+  text-align: center;
+  font-weight:400;
+  font-size:28rpx;
+  color: rgba(153,153,153,1);
+}
+.mainItem:first-child .time{
+  font-weight:800;
+  font-size:28rpx;
+  color:rgba(28,28,28,1);
+}
+.date{
+  font-size: 22rpx;
+}
+.timeBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 150rpx;
+  padding: 10rpx 20rpx 20rpx 0;
+}
+.timeBox::after{
+  content: '';
+  border-left: 2px solid rgba(245,245,245,1);
+  height: 57rpx;
+  width: 0rpx;
+  margin-left: 55rpx;
+  margin-top: 20rpx;
+
+}

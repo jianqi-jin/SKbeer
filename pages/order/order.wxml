@@ -18,7 +18,7 @@
         {{item.status == -1 ? goodStatus[5].statusTitle: goodStatus[item.status].statusTitle}}
       </view>
     </view>
-    <view class='contentBox'>
+    <view class='contentBox' data-item='{{item}}' bindtap='btnFun'>
       <view class='infoBox'>
         <view class='imgBox'><image src='{{item.listimg}}'></image></view>
         <view class='infoTextBox'>
@@ -43,7 +43,7 @@
       </view><!--价格统计-->
     </view>
     <view class='btnBox'>
-      <view class='btn' wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}" data-item='{{item}}' bindtap='btnFun'>{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
+      <view class='btn' data-item='{{item}}' bindtap='btnFun' wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}">{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
     </view>
   </view>
 

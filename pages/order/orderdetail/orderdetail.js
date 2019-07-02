@@ -6,6 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    goodStatus: [
+      {
+        statusTitle: '待付款',
+        btnTitle: '去付款'
+      }, {
+        statusTitle: '待发货',
+        btnTitle: ''
+      }, {
+        statusTitle: '待发货',
+        btnTitle: '查看物流'
+      }, {
+        statusTitle: '成功',
+        btnTitle: ''
+      }, {
+        statusTitle: '退款申请',
+        btnTitle: ''
+      }, {
+        statusTitle: '取消订单',
+        btnTitle: ''
+      }
+    ],
     orderId: '',
     orderDetail: {}
   },
@@ -23,6 +44,22 @@ Page({
     })
     this.getOrderDetail(this.data.orderId);
 
+  },
+  navTo(ev){
+    let flag = ev.currentTarget.dataset.flag;
+    if(flag){
+      wx.navigateTo({
+        url: '/pages/wuliu/wuliu'
+      })
+    }
+  },
+  navToHome(){
+    wx.redirectTo({
+      url: '/pages/home/home',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   getOrderDetail: function (orderId) {
     let that = this;

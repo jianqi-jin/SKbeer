@@ -1,0 +1,41 @@
+<!--pages/wuliu/wuliu.wxml-->
+
+<view class='titleBox'>
+  <view class='titleItem'>
+    <view class='title fontTitle'>物流状态：</view>
+    <view class='value fontSpecial'>运输中</view>
+  </view>
+  <view class='titleItem'>
+    <view class='title fontTitle'>快递公司：</view>
+    <view class='value fontTitle'>申通快递</view>
+  </view>
+  <view class='titleItem'>
+    <view class='title fontTitle'>物流单号：</view>
+    <view class='value fontTitle'>23365446521325</view>
+  </view>
+</view>
+
+
+<view class='mainBox'>
+  <view class='mainItem'>
+    <view class='timeBox'>
+      <view class='time'>16:23</view>
+      <view class='date'>2019-03-03</view>
+    </view>
+    <view class='textBox'>
+      <view>快件已签收，签收人 李冰冰 1362362544
+有问题请联系发送人电话：136236202</view>
+    </view>
+  </view>
+  <view class='mainItem'>
+    <view class='timeBox'>
+      <view class='time'>16:23</view>
+      <view class='date'>2019-03-03</view>
+    </view>
+    <view class='textBox'>
+      <view>【杭州市】浙江省杭州市滨江区快递员正在
+为您派件 电话1234514542112</view>
+    </view>
+  </view>
+</view>
+

@@ -66,6 +66,9 @@
 .statusBox .fontSpecial{
   margin-left: 70rpx;
 }
+.statusBox .fontInfo{
+  margin-left: 70rpx;
+}
 .nameText{
   margin-left: 20rpx;
 }

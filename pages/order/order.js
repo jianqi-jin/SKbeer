@@ -104,14 +104,15 @@ Page({
     let item = ev.currentTarget.dataset.item;
     console.log(item);
     let id = parseInt(item.status);
+
+    wx.navigateTo({
+      url: './orderdetail/orderdetail?orderId=' + item.id,
+    })
     switch (id) {
       case -1: {//取消
         break;
       }
       case 0: {//待付款
-        wx.navigateTo({
-          url: './orderdetail/orderdetail?orderId=' + item.id,
-        })
         break;
       }
       case 1: {//待发货
