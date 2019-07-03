@@ -32,15 +32,33 @@ input{
   font-weight:500;
   color:rgba(51,51,51,1);
 }
+.radio-group{
+  display: flex;
+  flex-direction: row;
+}
 
 .radioIcon{
+  margin-top: 10rpx;
   width: 44rpx;
   height: 44rpx;
 }
 
 .radio{
+  display: flex;
   margin-right: 73rpx;
+  flex-direction: row;
+  align-items: center;
 }
+.radioText{
+  margin-left: 20rpx;
+}
+
+
+radio{
+  display: none;
+}
+
+
 
 .inputItem:last-child{
   margin-top: 34rpx;
@@ -68,4 +86,8 @@ switch{
 .btnSpecialBlock{
   margin: 56rpx 31rpx;
   width: auto;
+}
+
+.picker{
+  height: 90rpx;
 }

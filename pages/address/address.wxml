@@ -14,7 +14,7 @@
   </view>
 
   <view class='addrFoot'>
-    <view class='footLeft'>
+    <view class='footLeft' data-id='{{item.id}}' bindtap='changeDefault'>
       <view class='iconSelect'><image src='{{item.isdefault == "1" ?  "./res/img/icon-sel-pre.png" : "./res/img/icon-sel-normal.png"}}'></image></view>
       <view class='fontTitle'>默认地址</view>
     </view>
@@ -24,7 +24,7 @@
         <view class='fontTitle' bindtap='navToEdit' data-addressId='{{item.id}}'>编辑</view>
       <view class='btn'>
         <view class='iconDel'><image src='./res/img/icon-delete.png'></image></view>
-        <view class='fontTitle'>删除</view>
+        <view class='fontTitle' data-id='{{item.id}}' bindtap='delAddress'>删除</view>
       </view>
       </view><!--两个btn-->
     </view>

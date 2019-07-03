@@ -50,6 +50,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
 }
 .money .icon image{
   width: 32rpx;
@@ -153,3 +154,24 @@ color:rgba(51,51,51,1);
   justify-content: space-around;
 }
 
+.joinBtn{
+  font-size:32rpx;
+  font-family:PingFang-SC-Heavy;
+  font-weight:800;
+  color:rgba(130,76,31,1);
+  line-height:36rpx;
+  text-shadow:0rpx 0rpx 10rpx rgba(0, 0, 0, 0.1);
+
+  background:linear-gradient(0deg,rgba(130,76,31,1) 0%, rgba(151,79,10,1) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-align: center;
+  margin: 100rpx 0rpx 200rpx 0rpx;
+}
+
+.kefuBtn{
+  padding: 0;
+  border-radius: 0;
+  border: 0rpx;
+  display: inline;
+}

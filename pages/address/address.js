@@ -51,12 +51,60 @@ Page({
   onReady: function () {
 
   },
+  delAddress(ev){
+    let id = ev.currentTarget.dataset.id;
+    api.delAddress(app.globalData.openid, id).then(res => {
+      if(res.data.error != '0'){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }else{
+        this.getAddressList();
+      }
+    })
+  },
+  changeDefault(ev){
+    let id = ev.currentTarget.dataset.id;
+    let oldId = '';
+    this.setData({
+      addressList: this.data.addressList.map((val, index) => {
+        if (val.isdefault == true){
+          oldId = val.id;
+        }
+        return val.isdefault = val.id == id ? true : false, val;
+      })
+    })
+    api.changeDefaultAddress(app.globalData.openid, id).then(res => {
+      console.log(res);
 
+      if(res.data.error == '0' && res.data.result == 1){
+      } else {
+        this.setData({
+          addressList: this.data.addressList.map((val, index) => {
+            return val.isdefault = val.id == oldId ? true : false, val;
+          })
+        })
+
+
+        wx.showToast({
+          title: '修改错误',
+          icon: 'none',
+          image: '',
+          duration: 0,
+          mask: true,
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAddressList();
   },
 
   /**

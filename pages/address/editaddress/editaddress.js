@@ -1,23 +1,88 @@
 // pages/address/editaddress/editaddress.js
+const app = getApp();
+const api = require('../../../utils/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    radioSex: [
+    subLoading: false,
+    address0: 'asd',
+    region: ['', '', ''],
+    radioLabel: [
       {
         name: '0',
-        value: '男',
+        value: '家',
         checked: true
       }, {
         name: '1',
-        value: '女'
+        value: '公司'
+      }
+    ],
+    radioSex: [
+      {
+        name: '0',
+        value: '先生',
+        checked: true
+      }, {
+        name: '1',
+        value: '女士'
       }
     ],
     pageTitle: '添加地址',
     addressId: ''
 
+  },
+  formSubmit(ev){
+    this.setData({
+      subLoading: true
+    })
+    let data = ev.detail.value;
+    console.log(data)
+    let obj = {};
+    for(let item in data){
+      console.log(item)
+      if(item == 'address0'){
+        obj.province = data[item][0]
+        obj.city = data[item][1]
+        obj.area = data[item][2]
+      }else{
+        if(item == 'isdefault'){
+          obj[item] = data[item] ? '1' : '0'
+        } else {
+          obj[item] = data[item]
+        }
+      }
+    }
+    api.addAddress(app.globalData.openid, obj).then(res => {
+      console.log(obj)
+      this.setData({
+        subLoading: false
+      })
+      console.log(res)
+      let temp = res.data;
+      if(!temp || temp.error != '0'){
+        wx.showToast({
+          title: temp.message,
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: 'OK'
+        })
+        wx.navigateBack({
+          delta: 1,
+        })
+      }
+    })
+    
+  },
+  bindRegionChange(ev){
+    let region = ev.detail.value
+    this.setData({
+      region
+    })
   },
 
   /**
@@ -38,6 +103,16 @@ Page({
       title: pageTitle,
     })
   },
+  radioChange(ev) {
+    let index = ev.detail.value;
+    let obj = ev.currentTarget.dataset.obj;
+    this.setData({
+      [obj]:
+        this.data[obj].map((value, index1) => {
+          return value.checked = index1 == index ? true : false, value;
+        })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -50,7 +125,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

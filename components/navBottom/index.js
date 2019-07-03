@@ -11,28 +11,28 @@ Component({
         {
           url: '/pages/home/home',
           img: './res/img/nav-icon-home-pre.png',
-          selectedImg: '',
+          selectedImg: './res/img/nav-icon-home-pre.png',
           title: '首页',
           havT: true
         }, 
         {
           url: '/pages/refer/refer',
           img: './res/img/tuijian.png',
-          selectedImg: '',
+          selectedImg: './res/img/tuijian.png',
           title: '推荐有奖',
           havT: false
         },{
 
           url: '/pages/order/order',
           img: './res/img/nav-icon-order.png',
-          selectedImg: '',
+          selectedImg: './res/img/nav-icon-order.png',
           title: '订单',
           havT: true
         },{
 
           url: '/pages/user/user',
           img: './res/img/nav-icon-user.png',
-          selectedImg: '',
+          selectedImg: './res/img/nav-icon-user.png',
           title: '我的',
           havT: true
         }

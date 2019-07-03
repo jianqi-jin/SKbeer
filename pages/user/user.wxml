@@ -3,11 +3,11 @@
 <view class='userBox'>
   <view class='imgBox'><image src=''></image></view>
   <view class='userName'>用户昵称</view>
-  <view class='money'>
+  <navigator class='money' url='/pages/money/money' open-type='navigate'>
     <view class='title'>储值金额</view>
     <view class='value'>0.00</view>
     <view class='icon'><image src='./res/img/icon_right_click.png'></image></view>
-  </view>
+  </navigator>
 </view>
 
 <view class='chongZhiBox'>
@@ -35,9 +35,11 @@
   <info-item bindtap='fun' data-ev='{{item}}' wx:for='{{infoList}}' wx:key='index' info="{{item}}"></info-item>
 </view>
 
+<button class='kefuBtn' open-type="contact" bindcontact="handleContact">
+  <info-item info="{{kefuInfo}}"></info-item>
+</button>
 
-
-
+<navigator class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
 
 
 <nav-bottom selected-index='3'></nav-bottom>

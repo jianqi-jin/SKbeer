@@ -5,17 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    kefuInfo: {
+      iconImg: '/pages/user/res/img/icon-service.png',
+      title: '联系客服',
+      iconArr: '/pages/user/res/img/icon_right_click.png',
+      url: '',
+    },
     infoList:[
       {
         iconImg: '/pages/user/res/img/icon-addmana.png',
         title: '管理地址',
         iconArr: '/pages/user/res/img/icon_right_click.png',
         url: '/pages/address/address'
-      }, {
-        iconImg: '/pages/user/res/img/icon-service.png',
-        title: '联系客服',
-        iconArr: '/pages/user/res/img/icon_right_click.png',
-        url: '',
       }
     ],
     cardList: [{
@@ -48,6 +49,12 @@ Page({
     console.log(item)
     if (item.title == "联系客服"){
       //进入客服
+      wx.navigateTo({
+        url: '',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
     }else{
       if(item.url){
         wx.navigateTo({

@@ -10,7 +10,10 @@
     "pages/share/share",
     "pages/wuliu/wuliu",
     "pages/address/address",
-    "pages/address/editaddress/editaddress"
+    "pages/address/editaddress/editaddress",
+    "pages/money/money",
+    "pages/join/message/message",
+    "pages/join/gifts/gifts"
   ],
   "window": {
     "backgroundTextStyle": "light",

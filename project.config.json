@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -96,6 +96,26 @@
 					"name": "editaddress",
 					"pathName": "pages/address/editaddress/editaddress",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "money",
+					"pathName": "pages/money/money",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "message",
+					"pathName": "pages/join/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "gifts",
+					"pathName": "pages/join/gifts/gifts",
 					"scene": null
 				}
 			]
