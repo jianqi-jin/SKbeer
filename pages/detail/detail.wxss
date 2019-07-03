@@ -1,0 +1,130 @@
+/* pages/detail/detail.wxss */
+.footBtn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 2rpx solid #f6f6f6;
+}
+.btnSpecialBlock{
+  width: auto;
+  margin: 10rpx 25rpx;  
+}
+swiper{
+  height: 750rpx;
+}
+swiper image{
+  height: 100%;
+
+}
+swiper{
+  height: 750rpx;
+}
+swiper image{
+  height: 100%;
+}
+.priceBox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 38rpx 27rpx;
+}
+.priceBox view:first-child{
+  font-size:40rpx;
+  font-family:PingFang-SC-Heavy;
+  font-weight:800;
+  color:rgba(204,0,0,1);
+  line-height:48rpx;
+}
+.priceBox view:last-child{
+  margin-left: 12rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  text-decoration:line-through;
+  color:rgba(153,153,153,1);
+  line-height:48rpx;
+}
+.infoBox{
+  background: #fff;
+}
+.infoBoxBottom{
+  font-size:32rpx;
+  font-family:PingFang-SC-Heavy;
+  font-weight:800;
+  color:rgba(51,51,51,1);
+  line-height:48rpx;
+  padding: 0 0 37rpx 23rpx;
+}
+
+.optionBox{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.optionItem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 36rpx 15rpx 0rpx 15rpx;
+}
+.optionItem:last-child{
+  margin-bottom: 36rpx;
+}
+
+.optionTitle{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  line-height:48rpx;
+}
+
+.optionValue{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:48rpx;
+  margin-left: 23rpx;
+}
+
+.contentBox{
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 44rpx 0;
+}
+.contentTitle{
+  text-align: center;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height:48rpx;
+  position: relative;
+  margin-bottom: 44rpx;
+}
+.contentTitle::after{
+  content: '';
+  border-top: 2rpx solid #f6f6f6;
+  width: 87rpx;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+}
+
+.contentTitle::before{
+  content: '';
+  border-top: 2rpx solid #f6f6f6;
+  width: 87rpx;
+  position: absolute;
+  top: 50%;
+  right: 60%;
+}
+
+.contentImage{
+  height: 750rpx;
+  width: 100%;
+}

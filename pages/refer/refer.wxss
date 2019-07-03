@@ -9,7 +9,6 @@
   height: 97rpx;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   line-height: 97rpx;
   background: #fff;
   font-size:32rpx;
@@ -159,4 +158,8 @@
   font-weight:800;
   color:rgba(130,76,31,1);
   border-bottom: 6rpx solid rgba(130,76,31,1);
+}
+
+.navBox{
+  font-size:32rpx;
 }

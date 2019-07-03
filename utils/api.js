@@ -112,6 +112,43 @@ const gifts = {
   }
 }
 
+const user = {
+  getUserInfo: (openid) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.index&openid=' + openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) { 
+          resolve(res)
+        }
+      })
+    })
+  }
+}
+
+const good = {
+  getGoodFromId: (openid, goods_id) => {
+    return new Promise(resolve => {
+
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.goods_details',
+        data: { goods_id },
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) { 
+          resolve(res)
+        }
+      })
+    })
+  }
+}
+
 module.exports = {
   getAddressList: address.getAddressList,
   addAddress: address.addAddress,
@@ -119,5 +156,7 @@ module.exports = {
   delAddress: address.del,
   getAddress: address.getOneAddress,
   getGiftList: gifts.getGiftList,
-  getDefalutAdderss: address.getDefalutAdderss
+  getDefalutAdderss: address.getDefalutAdderss,
+  getUserInfo: user.getUserInfo,
+  getGoodFromId: good.getGoodFromId
 }

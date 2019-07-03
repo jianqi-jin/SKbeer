@@ -38,6 +38,7 @@
   color:rgba(255,255,255,1);
   opacity:0.31;
   margin-left: 10rpx;
+  white-space: nowrap;
 }
 .money .value{
   margin-left: 10rpx;

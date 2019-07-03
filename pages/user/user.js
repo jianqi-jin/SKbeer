@@ -1,17 +1,26 @@
 // pages/user/user.js
+const app = getApp()
+const api = require('../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
     kefuInfo: {
       iconImg: '/pages/user/res/img/icon-service.png',
       title: '联系客服',
       iconArr: '/pages/user/res/img/icon_right_click.png',
       url: '',
     },
-    infoList:[
+    infoList: [
+      {
+        iconImg: '/res/icon/icon-extension.png',
+        title: '推广中心',
+        iconArr: '/res/icon/icon_right_click.png',
+        url: '/pages/user/referCenter/referCenter'
+      },
       {
         iconImg: '/pages/user/res/img/icon-addmana.png',
         title: '管理地址',
@@ -74,9 +83,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //加载个人信息
+    this.getUserInfo();
   },
-
+  getUserInfo(){
+    api.getUserInfo(app.globalData.openid).then(res => {
+      console.log(res)
+      this.setData({
+        userInfo: res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

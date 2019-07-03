@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    status: 0,//0确认 1立即支付
+    btnTitle: ['下一步', '立即支付199元'],
     currentGift: {},
     addressInfo: {},
     infoFlag: false,
@@ -35,6 +37,35 @@ Page({
     })
   },
   showOrder() {
+    if(this.data.status == 1){
+      //检查表单
+      if (!this.data.addressInfo || !this.data.addressInfo.realname){
+        wx.showToast({
+          title: '收货地址空',
+          icon: 'none'
+        })
+      } else if (!this.data.currentGift || !this.data.currentGift.title) {
+        wx.showToast({
+          title: '礼物空',
+          icon: 'none'
+        })
+      }else{
+        //支付
+
+        wx.redirectTo({
+          url: '../paySuccess/paySuccess'
+        })
+        return 
+
+
+      }
+    }else{
+      this.setData({
+        status: 1
+      })
+    }
+
+
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#7a7a7a'
@@ -44,13 +75,19 @@ Page({
     })
   },
   closeInfo() {
-    wx.setNavigationBarColor({
-      frontColor: '#000000',
-      backgroundColor: '#ffffff'
-    })
-    this.setData({
-      infoFlag: false,
-      orderFlag: false
+    return new Promise(resolve => {
+      this.setData({
+        status: 0
+      })
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#ffffff'
+      })
+      this.setData({
+        infoFlag: false,
+        orderFlag: false
+      })
+      return 
     })
   },
   chooseGift(ev){
@@ -88,9 +125,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    api.
+    this.getDefaultAddress();
   },
-
+  getDefaultAddress(){
+    api.getDefalutAdderss(app.globalData.openid).then(res => {
+      console.log(res)
+      this.setData({
+        addressInfo: res.data.address
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,11 +1,11 @@
 <!--pages/user/user.wxml-->
 
 <view class='userBox'>
-  <view class='imgBox'><image src=''></image></view>
-  <view class='userName'>用户昵称</view>
+  <view class='imgBox'><image src='{{userInfo.info.avatar}}'></image></view>
+  <view class='userName'>{{userInfo.info.nickname}}</view>
   <navigator class='money' url='/pages/money/money' open-type='navigate'>
     <view class='title'>储值金额</view>
-    <view class='value'>0.00</view>
+    <view class='value'>{{userInfo.info.yue}}</view>
     <view class='icon'><image src='./res/img/icon_right_click.png'></image></view>
   </navigator>
 </view>
@@ -13,22 +13,23 @@
 <view class='chongZhiBox'>
   <view class='chognzhiTitle'>选择充值方式</view>
   <view class='cardList'>
-    <view class='itemCard' wx:for="{{cardList}}" wx:key="index">
-      <view class='cardTitle'>{{item.title}}</view>
+    <view class='itemCard' wx:for="{{userInfo.card}}" wx:key="index">
+      <view class='cardTitle'>首冲赠{{item.sc_money}}元</view>
       <view class='cardContent'>
         <view class='cardPrice'>
           <view class='cardPrice0'>￥</view>
-          <view class='cardPrice1'>{{item.price}}</view>
+          <view class='cardPrice1'>{{item.cz_money}}</view>
         </view>
         <view class='cardInfoBox'>
           <view class='cardImg'><image src='./res/img/icon-coupon.png'></image></view>
-          <view class='cardInfo'>{{item.info}}</view>
+          <view class='cardInfo'>赠{{item.zs_money}}元</view>
         </view>
       </view>
     </view>
   </view>
 
 </view>
+
 
 
 <view class='infoList'>
@@ -39,7 +40,7 @@
   <info-item info="{{kefuInfo}}"></info-item>
 </button>
 
-<navigator class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
+<navigator wx:if='{{userInfo.info.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
 
 
 <nav-bottom selected-index='3'></nav-bottom>

@@ -6,8 +6,8 @@
 
 <view class='main'>
   <view class='mainNav'>
-    <view class='referNavBox' bindtap='changeNav' data-index='0' class='{{showIndex == 0 ? "activeNav" : ""}}'>推荐</view>
-    <view class='rankNavBox' bindtap='changeNav' data-index='1' class='{{showIndex == 1 ? "activeNav" : ""}}'>排行</view>
+    <view bindtap='changeNav' data-index='0' class='"navBox "+{{showIndex == 0 ? "activeNav" : ""}}'>推荐</view>
+    <view bindtap='changeNav' data-index='1' class='"navBox "+{{showIndex == 1 ? "activeNav" : ""}}'>排行</view>
   </view>
 
   <view class='mainList'>

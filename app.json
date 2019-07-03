@@ -13,7 +13,10 @@
     "pages/address/editaddress/editaddress",
     "pages/money/money",
     "pages/join/message/message",
-    "pages/join/gifts/gifts"
+    "pages/join/gifts/gifts",
+    "pages/join/paySuccess/paySuccess",
+    "pages/user/referCenter/referCenter",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

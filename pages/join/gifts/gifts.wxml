@@ -43,15 +43,18 @@
 
   <view class='orderContent'>
     <view class='orderContentLeft'>
-      <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew' wx:if='{{addressInfo}}'>
+      <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew' wx:if='{{!addressInfo.realname}}'>
         <view class='icon'>
           <image src='/res/icon/icon-new-add.png'></image>
         </view>
         <view>新增地址</view>
       </navigator>
       <view class='address' wx:else>
-        <view class='orderContentLeftTop'></view>
-        <view class='orderContentLeftBottom'></view>
+        <view class='orderContentLeftTop'>
+          <view class='nameBox'>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}</view>
+          <view class='mobile'>{{addressInfo.mobile}}</view>
+        </view>
+        <view class='orderContentLeftBottom'><view>{{addressInfo.isdefault ? '默认' : ''}}</view> {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}</view>
       </view>
     </view>
     <view class='orderContentRight'>
@@ -69,5 +72,5 @@
 </view>
 
 <view class='footBtn'>
-  <view class='btnSpecialBlock' bindtap='showOrder'>下一步</view>
+  <view class='btnSpecialBlock' bindtap='showOrder'>{{btnTitle[status]}}</view>
 </view>
