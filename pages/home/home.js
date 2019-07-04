@@ -43,6 +43,12 @@ Page({
       title: '森客啤酒'
     })
   },
+  navToDetail(ev){
+    let goodId = ev.currentTarget.dataset.goodid;
+    wx.navigateTo({
+      url: '/pages/detail/detail?goodId='+goodId
+    })
+  },
   getInfo(){
     let that = this;
     wx.request({

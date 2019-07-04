@@ -1,6 +1,6 @@
 <!--pages/refer/refer.wxml-->
 <!--顶部img-->
-<view class='titleImg'>图片
+<view class='titleImg'>
   <image src=""></image>
 </view>
 

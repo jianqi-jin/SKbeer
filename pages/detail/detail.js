@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showIndex: 0,//0 1
     indicatorDots: true,
     autoplay: true,
     circular: true,
@@ -21,8 +22,20 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      goodsId: options.goodsId
+      goodsId: options.goodId
     })
+  },
+  showOrder(){
+    if(this.data.showIndex == 0){
+      this.setData({
+        showIndex: 1
+      })
+    }else{
+      //navTo orderPage
+      wx.navigateTo({
+        url: './order/order'
+      })
+    }
   },
 
   /**

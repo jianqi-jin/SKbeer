@@ -36,9 +36,9 @@
 
 <view class='contentBox'>
   <view class='contentTitle'>商品详情</view>
-  <view  wx:for="{{goodInfo.thumb_url}}" class='contentImage'><image src='{{item}}'></image></view>
+  <view  wx:for="{{goodInfo.thumb_url}}" class='contentImage'><image mode='widthFix' src='{{item}}'></image></view>
 </view>
 
 <view class='footBtn'>
-  <view class='btnSpecialBlock'>立即购买</view>
+  <view class='btnSpecialBlock' bindtap='showOrder'>立即购买</view>
 </view>

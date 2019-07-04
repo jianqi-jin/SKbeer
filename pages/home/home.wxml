@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 
-<view wx:for='{{imgList}}' wx:key="index">
-  <image class='imgItem' src='{{item.thumb}}'></image>
+<view wx:for='{{imgList}}' wx:key="index" bindtap='navToDetail' data-goodid='{{item.id}}'>
+  <image class='imgItem' mode='widthFix' src='{{item.thumb}}'></image>
 </view>
 
 

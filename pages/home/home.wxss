@@ -2,3 +2,6 @@
 .text{
 
 }
+.imgItem{
+  width: 100%;
+}

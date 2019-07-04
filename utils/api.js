@@ -127,6 +127,24 @@ const user = {
         }
       })
     })
+  },
+  getDrawHis: (openid) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.tixian_log&openid=' + openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        },
+        complete: function (res) {
+          console.log(res)
+        }
+      })
+    })
   }
 }
 
@@ -149,6 +167,56 @@ const good = {
   }
 }
 
+
+const bankCard = {
+  addCard: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_add&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  getDefaultCard: (openid) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_default&openid='+openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  sendMsg: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.send_code&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+         }
+      })
+    })
+  }
+}
+
+
 module.exports = {
   getAddressList: address.getAddressList,
   addAddress: address.addAddress,
@@ -158,5 +226,9 @@ module.exports = {
   getGiftList: gifts.getGiftList,
   getDefalutAdderss: address.getDefalutAdderss,
   getUserInfo: user.getUserInfo,
-  getGoodFromId: good.getGoodFromId
+  getGoodFromId: good.getGoodFromId,
+  getDrawHis: user.getDrawHis,
+  addCard: bankCard.addCard,
+  getDefaultCard: bankCard.getDefaultCard,
+  sendMsg: bankCard.sendMsg
 }

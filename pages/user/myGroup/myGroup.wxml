@@ -1,0 +1,66 @@
+<!--pages/user/myGroup/myGroup.wxml-->
+
+<view class='back'>
+</view>
+
+
+  <view class='userBox'>
+    <view class='userImg'>
+      <image src='{{}}'></image>
+    </view>
+    <view class='nameBox'>
+      <view class='userName'>用户昵称</view>
+      <view class='userLevel'>董事合伙人</view>
+    </view>
+    <view class='btnSSS'>查看团队业绩</view>
+  </view>
+
+
+  <view class='infoBox'>
+    <view class='infoItem' wx:for='{{infoList}}' wx:key='index'>
+      <view class='infoTitle'>{{item.infoTitle}}</view>
+      <view class='infoValue'>{{item.infoValue}}</view>
+    </view>
+  </view>
+
+
+  <view class='oooooBox'>
+
+    <view class='ooooItem'>
+      <view class='oBoxTitle'>
+      订单收益
+      </view>
+      <view class='oBoxMain'>
+        <view wx:for='{{orderInfo}}' wx:key='index' class='tableItem'>
+          <view class='tableTop'>{{item.title}}</view>
+          <view class='tableBottom'>{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+
+    
+    <view class='ooooItem'>
+      <view class='oBoxTitle'>团队单量
+      </view>
+      <view class='oBoxMain'>
+        <view wx:for='{{groupInfo}}' wx:key='index' class='tableItem'>
+          <view class='tableTop'>{{item.title}}</view>
+          <view class='tableBottom'>{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+
+    
+    <view class='ooooItem'>
+      <view class='oBoxTitle'>团队人数
+      </view>
+      <view class='oBoxMain'>
+        <view wx:for='{{groupNumInfo}}' wx:key='index' class='tableItem'>
+          <view class='tableTop'>{{item.title}}</view>
+          <view class='tableBottom'>{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>

@@ -16,7 +16,16 @@
     "pages/join/gifts/gifts",
     "pages/join/paySuccess/paySuccess",
     "pages/user/referCenter/referCenter",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/detail/order/order",
+    "pages/detail/paySuccess/paySuccess",
+    "pages/user/levelMsg/levelMsg",
+    "pages/user/myGroup/myGroup",
+    "pages/user/drawHis/drawHis",
+    "pages/user/draw/draw",
+    "pages/user/freeze/freeze",
+    "pages/user/bindCard/bindCard",
+    "pages/user/chooseCard/chooseCard"
   ],
   "window": {
     "backgroundTextStyle": "light",

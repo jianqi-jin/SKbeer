@@ -1,0 +1,5 @@
+  <view class='inputItem'>
+    <view class='fontTitle'>{{info.title}}</view>
+    <view class='input'>
+    </view>
+  </view>

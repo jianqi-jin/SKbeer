@@ -14,7 +14,7 @@ swiper{
   height: 750rpx;
 }
 swiper image{
-  height: 100%;
+  width: 100%;
 
 }
 swiper{
@@ -128,3 +128,7 @@ swiper image{
   height: 750rpx;
   width: 100%;
 }
+image{
+  width: 100%;
+}
+

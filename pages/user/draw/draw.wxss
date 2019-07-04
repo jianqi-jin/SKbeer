@@ -1,0 +1,83 @@
+/* pages/user/draw/draw.wxss */
+.titleLeft{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.titleRight{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(130,76,31,1);
+}
+.fucTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 37rpx 26rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.fucContent{
+  background: #fff;
+}
+.info{
+  background: #fff;
+  margin-top:1rpx;
+  font-size:20rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(204,0,0,1);
+  padding: 32rpx 24rpx;
+}
+.ooooooooo{
+  padding: 40rpx 24rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #fff;
+  margin-top: 20rpx;
+
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  align-items: center;
+}
+
+
+.Fuccccccbtn{
+  text-align: center;
+  line-height: 96rpx;
+  margin: 48rpx auto;
+  width:657rpx;
+  height:96rpx;
+  background:linear-gradient(90deg,rgba(130,76,31,1),rgba(151,79,10,1));
+  border-radius:48rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+}
+.cardImg{
+  margin: -4rpx;
+}
+.cardImg{
+  width:300rpx;
+  height:115rpx;
+  margin:-25rpx -50rpx -25rpx 0;
+
+}
+.cardImg image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.cardLeft{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

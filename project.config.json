@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -138,6 +138,55 @@
 					"name": "detail",
 					"pathName": "pages/detail/detail",
 					"query": "goodsId=1",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "detailorder",
+					"pathName": "pages/detail/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userreferCenter",
+					"pathName": "pages/user/referCenter/referCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "levelMsg",
+					"pathName": "pages/user/levelMsg/levelMsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myGroup",
+					"pathName": "pages/user/myGroup/myGroup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "drawHis",
+					"pathName": "pages/user/drawHis/drawHis",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "draw",
+					"pathName": "pages/user/draw/draw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bindCard",
+					"pathName": "pages/user/bindCard/bindCard",
+					"query": "",
 					"scene": null
 				}
 			]
