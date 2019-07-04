@@ -25,7 +25,8 @@
     "pages/user/draw/draw",
     "pages/user/freeze/freeze",
     "pages/user/bindCard/bindCard",
-    "pages/user/chooseCard/chooseCard"
+    "pages/user/chooseCard/chooseCard",
+    "pages/user/incomeInfo/incomeInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

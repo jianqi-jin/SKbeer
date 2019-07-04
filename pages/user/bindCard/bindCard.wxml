@@ -41,7 +41,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>短信验证码</view>
     <view class='input'>
-      <input name='mobile' placeholder='验证码'></input>
+      <input name='code' placeholder='验证码'></input>
     </view>
   </view>
 

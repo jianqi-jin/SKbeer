@@ -1,2 +1,28 @@
 <!--pages/user/chooseCard/chooseCard.wxml-->
-<text>pages/user/chooseCard/chooseCard.wxml</text>
+
+
+<view class='cardItem' wx:for='{{cardList}}' wx:key='index'>
+  <view class='itemTop' bindtap='chooseCard' data-index='{{index}}'>
+    <view class='TopTop'>
+      <view class='cardImg'>
+        <image mode='aspectFit' src='{{item.image}}'></image>
+      </view>
+    </view>
+    <view class='TopBottom'>
+      {{item.number}}
+    </view>
+  </view>
+  <view class='itemBottom'>
+    <view class='bottomLeft' bindtap='chageDefault' data-index='{{index}}'>
+      <view class='icon'><image src='{{item.is_mr == "1" ? "/res/icon/ic_ok_red.png" : "/res/icon/icon-selet.png" }}'></image></view>
+      <view>默认</view>
+    </view>
+    <view class='bottomRight'>
+      <view class='icon'><image src='/res/icon/icon-delete.png'></image></view>
+      <view bindtap='delCard' data-index='{{index}}'>删除</view>
+    </view>
+  </view>
+</view>
+
+<navigator open-type='navigate' url='/pages/user/bindCard/bindCard' class='btnSpecialBlock'>添加银行卡</navigator>
+

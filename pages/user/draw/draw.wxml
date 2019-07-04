@@ -6,6 +6,7 @@
   </view>
   <view class='fucContent'>
     <view class='input'>
+    <view>￥</view>
       <input type='digit'></input>
     </view>
   </view>
@@ -28,4 +29,13 @@
 
 
   <view class='Fuccccccbtn' bindtap='fucActttt'>确认提现</view>
+</view>
+
+<view class='dialogMask' wx:if='{{dialogFlag}}'></view>
+
+<view class='dialogBack' wx:if='{{dialogFlag}}'>
+<view class='dialogBox'>
+  <view class='dialogTop'>提现申请已发出，财务人员正在审理，资金1-5个工作日到账</view>
+  <navigator open-type='navigateBack' delta='1' class='dialogBottom'>我知道了</navigator>
+</view>
 </view>

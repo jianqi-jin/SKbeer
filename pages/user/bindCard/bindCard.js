@@ -51,16 +51,21 @@ Page({
     this.deTime()
     api.sendMsg(app.globalData.openid, {phone:this.data.phone}).then(res => {
       console.log(res)
+      if(res.data.error != "0"){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }else if(!res.data.result.result){
 
-      if (res.data.error == "0" && res.data.result.request_id && res.data.result.result.success) {
+        wx.showToast({
+          title: res.data.result.sub_msg,
+          icon: 'none'
+        })
+      }else{
         this.setData({
           vCodeTime: 60,
           vCodeFlag: false
-        })
-      }else{
-        wx.showToast({
-          title: res.data.error == "0" ? res.data.result.sub_msg : res.data.message ,
-          icon: 'none'
         })
       }
     })
@@ -70,6 +75,7 @@ Page({
   },
   verCard(cardNum){
     affiliatedBank.searchBank(cardNum).then((res) => {
+      console.log(res)
       this.setData({
         cardType: res
       })
@@ -85,11 +91,29 @@ Page({
       loading: true
     })
     let data = ev.detail.value;
+    data.type = this.data.cardType.name;
+    data.image = this.data.cardType.img;
+    data.phone = data.yh_number;
     api.addCard(app.globalData.openid, data).then(res => {
       console.log(res)
       this.setData({
         loading: false
       })
+      if(res.data.error == "0"){
+        wx.showToast({
+          title: 'OK'
+        })
+        wx.navigateBack({
+          delta: 1,
+        })
+      }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          mask: true,
+        })
+      }
     });
     console.log(ev)
 

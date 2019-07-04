@@ -113,6 +113,21 @@ const gifts = {
 }
 
 const user = {
+  getReferCenterInfo: (openid) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.tuiguang&openid='+openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getUserInfo: (openid) => {
     return new Promise(resolve => {
       wx.request({
@@ -213,6 +228,51 @@ const bankCard = {
          }
       })
     })
+  },
+  getCardList: (openid) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_list&openid=' + openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  changeDefaultCard: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.change_card&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  delCard: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.card_del&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
   }
 }
 
@@ -228,7 +288,11 @@ module.exports = {
   getUserInfo: user.getUserInfo,
   getGoodFromId: good.getGoodFromId,
   getDrawHis: user.getDrawHis,
+  getReferCenterInfo: user.getReferCenterInfo,
   addCard: bankCard.addCard,
   getDefaultCard: bankCard.getDefaultCard,
-  sendMsg: bankCard.sendMsg
+  sendMsg: bankCard.sendMsg,
+  getCardList: bankCard.getCardList,
+  changeDefaultCard: bankCard.changeDefaultCard,
+  delCard: bankCard.delCard
 }

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
@@ -186,6 +186,34 @@
 					"id": -1,
 					"name": "bindCard",
 					"pathName": "pages/user/bindCard/bindCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "chooseCard",
+					"pathName": "pages/user/chooseCard/chooseCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "referCenter",
+					"pathName": "pages/user/referCenter/referCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "freeze",
+					"pathName": "pages/user/freeze/freeze",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "incomeInfo",
+					"pathName": "pages/user/incomeInfo/incomeInfo",
 					"query": "",
 					"scene": null
 				}

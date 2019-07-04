@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    dialogFlag: false,
     bankCard: {}
 
   },
@@ -21,8 +22,17 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+
+    if(options.cardId){
+      this.getCard(options.cardId);
+    }else{
+      this.getDefaultCard();
+    }
   },
   fucActttt(){
+    this.setData({
+      dialogFlag: true
+    })
     //提现
   },
   /**
@@ -36,9 +46,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!this.data.bankCard.card_id) {
+    if (app.globalData.cardInfo){
+      //从全局读取
+      this.getCardFromGlobal();
+      app.globalData.cardInfo = null
+    } else if (!this.data.bankCard.card_id && !app.globalData.cardInfo){
+      //都没有读取默认
       this.getDefaultCard();
     }
+  },
+  getCardFromGlobal(){
+    app.globalData.cardInfo.number = app.globalData.cardInfo.number.substr(-4)
+    this.setData({
+      bankCard: app.globalData.cardInfo
+    })
+
+/*
+    api.getCard(app.globalData.openid, {card_id: cardId}).then(res => {
+      console.log(res)
+      res.data.bank_card.number = res.data.bank_card.number.substr(-4)
+      this.setData({
+        bankCard: res.data.bank_card
+      })
+    })*/
   },
   getDefaultCard(){
     api.getDefaultCard(app.globalData.openid).then(res => {

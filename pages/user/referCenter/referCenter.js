@@ -1,10 +1,13 @@
 // pages/user/referCenter/referCenter.js
+const app = getApp();
+const api = require('../../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
     otherInfoList: [
       {
         iconImg: '/res/icon/icon-upgrade.png',
@@ -72,6 +75,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getReferCenterInfo();
+  },
+  getReferCenterInfo:function (){
+    api.getReferCenterInfo(app.globalData.openid).then(res => {
+      console.log(res)
+      if(res.data.error != "0"){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }else{
+        this.data.otList[0].num = res.data.money.ytx_money;
+        this.data.otList[1].num = res.data.money.wtx_money;
+        this.data.otList[2].num = res.data.money.dj_money;
+        this.setData({
+          otList: this.data.otList
+        })
+        this.setData({
+          userInfo: res.data
+        })
+      }
+    })
 
   },
 

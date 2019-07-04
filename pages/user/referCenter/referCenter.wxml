@@ -6,11 +6,11 @@
 
   <view class='userBox'>
     <view class='userImg'>
-      <image src='{{}}'></image>
+      <image src='{{userInfo.info.avatar}}'></image>
     </view>
     <view class='nameBox'>
-      <view class='userName'>用户昵称</view>
-      <view class='userLevel'>董事合伙人</view>
+      <view class='userName'>{{userInfo.info.nickname}}</view>
+      <view class='userLevel'>{{userInfo.info.levelname}}</view>
     </view>
   </view>
 
@@ -18,7 +18,7 @@
     <view class='cardTop'>
       <view>累计收益 （元）</view>
       <view class='num'>45636.02</view>
-      <view>收益明细</view>
+      <view><navigator open-type='navigate' url='/pages/user/incomeInfo/incomeInfo'>收益明细</navigator></view>
     </view>
     <view class='cardBottom'>
       <view class='cardBotmItem'>
