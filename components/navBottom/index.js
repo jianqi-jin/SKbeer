@@ -10,29 +10,29 @@ Component({
       value: [
         {
           url: '/pages/home/home',
-          img: './res/img/nav-icon-home-pre.png',
-          selectedImg: './res/img/nav-icon-home-pre.png',
+          img: '/res/icon/nav-icon-home.png',
+          selectedImg: '/res/icon/nav-icon-home-pre.png',
           title: '首页',
           havT: true
         }, 
         {
           url: '/pages/refer/refer',
-          img: './res/img/tuijian.png',
-          selectedImg: './res/img/tuijian.png',
+          img: '/res/icon/tuijian.png',
+          selectedImg: '/res/icon/tuijian.png',
           title: '推荐有奖',
           havT: false
         },{
 
           url: '/pages/order/order',
-          img: './res/img/nav-icon-order.png',
-          selectedImg: './res/img/nav-icon-order.png',
+          img: '/res/icon/nav-icon-order.png',
+          selectedImg: '/res/icon/nav-icon-order-pre.png',
           title: '订单',
           havT: true
         },{
 
           url: '/pages/user/user',
-          img: './res/img/nav-icon-user.png',
-          selectedImg: './res/img/nav-icon-user.png',
+          img: '/res/icon/nav-icon-user.png',
+          selectedImg: '/res/icon/nav-icon-user-pre.png',
           title: '我的',
           havT: true
         }

@@ -1,13 +1,11 @@
 /* pages/order/orderdetail/orderdetail.wxss */
 .statusBox{
   padding: 20rpx;
-  height:155rpx;
   background:rgba(255,255,255,1);
   margin-top: 20rpx;
 }
 .userBox{
   padding: 20rpx 70rpx 20rpx 20rpx;
-  height:194rpx;
   background:rgba(255,255,255,1);
   margin-top: 20rpx;
   display: flex;
@@ -48,7 +46,7 @@
   justify-content: space-between;
 }
 .userContentBox{
-  margin-left: 70rpx;
+  margin: 10rpx 0 0 40rpx;
   display: flex;
   flex-direction: row;
 }
@@ -76,10 +74,11 @@
   margin-left: 20rpx;
 }
 .addreType{
+  display: inline;
+  padding: 6rpx 13rpx;
+  margin-right: 15rpx;
   align-self: center;
   text-align: center;
-  width:66rpx;
-  height:29rpx;
   background:rgba(204,0,0,1);
   border-radius:15rpx;
   font-size:20rpx;
@@ -135,4 +134,30 @@
 }
 .btnFoot view{
   margin-right: 30rpx;
+}
+
+.kuaidi{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(28,28,28,1);
+}
+
+.payType{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(28,28,28,1);
+  line-height:48rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.payType view:first-child{
+  margin-right: 10rpx;
+}
+.wuliuItemBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

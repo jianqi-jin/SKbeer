@@ -6,6 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    payType: {
+      21: '微信支付',
+      24: '余额抵扣',
+      25: '微信支付+余额抵扣'
+    },
     goodStatus: [
       {
         statusTitle: '待付款',

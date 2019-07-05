@@ -42,8 +42,8 @@
         </view>
       </view><!--价格统计-->
     </view>
-    <view class='btnBox'>
-      <view class='btn' data-item='{{item}}' bindtap='btnFun' wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}">{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
+    <view wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}" class='btnBox'>
+      <view class='btn' data-item='{{item}}' bindtap='btnFun'>{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
     </view>
   </view>
 

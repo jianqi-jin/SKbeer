@@ -32,11 +32,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getDefaultAddress();
+    if(app.globalData.currentAddress){
+      this.setData({
+        addressInfo: app.globalData.currentAddress
+      })
+      app.globalData.currentAddress = null;
+    }else{
+      this.getDefaultAddress();
+    }
   },
   getDefaultAddress() {
     api.getDefalutAdderss(app.globalData.openid).then(res => {
       console.log(res)
+      res.data.address.isdefault = "1"
       this.setData({
         addressInfo: res.data.address
       })

@@ -44,7 +44,7 @@
 .contentBox{
   padding: 23rpx;
   background: #fff;
-  margin-top: 2rpx;
+  margin-top: 3rpx;
   display: flex;
   flex-direction: column;
 }

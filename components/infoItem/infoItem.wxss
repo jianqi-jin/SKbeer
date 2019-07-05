@@ -14,8 +14,8 @@
   height: 46rpx;
 }
 .icon image{
-  width: 13rpx;
-  height: 24rpx;
+  width: 46rpx;
+  height: 46rpx;
 }
 .title{
   display: flex;

@@ -14,11 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '地址管理'
-    })
-    this.getAddressList();
+    if (options.type){
+      this.setData({
+        type: options.type
+      })
 
+      wx.setNavigationBarTitle({
+        title: '选择收货地址'
+      })
+    }else{
+
+      wx.setNavigationBarTitle({
+        title: '地址管理'
+      })
+    }
+    this.getAddressList();
+  },
+  navBack(ev){
+    if(this.data.type == 2){
+      app.globalData.currentAddress = ev.currentTarget.dataset.item;
+      wx.navigateBack({
+        delta: 1,
+      })
+    }
   },
   navToEdit(event){
     if (event.currentTarget.dataset.type == "newAddress" || event.currentTarget.dataset.addressId == ""){
