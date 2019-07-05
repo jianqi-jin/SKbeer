@@ -1,2 +1,75 @@
-<!--pages/user/freeze/freeze.wxml-->
-<text>pages/user/freeze/freeze.wxml</text>
+<!--pages/money/money.wxml-->
+<view class='backBox'>
+<image src='./res/img/bonus-bg.png'></image>
+  <view class='textBox'>
+    <view class='moneyBox'>
+      <view>￥</view>
+      <view>1500.00</view>
+    </view>
+    <view class='info'>总资产（元）</view>
+  </view>
+</view>
+
+
+<view class='mainBox'>
+  <view class='navBox'>
+  </view>
+
+  <view class='listBox'>
+    <view class='itemBox'>
+      <view class='itemTop'>
+      
+        <view class='itemLeft'>
+          <view class='userImg'><image src=''></image></view>
+          <view class='leftText'>
+            <view>微信昵称</view>
+            <view>2019.03.03 12:02:03</view>
+          </view>
+        </view>
+        <view class='itemRight'>
+        </view>
+      </view>
+
+
+      <view class='itemBottom'>
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>推荐人</view>
+            <view class='bottonItemValue'>森客啤酒[执行合伙人]</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>简介消费奖励</view>
+            <view class='bottonItemValue'>+1000</view>
+          </view>
+        </view>
+
+        
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>推荐人</view>
+            <view class='bottonItemValue'>森客啤酒[执行合伙人]</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>简介消费奖励</view>
+            <view class='bottonItemValue'>2019.03.03 12:35</view>
+          </view>
+        </view>
+
+        
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>推荐人</view>
+            <view class='bottonItemValue'>森客啤酒[执行合伙人]</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>简介消费奖励</view>
+            <view class='bottonItemValue'>+1000</view>
+          </view>
+        </view>
+      
+      </view>
+      
+    </view>
+  </view>
+  
+</view>

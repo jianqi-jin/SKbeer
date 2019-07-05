@@ -1,0 +1,27 @@
+<!--pages/user/myGroup/groupInfo/index.wxml-->
+
+<view class='mainBox'>
+  <view class='navBox'>
+    <view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</view>
+  </view>
+
+  <view class='itemBox'>
+    <view class='itemLeft'>
+      <view class='leftLeft'>
+        <view class='userImg'><image src=''></image></view>
+      </view>
+      <view class='leftRight'>
+        <view class='name'>懂事长合伙人微信昵称</view>
+        <view class='info'>团队20人</view>
+      </view>
+    </view>
+    <view class='itemRight'>
+      <view class='time'>2019-01-19 20:45:54</view>
+      <view class='ooInfo'>今日新增0人 本月新增0人</view>
+    </view>
+  </view>
+
+
+
+  
+</view>

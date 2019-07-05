@@ -47,7 +47,6 @@ margin-left: 10rpx;
 
 
 .mainBox{
-  background:rgba(255,255,255,1);
   border-radius: 20rpx 20rpx 0 0;
   width: 100%;
   overflow: hidden;
@@ -89,7 +88,7 @@ margin-left: 10rpx;
   flex-direction: column;
   background: #fff;
   border-bottom: 2rpx solid #f2f2f2;
-  padding: 34rpx 25rpx;
+  padding:5rpx 25rpx 34rpx 25rpx;
 }
 .itemLeft{
   display: flex;
@@ -99,6 +98,8 @@ margin-left: 10rpx;
 .itemLeft .leftText{
   margin-left: 20rpx;
 }
+
+
 .itemLeft .leftText view:first-child{
   font-size:28rpx;
   font-family:PingFang-SC-Medium;
@@ -129,7 +130,19 @@ margin-left: 10rpx;
 .listBox{
   margin-top: 20rpx;
 }
-
+.bottonItemTitle{
+  font-size:22rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+}
+.bottonItemValue{
+  font-size:22rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  margin-left: 14rpx;
+}
 .itemTop{
   height: 123rpx;
   margin-top: 0rpx;
@@ -143,7 +156,7 @@ margin-left: 10rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 39rpx 20rpx;
+  padding: 0 20rpx;
   font-size: 24rpx;
 }
 .itemBottomItem{
@@ -154,5 +167,9 @@ margin-left: 10rpx;
 .bottomItemBox{
   display: flex;
   flex-direction: row;
+  margin-top: 27rpx;
   
+}
+.bottomItemBox:last-child{
+  width:320rpx;
 }

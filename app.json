@@ -21,6 +21,7 @@
     "pages/detail/paySuccess/paySuccess",
     "pages/user/levelMsg/levelMsg",
     "pages/user/myGroup/myGroup",
+    "pages/user/myGroup/groupInfo/index",
     "pages/user/drawHis/drawHis",
     "pages/user/draw/draw",
     "pages/user/freeze/freeze",

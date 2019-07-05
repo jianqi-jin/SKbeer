@@ -1,20 +1,4 @@
 /* pages/detail/order/order.wxss */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footBox{
   position: fixed;
   bottom: 0;

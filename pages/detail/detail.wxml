@@ -1,12 +1,10 @@
 <!--pages/detail/detail.wxml-->
 
 <view class='infoBox'>
-  <swiper indicator-dots="{{indicatorDots}}"
-    circular="{{circular}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{goodInfo.thumb_url}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image"/>
+        <image src="{{item}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
@@ -24,11 +22,11 @@
     <view class='optionTitle'>发货</view>
     <view class='optionValue'>快递： 免费</view>
   </view>
-  <view class='optionItem'>
+  <view class='optionItem' bindtap='showOrder'>
     <view class='optionTitle'>规格</view>
     <view class='optionValue'>请选择</view>
   </view>
-  <view class='optionItem'>
+  <view class='optionItem' bindtap='showInfo'>
     <view class='optionTitle'>参数</view>
     <view class='optionValue'>品牌 净含量</view>
   </view>
@@ -36,9 +34,66 @@
 
 <view class='contentBox'>
   <view class='contentTitle'>商品详情</view>
-  <view  wx:for="{{goodInfo.thumb_url}}" class='contentImage'><image mode='widthFix' src='{{item}}'></image></view>
+  <view wx:for="{{goodInfo.thumb_url}}" class='contentImage'>
+    <image mode='widthFix' src='{{item}}'></image>
+  </view>
 </view>
 
-<view class='footBtn'>
+<view class='footBtn' catchtouchmove='move'>
   <view class='btnSpecialBlock' bindtap='showOrder'>立即购买</view>
+</view>
+
+
+
+<view wx:if='{{showIndex == 1 || showIndex == 3}}' class='backMask' bindtap='closeOrder' catchtouchmove='move'>
+</view>
+<view wx:if='{{showIndex ==3}}' class='goodInfoBox' catchtouchmove='move'>
+  <view class='goodInfoBoxTitle'>商品参数</view>
+  <view class='infoBoxItem' wx:for='{{goodParams}}' wx:key='index'>
+    <view class='infoBoxTitle'>{{item.title}}</view>
+    <view class='infoBoxValue'>{{item.value}}</view>
+  </view>
+  <view class='btnSpecialBlock' bindtap='closeOrder'>完成</view>
+</view>
+
+
+<view wx:if='{{showIndex ==1}}' class='orderBox' catchtouchmove='move'>
+  <view bindtap='closeOrder' class='closeImg'>
+    <view class='icon'>
+      <image src='/res/icon/icon-close.png'></image>
+    </view>
+  </view>
+
+  <view class='goodBox'>
+    <view class='goodImg'>
+      <image src='{{goodInfo.thumb}}'></image>
+    </view>
+    <view class='goodInfo'>
+      <view class='gooPrice'>￥{{goodInfo.marketprice}}</view>
+      <view>已选：330mlx12</view>
+    </view>
+
+
+
+    <view class='orderOption' wx:for='{{spec}}' wx:for-index='i'>
+      <view class='orderOptionTitle'>选择规格</view>
+      <view class='orderOptionContent'>
+        <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.items}}' wx:key='index' class='"orderOptionItem "+{{ item.checked ? "optionActive" : ""}}'>{{item.title}}</view>
+      </view>
+    </view>
+
+
+    <view class='orderBuyNum'>
+
+      <view class='infoItem'>
+        <view class='infoLeft'>购买数量</view>
+        <view class='caoNiMa'>
+          <view class='fuck1'>-</view>
+          <view class='fuck2'>456</view>
+          <view class='fuck3'>+</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
 </view>

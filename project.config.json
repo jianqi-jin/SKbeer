@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -137,7 +137,7 @@
 					"id": 13,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
-					"query": "goodsId=1",
+					"query": "goodId=2",
 					"scene": null
 				},
 				{
@@ -214,6 +214,20 @@
 					"id": -1,
 					"name": "incomeInfo",
 					"pathName": "pages/user/incomeInfo/incomeInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "freeze",
+					"pathName": "pages/user/freeze/freeze",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "groupInfo",
+					"pathName": "pages/user/myGroup/groupInfo/index",
 					"query": "",
 					"scene": null
 				}

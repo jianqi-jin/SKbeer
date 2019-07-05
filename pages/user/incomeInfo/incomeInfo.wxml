@@ -21,7 +21,7 @@
       <view class='itemTop'>
       
         <view class='itemLeft'>
-          <view wx:if='{{showId == 0 ? true : false}}' class='userImg'><image src=''></image></view>
+          <view class='userImg'><image src=''></image></view>
           <view class='leftText'>
             <view>微信昵称</view>
             <view>2019.03.03 12:02:03</view>
@@ -52,7 +52,7 @@
           </view>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>简介消费奖励</view>
-            <view class='bottonItemValue'>+1000</view>
+            <view class='bottonItemValue'>2019.03.03 12:35</view>
           </view>
         </view>
 
@@ -69,28 +69,8 @@
         </view>
       
       </view>
-
-
-
-
       
     </view>
-
- <view class='itemBox'>
-      <view class='itemLeft'>
-        <view wx:if='{{showId == 0 ? true : false}}' class='userImg'><image src=''></image></view>
-        <view class='leftText'>
-          <view>微信昵称</view>
-          <view>2019.03.03 12:02:03</view>
-        </view>
-      </view>
-      <view class='itemRight'>
-        <view>50.00</view>
-        <view>已到账</view>
-      </view>
-    </view>
-
-
 
   </view>
   

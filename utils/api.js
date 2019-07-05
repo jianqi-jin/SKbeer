@@ -1,7 +1,9 @@
-const header = { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'};
+const header = {
+  'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+};
 const serverUri = 'https://oa.yika.co/';
 const address = {
-  getAddressList: function (openid){
+  getAddressList: function(openid) {
     return new Promise(resolve => {
       wx.request({
         url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.index.address_list&openid=' + openid,
@@ -10,13 +12,13 @@ const address = {
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res);
         }
       })
     })
   },
-  addAddress: function (openid, obj){
+  addAddress: function(openid, obj) {
     return new Promise(resolve => {
       wx.request({
         url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.index.address_insert&openid=' + openid,
@@ -25,17 +27,17 @@ const address = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) { 
+        success: function(res) {
           resolve(res)
         }
       })
     })
-    
+
   },
   getDefalutAdderss: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_address&openid='+openid,
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_address&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -47,11 +49,13 @@ const address = {
       })
     })
   },
-  changeDefault: function(openid, address_id){
+  changeDefault: function(openid, address_id) {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.change_address&openid='+openid,
-        data: { address_id},
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.change_address&openid=' + openid,
+        data: {
+          address_id
+        },
         header,
         method: 'POST',
         dataType: 'json',
@@ -62,16 +66,18 @@ const address = {
       })
     })
   },
-  del: function(openid, address_id){
+  del: function(openid, address_id) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.address_del&openid=' + openid,
-        data: {address_id},
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.address_del&openid=' + openid,
+        data: {
+          address_id
+        },
         header,
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) { 
+        success: function(res) {
           resolve(res);
         },
       })
@@ -95,19 +101,19 @@ const address = {
 }
 
 const gifts = {
-  getGiftList: function(openid){
+  getGiftList: function(openid) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.gift_list&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.gift_list&openid=' + openid,
         data: '',
         header: {},
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
-    })
+      })
     })
   }
 }
@@ -116,7 +122,7 @@ const user = {
   getReferCenterInfo: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.tuiguang&openid='+openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.tuiguang&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -137,7 +143,7 @@ const user = {
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) { 
+        success: function(res) {
           resolve(res)
         }
       })
@@ -152,10 +158,10 @@ const user = {
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         },
-        complete: function (res) {
+        complete: function(res) {
           console.log(res)
         }
       })
@@ -164,17 +170,49 @@ const user = {
 }
 
 const good = {
+  getGoodInfo: (data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_param',
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  getGoodSpec: (data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_spec',
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getGoodFromId: (openid, goods_id) => {
     return new Promise(resolve => {
 
       wx.request({
         url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.goods_details',
-        data: { goods_id },
+        data: {
+          goods_id
+        },
         header,
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) { 
+        success: function(res) {
           resolve(res)
         }
       })
@@ -193,7 +231,7 @@ const bankCard = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -202,7 +240,7 @@ const bankCard = {
   getDefaultCard: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_default&openid='+openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_default&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -217,15 +255,15 @@ const bankCard = {
   sendMsg: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.send_code&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.send_code&openid=' + openid,
         data,
         header,
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
-         }
+        }
       })
     })
   },
@@ -238,7 +276,7 @@ const bankCard = {
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -247,13 +285,13 @@ const bankCard = {
   changeDefaultCard: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri+'app/ewei_shopv2_api.php?i=46&r=senke.my.change_card&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.change_card&openid=' + openid,
         data,
         header,
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -268,7 +306,7 @@ const bankCard = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -287,6 +325,8 @@ module.exports = {
   getDefalutAdderss: address.getDefalutAdderss,
   getUserInfo: user.getUserInfo,
   getGoodFromId: good.getGoodFromId,
+  getGoodInfo: good.getGoodInfo,
+  getGoodSpec: good.getGoodSpec, 
   getDrawHis: user.getDrawHis,
   getReferCenterInfo: user.getReferCenterInfo,
   addCard: bankCard.addCard,

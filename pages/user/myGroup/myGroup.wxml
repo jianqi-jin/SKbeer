@@ -12,7 +12,7 @@
       <view class='userName'>用户昵称</view>
       <view class='userLevel'>董事合伙人</view>
     </view>
-    <view class='btnSSS'>查看团队业绩</view>
+    <navigator open-type='navigate' url='./groupInfo/index' class='btnSSS'>查看团队业绩</navigator>
   </view>
 
 

@@ -5,6 +5,7 @@
   width: 100%;
   background: #fff;
   border-top: 2rpx solid #f6f6f6;
+  z-index: 1;
 }
 .btnSpecialBlock{
   width: auto;
@@ -132,3 +133,197 @@ image{
   width: 100%;
 }
 
+
+
+.backMask{
+  background: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.orderBox{
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 621rpx;
+  
+}
+.closeImg{
+  position: absolute;
+  right: 25rpx;
+  top: 25rpx;
+}
+.goodImg{
+  width: 214rpx;
+  height: 214rpx;
+  border: 1rpx solid #ccc;
+  position: absolute;
+  top: -55rpx;
+  left: 30rpx;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.goodInfo{
+  position: absolute;
+  left: 280rpx;
+  top: 45rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.gooPrice{
+  font-size:36rpx;
+  font-family:PingFang-SC-Heavy;
+  font-weight:800;
+  color:rgba(204,0,0,1);
+}
+.goodInfo view:last-child{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(28,28,28,1);
+}
+
+.orderOption{
+  margin:221rpx 25rpx 0 25rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.orderOptionTitle{
+  font-size:28rpx;
+font-family:PingFang-SC-Regular;
+font-weight:400;
+color:rgba(51,51,51,1);
+}
+.orderOptionContent{
+  padding: 34rpx 0;
+}
+.orderOptionItem{
+background:rgba(245,245,245,1);
+border-radius:31rpx;
+font-size:26rpx;
+font-family:PingFang-SC-Regular;
+font-weight:400;
+color:rgba(28,28,28,1);
+text-align: center;
+line-height: 62rpx;
+padding: 16rpx 26rpx;
+display: inline;
+margin-left: 24rpx;
+}
+.optionActive{
+background:linear-gradient(90deg,rgba(108,65,39,1),rgba(142,82,36,1));
+border-radius:31rpx;
+font-size:26rpx;
+font-family:PingFang-SC-Regular;
+font-weight:400;
+color:rgba(255,255,255,1);
+}
+
+
+
+
+
+
+.infoBox{
+  margin-top: 20rpx;
+}
+
+.infoItem{
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 37rpx 23rpx;
+  margin-top: 4rpx;
+}
+.infoLeft {
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:24rpx;
+}
+
+.caoNiMa{
+  display: flex;
+  flex-direction: row;
+}
+.caoNiMa view{
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  line-height:48rpx;
+  margin-left: 4rpx;
+  background: #F9F9F9;
+  border-radius: 5rpx 0 0 5rpx;
+  width: 50rpx;
+  height: 50rpx;
+  text-align: center;
+}
+.caoNiMa2{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(204,0,0,1);
+  line-height:24rpx;
+}
+.caoNiMa3{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(204,0,0,1);
+  line-height:24rpx;
+}
+
+.fuck2{
+  font-size:20rpx;
+}
+
+.goodInfoBox{
+  position: fixed;
+  background: #fff;
+  border-radius: 10rpx 10rpx 0 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+.infoBoxItem{
+  border-bottom: 1rpx solid #f6f6f6;
+  padding: 34rpx 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.goodInfoBoxTitle{
+  text-align: center;
+  margin: 49rpx auto;
+  font-size:32rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(28,28,28,1);
+}
+.infoBoxTitle{
+  width: 110rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(28,28,28,1);
+  line-height:46rpx;
+}
+.infoBoxValue{
+  margin-left: 43rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}

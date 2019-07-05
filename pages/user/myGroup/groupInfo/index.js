@@ -1,4 +1,4 @@
-// pages/money/money.js
+// pages/user/myGroup/groupInfo/index.js
 Page({
 
   /**
@@ -6,28 +6,31 @@ Page({
    */
   data: {
     showId: 0,
-    navList: [{
-      title: '下单奖励',
-      id: 0
-    }, {
-        title: '招募奖励',
-        id: 1
-      }]
+    navList: [
+      {
+        id: 0,
+        title: '团队合伙人'
+      }, {
+        id: 1,
+        title: '代理团队'
+      }, {
+        id: 2,
+        title: '会员粉丝',
+      }
+    ]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '收益明细'
-    })
 
   },
   changeNav(ev){
-    let id = ev.currentTarget.dataset.id;
+    let index = ev.currentTarget.dataset.id;
     this.setData({
-      showId: id
+      showId: index
     })
   },
 
