@@ -10,7 +10,7 @@
   background:rgba(255,255,255,1);
   box-shadow:5rpx 9rpx 20rpx 0rpx rgba(151,79,10,0.2);
   border-radius:45rpx;
-  margin: 52rpx 24rpx;
+  margin: 52rpx 24rpx 25rpx 24rpx;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

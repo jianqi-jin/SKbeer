@@ -24,10 +24,11 @@
 .money{
   padding:0rpx 8rpx;
   background: #3F230E;
-  border-radius:21rpx;
+  border-radius:100rpx;
   display: flex;
   flex-direction: row;
   line-height: 43rpx;
+  margin-top:8rpx;
 }
 
 .money .title{
