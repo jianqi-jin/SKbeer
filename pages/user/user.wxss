@@ -22,8 +22,7 @@
   color:rgba(255,255,255,1);
 }
 .money{
-  width:209rpx;
-  height:43rpx;
+  padding:0rpx 8rpx;
   background: #3F230E;
   border-radius:21rpx;
   display: flex;
@@ -79,8 +78,7 @@
   position: relative;
 }
 .itemCard .cardTitle{
-  width:110rpx;
-  height:36rpx;
+  padding: 0 10rpx;
   position: absolute;
   background:rgba(130,76,31,1);
   border-radius:18rpx;

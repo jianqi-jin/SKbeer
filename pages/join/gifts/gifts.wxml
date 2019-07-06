@@ -10,7 +10,7 @@
     <view class='"cardItem " + {{item.checked ? "cardChacked" : ""}}' wx:for='{{giftList}}' wx:key='index'>
       <view class='cardLeft' bindtap='showInfo' data-index='{{index}}'>
         <view class='carImg'>
-          <image src='{{item.thumb}}'></image> 
+          <image src='{{item.thumb}}'></image>
         </view>
         <view class='cardContext'>
           <view class='cardContextTitle'>{{item.title}}</view>
@@ -40,21 +40,23 @@
       <image src='/res/icon/icon-close-bg.png'></image>
     </view>
   </view>
-
-  <view class='orderContent'>
+<!--
+  <view class='orderContent' wx:if='{{!addressInfo.realname}}'>
     <view class='orderContentLeft'>
-      <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew' wx:if='{{!addressInfo.realname}}'>
+      <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew'>
         <view class='icon'>
           <image src='/res/icon/icon-new-add.png'></image>
         </view>
         <view>新增地址</view>
       </navigator>
+      
       <view class='address' wx:else>
         <view class='orderContentLeftTop'>
           <view class='nameBox'>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}</view>
           <view class='mobile'>{{addressInfo.mobile}}</view>
         </view>
-        <view class='orderContentLeftBottom'><view>{{addressInfo.isdefault ? '默认' : ''}}</view> {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}</view>
+        <view class='orderContentLeftBottom'>
+          <view>{{addressInfo.isdefault ? '默认' : ''}}</view> {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}</view>
       </view>
     </view>
     <view class='orderContentRight'>
@@ -63,7 +65,9 @@
       </view>
     </view>
   </view>
+-->
 
+<address-item addressInfo="{{addressInfo}}"></address-item>
 
   <view class='giftContentBox'>
     <view>选择礼品</view>

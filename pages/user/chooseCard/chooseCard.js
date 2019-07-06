@@ -21,7 +21,9 @@ Page({
       api.getCardList(app.globalData.openid).then(res => {
         console.log(res)
         this.setData({
-          cardList: res.data.bank_card_list
+          cardList: res.data.bank_card_list.map((val) => {
+            return val.number = ("" + val.number).substr(0, 4)+"************"+("" + val.number).substr(-4),val
+          })
         })
         resolve(res)
       })

@@ -91,11 +91,11 @@
   margin-top: 30rpx;
   width: 524rpx;
   height: 327rpx;
-  border: 1px solid #ccc;
   overflow: hidden;
 }
 .contentImgBox image{
   width: 100%;
+  border-radius: 5rpx;
 }
 
 .contentInfoBox{

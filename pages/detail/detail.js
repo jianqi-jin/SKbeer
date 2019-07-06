@@ -42,6 +42,10 @@ Page({
 
   },
   showInfo() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#7F7F7F'
+    })
     let that = this;
     api.getGoodInfo({
       goods_id: this.data.goodInfo.id
@@ -59,6 +63,10 @@ Page({
 
   },
   showOrder() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#7F7F7F'
+    })
     if (!this.data.spec) {
       api.getGoodSpec({
         goods_id: this.data.goodInfo.id
@@ -81,6 +89,10 @@ Page({
     }
   },
   closeOrder() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff'
+    })
     this.setData({
       showIndex: 0
     })

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    status: 0,//0确认 1立即支付
+    status: 0, //0确认 1立即支付
     btnTitle: ['下一步', '立即支付199元'],
     currentGift: {},
     addressInfo: {},
@@ -20,7 +20,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setNavigationBarTitle({
       title: '加入合伙人'
     })
@@ -37,9 +37,9 @@ Page({
     })
   },
   showOrder() {
-    if(this.data.status == 1){
+    if (this.data.status == 1) {
       //检查表单
-      if (!this.data.addressInfo || !this.data.addressInfo.realname){
+      if (!this.data.addressInfo || !this.data.addressInfo.realname) {
         wx.showToast({
           title: '收货地址空',
           icon: 'none'
@@ -49,17 +49,17 @@ Page({
           title: '礼物空',
           icon: 'none'
         })
-      }else{
+      } else {
         //支付
 
         wx.redirectTo({
           url: '../paySuccess/paySuccess'
         })
-        return 
+        return
 
 
       }
-    }else{
+    } else {
       this.setData({
         status: 1
       })
@@ -87,10 +87,10 @@ Page({
         infoFlag: false,
         orderFlag: false
       })
-      return 
+      return
     })
   },
-  chooseGift(ev){
+  chooseGift(ev) {
     let index = ev.currentTarget.dataset.index;
     this.setData({
       giftList: this.data.giftList.map((val, i) => {
@@ -98,7 +98,7 @@ Page({
       })
     })
     this.data.giftList.map((val, index) => {
-      if(val.checked){
+      if (val.checked) {
         this.setData({
           currentGift: val
         })
@@ -106,7 +106,7 @@ Page({
     })
 
   },
-  getGiftList(){
+  getGiftList() {
     api.getGiftList(app.globalData.openid).then(res => {
       console.log(res);
       this.setData({
@@ -117,18 +117,26 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    this.getDefaultAddress();
+  onShow: function() {
+    if (app.globalData.currentAddress) {
+      this.setData({
+        addressInfo: app.globalData.currentAddress
+      })
+      app.globalData.currentAddress = null;
+    } else {
+      this.getDefaultAddress();
+    }
   },
-  getDefaultAddress(){
+  getDefaultAddress() {
     api.getDefalutAdderss(app.globalData.openid).then(res => {
+      res.data.address.isdefault = "1"
       console.log(res)
       this.setData({
         addressInfo: res.data.address
@@ -138,35 +146,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

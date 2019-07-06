@@ -5,7 +5,6 @@
   padding: 25rpx;
   background: #fff;
   margin-top: 3rpx;
-  height: 94rpx;
   align-items: center;
 
 }
@@ -14,8 +13,8 @@
   height: 46rpx;
 }
 .icon image{
-  width: 46rpx;
-  height: 46rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .title{
   display: flex;

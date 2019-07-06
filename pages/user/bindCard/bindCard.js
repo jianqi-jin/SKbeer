@@ -101,11 +101,15 @@ Page({
       })
       if(res.data.error == "0"){
         wx.showToast({
-          title: 'OK'
+          title: 'OK',
+          duration: 500,
+          mask: true
         })
-        wx.navigateBack({
-          delta: 1,
-        })
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }, 500)
       }else{
         wx.showToast({
           title: res.data.message,

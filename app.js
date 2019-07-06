@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -11,7 +11,9 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        let  data = {code: res.code}
+        let data = {
+          code: res.code
+        }
         let header = {
           'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
           'X-ECAPI-Sign': '',
@@ -30,6 +32,19 @@ App({
             console.log(res)
             that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
             //that.globalData.openid = res.data.data.openid;
+            //添加到数据库
+            wx.request({
+              url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=wxapp.auth',
+              data: {
+                data: res.data.data,
+                sessionKey: res.data.da
+              },
+              header,
+              method: 'POST',
+              dataType: 'json',
+              responseType: 'text',
+              success: function(res) {}
+            })
           },
           fail: function(res) {},
           complete: function(res) {},
@@ -59,14 +74,12 @@ App({
   },
   globalData: {
     userInfo: null,
-    navBottomList: [
-      {
-        url: '',
-        img: '',
-        selectedImg: '',
-        select: false,
-        havT: true
-      }
-    ]
+    navBottomList: [{
+      url: '',
+      img: '',
+      selectedImg: '',
+      select: false,
+      havT: true
+    }]
   }
 })

@@ -1,4 +1,9 @@
 /* pages/order/order.wxss */
+.navHeader{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 .navList{
   display: flex;
   flex-direction: row;
@@ -16,7 +21,9 @@
   font-weight:800;
   color:rgba(130,76,31,1);
 }
-
+.main{
+  margin-top:120rpx;
+}
 .itemBox{
   margin: 24rpx 24rpx 0rpx 24rpx;
 }
@@ -59,10 +66,9 @@
 .infoTextBox{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-grow: 1;
-  padding-left: 20rpx;
-
+  padding:5rpx 0 40rpx 20rpx;
 }
 .infoText{
   font-size:28rpx;

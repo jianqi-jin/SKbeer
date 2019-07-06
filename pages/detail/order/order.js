@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '确认订单'
+      title: '立即支付'
     })
 
   },

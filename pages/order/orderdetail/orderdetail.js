@@ -22,7 +22,7 @@ Page({
         statusTitle: '待发货',
         btnTitle: '查看物流'
       }, {
-        statusTitle: '成功',
+        statusTitle: '已完成',
         btnTitle: ''
       }, {
         statusTitle: '退款申请',

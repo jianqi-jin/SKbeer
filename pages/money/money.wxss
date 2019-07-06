@@ -73,6 +73,10 @@ margin-left: 10rpx;
   font-weight:800;
   color:rgba(130,76,31,1);
 }
+.userImg{
+  width:72rpx;
+  height:72rpx;
+}
 .userImg image{
   width:72rpx;
   height:72rpx;
@@ -84,7 +88,8 @@ margin-left: 10rpx;
   justify-content: space-between;
   background: #fff;
   border-bottom: 2rpx solid #f2f2f2;
-  padding: 45rpx 25rpx 45rpx 25rpx;
+  padding:40rpx 25rpx 40rpx 25rpx;
+
 }
 .itemLeft{
   display: flex;

@@ -30,12 +30,11 @@
   height: 100%;
   text-align: center;
   margin-top: 8rpx;
-  overflow: hidden;
 }
 
 .navImg{
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
 } 
 .navImgNoTitle{
   width: 80rpx;
@@ -48,4 +47,10 @@
   font-weight:500;
   color:rgba(102,102,102,1);
   margin: auto;
+}
+
+.backshadow{
+  border-radius: 50rpx;
+  overflow: hidden;
+  box-shadow:0rpx 0rpx 30rpx 2rpx #FAB742;
 }

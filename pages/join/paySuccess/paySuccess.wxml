@@ -4,6 +4,7 @@
     <view class='backLine'></view>
     <view class='backBox'>
       <view class='backBoxTop'>
+      <view class='backBoxTopTop'></view>
         <view class='cardPrice'>
             <view class='cardPrice0'>￥</view>
             <view class='cardPrice1'>199.00</view>

@@ -36,9 +36,9 @@
   <info-item bindtap='fun' data-ev='{{item}}' wx:for='{{infoList}}' wx:key='index' info="{{item}}"></info-item>
 </view>
 
-<button class='kefuBtn' open-type="contact" bindcontact="handleContact">
+<!--<button class='kefuBtn' open-type="contact" bindcontact="handleContact">-->
   <info-item info="{{kefuInfo}}"></info-item>
-</button>
+<!--</button>-->
 
 <navigator wx:if='{{userInfo.info.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
 
