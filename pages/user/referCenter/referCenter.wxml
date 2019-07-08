@@ -1,6 +1,7 @@
 <!--pages/user/referCenter/referCenter.wxml-->
 
 <view class='back'>
+<image src='/res/icon/user-bg.png'></image>
 </view>
 
 

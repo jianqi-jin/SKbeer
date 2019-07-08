@@ -56,7 +56,7 @@
       <view>实付 ￥289.00</view>
       <view>储值抵扣 -￥10</view>
     </view>
-    <view class='footRight' bindtap='goPay'>确认订单</view>
+    <view class='footRight' bindtap='goPay'>立即支付</view>
   </view>
 
   <view class='payMask' wx:if='{{paySuccessFlag}}'>

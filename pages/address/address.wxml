@@ -32,7 +32,7 @@
             <view class='iconDel'>
               <image src='./res/img/icon-delete.png'></image>
             </view>
-            <view class='fontTitle' data-id='{{item.id}}' bindtap='delAddress'>删除</view>
+            <view class='fontTitle' data-id='{{item.id}}' bindtap='showDiaLog'>删除</view>
           </view>
         </view>
         <!--两个btn-->
@@ -43,3 +43,17 @@
 </view>
 
 <view class='btnSpecialBlock' bindtap='navToEdit' data-type='newAddress'>添加收货地址</view>
+
+
+
+
+<view bindtap='closeDiaLog' class='backMask' wx:if='{{showDiaLog}}'></view>
+<view class='diaLog' wx:if='{{showDiaLog}}'>
+  <view class='diaLogBox'>
+    <view class='diaLogInfo'>确定要删除该地址吗？</view>
+    <view class='diaLogBtns'>
+      <view bindtap='closeDiaLog'>取消</view>
+      <view bindtap='delAddress'>确定</view>
+    </view>
+  </view>
+</view>

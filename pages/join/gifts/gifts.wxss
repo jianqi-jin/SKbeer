@@ -187,8 +187,15 @@
   max-height: 100rpx;
   overflow: hidden;
 }
+.border{
+  display: flex;
+  flex-direction: row;
+}
+.border image{
+  flex-grow: 1;
+  height:10rpx;
+}
 .giftContentBox{
-  border-top: 2rpx solid #ccc;
   padding-top: 44rpx;
 }
 

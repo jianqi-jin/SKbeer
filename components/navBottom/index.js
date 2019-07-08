@@ -16,7 +16,7 @@ Component({
           havT: true
         }, 
         {
-          url: '/pages/refer/refer',
+          url: '/pages/recommend/recommend',
           img: '/res/icon/tuijian.png',
           selectedImg: '/res/icon/tuijian.png',
           title: '推荐有奖',

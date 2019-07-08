@@ -16,7 +16,17 @@ Page({
     goodsId: '',
     goodInfo: {},
     goodParams: [],
-    spec: null
+    spec: null,
+    orderInfo: {
+      option_id: null,//323_325  规格id
+      goods_id: null,
+      goods_price: null,//商品单价
+      address_id: null,//地址id
+      num: 0,//数量
+      pay_type: null,//支付方式
+      pay_money: null,//微信支付金额
+      dikou_money: null//抵扣金额
+    }//下单信息
   },
 
   /**
@@ -27,13 +37,33 @@ Page({
       goodsId: options.goodId
     })
   },
+  addOrderNum() {
+    let num = this.data.orderInfo.num;
+    num += 1;
+    if(num > 100){
+      num = 100;
+    }
+    this.setData({
+      ['orderInfo.num']: num
+    })
+  },
+  deOrderNum() {
+    let num = this.data.orderInfo.num;
+    num -= 1;
+    if (num < 0) {
+      num = 0;
+    }
+    this.setData({
+      ['orderInfo.num']: num
+    })
+  },
   chooseSpec(ev) {
     console.log(ev.currentTarget.dataset)
     let specIndex = ev.currentTarget.dataset.specindex;
     let index = ev.currentTarget.dataset.index;
     this.setData({
       spec: this.data.spec.map((val, i) => {
-        return val.items.map((val2, i2) => {
+        return val.specs.map((val2, i2) => {
           return val2.checked = specIndex == i && index == i2 ? true : false, val;
         }), val;
       })
@@ -72,6 +102,16 @@ Page({
         goods_id: this.data.goodInfo.id
       }).then(res => {
         console.log(res)
+        if(!res.data.specs){
+          res.data.specs = [{
+            "id": "-1",//默认
+            "title": "默认",
+            "specs": [{
+              "id": "-1",
+              "title": "默认"
+            }]
+          }]
+        }
         this.setData({
           spec: res.data.specs
         })

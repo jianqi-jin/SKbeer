@@ -40,7 +40,7 @@
       <image src='/res/icon/icon-close-bg.png'></image>
     </view>
   </view>
-<!--
+  <!--
   <view class='orderContent' wx:if='{{!addressInfo.realname}}'>
     <view class='orderContentLeft'>
       <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew'>
@@ -67,11 +67,15 @@
   </view>
 -->
 
-<address-item addressInfo="{{addressInfo}}"></address-item>
-
+  <address-item addressInfo="{{addressInfo}}"></address-item>
+  <view class='border'><image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+  </view>
   <view class='giftContentBox'>
     <view>选择礼品</view>
-    <view>{{currentGift.subtitle}}</view>
+    <view>{{currentGift.title}}</view>
   </view>
 </view>
 

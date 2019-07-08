@@ -19,13 +19,15 @@ Page({
         iconImg: '/res/icon/icon-extension.png',
         title: '推广中心',
         iconArr: '/res/icon/icon_right_click.png',
-        url: '/pages/user/referCenter/referCenter'
+        url: '/pages/user/referCenter/referCenter',
+        showFlag: false
       },
       {
         iconImg: '/pages/user/res/img/icon-addmana.png',
         title: '管理地址',
         iconArr: '/pages/user/res/img/icon_right_click.png',
-        url: '/pages/address/address'
+        url: '/pages/address/address',
+        showFlag: true
       }
     ],
     cardList: [{
@@ -91,6 +93,10 @@ Page({
       console.log(res)
       this.setData({
         userInfo: res.data
+      })
+
+      this.setData({
+        ['infoList[0].showFlag']: res.data.type == "1"
       })
     })
   },

@@ -12,7 +12,7 @@
       </view>
       <view class='leftRight'>
         <view class='name'>懂事长合伙人微信昵称</view>
-        <view class='info'>团队20人</view>
+        <view class='info'>团队 <view class='specialFont'>20</view> 人</view>
       </view>
     </view>
     <view class='itemRight'>

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showDiaLog: false,
+    currentAddressId: 0,
     addressList: {}
   },
 
@@ -69,9 +71,24 @@ Page({
   onReady: function () {
 
   },
-  delAddress(ev){
-    let id = ev.currentTarget.dataset.id;
-    api.delAddress(app.globalData.openid, id).then(res => {
+  closeDiaLog(){
+    this.setData({
+      showDiaLog: false
+    })
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff'
+    })
+  },
+  delAddress(){
+    wx.showLoading({
+      title: '删除...',
+      mask: true
+    })
+    console.log(this.data.currentAddressId)
+    this.closeDiaLog();
+    api.delAddress(app.globalData.openid, this.data.currentAddressId).then(res => {
+      wx.hideLoading()
       if(res.data.error != '0'){
         wx.showToast({
           title: res.data.message,
@@ -81,6 +98,24 @@ Page({
         this.getAddressList();
       }
     })
+  },
+  showDiaLog(ev) {
+
+    this.setData({
+      showDiaLog: true,
+      currentAddressId: 0
+    })
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#7A7A7A'
+    })
+
+    let id = ev.currentTarget.dataset.id;
+    this.setData({
+      showDiaLog: true,
+      currentAddressId: id
+    })
+
   },
   changeDefault(ev){
     let id = ev.currentTarget.dataset.id;

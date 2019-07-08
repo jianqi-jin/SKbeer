@@ -28,29 +28,22 @@ App({
           method: 'POST',
           dataType: 'json',
           responseType: 'text',
-          success: function(res) {
+          success: function (res) {
             console.log(res)
             that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
-            //that.globalData.openid = res.data.data.openid;
-            //添加到数据库
-            wx.request({
-              url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=wxapp.auth',
-              data: {
-                data: res.data.data,
-                sessionKey: res.data.da
-              },
-              header,
-              method: 'POST',
-              dataType: 'json',
-              responseType: 'text',
-              success: function(res) {}
-            })
+            that.globalData.session_key = res.data.data.session_key;
+            wx.setStorageSync('openid', that.globalData.openid)
+            //that.globalData.openid = 'sns_wa_' +　res.data.data.openid;
+            //请求用户数据
+
+
           },
-          fail: function(res) {},
-          complete: function(res) {},
+          fail: function (res) { },
+          complete: function (res) { },
         })
       }
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -60,7 +53,7 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-
+              wx.setStorageSync('userInfo', res.userInfo)
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {

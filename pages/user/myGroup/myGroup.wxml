@@ -1,6 +1,7 @@
 <!--pages/user/myGroup/myGroup.wxml-->
 
 <view class='back'>
+  <image src='/res/icon/team-bg.png'></image>
 </view>
 
 

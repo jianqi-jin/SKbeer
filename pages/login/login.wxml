@@ -1,0 +1,8 @@
+<!--pages/login/login.wxml-->
+<view class='img'>
+  <image src='/res/icon/sq-logo.png'></image>
+</view>
+
+
+
+<button class='btn' bindgetuserinfo="onGotUserInfo" open-type='getUserInfo'>立即授权</button>

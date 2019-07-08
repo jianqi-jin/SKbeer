@@ -1,6 +1,7 @@
 <!--pages/user/user.wxml-->
 
 <view class='userBox'>
+<image class='bgImg' src='/res/icon/user-bg.png'></image>
   <view class='imgBox'><image src='{{userInfo.info.avatar}}'></image></view>
   <view class='userName'>{{userInfo.info.nickname}}</view>
   <navigator class='money' url='/pages/money/money' open-type='navigate'>
@@ -33,14 +34,14 @@
 
 
 <view class='infoList'>
-  <info-item bindtap='fun' data-ev='{{item}}' wx:for='{{infoList}}' wx:key='index' info="{{item}}"></info-item>
+  <info-item wx:if='{{item.showFlag}}' bindtap='fun' data-ev='{{item}}' wx:for='{{infoList}}' wx:key='index' info="{{item}}"></info-item>
 </view>
 
 <!--<button class='kefuBtn' open-type="contact" bindcontact="handleContact">-->
   <info-item info="{{kefuInfo}}"></info-item>
 <!--</button>-->
 
-<navigator wx:if='{{userInfo.info.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
+<navigator wx:if='{{userInfo.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>
 
 
 <nav-bottom selected-index='3'></nav-bottom>

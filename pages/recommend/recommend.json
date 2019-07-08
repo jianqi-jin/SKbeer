@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "floatButton": "/components/floatButton/floatButton",
+    "nav-bottom": "../../components/navBottom/index"
+  }
+}

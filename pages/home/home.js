@@ -5,35 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgList: [
-      {
-        thumb: ''
-      }
-    ],
-    navBtnList: [
-      {
-        url: '',
-        img: '',
-        title: '首页',
-        havT: true
-      }, {
-        url: '',
-        img: '',
-        title: '推荐有奖',
-        havT: false
-      }, {
-        url: '',
-        img: '',
-        title: '推荐有奖',
-        havT: false
-      }
-    ]
+    loginFlag: false,
+    imgList: [{
+      thumb: ''
+    }],
+    navBtnList: [{
+      url: '',
+      img: '',
+      title: '首页',
+      havT: true
+    }, {
+      url: '',
+      img: '',
+      title: '推荐有奖',
+      havT: false
+    }, {
+      url: '',
+      img: '',
+      title: '推荐有奖',
+      havT: false
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    this.checkLogin();
     this.getInfo();
     wx.setNavigationBarColor({
       frontColor: '#000000',
@@ -43,13 +41,31 @@ Page({
       title: '森客啤酒'
     })
   },
-  navToDetail(ev){
-    let goodId = ev.currentTarget.dataset.goodid;
-    wx.navigateTo({
-      url: '/pages/detail/detail?goodId='+goodId
+  checkLogin() {
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function(res) {
+              console.log(res.userInfo)
+            }
+          })
+        }else{
+          wx.redirectTo({
+            url: '/pages/login/login'
+          })
+        }
+      }
     })
   },
-  getInfo(){
+  navToDetail(ev) {
+    let goodId = ev.currentTarget.dataset.goodid;
+    wx.navigateTo({
+      url: '/pages/detail/detail?goodId=' + goodId
+    })
+  },
+  getInfo() {
     let that = this;
     wx.request({
       url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.index',
@@ -68,5 +84,5 @@ Page({
       complete: function(res) {},
     })
   }
-  
+
 })

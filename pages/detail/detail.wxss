@@ -1,5 +1,6 @@
 /* pages/detail/detail.wxss */
-.footBtn{
+
+.footBtn {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -7,109 +8,120 @@
   border-top: 2rpx solid #f6f6f6;
   z-index: 3;
 }
-.btnSpecialBlock{
-  width: auto;
-  margin: 10rpx 25rpx;  
-}
-swiper{
-  height: 750rpx;
-}
-swiper image{
-  width: 100%;
 
+.btnSpecialBlock {
+  width: auto;
+  margin: 10rpx 25rpx;
 }
-swiper{
+
+swiper {
   height: 750rpx;
 }
-swiper image{
+
+swiper image {
+  width: 100%;
+}
+
+swiper {
+  height: 750rpx;
+}
+
+swiper image {
   height: 100%;
 }
-.priceBox{
+
+.priceBox {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 38rpx 27rpx;
 }
-.priceBox view:first-child{
-  font-size:40rpx;
-  font-family:PingFang-SC-Heavy;
-  font-weight:800;
-  color:rgba(204,0,0,1);
-  line-height:48rpx;
+
+.priceBox view:first-child {
+  font-size: 40rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(204, 0, 0, 1);
+  line-height: 48rpx;
 }
-.priceBox view:last-child{
+
+.priceBox view:last-child {
   margin-left: 12rpx;
-  font-size:24rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  text-decoration:line-through;
-  color:rgba(153,153,153,1);
-  line-height:48rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48rpx;
 }
-.infoBox{
+
+.infoBox {
   background: #fff;
 }
-.infoBoxBottom{
-  font-size:32rpx;
-  font-family:PingFang-SC-Heavy;
-  font-weight:800;
-  color:rgba(51,51,51,1);
-  line-height:48rpx;
+
+.infoBoxBottom {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(51, 51, 51, 1);
+  line-height: 48rpx;
   padding: 0 0 37rpx 23rpx;
 }
 
-.optionBox{
+.optionBox {
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   background: #fff;
 }
 
-.optionItem{
+.optionItem {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin:25rpx 15rpx 0rpx 24rpx;
+  margin: 25rpx 15rpx 0rpx 24rpx;
 }
-.optionItem:last-child{
+
+.optionItem:last-child {
   margin-bottom: 36rpx;
 }
 
-.optionTitle{
-  font-size:26rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(153,153,153,1);
-  line-height:48rpx;
+.optionTitle {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48rpx;
 }
 
-
-.optionValue{
-  font-size:26rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(102,102,102,1);
-  line-height:48rpx;
+.optionValue {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 48rpx;
   margin-left: 23rpx;
-  flex-grow:1;
+  flex-grow: 1;
 }
 
-.contentBox{
+.contentBox {
   margin-top: 20rpx;
   background: #fff;
   padding: 44rpx 0;
 }
-.contentTitle{
+
+.contentTitle {
   text-align: center;
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(102,102,102,1);
-  line-height:48rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: 48rpx;
   position: relative;
   margin-bottom: 44rpx;
 }
-.contentTitle::after{
+
+.contentTitle::after {
   content: '';
   border-top: 2rpx solid #f6f6f6;
   width: 87rpx;
@@ -118,7 +130,7 @@ swiper image{
   left: 60%;
 }
 
-.contentTitle::before{
+.contentTitle::before {
   content: '';
   border-top: 2rpx solid #f6f6f6;
   width: 87rpx;
@@ -127,17 +139,16 @@ swiper image{
   right: 60%;
 }
 
-.contentImage{
+.contentImage {
   height: 750rpx;
   width: 100%;
 }
-image{
+
+image {
   width: 100%;
 }
 
-
-
-.backMask{
+.backMask {
   background: #000;
   opacity: 0.5;
   position: fixed;
@@ -147,20 +158,26 @@ image{
   z-index: 0;
 }
 
-.orderBox{
+.orderBox {
   background: #fff;
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 621rpx;
-  
 }
-.closeImg{
+
+.goodBox{
+  height:521rpx;
+  overflow-y: scroll;
+}
+
+.closeImg {
   position: absolute;
   right: 25rpx;
   top: 25rpx;
 }
-.goodImg{
+
+.goodImg {
   width: 214rpx;
   height: 214rpx;
   border: 1rpx solid #ccc;
@@ -168,12 +185,13 @@ image{
   top: -55rpx;
   left: 30rpx;
 }
-image{
+
+image {
   width: 100%;
   height: 100%;
 }
 
-.goodInfo{
+.goodInfo {
   position: absolute;
   left: 280rpx;
   top: 45rpx;
@@ -181,67 +199,71 @@ image{
   flex-direction: column;
   justify-content: space-around;
 }
-.gooPrice{
-  font-size:36rpx;
-  font-family:PingFang-SC-Heavy;
-  font-weight:800;
-  color:rgba(204,0,0,1);
-}
-.goodInfo view:last-child{
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(28,28,28,1);
+
+.gooPrice {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(204, 0, 0, 1);
 }
 
-.orderOption{
-  margin:221rpx 25rpx 0 25rpx;
+.goodInfo view:last-child {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(28, 28, 28, 1);
+}
+.goodBox{
+  overflow-y: scroll;
+}
+.orderOption {
+  margin: 25rpx 25rpx 0 25rpx;
   border-bottom: 1rpx solid #f6f6f6;
 }
-
-.orderOptionTitle{
-  font-size:28rpx;
-font-family:PingFang-SC-Regular;
-font-weight:400;
-color:rgba(51,51,51,1);
+.orderOptionBox{
+  margin:221rpx 25rpx 0 25rpx;
 }
-.orderOptionContent{
+.orderOptionTitle {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.orderOptionContent {
   padding: 34rpx 0;
   display: flex;
   flex-direction: row;
 }
-.orderOptionItem{
-background:rgba(245,245,245,1);
-border-radius:31rpx;
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-font-weight:400;
-color:rgba(28,28,28,1);
-text-align: center;
-line-height: 62rpx;
-padding: 16rpx 26rpx;
-display: inline;
-margin-left: 24rpx;
-}
-.optionActive{
-background:linear-gradient(90deg,rgba(108,65,39,1),rgba(142,82,36,1));
-border-radius:31rpx;
-font-size:26rpx;
-font-family:PingFang-SC-Regular;
-font-weight:400;
-color:rgba(255,255,255,1);
+
+.orderOptionItem {
+  background: rgba(245, 245, 245, 1);
+  border-radius: 301rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(28, 28, 28, 1);
+  text-align: center;
+  line-height: 62rpx;
+  padding: 0rpx 26rpx;
+  display: inline;
+  margin-left: 24rpx;
 }
 
+.optionActive {
+  background: linear-gradient(90deg, rgba(108, 65, 39, 1), rgba(142, 82, 36, 1));
+  border-radius: 31rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
 
-
-
-
-
-.infoBox{
+.infoBox {
   margin-top: 20rpx;
 }
 
-.infoItem{
+.infoItem {
   background: #fff;
   display: flex;
   flex-direction: row;
@@ -250,50 +272,54 @@ color:rgba(255,255,255,1);
   padding: 37rpx 23rpx;
   margin-top: 4rpx;
 }
+
 .infoLeft {
-  font-size:28rpx;
-  font-family:PingFang-SC-Medium;
-  font-weight:500;
-  color:rgba(51,51,51,1);
-  line-height:24rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 24rpx;
 }
 
-.caoNiMa{
+.caoNiMa {
   display: flex;
   flex-direction: row;
 }
-.caoNiMa view{
-  font-family:PingFang-SC-Medium;
-  font-weight:500;
-  color:rgba(153,153,153,1);
-  line-height:48rpx;
+
+.caoNiMa view {
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48rpx;
   margin-left: 4rpx;
-  background: #F9F9F9;
+  background: #f9f9f9;
   border-radius: 5rpx 0 0 5rpx;
   width: 50rpx;
   height: 50rpx;
   text-align: center;
 }
-.caoNiMa2{
-  font-size:28rpx;
-  font-family:PingFang-SC-Medium;
-  font-weight:500;
-  color:rgba(204,0,0,1);
-  line-height:24rpx;
-}
-.caoNiMa3{
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(204,0,0,1);
-  line-height:24rpx;
+
+.caoNiMa2 {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(204, 0, 0, 1);
+  line-height: 24rpx;
 }
 
-.fuck2{
-  font-size:20rpx;
+.caoNiMa3 {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(204, 0, 0, 1);
+  line-height: 24rpx;
 }
 
-.goodInfoBox{
+.fuck2 {
+  font-size: 20rpx;
+}
+
+.goodInfoBox {
   position: fixed;
   background: #fff;
   border-radius: 10rpx 10rpx 0 0;
@@ -303,38 +329,42 @@ color:rgba(255,255,255,1);
   z-index: 2;
   top: 224rpx;
 }
-.infoBoxItem{
+
+.infoBoxItem {
   border-bottom: 1rpx solid #f6f6f6;
   padding: 34rpx 24rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.goodInfoBoxTitle{
+
+.goodInfoBoxTitle {
   text-align: center;
   margin: 49rpx auto;
-  font-size:32rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(28,28,28,1);
-}
-.infoBoxTitle{
-  width: 110rpx;
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(28,28,28,1);
-  line-height:46rpx;
-}
-.infoBoxValue{
-  margin-left: 43rpx;
-  font-size:28rpx;
-  font-family:PingFang-SC-Regular;
-  font-weight:400;
-  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(28, 28, 28, 1);
 }
 
-.icon{
+.infoBoxTitle {
+  width: 110rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(28, 28, 28, 1);
+  line-height: 46rpx;
+}
+
+.infoBoxValue {
+  margin-left: 43rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}
+
+.icon {
   width: 36rpx;
   height: 36rpx;
 }

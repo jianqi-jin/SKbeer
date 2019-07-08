@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 28,
 			"list": [
 				{
 					"id": -1,
@@ -229,6 +229,19 @@
 					"name": "groupInfo",
 					"pathName": "pages/user/myGroup/groupInfo/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "recommend",
+					"pathName": "pages/recommend/recommend",
 					"scene": null
 				}
 			]
