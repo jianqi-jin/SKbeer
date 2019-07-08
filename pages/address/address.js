@@ -41,14 +41,15 @@ Page({
     }
   },
   navToEdit(event){
-    if (event.currentTarget.dataset.type == "newAddress" || event.currentTarget.dataset.addressId == ""){
+    if (event.currentTarget.dataset.type == "newAddress" || event.currentTarget.dataset.addressid == ""){
       //新地址
       wx.navigateTo({
         url: './editaddress/editaddress'
       })
     }else{
       //传数据
-      let addressId = event.currentTarget.dataset.addressId;
+      wx.setStorageSync('addressInfo', event.currentTarget.dataset.addressinfo )
+      let addressId = event.currentTarget.dataset.addressid;
       wx.navigateTo({
         url: './editaddress/editaddress?addressId='+addressId
       })

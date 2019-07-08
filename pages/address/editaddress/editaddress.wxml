@@ -5,7 +5,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>联系人</view>
     <view class='input'>
-      <input name='realname' placeholder='姓名'></input>
+      <input name='realname' placeholder='姓名' value='{{addressInfo.realname}}'></input>
     </view>
   </view>
 
@@ -27,7 +27,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>电话</view>
     <view class='input'>
-      <input name='mobile' placeholder='手机号码'></input>
+      <input name='mobile' value='{{addressInfo.mobile}}' placeholder='手机号码'></input>
     </view>
   </view>
 
@@ -52,7 +52,7 @@
   </view>
 
   <view class='inputItem'>
-    <input class='text' name='address' placeholder='例：紫金相府A栋1705'></input>
+    <input class='text' name='address' value='{{addressInfo.address}}' placeholder='例：紫金相府A栋1705'></input>
   </view>
 
   <view class='inputItem'>
@@ -74,7 +74,7 @@
     <view class='inputItem'>
     <view class='fontTitle'>设为默认</view>
     <view class='input switchBox'>
-      <switch name='isdefault' color='#6C4127' bindchange="switch1Change"/>
+      <switch name='isdefault' checked='{{addressInfo.isdefault == "1"}}' color='#6C4127' bindchange="switch1Change"/>
     </view>
   </view>
 

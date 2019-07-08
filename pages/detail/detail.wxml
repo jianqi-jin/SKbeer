@@ -73,6 +73,7 @@
   </view>
 
   <view class='goodBox'>
+  <view class='back'></view>
     <view class='goodImg'>
       <image src='{{goodInfo.thumb}}'></image>
     </view>

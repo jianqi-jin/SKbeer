@@ -59,6 +59,15 @@ swiper image {
   background: #fff;
 }
 
+.back {
+  position: absolute;
+  top: 0;
+  height: 182rpx;
+  width: 100%;
+  background: #fff;
+  z-index: 0;
+}
+
 .infoBoxBottom {
   font-size: 32rpx;
   font-family: PingFang-SC-Heavy;
@@ -166,8 +175,8 @@ image {
   height: 621rpx;
 }
 
-.goodBox{
-  height:521rpx;
+.goodBox {
+  height: 521rpx;
   overflow-y: scroll;
 }
 
@@ -175,15 +184,17 @@ image {
   position: absolute;
   right: 25rpx;
   top: 25rpx;
+  z-index: 1;
 }
 
 .goodImg {
   width: 214rpx;
   height: 214rpx;
-  border: 1rpx solid #ccc;
   position: absolute;
   top: -55rpx;
   left: 30rpx;
+  border-radius:5rpx;
+  overflow: hidden;
 }
 
 image {
@@ -213,16 +224,20 @@ image {
   font-weight: 400;
   color: rgba(28, 28, 28, 1);
 }
-.goodBox{
+
+.goodBox {
   overflow-y: scroll;
 }
+
 .orderOption {
   margin: 25rpx 25rpx 0 25rpx;
   border-bottom: 1rpx solid #f6f6f6;
 }
-.orderOptionBox{
-  margin:221rpx 25rpx 0 25rpx;
+
+.orderOptionBox {
+  margin: 221rpx 25rpx 0 0rpx;
 }
+
 .orderOptionTitle {
   font-size: 28rpx;
   font-family: PingFang-SC-Regular;
@@ -249,7 +264,9 @@ image {
   display: inline;
   margin-left: 24rpx;
 }
-
+.orderOptionItem:first-child{
+  margin-left: 0;
+}
 .optionActive {
   background: linear-gradient(90deg, rgba(108, 65, 39, 1), rgba(142, 82, 36, 1));
   border-radius: 31rpx;

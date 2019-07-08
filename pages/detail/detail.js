@@ -64,6 +64,9 @@ Page({
     this.setData({
       spec: this.data.spec.map((val, i) => {
         return val.specs.map((val2, i2) => {
+          if (specIndex != i){
+            return val
+          }
           return val2.checked = specIndex == i && index == i2 ? true : false, val;
         }), val;
       })
@@ -123,9 +126,34 @@ Page({
       })
     } else {
       //navTo orderPage
-      wx.navigateTo({
-        url: './order/order'
+      let specAllNum = 0;
+      let specNowNum = 0;
+      this.data.spec.map((val, index) => {
+        specAllNum += 1;
+        var checked = false;
+        val.specs.map(val => {
+          checked = val.checked?true:checked
+        })
+        if (checked){
+          specNowNum += 1;
+        }
       })
+      console.log(specAllNum, specNowNum)
+      if (specAllNum == specNowNum){
+        //ok
+        wx.navigateTo({
+          url: './order/order'
+        })
+      }else{
+        wx.showToast({
+          title: '请选择规格',
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+      }
+
     }
   },
   closeOrder() {

@@ -6,7 +6,7 @@
     <view bindtap='navBack' data-item='{{item}}'>
       <view class='titleBox'>
         <view class='nameBox'>
-          <view class='fontTitle'>{{item.realname}} {{item.sex == "1" ? '（先生）' : '女士'}}</view>
+          <view class='fontTitle'>{{item.realname}} {{item.sex == "0" ? '（先生）' : '（女士）'}}</view>
         </view>
         <view class='mobile fontTitle'>{{item.mobile}}</view>
       </view>
@@ -27,7 +27,7 @@
           <view class='iconEdit'>
             <image src='./res/img/icon-edit.png'></image>
           </view>
-          <view class='fontTitle' bindtap='navToEdit' data-addressId='{{item.id}}'>编辑</view>
+          <view class='fontTitle' bindtap='navToEdit' data-addressInfo='{{item}}' data-addressId='{{item.id}}'>编辑</view>
           <view class='btn'>
             <view class='iconDel'>
               <image src='./res/img/icon-delete.png'></image>

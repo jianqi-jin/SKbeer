@@ -36,6 +36,34 @@ Page({
       infoFlag: true
     })
   },
+  agentPay(){
+    return new Promise(resolve => {
+
+      let data = {
+        pay_money: 0.01,//价格
+        gift_id: this.data.currentGift.id,
+        address_id: this.data.addressInfo.id
+      }
+      api.agentPay(app.globalData.openid, data).then(res => {
+        console.log(res)
+
+        wx.requestPayment({
+          timeStamp: res.data.wechat.timeStamp,
+          nonceStr: res.data.wechat.nonceStr,
+          package: res.data.wechat.package,
+          signType: res.data.wechat.signType,
+          paySign: res.data.wechat.paySign,
+          success: function(res) {
+            console.log(res)
+            resolve(res)
+          }
+        })
+
+
+        resolve(res)
+      })
+    })
+  },
   showOrder() {
     if (this.data.status == 1) {
       //检查表单
@@ -51,7 +79,10 @@ Page({
         })
       } else {
         //支付
-
+        this.agentPay().then(res => {
+          console.log(res)
+        })
+        return 
         wx.redirectTo({
           url: '../paySuccess/paySuccess'
         })

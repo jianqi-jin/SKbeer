@@ -91,6 +91,17 @@ Page({
   getUserInfo(){
     api.getUserInfo(app.globalData.openid).then(res => {
       console.log(res)
+      res.data.card = res.data.card.map((val, index) => {
+        for(let i in val){
+          if (i == 'zs_money'){
+            val[i] = Math.round(val[i]);
+          }
+          if (i == 'sc_money'){
+            val[i] = Math.round(val[i]);
+          }
+        }
+        return val
+      })
       this.setData({
         userInfo: res.data
       })

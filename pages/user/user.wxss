@@ -8,6 +8,9 @@
   justify-content: center;
   align-items: center;
 }
+.infoList{
+  margin-top: 20rpx;
+}
 .bgImg{
   position: absolute;
   top: 0;
@@ -101,7 +104,7 @@
 
 
 .itemCard .cardContent{
-  margin-top:20rpx;
+  margin-top:30rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,7 +148,7 @@ color:rgba(51,51,51,1);
   width: 102rpx;
   height: 32rpx;
   text-align: center;
-  line-height: 46rpx;
+  line-height:32rpx;
   font-size:20rpx;
   font-family:PingFang-SC-Medium;
   font-weight:bold;

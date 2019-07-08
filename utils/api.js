@@ -83,6 +83,21 @@ const address = {
       })
     })
   },
+  editAddress: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.address_edit&openid='+openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getOneAddress: (openid, address_id) => {
     return new Promise(resolve => {
       wx.request({
@@ -101,6 +116,21 @@ const address = {
 }
 
 const gifts = {
+  agentPay: function(openid, data) {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.agent_pay&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getGiftList: function(openid) {
     return new Promise(resolve => {
       wx.request({
@@ -312,6 +342,7 @@ const bankCard = {
       })
     })
   }
+
 }
 
 
@@ -320,13 +351,15 @@ module.exports = {
   addAddress: address.addAddress,
   changeDefaultAddress: address.changeDefault,
   delAddress: address.del,
+  editAddress: address.editAddress,
   getAddress: address.getOneAddress,
   getGiftList: gifts.getGiftList,
+  agentPay: gifts.agentPay,
   getDefalutAdderss: address.getDefalutAdderss,
   getUserInfo: user.getUserInfo,
   getGoodFromId: good.getGoodFromId,
   getGoodInfo: good.getGoodInfo,
-  getGoodSpec: good.getGoodSpec, 
+  getGoodSpec: good.getGoodSpec,
   getDrawHis: user.getDrawHis,
   getReferCenterInfo: user.getReferCenterInfo,
   addCard: bankCard.addCard,

@@ -35,7 +35,7 @@
 
 <view class='orderPage' wx:if='{{orderFlag}}'>
   <view class='orderTitleBox'>
-    <view class=''>确认订单</view>
+    <view>确认订单</view>
     <view bindtap='closeInfo' class='icon'>
       <image src='/res/icon/icon-close-bg.png'></image>
     </view>
