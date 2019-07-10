@@ -19,6 +19,19 @@ Page({
       complete: function(res) {},
     })
   },
+  getUpgreadUpInfo() {
+    let upgreadInfo = wx.getStorageSync('upgreadInfo');
+    if (upgreadInfo) {
+    } else {
+      api.getUpgreadUpInfo(app.globalData.openid).then(res => {
+        console.log(res)
+        wx.setStorageSync('upgreadInfo', res.data)
+      })
+    }
+    this.setData({
+      upgreadInfo
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -142,8 +142,7 @@ image{
 }
 
 .option{
-  width:184rpx;
-  height:36rpx;
+  padding:0 10rpx;
   line-height: 36rpx;
   text-align: center;
   background:rgba(245,245,245,1);

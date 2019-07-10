@@ -1,5 +1,4 @@
 const apiUrl = 'https://oa.yika.co/';
-const POSId = '17';
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -64,6 +63,5 @@ function request(url, method = 'GET', data = {}) {
 module.exports = {
   formatTime: formatTime,
   request,
-  apiUrl,
-  posId: POSId
+  apiUrl
 }

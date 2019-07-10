@@ -1,12 +1,8 @@
 <!--pages/home/home.wxml-->
 
-<view wx:for='{{imgList}}' wx:key="index" bindtap='navToDetail' data-goodid='{{item.id}}'>
-  <image class='imgItem' mode='widthFix' src='{{item.thumb}}'></image>
-</view>
 
-
+<image bindtap='navToDetail' wx:for='{{imgList}}' wx:key="index" data-goodid='{{item.id}}' class='imgItem' mode='widthFix' src='{{item.thumb}}'></image>
 
 
 
 <nav-bottom selected-index='0'></nav-bottom>
-

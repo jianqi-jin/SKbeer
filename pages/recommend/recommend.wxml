@@ -60,8 +60,8 @@
           <!-- 底部 -->
           <view class='footr'>
             <view class='left'>
-              <image wx:for="{{itemName.ar}}" wx:key="{{index}}" src='{{item.avatar}}' class='portrait'></image>
-              <text>等{{itemName.num}}人已分享</text>
+              <image wx:for="{{itemName.avatar}}" wx:key="{{index}}" src='{{item ? item: ""}}' class='portrait'></image>
+              <text>等{{itemName.fx_num}}人已分享</text>
             </view>
             <view class='right'>
               <view class='preserve' style='border:1px solid {{color}}; color:{{color}};'  bindtap='storage' data-form='{{itemName.type}}' data-type='{{hinge}}' data-idx='{{idx}}'>一键保存</view>

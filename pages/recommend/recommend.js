@@ -8,15 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    color: '',
+    color: '#824C1F',
     coverHeight: "0rpx",
     codeHeight: "0rpx",
     // 顶部广告图
     advertImg: "http://yika.oss-cn-shanghai.aliyuncs.com/qzoa/image/2019051397565110.png",
     // 推荐内容
     hinge: 0,
-    list: [
-      {
+    list: [{
         page: 1,
         data: []
       },
@@ -25,10 +24,10 @@ Page({
         data: []
       }
     ],
-    imgurl:'',
+    imgurl: '',
     userName: "",
     userImg: "",
-    shareInfo:''
+    shareInfo: ''
   },
   switchHinge(e) {
     this.setData({
@@ -47,39 +46,41 @@ Page({
     })
   },
   //获取图片高度
-  getImgWidth: function (node, fun) {
+  getImgWidth: function(node, fun) {
     var that = this;
     var query = wx.createSelectorQuery();
-    query.select(node).boundingClientRect(function (res) {
+    query.select(node).boundingClientRect(function(res) {
       fun(res.width)
       return res.width;
     }).exec()
   },
   //设置头部高度
-  setCoverHeight: function (wid) {
+  setCoverHeight: function(wid) {
     this.setData({
       coverHeight: wid * 0.458 + "px"
     })
   },
 
   // 获取数据
-  getData: function (idx) {
+  getData: function(idx) {
     let this_ = this;
     let user = wx.getStorageSync('userInfo');
     let newData = this.data.list[idx];
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
-      page: newData.page,
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=46&r=senke.tuijian.index&openid=${app.globalData.openid}`, 'POST', {
       type: idx
     }).then((res) => {
-      console.log(res.res.arr)
+      console.log(res.list)
       let key = `list[${idx}]`;
       newData.page++;
-      newData.data = newData.data.concat(res.res.arr);
+      newData.data = newData.data.concat(res.list);
+      let userInfo = wx.getStorageSync('userInfo');
+      this_.setData({
+        userInfo
+      })
       this_.setData({
         [key]: newData,
-        userName: res.res.nickname,
-        userImg: res.res.avatar,
-        advertImg: res.res.banner
+        userName: userInfo.nickName,
+        userImg: userInfo.avatarUrl
       })
     }).catch(err => {
       console.log(err)
@@ -87,23 +88,23 @@ Page({
   },
 
   //下载资源
-  download(url){
-    return new Promise(function (resolve, reject) {
+  download(url) {
+    return new Promise(function(resolve, reject) {
       wx.showLoading({
         title: '加载中',
       })
       wx.downloadFile({
         url: url,
-        success: function (res) {
+        success: function(res) {
           console.log(res);
           resolve(res.tempFilePath);
           wx.hideLoading()
         },
-        fail: function (res){
+        fail: function(res) {
           console.log(res);
           wx.hideLoading()
         }
-      })  
+      })
     })
   },
   // 存储
@@ -117,7 +118,7 @@ Page({
 
     util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.fenxiang&openid=${wx.getStorageSync('openid')}`, 'POST', {
       id: newData[idx].tgy_id,
-      type:0
+      type: 0
     }).then((res) => {
 
       if (resourceType == '0') {
@@ -125,10 +126,10 @@ Page({
           console.log(res)
           this_.keepNetworkVideo(res)
         });
-      }else{
+      } else {
         console.log('请求回执', res)
         // 如果是一张图直接下载 否则 全下
-        if (imgList.length>1){
+        if (imgList.length > 1) {
           imgList.push(res.res.img)
           for (let i in imgList) {
             console.log(imgList[i])
@@ -138,13 +139,13 @@ Page({
             });
           }
           imgList.splice(imgList.length - 1, 1);
-        }else{
+        } else {
           this_.download(res.res.img).then((res) => {
             console.log(res)
             this_.keepNetworkImg(res)
           });
         }
-        
+
       }
       this_.shear(newData[idx].tgy)
       // 统计
@@ -171,10 +172,10 @@ Page({
     })
   },
   // 合成二维码
-  synthesis(bg, code ){
-    let this_=this;
+  synthesis(bg, code) {
+    let this_ = this;
     console.log(code)
-     // 获取二维码图像信息
+    // 获取二维码图像信息
     const avatarPromise = this.getImageInfo(code)
     // 获取背景图像信息
     const backgroundPromise = this.getImageInfo(bg)
@@ -185,25 +186,25 @@ Page({
       ctx.drawImage(res[0].path, 0, 0, 600, 900)
       // 小程序码
       const qrImgSize = 125
-      ctx.drawImage(res[1].path, 40, 900 - 20 - qrImgSize , qrImgSize, qrImgSize)
+      ctx.drawImage(res[1].path, 40, 900 - 20 - qrImgSize, qrImgSize, qrImgSize)
       ctx.stroke()
-      ctx.draw(false ,()=>{
+      ctx.draw(false, () => {
         wx.canvasToTempFilePath({
-        width:600,
-        height:900,
-        canvasId: 'shareCanvas',
-        success(res) {
-          // console.log(res)
-          console.log(res.tempFilePath)
-          this_.keepNetworkImg(res.tempFilePath)
-        }
-      }) 
+          width: 600,
+          height: 900,
+          canvasId: 'shareCanvas',
+          success(res) {
+            // console.log(res)
+            console.log(res.tempFilePath)
+            this_.keepNetworkImg(res.tempFilePath)
+          }
+        })
+      })
     })
-    }) 
   },
 
   // 设置剪切板
-  shear: function (text) {
+  shear: function(text) {
     wx.setClipboardData({
       data: text,
       success(res) {
@@ -216,15 +217,15 @@ Page({
     })
   },
   // 图片保存到本地
-  keepNetworkImg: function (src) {
+  keepNetworkImg: function(src) {
     let imgSrc = src;
     //图片保存到本地
     wx.saveImageToPhotosAlbum({
       filePath: imgSrc,
-      success: function (data) {
-        util.showToast('保存成功', 'success')
+      success: function(data) {
+        // util.showToast('保存成功', 'success')
       },
-      fail: function (err) {
+      fail: function(err) {
         console.log(err);
         if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
           console.log("当初用户拒绝，再次发起授权")
@@ -246,15 +247,15 @@ Page({
     })
   },
   // 视频保存到本地
-  keepNetworkVideo: function (src) {
+  keepNetworkVideo: function(src) {
     let imgSrc = src;
     //图片保存到本地
     wx.saveVideoToPhotosAlbum({
       filePath: imgSrc,
-      success: function (data) {
-        util.showToast('保存成功', 'success')
+      success: function(data) {
+        // util.showToast('保存成功', 'success')
       },
-      fail: function (err) {
+      fail: function(err) {
         console.log(err);
         if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
           console.log("当初用户拒绝，再次发起授权")
@@ -276,24 +277,23 @@ Page({
     })
   },
 
-  setShare() {
-    let this_ = this;
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.index.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
-    }).then((res) => {
-      console.log(res)
-      res.fx.title = '森客啤酒';
-      this_.setData({
-        shareInfo: res.fx,
-      })
+  // setShare() {
+  //   let this_ = this;
+  //   util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.index.index&openid=${wx.getStorageSync('openid')}`, 'POST', {}).then((res) => {
+  //     console.log(res)
+  //     res.fx.title = '森客啤酒';
+  //     this_.setData({
+  //       shareInfo: res.fx,
+  //     })
 
-    }).catch(err => {
-      console.log(err)
-    });
-  },
+  //   }).catch(err => {
+  //     console.log(err)
+  //   });
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.hideShareMenu()
     this.getData(this.data.hinge)
     let userName = wx.getStorageSync('userName');
@@ -302,9 +302,9 @@ Page({
       userName: userName,
       userImg: userImg
     })
-    this.setShare()
+    // this.setShare()
     this.setData({
-      color: '#824C1F'//app.globalData.color
+      color: '#824C1F' //app.globalData.color
     })
     wx.setNavigationBarTitle({
       title: '推荐有奖'
@@ -314,46 +314,46 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    this.getImgWidth(".headerImg", this.setCoverHeight) 
+  onReady: function() {
+    this.getImgWidth(".headerImg", this.setCoverHeight)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     // this.getData(this.data.hinge)
   },
-  
-  statistics(id){
+
+  statistics(id) {
     util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.fx&openid=${wx.getStorageSync('openid')}`, 'POST', {
       id: id
     }).then((res) => {
@@ -377,9 +377,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function(e) {
     let this_ = this;
-    if (e.target){
+    if (e.target) {
       let type = e.target.dataset.type;
       let idx = e.target.dataset.idx;
       let newData = this.data.list[type].data;
@@ -406,5 +406,5 @@ Page({
       imageUrl: this.data.shareInfo.imgUrl,
       path: `/pages/accredit/accredit?uid=${this.data.shareInfo.link}&store_id=${wx.getStorageSync('store_id')}`
     }
-  } 
+  }
 })

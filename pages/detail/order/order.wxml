@@ -4,12 +4,12 @@
 
   <view class='boxGood'>
     <view class='goodLeft'>
-      <image src=''></image>
+      <image src='{{orderInfo.goodInfo.thumb}}'></image>
     </view>
     <view class='goodRight'>
-      <view>CORONA墨西哥原装正品啤酒</view>
-      <view class='option'>规格： 330mlx24</view>
-      <view>￥299</view>
+      <view>{{orderInfo.goodInfo.title}}</view>
+      <view class='option'>规格： {{orderInfo.specInfo.title? orderInfo.specInfo.title:"默认"}}</view>
+      <view>￥{{orderInfo.goods_price}}</view>
     </view>
   </view>
 
@@ -20,18 +20,18 @@
     <view class='infoItem'>
       <view class='infoLeft'>购买数量</view>
       <view class='caoNiMa'>
-        <view class='fuck1'>-</view>
-        <view class='fuck2'>456</view>
-        <view class='fuck3'>+</view>
+        <view class='fuck1' bindtap='deOrderNum'>-</view>
+        <view class='fuck2'>{{orderInfo.num}}</view>
+        <view class='fuck3' bindtap='addOrderNum'>+</view>
       </view>
     </view>
     <view class='infoItem'>
       <view class='infoLeft'>商品金额</view>
-      <view class='caoNiMa2'>￥299.00</view>
+      <view class='caoNiMa2'>￥{{orderInfo.goods_price * orderInfo.num}}</view>
     </view>
     <view class='infoItem'>
       <view class='infoLeft'>储值抵扣</view>
-      <view class='caoNiMa3'>-￥10</view>
+      <view class='caoNiMa3'>-￥{{orderInfo.dikou_money}}</view>
     </view>
   </view>
 
@@ -40,7 +40,7 @@
       <view class='infoLeft'>支付方式</view>
       <view class='infoRight otherRight'>
         <view class='icon'><image src='/res/icon/wechat.png'></image></view>
-        <view>微信支付</view>
+        <view>{{payType[orderInfo.pay_type]}}</view>
       </view>
     </view>
     <view class='infoItem'>
@@ -53,18 +53,18 @@
   <view class='footBox'>
   
     <view class='footLeft'>
-      <view>实付 ￥289.00</view>
-      <view>储值抵扣 -￥10</view>
+      <view>实付 ￥{{orderInfo.pay_money}}</view>
+      <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
     </view>
-    <view class='footRight' bindtap='goPay'>立即支付</view>
+    <view class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</view>
   </view>
 
-  <view class='payMask' wx:if='{{paySuccessFlag}}'>
+  <view class='payMask' wx:if='{{paySuccessFlag}}' wx:key='index'>
   
     
   </view>
 
-  <view class='paySuccessBox' wx:if='{{paySuccessFlag}}'>
+  <view class='paySuccessBox' wx:if='{{paySuccessFlag}}' wx:key='index'>
     <view class='box'>
       <view class='imageBox'>
         <image src='/res/icon/img-sub-beer.png'></image>
@@ -74,7 +74,7 @@
 
         <view class='asdw'>
           <view class='asdw1'>￥</view>
-          <view class='asdw2'>289.00</view>
+          <view class='asdw2'>{{orderInfo.pay_money}}</view>
         </view>
         <view class='asdw3'>支付成功</view>
       </view>

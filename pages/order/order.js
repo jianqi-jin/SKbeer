@@ -6,69 +6,65 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodStatus: [
-      {
-        statusTitle: '待付款',
-        btnTitle: '去付款'
-      }, {
-        statusTitle: '待发货',
-        btnTitle: ''
-      }, {
-        statusTitle: '待发货',
-        btnTitle: '查看物流'
-      }, {
-        statusTitle: '成功',
-        btnTitle: ''
-      }, {
-        statusTitle: '退款申请',
-        btnTitle: ''
-      }, {
-        statusTitle: '取消订单',
-        btnTitle: ''
-      }
-    ],
+    goodStatus: [{
+      statusTitle: '待付款',
+      btnTitle: '去付款'
+    }, {
+      statusTitle: '待发货',
+      btnTitle: ''
+    }, {
+      statusTitle: '待发货',
+      btnTitle: '查看物流'
+    }, {
+      statusTitle: '成功',
+      btnTitle: ''
+    }, {
+      statusTitle: '退款申请',
+      btnTitle: ''
+    }, {
+      statusTitle: '取消订单',
+      btnTitle: ''
+    }],
     orderList: [],
     currentShowPageId: 0,
-    navHeaderList: [
-      {
-        title: '全部',
-        selected: true,
-        id: 0
-      }, {
-        title: '待付款',
-        selected: true,
-        id: 1
-      }, {
-        title: '待发货',
-        selected: true,
-        id: 2
-      }, {
-        title: '待收货',
-        selected: true,
-        id: 3
-      }, {
-        title: '已完成',
-        selected: true,
-        id: 4
-      }, {
-        title: '已取消',
-        selected: true,
-        id: 5
-      }
-    ]
+    navHeaderList: [{
+      title: '全部',
+      selected: true,
+      id: 0
+    }, {
+      title: '待付款',
+      selected: true,
+      id: 1
+    }, {
+      title: '待发货',
+      selected: true,
+      id: 2
+    }, {
+      title: '待收货',
+      selected: true,
+      id: 3
+    }, {
+      title: '已完成',
+      selected: true,
+      id: 4
+    }, {
+      title: '已取消',
+      selected: true,
+      id: 5
+    }]
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getorderList(5);
     wx.setNavigationBarTitle({
       title: '我的订单'
     })
   },
-  getorderList(status){
+  getorderList(status) {
     let that = this;
     wx.request({
       url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
@@ -84,12 +80,12 @@ Page({
       success: function(res) {
         let data = res.data
         console.log(data)
-        if (res.data.error != "0"){
+        if (res.data.error != "0") {
           wx.showToast({
             title: 'error: ' + res.data.error,
             icon: 'none'
           })
-        }else{
+        } else {
           that.setData({
             orderList: data.order_list
           })
@@ -100,7 +96,7 @@ Page({
       complete: function(res) {},
     })
   },
-  btnFun(ev){
+  btnFun(ev) {
     let item = ev.currentTarget.dataset.item;
     console.log(item);
     let id = parseInt(item.status);
@@ -109,122 +105,175 @@ Page({
       url: './orderdetail/orderdetail?orderId=' + item.id,
     })
     switch (id) {
-      case -1: {//取消
-        break;
-      }
-      case 0: {//待付款
-        break;
-      }
-      case 1: {//待发货
-        break;
-      }
-      case 2: {//待收货
-        break;
-      }
-      case 3: {//已完成
-        break;
-      }
-      case 4: {//申请退款
-        break;
-      }//申请退款？？
-      default: {
-        showToast({
-          title: '获取错误',
-          icon: 'none'
-        })
-        break;
-      }
+      case -1:
+        { //取消
+          break;
+        }
+      case 0:
+        { //待付款
+          break;
+        }
+      case 1:
+        { //待发货
+          break;
+        }
+      case 2:
+        { //待收货
+          break;
+        }
+      case 3:
+        { //已完成
+          break;
+        }
+      case 4:
+        { //申请退款
+          break;
+        } //申请退款？？
+      default:
+        {
+          showToast({
+            title: '获取错误',
+            icon: 'none'
+          })
+          break;
+        }
     }
 
   },
-  changeNav(item){
+  changeNav(item) {
     let id = item.currentTarget.dataset.id;
     this.setData({
       currentShowPageId: id
     })
-    switch(id){
-      case 0:{//全部
-        this.getorderList(5)
-        break;
-      }
-      case 1: {//待付款
-        this.getorderList(0)
-        break;
-      }
-      case 2: {//待发货
-        this.getorderList(1)
-        break;
-      }
-      case 3: {//待收货
-        this.getorderList(2)
-        break;
-      }
-      case 4: {//已完成
-        this.getorderList(3)
-        break;
-      }
-      case 5: {//已取消
-        this.getorderList(-1)
-        break;
-      }//申请退款？？
-      default :{
-        showToast({
-          title: '获取错误',
-          icon: 'none'
-        })
-        break;
-      }
+    switch (id) {
+      case 0:
+        { //全部
+          this.getorderList(5)
+          break;
+        }
+      case 1:
+        { //待付款
+          this.getorderList(0)
+          break;
+        }
+      case 2:
+        { //待发货
+          this.getorderList(1)
+          break;
+        }
+      case 3:
+        { //待收货
+          this.getorderList(2)
+          break;
+        }
+      case 4:
+        { //已完成
+          this.getorderList(3)
+          break;
+        }
+      case 5:
+        { //已取消
+          this.getorderList(-1)
+          break;
+        } //申请退款？？
+      default:
+        {
+          showToast({
+            title: '获取错误',
+            icon: 'none'
+          })
+          break;
+        }
     }
 
-    
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function() {
+    switch (this.data.currentShowPageId) {
+      case 0:
+        { //全部
+          this.getorderList(5)
+          break;
+        }
+      case 1:
+        { //待付款
+          this.getorderList(0)
+          break;
+        }
+      case 2:
+        { //待发货
+          this.getorderList(1)
+          break;
+        }
+      case 3:
+        { //待收货
+          this.getorderList(2)
+          break;
+        }
+      case 4:
+        { //已完成
+          this.getorderList(3)
+          break;
+        }
+      case 5:
+        { //已取消
+          this.getorderList(-1)
+          break;
+        } //申请退款？？
+      default:
+        {
+          showToast({
+            title: '获取错误',
+            icon: 'none'
+          })
+          break;
+        }
+    }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

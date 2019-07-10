@@ -15,7 +15,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>银行卡号</view>
     <view class='input'>
-      <input name='number' bindinput='cardChange' placeholder='填写您的卡号'></input>
+      <input name='number' type='number' bindinput='cardChange' placeholder='填写您的卡号'></input>
     </view><!--<view class='icon'><image src='/res/icon/icon_right_click.png'></image></view>-->
     
   </view>
@@ -33,7 +33,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>手机号码</view>
     <view class='input'>
-      <input name='yh_number' bindinput='bindPhoneChange' placeholder='填写银行预留手机号'></input>
+      <input name='yh_number' type='number' bindinput='bindPhoneChange' placeholder='填写银行预留手机号'></input>
     </view>
     <view class='getVcode' bindtap='sendMsg'>{{vCodeFlag ? '获取验证码' : '剩余'+vCodeTime+'s'}}</view>
   </view>

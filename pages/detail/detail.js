@@ -7,26 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disableFlag: false,
     showIndex: 0, //0 1 3详情
     indicatorDots: true,
     autoplay: true,
     circular: true,
     interval: 5000,
     duration: 1000,
+    spec_str: '',
     goodsId: '',
     goodInfo: {},
     goodParams: [],
     spec: null,
     orderInfo: {
-      option_id: null,//323_325  规格id
+      option_id: null, //323_325  规格id
       goods_id: null,
-      goods_price: null,//商品单价
-      address_id: null,//地址id
-      num: 0,//数量
-      pay_type: null,//支付方式
-      pay_money: null,//微信支付金额
-      dikou_money: null//抵扣金额
-    }//下单信息
+      goods_price: null, //商品单价
+      address_id: null, //地址id
+      num: 1, //数量
+      pay_type: null, //支付方式
+      pay_money: null, //微信支付金额
+      dikou_money: null, //抵扣金额
+      specInfo: {}//非表单信息
+    } //下单信息
   },
 
   /**
@@ -40,7 +43,7 @@ Page({
   addOrderNum() {
     let num = this.data.orderInfo.num;
     num += 1;
-    if(num > 100){
+    if (num > 100) {
       num = 100;
     }
     this.setData({
@@ -50,8 +53,8 @@ Page({
   deOrderNum() {
     let num = this.data.orderInfo.num;
     num -= 1;
-    if (num < 0) {
-      num = 0;
+    if (num < 1) {
+      num = 1;
     }
     this.setData({
       ['orderInfo.num']: num
@@ -61,18 +64,72 @@ Page({
     console.log(ev.currentTarget.dataset)
     let specIndex = ev.currentTarget.dataset.specindex;
     let index = ev.currentTarget.dataset.index;
+    let spec_str = ''
     this.setData({
       spec: this.data.spec.map((val, i) => {
         return val.specs.map((val2, i2) => {
-          if (specIndex != i){
-            return val
+          if (specIndex != i) {
+            // if (index == i2)
+            //spec_str += '_' + val2.id;
+            return val2
           }
-          return val2.checked = specIndex == i && index == i2 ? true : false, val;
+
+          let flag = specIndex == i && index == i2;
+          val2.checked = flag
+          return val2;
         }), val;
       })
     })
-    console.log(this.data.spec)
+    this.data.spec.map((val1, index1) => {
+      val1.specs.map((val2, index2) => {
+        if (val2.checked) {
+          spec_str += val2.id + '_'
+        }
+      })
+    })
+    this.setData({
+      spec_str: spec_str.substr(0, spec_str.length - 1)
+    })
 
+    this.setData({
+      disableFlag: true
+    })
+    this.getPriceByOption().then(res => {
+      console.log(res)
+      if(res.data.error == "003"){
+        res.data.result = {};
+        res.data.result.marketprice = this.data.goodInfo.marketprice;
+      }
+      this.setData({
+        orderInfo:
+        {
+          option_id: this.data.spec_str, //323_325  规格id
+          goods_id: this.data.goodInfo.id,
+          goods_price: res.data.result.marketprice, //商品单价
+          address_id: null, //地址id
+          num: this.data.orderInfo.num, //数量
+          pay_type: 25, //支付方式
+          pay_money: null, //微信支付金额
+          dikou_money: 0, //抵扣金额
+          specInfo: res.data.result,//非表单信息
+          goodInfo: this.data.goodInfo//非表单信息
+        } //下单信息
+      })
+
+      this.setData({
+        disableFlag: false
+      })
+    })
+
+  },
+  getPriceByOption() {
+    return new Promise(resolve => {
+      api.getPriceByOption(app.globalData.openid, {
+        spec_id: this.data.spec_str
+      }).then(res => {
+        resolve(res)
+      })
+    })
   },
   showInfo() {
     wx.setNavigationBarColor({
@@ -105,9 +162,9 @@ Page({
         goods_id: this.data.goodInfo.id
       }).then(res => {
         console.log(res)
-        if(!res.data.specs){
+        if (!res.data.specs) {
           res.data.specs = [{
-            "id": "-1",//默认
+            "id": "-1", //默认
             "title": "默认",
             "specs": [{
               "id": "-1",
@@ -132,19 +189,20 @@ Page({
         specAllNum += 1;
         var checked = false;
         val.specs.map(val => {
-          checked = val.checked?true:checked
+          checked = val.checked ? true : checked
         })
-        if (checked){
+        if (checked) {
           specNowNum += 1;
         }
       })
       console.log(specAllNum, specNowNum)
-      if (specAllNum == specNowNum){
+      if (specAllNum == specNowNum) {
         //ok
+        wx.setStorageSync('orderInfo', this.data.orderInfo)
         wx.navigateTo({
           url: './order/order'
         })
-      }else{
+      } else {
         wx.showToast({
           title: '请选择规格',
           icon: 'none',

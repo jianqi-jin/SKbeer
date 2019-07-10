@@ -86,7 +86,7 @@ const address = {
   editAddress: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.address_edit&openid='+openid,
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.address_edit&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -116,6 +116,21 @@ const address = {
 }
 
 const gifts = {
+  getUpgreadUpInfo: function(openid) {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.dl_upgrade&openid=' + openid,
+        data: '',
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   agentPay: function(openid, data) {
     return new Promise(resolve => {
       wx.request({
@@ -200,6 +215,66 @@ const user = {
 }
 
 const good = {
+  closeOrder: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.order_close&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  delOrder: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.order_del&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  orderPay: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.order_pay&&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  getPriceByOption: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_option&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getGoodInfo: (data) => {
     return new Promise(resolve => {
       wx.request({
@@ -355,11 +430,16 @@ module.exports = {
   getAddress: address.getOneAddress,
   getGiftList: gifts.getGiftList,
   agentPay: gifts.agentPay,
+  getUpgreadUpInfo: gifts.getUpgreadUpInfo,
   getDefalutAdderss: address.getDefalutAdderss,
   getUserInfo: user.getUserInfo,
   getGoodFromId: good.getGoodFromId,
   getGoodInfo: good.getGoodInfo,
   getGoodSpec: good.getGoodSpec,
+  getPriceByOption: good.getPriceByOption,
+  orderPay: good.orderPay,
+  closeOrder: good.closeOrder,
+  delOrder: good.delOrder,
   getDrawHis: user.getDrawHis,
   getReferCenterInfo: user.getReferCenterInfo,
   addCard: bankCard.addCard,

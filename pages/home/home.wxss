@@ -1,8 +1,7 @@
 /* pages/home/home.wxss */
-.text{
 
-}
 .imgItem{
   width: 100%;
+  margin-top: -6rpx;
 }
 

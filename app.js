@@ -30,10 +30,10 @@ App({
           responseType: 'text',
           success: function (res) {
             console.log(res)
-            that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
+            //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
             that.globalData.session_key = res.data.data.session_key;
             wx.setStorageSync('openid', that.globalData.openid)
-            //that.globalData.openid = 'sns_wa_' +　res.data.data.openid;
+            that.globalData.openid = 'sns_wa_' +　res.data.data.openid;
             //请求用户数据
 
 
@@ -66,6 +66,7 @@ App({
     })
   },
   globalData: {
+    color: '#824C1F',
     userInfo: null,
     navBottomList: [{
       url: '',
