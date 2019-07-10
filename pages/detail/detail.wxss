@@ -149,7 +149,6 @@ swiper image {
 }
 
 .contentImage {
-  height: 750rpx;
   width: 100%;
 }
 
@@ -236,6 +235,7 @@ image {
 
 .orderOptionBox {
   margin: 221rpx 25rpx 0 0rpx;
+  overflow: auto;
 }
 
 .orderOptionTitle {
@@ -384,4 +384,11 @@ image {
 .icon {
   width: 36rpx;
   height: 36rpx;
+}
+
+.pageViewHidden{
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }

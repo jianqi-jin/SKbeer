@@ -6,7 +6,7 @@
     <view bindtap='navBack' data-item='{{item}}'>
       <view class='titleBox'>
         <view class='nameBox'>
-          <view class='fontTitle'>{{item.realname}} {{item.sex == "0" ? '（先生）' : '（女士）'}}</view>
+          <view class='fontTitle'>{{item.realname}} {{item.sex == "0" ? '（先生）' : '（女士）'}}<view class='typeClass'>{{item.type == "0"?  "家": "公司"}}</view></view>
         </view>
         <view class='mobile fontTitle'>{{item.mobile}}</view>
       </view>

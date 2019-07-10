@@ -18,7 +18,7 @@
   <view class='cardBox'>
     <view class='cardTop'>
       <view>累计收益 （元）</view>
-      <view class='num'>45636.02</view>
+      <view class='num'>{{userInfo.money.leiji_money}}</view>
       <view><navigator open-type='navigate' url='/pages/user/incomeInfo/incomeInfo'>收益明细</navigator></view>
     </view>
     <view class='cardBottom'>

@@ -39,7 +39,7 @@
       <view class="section">
         <picker name='address0' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
           <view class="picker">
-          <input placeholder='请选择收货地址' value='{{region[0].length > 0 ? region : ""}}'></input>
+          <input disabled='true' placeholder='请选择收货地址' value='{{region[0].length > 0 ? region : ""}}'></input>
           </view>
         </picker>
       </view>

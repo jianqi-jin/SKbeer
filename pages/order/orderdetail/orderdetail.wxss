@@ -16,6 +16,18 @@
   background:rgba(255,255,255,1);
   margin-top: 20rpx;
 }
+.typeClass {
+  padding: 0rpx 10rpx;
+  background: #fff;
+  display: inline;
+  border: 2rpx solid rgba(108, 65, 39, 1);
+  border-radius: 15rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(108, 65, 39, 1);
+  line-height: 24rpx;
+}
 .otherBox{
   padding: 44rpx 0 44rpx 28rpx;
   height:120rpx;

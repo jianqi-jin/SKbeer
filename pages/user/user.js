@@ -14,8 +14,7 @@ Page({
       iconArr: '/pages/user/res/img/icon_right_click.png',
       url: '',
     },
-    infoList: [
-      {
+    infoList: [{
         iconImg: '/res/icon/icon-extension.png',
         title: '推广中心',
         iconArr: '/res/icon/icon_right_click.png',
@@ -30,35 +29,28 @@ Page({
         showFlag: true
       }
     ],
-    cardList: [{
-      title: '首冲赠5元',
-      price: '1000',
-      info: '赠100元'
-    }, {
-        title: '首冲赠5元',
-        price: '1000',
-        info: '赠100元'
-      }, {
-        title: '首冲赠5元',
-        price: '1000',
-        info: '赠100元'
-      }]
+    cardList: []
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setNavigationBarTitle({
       title: '用户中心'
     })
 
   },
-  fun(ev){
+  callPhone(){
+    wx.makePhoneCall({
+      phoneNumber: '17724806779'
+    })
+  },
+  fun(ev) {
     let item = ev.currentTarget.dataset.ev;
     console.log(item)
-    if (item.title == "联系客服"){
+    if (item.title == "联系客服") {
       //进入客服
       wx.navigateTo({
         url: '',
@@ -66,8 +58,8 @@ Page({
         fail: function(res) {},
         complete: function(res) {},
       })
-    }else{
-      if(item.url){
+    } else {
+      if (item.url) {
         wx.navigateTo({
           url: item.url
         })
@@ -77,26 +69,66 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     //加载个人信息
     this.getUserInfo();
   },
-  getUserInfo(){
+  goPayChuZhi(ev) {
+    let index = ev.currentTarget.dataset.index;
+    console.log(index)
+    api.chuZhiPay(app.globalData.openid, {
+      card_id: index.id
+    }).then(res => {
+      console.log(res)
+      if (res.data.error != "0") {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+        return
+      }
+      res.data.wechat.success = (res) => {
+        console.log(res)
+        wx.showToast({
+          title: '支付成功',
+          icon: '',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+        setTimeout(() => { this.onLoad()},800)
+      }
+      res.data.wechat.fail = (res) => {
+        wx.showToast({
+          title: '用户取消',
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+      }
+      wx.requestPayment(res.data.wechat)
+    })
+  },
+  getUserInfo() {
     api.getUserInfo(app.globalData.openid).then(res => {
       console.log(res)
       res.data.card = res.data.card.map((val, index) => {
-        for(let i in val){
-          if (i == 'zs_money'){
+        for (let i in val) {
+          if (i == 'zs_money') {
             val[i] = Math.round(val[i]);
           }
-          if (i == 'sc_money'){
+          if (i == 'sc_money') {
             val[i] = Math.round(val[i]);
           }
         }
@@ -114,35 +146,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -22,5 +22,5 @@
 
 </view>
 <view class='footBtn'>
-  <navigator open-type='redirect' url='/pages/' class='btnSpecialBlock'>联系客服</navigator>
+  <navigator bindtap='callPhone' class='btnSpecialBlock'>联系客服</navigator>
 </view>

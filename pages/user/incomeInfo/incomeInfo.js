@@ -1,10 +1,13 @@
 // pages/money/money.js
+const app = getApp()
+const api = require('../../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    fxType: ['直接','间接'],
     showId: 0,
     navList: [{
       title: '下单奖励',
@@ -22,13 +25,37 @@ Page({
     wx.setNavigationBarTitle({
       title: '收益明细'
     })
+    this.getShouyi()
 
+  },
+  getShouyi() {
+    api.getShouyi(app.globalData.openid, { type: this.data.showId }).then(res => {
+      console.log(res)
+      if(res.data.error != "0"){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true
+        })
+
+        this.setData({
+          infoList: []
+        })
+        return 
+      }
+      this.setData({
+        infoList: res.data.bonus_log
+      })
+    })
   },
   changeNav(ev){
     let id = ev.currentTarget.dataset.id;
     this.setData({
       showId: id
     })
+    this.getShouyi();
   },
 
   /**

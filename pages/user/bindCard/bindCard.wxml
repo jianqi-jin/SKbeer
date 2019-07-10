@@ -26,7 +26,7 @@
     <view class='fontTitle'>卡类型</view>
     <view class='cardImg' wx:if='{{cardType.bank}}'><image mode='aspectFit' src='{{cardType.img}}'></image></view>
     <view class='input' wx:else>
-      <input name='type' placeholder='请输入银行卡类型'></input>
+      <input disabled='true' name='type' placeholder='请输入银行卡类型'></input>
     </view>
   </view>
 

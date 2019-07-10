@@ -132,12 +132,16 @@
   margin-top: 20rpx;
 }
 .bottonItemTitle{
+  white-space:nowrap;
   font-size:22rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
   color:rgba(153,153,153,1);
 }
 .bottonItemValue{
+  width:250rpx;
+  overflow: hidden;
+  white-space:nowrap;
   font-size:22rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;

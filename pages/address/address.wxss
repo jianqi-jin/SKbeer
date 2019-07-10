@@ -12,6 +12,19 @@
   justify-content: space-between;
 }
 
+.typeClass {
+  padding: 0rpx 10rpx;
+  background: #fff;
+  display: inline;
+  border: 2rpx solid rgba(108, 65, 39, 1);
+  border-radius: 15rpx;
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(108, 65, 39, 1);
+  line-height: 24rpx;
+}
+
 .contentBox {
   margin-top: 24rpx;
   padding-bottom: 30rpx;

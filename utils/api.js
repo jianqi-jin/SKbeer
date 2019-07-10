@@ -32,7 +32,6 @@ const address = {
         }
       })
     })
-
   },
   getDefalutAdderss: (openid) => {
     return new Promise(resolve => {
@@ -164,6 +163,51 @@ const gifts = {
 }
 
 const user = {
+  chuZhiPay: (openid, data) => {//user页面储值
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.chuzhi&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  getYueDetails: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.yue_details&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  getShouyi: (openid,data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.shouyi_log&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getReferCenterInfo: (openid) => {
     return new Promise(resolve => {
       wx.request({
@@ -432,6 +476,9 @@ module.exports = {
   agentPay: gifts.agentPay,
   getUpgreadUpInfo: gifts.getUpgreadUpInfo,
   getDefalutAdderss: address.getDefalutAdderss,
+  chuZhiPay: user.chuZhiPay,
+  getYueDetails: user.getYueDetails,
+  getShouyi: user.getShouyi,
   getUserInfo: user.getUserInfo,
   getGoodFromId: good.getGoodFromId,
   getGoodInfo: good.getGoodInfo,

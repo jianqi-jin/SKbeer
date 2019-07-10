@@ -1,50 +1,50 @@
 <!--pages/detail/detail.wxml-->
+<view class=' {{"pageView "+(showIndex == "0"? "":"pageViewHidden")}}'>
+  <view class='infoBox'>
+    <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{goodInfo.thumb_url}}" wx:key='index'>
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
 
-<view class='infoBox'>
-  <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{goodInfo.thumb_url}}" wx:key='index'>
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
 
-
-  <view class='priceBox'>
-    <view class=''>￥{{goodInfo.marketprice}}</view>
-    <view class=''>￥{{goodInfo.productprice}}</view>
+    <view class='priceBox'>
+      <view class=''>￥{{goodInfo.marketprice}}</view>
+      <view class=''>￥{{goodInfo.productprice}}</view>
+    </view>
+    <view class='infoBoxBottom'>{{goodInfo.title}}</view>
   </view>
-  <view class='infoBoxBottom'>{{goodInfo.title}}</view>
-</view>
 
-<view class='optionBox'>
-  <view class='optionItem'>
-    <view class='optionTitle'>发货</view>
-    <view class='optionValue'>快递： 免费</view>
-  </view>
-  <view class='optionItem' bindtap='showOrder'>
-    <view class='optionTitle'>规格</view>
-    <view class='optionValue'>{{orderInfo.specInfo.title ? orderInfo.specInfo.title:"请选择"}}</view>
-    <view class='icon'>
-      <image src='/res/icon/icon_right_click.png'></image>
+  <view class='optionBox'>
+    <view class='optionItem'>
+      <view class='optionTitle'>发货</view>
+      <view class='optionValue'>快递： 免费</view>
+    </view>
+    <view class='optionItem' bindtap='showOrder'>
+      <view class='optionTitle'>规格</view>
+      <view class='optionValue'>{{orderInfo.specInfo.title ? orderInfo.specInfo.title:"请选择"}}</view>
+      <view class='icon'>
+        <image src='/res/icon/icon_right_click.png'></image>
+      </view>
+    </view>
+    <view class='optionItem' bindtap='showInfo'>
+      <view class='optionTitle'>参数</view>
+      <view class='optionValue'>品牌 净含量</view>
+      <view class='icon'>
+        <image src='/res/icon/icon_right_click.png'></image>
+      </view>
     </view>
   </view>
-  <view class='optionItem' bindtap='showInfo'>
-    <view class='optionTitle'>参数</view>
-    <view class='optionValue'>品牌 净含量</view>
-    <view class='icon'>
-      <image src='/res/icon/icon_right_click.png'></image>
+
+  <view class='contentBox'>
+    <view class='contentTitle'>商品详情</view>
+    <view wx:for="{{goodInfo.thumb_url}}" class='contentImage' wx:key='index'>
+      <image mode='widthFix' src='{{item}}'></image>
     </view>
   </view>
 </view>
-
-<view class='contentBox'>
-  <view class='contentTitle'>商品详情</view>
-  <view wx:for="{{goodInfo.thumb_url}}" class='contentImage' wx:key='index'>
-    <image mode='widthFix' src='{{item}}'></image>
-  </view>
-</view>
-
 <view class='footBtn' catchtouchmove='move'>
   <view wx:if='{{showIndex ==3}}' class='btnSpecialBlock' bindtap='closeOrder'>完成</view>
   <view wx:else class='btnSpecialBlock' bindtap='{{disableFlag? "":"showOrder"}}'>立即购买</view>
@@ -66,43 +66,47 @@
 
 
 <view wx:if='{{showIndex ==1}}' class='orderBox'>
-  <view bindtap='closeOrder' class='closeImg'>
-    <view class='icon'>
-      <image src='/res/icon/icon-close.png'></image>
-    </view>
-  </view>
-
-  <view class='goodBox'>
-  <view class='back'></view>
-    <view class='goodImg'>
-      <image src='{{goodInfo.thumb}}'></image>
-    </view>
-    <view class='goodInfo'>
-      <view class='gooPrice'>￥{{orderInfo.goods_price ? orderInfo.goods_price:goodInfo.marketprice}}<!--{{goodInfo.marketprice}}--></view>
-      <view>已选：{{orderInfo.specInfo.title ? orderInfo.specInfo.title:'无'}}</view>
-    </view>
-
-
-    <view class='orderOptionBox'>
-      <view class='orderOption' wx:for='{{spec}}' wx:key='index' wx:for-index='i'>
-        <view class='orderOptionTitle'>{{item.title}}</view>
-        <view class='orderOptionContent'>
-          <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.specs}}' wx:key='index' class='"orderOptionItem "+{{ item.checked ? "optionActive" : ""}}'>{{item.title}}</view>
-        </view>
+  <view>
+    <view bindtap='closeOrder' class='closeImg'>
+      <view class='icon'>
+        <image src='/res/icon/icon-close.png'></image>
       </view>
     </view>
 
-    <view class='orderBuyNum'>
+    <view class='goodBox'>
+      <view class='back'></view>
+      <view class='goodImg'>
+        <image mode='aspectFill' src='{{goodInfo.thumb}}'></image>
+      </view>
+      <view class='goodInfo'>
+        <view class='gooPrice'>￥{{orderInfo.goods_price ? orderInfo.goods_price:goodInfo.marketprice}}
+          <!--{{goodInfo.marketprice}}-->
+        </view>
+        <view>已选：{{orderInfo.specInfo.title ? orderInfo.specInfo.title:'无'}}</view>
+      </view>
 
-      <view class='infoItem'>
-        <view class='infoLeft'>购买数量</view>
-        <view class='caoNiMa'>
-          <view class='fuck1' bindtap='deOrderNum'>-</view>
-          <view class='fuck2'>{{orderInfo.num ? orderInfo.num:0}}</view>
-          <view class='fuck3' bindtap='addOrderNum'>+</view>
+
+      <view class='orderOptionBox'>
+        <view class='orderOption' wx:for='{{spec}}' wx:key='index' wx:for-index='i'>
+          <view class='orderOptionTitle'>{{item.title}}</view>
+          <view class='orderOptionContent'>
+            <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.specs}}' wx:key='index' class='"orderOptionItem "+{{ item.checked ? "optionActive" : ""}}'>{{item.title}}</view>
+          </view>
         </view>
       </view>
 
+      <view class='orderBuyNum'>
+
+        <view class='infoItem'>
+          <view class='infoLeft'>购买数量</view>
+          <view class='caoNiMa'>
+            <view class='fuck1' bindtap='deOrderNum'>-</view>
+            <view class='fuck2'>{{orderInfo.num ? orderInfo.num:0}}</view>
+            <view class='fuck3' bindtap='addOrderNum'>+</view>
+          </view>
+        </view>
+
+      </view>
     </view>
   </view>
 </view>

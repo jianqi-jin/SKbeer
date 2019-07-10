@@ -14,7 +14,7 @@
 <view class='chongZhiBox'>
   <view class='chognzhiTitle'>选择充值方式</view>
   <view class='cardList'>
-    <view class='itemCard' wx:for="{{userInfo.card}}" wx:key="index">
+    <view class='itemCard' bindtap='goPayChuZhi' data-index='{{item}}' wx:for="{{userInfo.card}}" wx:key="index">
       <view class='cardTitle'>首冲赠{{item.sc_money}}元</view>
       <view class='cardContent'>
         <view class='cardPrice'>
@@ -38,7 +38,7 @@
 </view>
 
 <!--<button class='kefuBtn' open-type="contact" bindcontact="handleContact">-->
-  <info-item info="{{kefuInfo}}"></info-item>
+  <info-item bindtap='callPhone' info="{{kefuInfo}}"></info-item>
 <!--</button>-->
 
 <navigator wx:if='{{userInfo.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'>加入合伙人</navigator>

@@ -23,17 +23,17 @@ Page({
     otList: [
       {
         title: '已提现金额',
-        num: 456,
+        num: 0,
         url: '/pages/user/drawHis/drawHis',
         btnTitle: '明细'
       }, {
         title: '可提现金额',
-        num: 456,
+        num: 0,
         url: '/pages/user/draw/draw',
         btnTitle: '提现'
       }, {
         title: '已冻结资金',
-        num: 456,
+        num: 0,
         url: '/pages/user/freeze/freeze',
         btnTitle: '明细'
       }
@@ -70,7 +70,6 @@ Page({
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -93,7 +92,10 @@ Page({
           otList: this.data.otList
         })
         this.setData({
-          userInfo: res.data
+          userInfo: res.data,
+          ['otList[0].num']: res.data.money.ytx_money,
+          ['otList[1].num']: res.data.money.ktx_money,
+          ['otList[2].num']: res.data.money.dj_money
         })
       }
     })

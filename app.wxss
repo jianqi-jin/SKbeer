@@ -162,7 +162,7 @@ page{
   padding:0rpx;
 }
 .window{
-  padding-bottom:100rpx; 
+  
 }
 .grayPage.window{
   min-height:calc(100vh - 100rpx);

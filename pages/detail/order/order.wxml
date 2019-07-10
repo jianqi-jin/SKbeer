@@ -4,7 +4,7 @@
 
   <view class='boxGood'>
     <view class='goodLeft'>
-      <image src='{{orderInfo.goodInfo.thumb}}'></image>
+      <image mode='aspectFill' src='{{orderInfo.goodInfo.thumb}}'></image>
     </view>
     <view class='goodRight'>
       <view>{{orderInfo.goodInfo.title}}</view>

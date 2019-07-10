@@ -20,7 +20,7 @@
     </view>
     <view class='contentBox' data-item='{{item}}' bindtap='btnFun'>
       <view class='infoBox'>
-        <view class='imgBox'><image src='{{item.listimg}}'></image></view>
+        <view class='imgBox'><image mode='aspectFill' src='{{item.listimg}}'></image></view>
         <view class='infoTextBox'>
           <view class='infoText'>{{item.title}}{{item.optionname}}</view>
           <view class='infoPriceBox'>

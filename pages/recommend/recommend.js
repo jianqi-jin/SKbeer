@@ -80,7 +80,8 @@ Page({
       this_.setData({
         [key]: newData,
         userName: userInfo.nickName,
-        userImg: userInfo.avatarUrl
+        userImg: userInfo.avatarUrl,
+        advertImg: res.tj_banner
       })
     }).catch(err => {
       console.log(err)
@@ -116,7 +117,7 @@ Page({
     let newData = this.data.list[type].data;
     let imgList = newData[idx].tp_list;
 
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.fenxiang&openid=${wx.getStorageSync('openid')}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
       type: 0
     }).then((res) => {

@@ -2,6 +2,6 @@
 
 .imgItem{
   width: 100%;
-  margin-top: -6rpx;
+  margin-top:-10rpx;
 }
 

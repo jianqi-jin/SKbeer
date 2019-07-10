@@ -7,7 +7,7 @@
     <view class='fontTitle'>订单状态: {{orderDetail.top.status == -1 ? goodStatus[5].statusTitle : goodStatus[orderDetail.top.status].statusTitle}}</view>
   </view>
   <view wx:if='{{orderDetail.top.status == "0"}}' class='fontSpecial'>支付剩余时间:{{orderDetail.top.time}}</view>
-  <view  wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.AcceptStation}}</view>
+  <view  wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.AcceptStation?orderDetail.top.AcceptStation:"暂无物流消息"}}</view>
   <view wx:if='{{orderDetail.top.status == "3"}}' class='wuliuItemBox'>
     <view class='left'>
       <view class='fontSpecial'>快递已签收，签收人： {{orderDetail.top.realname}}</view>
@@ -25,7 +25,7 @@
   <view class='userTitleBox'>
     <view class='realName'>
       <view class='icon'><image src='./res/img/add.png'></image></view>
-      <view class='fontTitle'>{{orderDetail.address.realname}}</view>
+      <view class='fontTitle'>{{orderDetail.address.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}<view class='typeClass'>{{addressInfo.type == "0"?  "家": "公司"}}</view></view>
     </view>
     <view class='fontTitle'>{{orderDetail.address.mobile}}</view>
   </view>
@@ -37,7 +37,7 @@
 
 <view class='orderBox'>
   <view class='goodInfo'>
-    <view class='goodImg'><image src='{{orderDetail.order.listimg}}'></image></view>
+    <view class='goodImg'><image mode='aspectFill' src='{{orderDetail.order.listimg}}'></image></view>
     <view class='goodInfoContentBox'>
       <view class='goodName'>{{orderDetail.order.title}}{{orderDetail.order.optionname}}</view>
       <view class='goodPrice'>

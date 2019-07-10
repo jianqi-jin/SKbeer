@@ -1,4 +1,6 @@
 // pages/money/money.js
+const app = getApp()
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -22,13 +24,38 @@ Page({
     wx.setNavigationBarTitle({
       title: '奖金明细'
     })
+    this.getYueDetails();
+  },
+  getYueDetails(){
+    api.getYueDetails(app.globalData.openid, { type: this.data.showId}).then(res => {
+      console.log(res)
+      if(res.data.error!="0"){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true
+        })
+        this.setData({
+          userInfo: {},
+          cardList: []
+        })
 
+        return 
+      }
+      this.setData({
+        userInfo: res.data.info,
+        cardList: res.data.log_list
+      })
+    })
   },
   changeNav(ev){
     let id = ev.currentTarget.dataset.id;
     this.setData({
       showId: id
     })
+    this.getYueDetails()
   },
 
   /**

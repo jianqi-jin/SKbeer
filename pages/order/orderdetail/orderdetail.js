@@ -19,7 +19,7 @@ Page({
       statusTitle: '待发货',
       btnTitle: ''
     }, {
-      statusTitle: '待发货',
+      statusTitle: '待收货',
       btnTitle: '查看物流'
     }, {
       statusTitle: '已完成',
