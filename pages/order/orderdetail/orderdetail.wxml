@@ -82,8 +82,9 @@
 <view class='btnFoot'>
   <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'>删除订单</view>
   <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'>立即支付</view>
-  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>
-  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>
+  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view><!-->
+  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>-->
+  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
   <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
   <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
 </view>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "nav-bottom": "../../components/navBottom/index"
+    "nav-bottom": "../../components/navBottom/index",
+    "loading": "../../components/loading/loading"
   }
 }

@@ -162,12 +162,35 @@ Page({
       url: '/pages/home/home'
     })
   },
-  navToOrderDetail() {
+  navToOrderDetail() {/*
     wx.redirectTo({
       url: '/pages/order/orderdetail/orderdetail?orderId='+this.data.orderId, //需要传入goodsId
+    })*/
+
+    wx.redirectTo({
+      url: '/pages/order/order?id=1',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
   goPay() {
+    //验证表单数据合法性
+    let orderInfo = this.data.orderInfo;
+    if(!orderInfo.address_id){
+      wx.showToast({
+        title: '请选择一个地址，亲~',
+        icon: 'none',
+        image: '',
+        duration: 1000,
+        mask: true
+      })
+      return 
+    }
+
+    this.setData({
+      disableFlag: true
+    })
     let that = this;
     this.data.orderInfo.spec_id = this.data.orderInfo.option_id;
     api.orderPay(app.globalData.openid, this.data.orderInfo).then(res => {
@@ -184,7 +207,7 @@ Page({
           mask: true
         })
         return
-      } else {
+      } else if(res.data.wechat){
         this.setData({
           payInfo: Object.assign(res.data.wechat, {
             success:(res) => {
@@ -221,6 +244,18 @@ Page({
         wx.requestPayment(
           this.data.payInfo
         )
+      }else if(res.data.order_id){
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#7A7A7A'
+        })
+        this.setData({
+          paySuccessFlag: true
+        })
+      }else{
+        wx.redirectTo({
+          url: '/pages/order/orderdetail/orderdetail?orderId=' + this.data.orderId
+        })
       }
     })
   },

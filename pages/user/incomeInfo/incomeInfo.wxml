@@ -4,7 +4,7 @@
   <view class='textBox'>
     <view class='moneyBox'>
       <view>￥</view>
-      <view>1500.00</view>
+      <view>{{}}</view>
     </view>
     <view class='info'>总资产（元）</view>
   </view>

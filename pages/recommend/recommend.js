@@ -94,18 +94,33 @@ Page({
       wx.showLoading({
         title: '加载中',
       })
-      wx.downloadFile({
+      let path;
+      const downloadTask = wx.downloadFile({
         url: url,
         success: function(res) {
           console.log(res);
-          resolve(res.tempFilePath);
           wx.hideLoading()
+          path = res.tempFilePath
+          resolve(path);
         },
         fail: function(res) {
           console.log(res);
           wx.hideLoading()
         }
       })
+      console.log(path)
+
+      downloadTask.onProgressUpdate((res1) => {
+        wx.showLoading({
+          title: '正在保存...',
+          mask: true,
+        })
+        if (res1.progress == 100){
+          wx.hideLoading()
+        }
+      })
+
+      
     })
   },
   // 存储
@@ -119,7 +134,7 @@ Page({
 
     util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
-      type: 0
+      type: newData[idx].type
     }).then((res) => {
 
       if (resourceType == '0') {
@@ -255,6 +270,13 @@ Page({
       filePath: imgSrc,
       success: function(data) {
         // util.showToast('保存成功', 'success')
+        wx.showToast({
+          title: '保存成功',
+          icon: '',
+          image: '',
+          duration: 1000,
+          mask: true
+        })
       },
       fail: function(err) {
         console.log(err);
@@ -265,8 +287,22 @@ Page({
               console.log(settingdata)
               if (settingdata.authSetting['scope.writePhotosAlbum']) {
                 console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                wx.showToast({
+                  title: '获取权限成功,重新点击以保存',
+                  icon: '',
+                  image: '',
+                  duration: 1000,
+                  mask: true
+                })
               } else {
                 console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                wx.showToast({
+                  title: '获取权限失败',
+                  icon: '',
+                  image: '',
+                  duration: 1000,
+                  mask: true
+                })
               }
             }
           })

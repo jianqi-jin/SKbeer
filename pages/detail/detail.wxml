@@ -66,26 +66,25 @@
 
 
 <view wx:if='{{showIndex ==1}}' class='orderBox'>
-  <view>
-    <view bindtap='closeOrder' class='closeImg'>
-      <view class='icon'>
-        <image src='/res/icon/icon-close.png'></image>
+  <view bindtap='closeOrder' class='closeImg'>
+    <view class='icon'>
+      <image src='/res/icon/icon-close.png'></image>
+    </view>
+  </view>
+
+  <view class='goodBox'>
+    <view class='back'></view>
+    <view class='goodImg'>
+      <image mode='aspectFill' src='{{goodInfo.thumb}}'></image>
+    </view>
+    <view class='goodInfo'>
+      <view class='gooPrice'>￥{{orderInfo.goods_price ? orderInfo.goods_price:goodInfo.marketprice}}
+        <!--{{goodInfo.marketprice}}-->
       </view>
+      <view>已选：{{orderInfo.specInfo.title ? orderInfo.specInfo.title:'无'}}</view>
     </view>
 
-    <view class='goodBox'>
-      <view class='back'></view>
-      <view class='goodImg'>
-        <image mode='aspectFill' src='{{goodInfo.thumb}}'></image>
-      </view>
-      <view class='goodInfo'>
-        <view class='gooPrice'>￥{{orderInfo.goods_price ? orderInfo.goods_price:goodInfo.marketprice}}
-          <!--{{goodInfo.marketprice}}-->
-        </view>
-        <view>已选：{{orderInfo.specInfo.title ? orderInfo.specInfo.title:'无'}}</view>
-      </view>
-
-
+    <view class='optionsBox'>
       <view class='orderOptionBox'>
         <view class='orderOption' wx:for='{{spec}}' wx:key='index' wx:for-index='i'>
           <view class='orderOptionTitle'>{{item.title}}</view>
@@ -108,5 +107,6 @@
 
       </view>
     </view>
+
   </view>
 </view>

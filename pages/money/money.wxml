@@ -1,4 +1,5 @@
 <!--pages/money/money.wxml-->
+
 <view class='backBox'>
   <image src='./res/img/bonus-bg.png'></image>
   <view class='textBox'>
@@ -15,8 +16,8 @@
   <view class='navBox'>
     <view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</view>
   </view>
-
-  <view class='listBox'>
+  <loading wx:if='{{loadingFlag}}' />
+  <view wx:else class='listBox'>
     <view class='itemBox' wx:for='{{cardList}}' wx:key='index'>
       <view class='itemLeft'>
         <view wx:if='{{showId == 0 ? true : false}}' class='userImg'>

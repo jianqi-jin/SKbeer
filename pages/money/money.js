@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadingFlag: false,
     showId: 0,
     navList: [{
       title: '推荐下单奖励',
@@ -27,7 +28,13 @@ Page({
     this.getYueDetails();
   },
   getYueDetails(){
-    api.getYueDetails(app.globalData.openid, { type: this.data.showId}).then(res => {
+    this.setData({
+      loadingFlag: true
+    })
+    api.getYueDetails(app.globalData.openid, { type: this.data.showId }).then(res => {
+      this.setData({
+        loadingFlag: false
+      })
       console.log(res)
       if(res.data.error!="0"){
         wx.showToast({

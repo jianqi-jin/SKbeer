@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 28,
+			"current": 29,
 			"list": [
 				{
 					"id": -1,
@@ -242,6 +242,13 @@
 					"id": -1,
 					"name": "recommend",
 					"pathName": "pages/recommend/recommend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "loading",
+					"pathName": "pages/loading/loading",
 					"scene": null
 				}
 			]

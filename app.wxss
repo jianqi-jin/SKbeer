@@ -11,7 +11,7 @@
 
 page{
   background:rgba(245,245,245,1);
-  margin-bottom: 150rpx;
+  padding-bottom: 150rpx;
 }
 .icon{
   width: 46rpx;

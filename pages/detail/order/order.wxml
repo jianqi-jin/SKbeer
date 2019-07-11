@@ -20,9 +20,9 @@
     <view class='infoItem'>
       <view class='infoLeft'>购买数量</view>
       <view class='caoNiMa'>
-        <view class='fuck1' bindtap='deOrderNum'>-</view>
+        <view class='fuck1' bindtap='{{disableFlag ? "": "deOrderNum"}}'>-</view>
         <view class='fuck2'>{{orderInfo.num}}</view>
-        <view class='fuck3' bindtap='addOrderNum'>+</view>
+        <view class='fuck3' bindtap='{{disableFlag ? "": "addOrderNum"}}'>+</view>
       </view>
     </view>
     <view class='infoItem'>
@@ -56,7 +56,7 @@
       <view>实付 ￥{{orderInfo.pay_money}}</view>
       <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
     </view>
-    <view class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</view>
+    <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</button>
   </view>
 
   <view class='payMask' wx:if='{{paySuccessFlag}}' wx:key='index'>

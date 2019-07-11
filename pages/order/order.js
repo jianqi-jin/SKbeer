@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadingFlag: false,//加载动画
     goodStatus: [{
       statusTitle: '待付款',
       btnTitle: '去付款'
@@ -59,12 +60,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getorderList(5);
+    if (!options.id){
+      this.getorderList(5);
+    }else{
+      this.setData({
+        currentShowPageId: 2
+      })
+      this.getorderList(options.id)
+    }
     wx.setNavigationBarTitle({
       title: '我的订单'
     })
   },
   getorderList(status) {
+    this.setData({
+      loadingFlag: true
+    })
     let that = this;
     wx.request({
       url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
@@ -90,10 +101,12 @@ Page({
             orderList: data.order_list
           })
         }
-
       },
       fail: function(res) {},
-      complete: function(res) {},
+      complete: function (res) {
+        that.setData({
+          loadingFlag: false
+        })},
     })
   },
   btnFun(ev) {
