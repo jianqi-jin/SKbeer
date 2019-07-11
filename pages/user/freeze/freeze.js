@@ -1,10 +1,13 @@
 // pages/money/money.js
+const app = getApp()
+const api = require('../../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    bonus_log: [],
     showId: 0,
     navList: [{
       title: '下单奖励',
@@ -22,7 +25,15 @@ Page({
     wx.setNavigationBarTitle({
       title: '收益明细'
     })
-
+    this.getDjInfo()
+  },
+  getDjInfo(){
+    api.request('senke.my.dj_money_log',app.globalData.openid).then(res=>{
+      console.log(res)
+      this.setData({
+        bonus_log: res.data.bonus_log
+      })
+    })
   },
   changeNav(ev){
     let id = ev.currentTarget.dataset.id;
@@ -42,7 +53,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getDjInfo()
+    let money = wx.getStorageSync("money")
+    this.setData({
+      dj_money: money.dj_money
+    })
   },
 
   /**

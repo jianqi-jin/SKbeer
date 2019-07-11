@@ -86,17 +86,13 @@ Page({
         })
       }else{
         this.data.otList[0].num = res.data.money.ytx_money;
-        this.data.otList[1].num = res.data.money.wtx_money;
+        this.data.otList[1].num = res.data.money.ktx_money;
         this.data.otList[2].num = res.data.money.dj_money;
         this.setData({
-          otList: this.data.otList
+          otList: this.data.otList,
+          userInfo: res.data
         })
-        this.setData({
-          userInfo: res.data,
-          ['otList[0].num']: res.data.money.ytx_money,
-          ['otList[1].num']: res.data.money.ktx_money,
-          ['otList[2].num']: res.data.money.dj_money
-        })
+        wx.setStorageSync('money', res.data.money)
       }
     })
 

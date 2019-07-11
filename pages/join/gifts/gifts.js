@@ -9,6 +9,7 @@ Page({
   data: {
     status: 0, //0确认 1立即支付
     btnTitle: ['下一步', '立即支付199元'],
+    detailContent: '',
     currentGift: {},
     addressInfo: {},
     infoFlag: false,
@@ -28,19 +29,55 @@ Page({
     this.getUpgreadUpInfo()
 
   },
-  showInfo() {
-    wx.setNavigationBarColor({
-      frontColor: '#000000',
-      backgroundColor: '#7a7a7a'
+  showInfo(ev) {
+    console.log(ev.currentTarget.dataset.index);
+    wx.showLoading({
+      title: '数据加载中..',
+      mask: true,
     })
-    this.setData({
-      infoFlag: true
+    api.getGiftInfo(app.globalData.openid, {
+      gift_id: this.data.giftList[ev.currentTarget.dataset.index].id
+    }).then(res => {
+      console.log(res)
+      wx.hideLoading()
+      if (res.data.error != "0") {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+        return
+      } else if (res.data.gift.content.length > 0) {
+        this.setData({
+          detailContent: res.data.gift.content
+        })
+
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#7a7a7a'
+        })
+        this.setData({
+          infoFlag: true
+        })
+
+
+      } else {
+        wx.showToast({
+          title: '数据空',
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+      }
     })
+
   },
-  getUpgreadUpInfo(){
+  getUpgreadUpInfo() {
     let upgreadInfo = wx.getStorageSync('upgreadInfo');
-    if (upgreadInfo){
-    }else{
+    if (upgreadInfo) {} else {
       api.getUpgreadUpInfo(app.globalData.openid).then(res => {
         console.log(res)
         wx.setStorageSync('upgreadInfo', res.data)
@@ -48,7 +85,7 @@ Page({
     }
     this.setData({
       upgreadInfo,
-      ['btnTitle[1]']: '立即支付' + upgreadInfo.dlsj_money+'元'
+      ['btnTitle[1]']: '立即支付' + upgreadInfo.dlsj_money + '元'
     })
   },
   agentPay() {
@@ -61,7 +98,7 @@ Page({
       }
       api.agentPay(app.globalData.openid, data).then(res => {
         console.log(res)
-        if(res.data.error!="0"){
+        if (res.data.error != "0") {
           wx.showToast({
             title: res.data.message,
             icon: 'none',
@@ -69,7 +106,7 @@ Page({
             duration: 800,
             mask: true
           })
-          return 
+          return
         }
 
         wx.requestPayment({

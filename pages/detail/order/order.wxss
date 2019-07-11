@@ -75,7 +75,7 @@ image {
   margin-left: 24rpx;
 }
 
-.goodRight view:first-child {
+.goodRight .addddwwww {
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
@@ -83,7 +83,7 @@ image {
   line-height: 40rpx;
 }
 
-.goodRight view:last-child {
+.goodRight .sadwwwdees {
   font-size: 32rpx;
   font-family: PingFang-SC-Heavy;
   font-weight: 800;
@@ -150,18 +150,20 @@ image {
 .fuck2 {
   font-size: 20rpx;
 }
-
-.option {
-  padding: 0 10rpx;
-  line-height: 36rpx;
-  text-align: center;
-  background: rgba(245, 245, 245, 1);
-  border-radius: 5rpx;
-  font-size: 20rpx;
+.option{
+  margin: 20rpx 0;
+}
+.option view{
   font-family: PingFang-SC-Medium;
   font-weight: 500;
+  font-size: 20rpx;
+  line-height: 36rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  padding: 0 10rpx;
+  background: rgba(245, 245, 245, 1);
   color: rgba(153, 153, 153, 1);
-  margin: 20rpx 0;
+  display: inline;
 }
 
 .infoRight {

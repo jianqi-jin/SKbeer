@@ -31,6 +31,7 @@
   <view bindtap='closeInfo' class='iconClose'>
     <image src='/res/icon/icon-close-bg.png'></image>
   </view>
+  <rich-text nodes='{{detailContent}}'></rich-text>
 </view>
 
 <view class='orderPage' wx:if='{{orderFlag}}'>

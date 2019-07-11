@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    inputVal: 0,
+    ktx_money: 0,
     dialogFlag: false,
     bankCard: {}
 
@@ -15,7 +17,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setNavigationBarTitle({
       title: '提现',
       success: function(res) {},
@@ -23,59 +25,109 @@ Page({
       complete: function(res) {},
     })
 
-    if(options.cardId){
+    if (options.cardId) {
       this.getCard(options.cardId);
-    }else{
+    } else {
       this.getDefaultCard();
     }
   },
-  fucActttt(){
+  qbTxFun() {
     this.setData({
-      dialogFlag: true
+      inputVal: this.data.ktx_money
     })
+  },
+  submitFun(ev) {
+    console.log()
+    if (!this.data.bankCard.card_id) {
+      wx.showToast({
+        title: '银行卡空',
+        icon: 'none',
+        image: '',
+        duration: 800,
+        mask: true
+      })
+      return
+    } else if (ev.detail.value.money == 0 || !ev.detail.value.money) {
+      wx.showToast({
+        title: '提现金额为空',
+        icon: 'none',
+        image: '',
+        duration: 800,
+        mask: true
+      })
+      return
+
+    }
+    api.tixian(app.globalData.openid, {
+      money: ev.detail.value.money,
+      card_id: this.data.bankCard.card_id
+    }).then(res => {
+      if (res.data.error == "0") {
+        this.setData({
+          dialogFlag: true
+        })
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true
+        })
+      }
+    })
+  },
+  fucActttt() {
+    console.log(this.data.inputVal)
+    //
     //提现
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    if (app.globalData.cardInfo){
+  onShow: function() {
+    //读取提现金额
+    let money = wx.getStorageSync('money');
+    this.setData({
+      ktx_money: money.ktx_money
+    })
+    if (app.globalData.cardInfo) {
       //从全局读取
       this.getCardFromGlobal();
       app.globalData.cardInfo = null
-    } else if (!this.data.bankCard.card_id && !app.globalData.cardInfo){
+    } else if (!this.data.bankCard.card_id && !app.globalData.cardInfo) {
       //都没有读取默认
       this.getDefaultCard();
     }
   },
-  getCardFromGlobal(){
+  getCardFromGlobal() {
     app.globalData.cardInfo.number = app.globalData.cardInfo.number.substr(-4)
     this.setData({
       bankCard: app.globalData.cardInfo
     })
 
-/*
-    api.getCard(app.globalData.openid, {card_id: cardId}).then(res => {
-      console.log(res)
-      res.data.bank_card.number = res.data.bank_card.number.substr(-4)
-      this.setData({
-        bankCard: res.data.bank_card
-      })
-    })*/
+    /*
+        api.getCard(app.globalData.openid, {card_id: cardId}).then(res => {
+          console.log(res)
+          res.data.bank_card.number = res.data.bank_card.number.substr(-4)
+          this.setData({
+            bankCard: res.data.bank_card
+          })
+        })*/
   },
-  getDefaultCard(){
+  getDefaultCard() {
     api.getDefaultCard(app.globalData.openid).then(res => {
       console.log(res)
       res.data.bank_card.number = res.data.bank_card.number.substr(-4)
       this.setData({
-        bankCard:  res.data.bank_card
+        bankCard: res.data.bank_card
       })
     })
   },
@@ -83,35 +135,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

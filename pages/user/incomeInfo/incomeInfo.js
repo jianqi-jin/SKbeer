@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    leiji_money: 0.00,
     fxType: ['直接','间接'],
     showId: 0,
     navList: [{
@@ -46,7 +47,8 @@ Page({
         return 
       }
       this.setData({
-        infoList: res.data.bonus_log
+        infoList: res.data.bonus_log,
+        leiji_money: res.data.leiji_money
       })
     })
   },

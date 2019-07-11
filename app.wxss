@@ -1,4 +1,7 @@
 /**app.wxss**/
+:root{
+  
+}
 .container {
   height: 100%;
   display: flex;
@@ -10,8 +13,10 @@
 } 
 
 page{
-  background:rgba(245,245,245,1);
+  --g-themeColor: rgba(245,245,245,1);
+  background: var(--g-themeColor);
   padding-bottom: 150rpx;
+
 }
 .icon{
   width: 46rpx;

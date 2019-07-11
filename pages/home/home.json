@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "nav-bottom": "../../components/navBottom/index"
+    "nav-bottom": "../../components/navBottom/index",
+    "theme-view": "/components/themeView/themeView"
   }
 }

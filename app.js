@@ -28,18 +28,18 @@ App({
           method: 'POST',
           dataType: 'json',
           responseType: 'text',
-          success: function (res) {
+          success: function(res) {
             console.log(res)
             //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
             that.globalData.session_key = res.data.data.session_key;
             wx.setStorageSync('openid', that.globalData.openid)
-            that.globalData.openid = 'sns_wa_' +　res.data.data.openid;
+            that.globalData.openid = 'sns_wa_' + 　res.data.data.openid;
             //请求用户数据
 
 
           },
-          fail: function (res) { },
-          complete: function (res) { },
+          fail: function(res) {},
+          complete: function(res) {},
         })
       }
     })
@@ -66,14 +66,30 @@ App({
     })
   },
   globalData: {
-    color: '#824C1F',
-    userInfo: null,
-    navBottomList: [{
-      url: '',
-      img: '',
-      selectedImg: '',
-      select: false,
-      havT: true
-    }]
-  }
+    themeInfo: {
+      backgroundColor: { //背景颜色
+        value: "#ccc"
+      },
+      color: { //颜色
+        value: '#fff'
+      },
+      fontSize: { //字体大小
+        value: '26rpx'
+      },
+      borderColor: { //边框颜色
+        value: "#000"
+      },
+    },
+    themeBack:'margin:4rpx;display:inline;padding:4rpx 20rpx;line-height:40rpx;text-align:center;background:linear-gradient(90deg,rgba(130,76,31,1),rgba(151,79,10,1));color:#fff;border-radius:400px;',//themeBack风格
+    themeBorder:'margin:4rpx;display:inline;padding:4rpx 20rpx;line-height:40rpx;text-align:center;border:2rpx solid rgba(108,65,39,1);border-radius:400rpx;color:rgba(108,65,39,1);',//themeBorder风格
+  color: '#824C1F',
+  userInfo: null,
+  navBottomList: [{
+    url: '',
+    img: '',
+    selectedImg: '',
+    select: false,
+    havT: true
+  }]
+}
 })

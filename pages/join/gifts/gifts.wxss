@@ -46,6 +46,7 @@
   flex-direction: row;
   align-items: center;
   margin-right: 10rpx;
+  flex-grow:1;
 }
 .cardContextText{
   font-size:26rpx;
@@ -96,9 +97,10 @@
   height: 1144rpx;
   position: fixed;
   bottom: 0;
-  background: #ccc;
+  background: #fff;
   z-index: 2;
   width: 100%;
+  overflow-y: scroll;
 }
 .backDark{
   background: #000000;
@@ -106,14 +108,17 @@
   opacity:0.5;
 }
 .giftInfoPage .iconClose{
-  position: absolute;
+  position: fixed;
   right: 18rpx;
-  top: 23rpx;
+  top:63rpx;
 }
 
 .giftInfoPage .iconClose image{
   width: 64rpx;
   height: 64rpx;
+}
+.giftInfoPage rich-text{
+  height: 100%;
 }
 .orderPage{
   height: 630rpx;

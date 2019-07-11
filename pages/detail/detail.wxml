@@ -40,9 +40,10 @@
 
   <view class='contentBox'>
     <view class='contentTitle'>商品详情</view>
+    <rich-text nodes='{{goodInfo.content}}'></rich-text><!-->
     <view wx:for="{{goodInfo.thumb_url}}" class='contentImage' wx:key='index'>
       <image mode='widthFix' src='{{item}}'></image>
-    </view>
+    </view>-->
   </view>
 </view>
 <view class='footBtn' catchtouchmove='move'>

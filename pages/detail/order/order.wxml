@@ -1,91 +1,94 @@
 <!--pages/detail/order/order.wxml-->
-  <address-item addressInfo='{{addressInfo}}'></address-item>
+<address-item addressInfo='{{addressInfo}}'></address-item>
 
 
-  <view class='boxGood'>
-    <view class='goodLeft'>
-      <image mode='aspectFill' src='{{orderInfo.goodInfo.thumb}}'></image>
+<view class='boxGood'>
+  <view class='goodLeft'>
+    <image mode='aspectFill' src='{{orderInfo.goodInfo.thumb}}'></image>
+  </view>
+  <view class='goodRight'>
+    <view class='addddwwww'>{{orderInfo.goodInfo.title}}</view>
+    <view class='option'>
+      <view>规格： {{orderInfo.specInfo.title? orderInfo.specInfo.title:"默认"}}</view>
     </view>
-    <view class='goodRight'>
-      <view>{{orderInfo.goodInfo.title}}</view>
-      <view class='option'>规格： {{orderInfo.specInfo.title? orderInfo.specInfo.title:"默认"}}</view>
-      <view>￥{{orderInfo.goods_price}}</view>
+
+    <view class='.sadwwwdees'>￥{{orderInfo.goods_price}}</view>
+  </view>
+</view>
+
+
+
+
+<view class='infoBox'>
+  <view class='infoItem'>
+    <view class='infoLeft'>购买数量</view>
+    <view class='caoNiMa'>
+      <view class='fuck1' bindtap='{{disableFlag ? "": "deOrderNum"}}'>-</view>
+      <view class='fuck2'>{{orderInfo.num}}</view>
+      <view class='fuck3' bindtap='{{disableFlag ? "": "addOrderNum"}}'>+</view>
     </view>
   </view>
+  <view class='infoItem'>
+    <view class='infoLeft'>商品金额</view>
+    <view class='caoNiMa2'>￥{{orderInfo.goods_price * orderInfo.num}}</view>
+  </view>
+  <view class='infoItem'>
+    <view class='infoLeft'>储值抵扣</view>
+    <view class='caoNiMa3'>-￥{{orderInfo.dikou_money}}</view>
+  </view>
+</view>
 
-
-
-
-  <view class='infoBox'>
-    <view class='infoItem'>
-      <view class='infoLeft'>购买数量</view>
-      <view class='caoNiMa'>
-        <view class='fuck1' bindtap='{{disableFlag ? "": "deOrderNum"}}'>-</view>
-        <view class='fuck2'>{{orderInfo.num}}</view>
-        <view class='fuck3' bindtap='{{disableFlag ? "": "addOrderNum"}}'>+</view>
+<view class='otherBox'>
+  <view class='infoItem'>
+    <view class='infoLeft'>支付方式</view>
+    <view class='infoRight otherRight'>
+      <view class='icon'>
+        <image src='/res/icon/wechat.png'></image>
       </view>
-    </view>
-    <view class='infoItem'>
-      <view class='infoLeft'>商品金额</view>
-      <view class='caoNiMa2'>￥{{orderInfo.goods_price * orderInfo.num}}</view>
-    </view>
-    <view class='infoItem'>
-      <view class='infoLeft'>储值抵扣</view>
-      <view class='caoNiMa3'>-￥{{orderInfo.dikou_money}}</view>
+      <view>{{payType[orderInfo.pay_type]}}</view>
     </view>
   </view>
+  <view class='infoItem'>
+    <view class='infoLeft'>发货</view>
+    <view class='infoRight otherRight'>快递 免费</view>
+  </view>
+</view>
 
-  <view class='otherBox'>
-    <view class='infoItem'>
-      <view class='infoLeft'>支付方式</view>
-      <view class='infoRight otherRight'>
-        <view class='icon'><image src='/res/icon/wechat.png'></image></view>
-        <view>{{payType[orderInfo.pay_type]}}</view>
+
+<view class='footBox'>
+
+  <view class='footLeft'>
+    <view>实付 ￥{{orderInfo.pay_money}}</view>
+    <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
+  </view>
+  <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</button>
+</view>
+
+<view class='payMask' wx:if='{{paySuccessFlag}}' wx:key='index'>
+
+
+</view>
+
+<view class='paySuccessBox' wx:if='{{paySuccessFlag}}' wx:key='index'>
+  <view class='box'>
+    <view class='imageBox'>
+      <image src='/res/icon/img-sub-beer.png'></image>
+    </view>
+
+    <view class='asdwBox'>
+
+      <view class='asdw'>
+        <view class='asdw1'>￥</view>
+        <view class='asdw2'>{{orderInfo.pay_money}}</view>
       </view>
+      <view class='asdw3'>支付成功</view>
     </view>
-    <view class='infoItem'>
-      <view class='infoLeft'>发货</view>
-      <view class='infoRight otherRight'>快递 免费</view>
-    </view>
-  </view>
 
+    <view class='yelooo'></view>
 
-  <view class='footBox'>
-  
-    <view class='footLeft'>
-      <view>实付 ￥{{orderInfo.pay_money}}</view>
-      <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
-    </view>
-    <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</button>
-  </view>
-
-  <view class='payMask' wx:if='{{paySuccessFlag}}' wx:key='index'>
-  
-    
-  </view>
-
-  <view class='paySuccessBox' wx:if='{{paySuccessFlag}}' wx:key='index'>
-    <view class='box'>
-      <view class='imageBox'>
-        <image src='/res/icon/img-sub-beer.png'></image>
-      </view>
-
-      <view class='asdwBox'>
-
-        <view class='asdw'>
-          <view class='asdw1'>￥</view>
-          <view class='asdw2'>{{orderInfo.pay_money}}</view>
-        </view>
-        <view class='asdw3'>支付成功</view>
-      </view>
-
-      <view class='yelooo'></view>
-
-      <view class='btnBox'>
-        <view class='btn1' bindtap='navToHome'>继续购物</view>
-        <view class='btn2' bindtap='navToOrderDetail'>查看订单</view>
-      </view>
+    <view class='btnBox'>
+      <view class='btn1' bindtap='navToHome'>继续购物</view>
+      <view class='btn2' bindtap='navToOrderDetail'>查看订单</view>
     </view>
   </view>
-
-  
+</view>

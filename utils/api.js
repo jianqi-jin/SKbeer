@@ -2,6 +2,7 @@ const header = {
   'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
 };
 const serverUri = 'https://oa.yika.co/';
+const postI = '46'
 const address = {
   getAddressList: function(openid) {
     return new Promise(resolve => {
@@ -115,6 +116,21 @@ const address = {
 }
 
 const gifts = {
+  getGiftInfo: function (openid,data){
+    return new Promise(resolve => {
+      wx.request({
+        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.gift_detail&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getUpgreadUpInfo: function(openid) {
     return new Promise(resolve => {
       wx.request({
@@ -163,7 +179,7 @@ const gifts = {
 }
 
 const user = {
-  chuZhiPay: (openid, data) => {//user页面储值
+  chuZhiPay: (openid, data) => { //user页面储值
     return new Promise(resolve => {
       wx.request({
         url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.chuzhi&openid=' + openid,
@@ -172,7 +188,7 @@ const user = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -187,13 +203,13 @@ const user = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
     })
   },
-  getShouyi: (openid,data) => {
+  getShouyi: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
         url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.shouyi_log&openid=' + openid,
@@ -202,7 +218,7 @@ const user = {
         method: 'POST',
         dataType: 'json',
         responseType: 'text',
-        success: function (res) {
+        success: function(res) {
           resolve(res)
         }
       })
@@ -252,6 +268,41 @@ const user = {
         },
         complete: function(res) {
           console.log(res)
+        }
+      })
+    })
+  }
+}
+
+
+const request = (title, openid, data) => {//senke.my.tixian_go
+  return new Promise(resolve => {
+    wx.request({
+      url: serverUri + 'app/ewei_shopv2_api.php?i=46&r='+title+'&openid=' + openid,
+      data: data ? data: '',
+      header,
+      method: data? 'POST': 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        resolve(res)
+      }
+    })
+  })
+}
+
+const refer = {
+  tixian: (openid, data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri +'app/ewei_shopv2_api.php?i=46&r=senke.my.tixian_go&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          resolve(res)
         }
       })
     })
@@ -472,6 +523,7 @@ module.exports = {
   delAddress: address.del,
   editAddress: address.editAddress,
   getAddress: address.getOneAddress,
+  getGiftInfo: gifts.getGiftInfo,
   getGiftList: gifts.getGiftList,
   agentPay: gifts.agentPay,
   getUpgreadUpInfo: gifts.getUpgreadUpInfo,
@@ -494,5 +546,7 @@ module.exports = {
   sendMsg: bankCard.sendMsg,
   getCardList: bankCard.getCardList,
   changeDefaultCard: bankCard.changeDefaultCard,
-  delCard: bankCard.delCard
+  delCard: bankCard.delCard,
+  tixian: refer.tixian,
+  request
 }
