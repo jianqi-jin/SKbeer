@@ -9,7 +9,7 @@
 
     <navigator open-type='navigate' url='/pages/address/address?type=2' class='address' wx:else>
       <view class='orderContentLeftTop'>
-        <view class='nameBox'>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}<view class='typeClass'>{{addressInfo.type == "0"?  "家": "公司"}}</view></view>
+        <view class='nameBox'>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}<theme-view type="themeBorder" class='typeClass'>{{addressInfo.type == "0"?  "家": "公司"}}</theme-view></view>
         <view class='mobile'>{{addressInfo.mobile}}</view>
       </view>
       <view class='orderContentLeftBottom'>

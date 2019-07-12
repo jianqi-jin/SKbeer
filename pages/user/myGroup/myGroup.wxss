@@ -53,12 +53,10 @@
   width:230rpx;
   height:60rpx;
   background:rgba(255,192,17,0);
-  border:2rpx solid rgba(130, 76, 31, 1);
   border-radius:30rpx;
   font-size:28rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
-  color:rgba(130,76,31,1);
   text-align: center;
   line-height: 60rpx;
   margin-top:18rpx;

@@ -79,6 +79,7 @@
 .btnSpecialBlock{
   width: auto;
   margin: 20rpx 24rpx 11rpx 24rpx;
+  background: #fff;
 }
 .footBtn{
   width: 100%;

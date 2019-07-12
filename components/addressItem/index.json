@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "theme-view": "/components/themeView/themeView"
+  }
 }

@@ -7,7 +7,7 @@ const address = {
   getAddressList: function(openid) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.index.address_list&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.address_list&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -22,7 +22,7 @@ const address = {
   addAddress: function(openid, obj) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.index.address_insert&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.address_insert&openid=' + openid,
         data: obj,
         header,
         method: 'POST',
@@ -37,7 +37,7 @@ const address = {
   getDefalutAdderss: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_address&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.get_address&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -52,7 +52,7 @@ const address = {
   changeDefault: function(openid, address_id) {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.change_address&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.change_address&openid=' + openid,
         data: {
           address_id
         },
@@ -69,7 +69,7 @@ const address = {
   del: function(openid, address_id) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.address_del&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.address_del&openid=' + openid,
         data: {
           address_id
         },
@@ -86,7 +86,7 @@ const address = {
   editAddress: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.address_edit&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.address_edit&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -119,7 +119,7 @@ const gifts = {
   getGiftInfo: function (openid,data){
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.gift_detail&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.gift_detail&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -134,7 +134,7 @@ const gifts = {
   getUpgreadUpInfo: function(openid) {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.dl_upgrade&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.dl_upgrade&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -149,7 +149,7 @@ const gifts = {
   agentPay: function(openid, data) {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.agent_pay&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.agent_pay&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -164,7 +164,7 @@ const gifts = {
   getGiftList: function(openid) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.gift_list&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.gift_list&openid=' + openid,
         data: '',
         header: {},
         method: 'GET',
@@ -182,7 +182,7 @@ const user = {
   chuZhiPay: (openid, data) => { //user页面储值
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.chuzhi&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.chuzhi&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -197,7 +197,7 @@ const user = {
   getYueDetails: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.yue_details&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.yue_details&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -212,7 +212,7 @@ const user = {
   getShouyi: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.shouyi_log&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.shouyi_log&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -227,7 +227,7 @@ const user = {
   getReferCenterInfo: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.tuiguang&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.tuiguang&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -242,7 +242,7 @@ const user = {
   getUserInfo: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.index&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.index&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -257,7 +257,7 @@ const user = {
   getDrawHis: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.tixian_log&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.tixian_log&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -278,7 +278,7 @@ const user = {
 const request = (title, openid, data) => {//senke.my.tixian_go
   return new Promise(resolve => {
     wx.request({
-      url: serverUri + 'app/ewei_shopv2_api.php?i=46&r='+title+'&openid=' + openid,
+      url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r='+title+'&openid=' + openid,
       data: data ? data: '',
       header,
       method: data? 'POST': 'GET',
@@ -295,7 +295,7 @@ const refer = {
   tixian: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri +'app/ewei_shopv2_api.php?i=46&r=senke.my.tixian_go&openid=' + openid,
+        url: serverUri +'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.tixian_go&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -313,7 +313,7 @@ const good = {
   closeOrder: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.order_close&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.order.order_close&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -328,7 +328,7 @@ const good = {
   delOrder: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.order_del&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.order.order_del&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -343,7 +343,7 @@ const good = {
   orderPay: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.order_pay&&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.order_pay&&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -358,7 +358,7 @@ const good = {
   getPriceByOption: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_option&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.get_option&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -373,7 +373,7 @@ const good = {
   getGoodInfo: (data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_param',
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.get_param',
         data,
         header,
         method: 'POST',
@@ -388,7 +388,7 @@ const good = {
   getGoodSpec: (data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.get_spec',
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.get_spec',
         data,
         header,
         method: 'POST',
@@ -404,7 +404,7 @@ const good = {
     return new Promise(resolve => {
 
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.goods_details',
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.index.goods_details',
         data: {
           goods_id
         },
@@ -425,7 +425,7 @@ const bankCard = {
   addCard: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_add&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.bank_card_add&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -440,7 +440,7 @@ const bankCard = {
   getDefaultCard: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_default&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.bank_card_default&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -455,7 +455,7 @@ const bankCard = {
   sendMsg: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.send_code&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.send_code&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -470,7 +470,7 @@ const bankCard = {
   getCardList: (openid) => {
     return new Promise(resolve => {
       wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.my.bank_card_list&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.bank_card_list&openid=' + openid,
         data: '',
         header,
         method: 'GET',
@@ -485,7 +485,7 @@ const bankCard = {
   changeDefaultCard: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.change_card&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.change_card&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -500,7 +500,7 @@ const bankCard = {
   delCard: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.my.card_del&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i='+postI+'&r=senke.my.card_del&openid=' + openid,
         data,
         header,
         method: 'POST',
@@ -548,5 +548,6 @@ module.exports = {
   changeDefaultCard: bankCard.changeDefaultCard,
   delCard: bankCard.delCard,
   tixian: refer.tixian,
-  request
+  request,
+  postI
 }

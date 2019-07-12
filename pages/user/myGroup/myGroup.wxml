@@ -13,7 +13,7 @@
       <view class='userName'>用户昵称</view>
       <view class='userLevel'>董事合伙人</view>
     </view>
-    <navigator open-type='navigate' url='./groupInfo/index' class='btnSSS'>查看团队业绩</navigator>
+    <navigator open-type='navigate' url='./groupInfo/index' class='btnSSS'><theme-view type="themeBorder">查看团队业绩</theme-view></navigator>
   </view>
 
 
@@ -34,7 +34,7 @@
       <view class='oBoxMain'>
         <view wx:for='{{orderInfo}}' wx:key='index' class='tableItem'>
           <view class='tableTop'>{{item.title}}</view>
-          <view class='tableBottom'>{{item.value}}</view>
+          <view class='tableBottom'>{{item.value}}元</view>
         </view>
       </view>
     </view>
@@ -46,7 +46,7 @@
       <view class='oBoxMain'>
         <view wx:for='{{groupInfo}}' wx:key='index' class='tableItem'>
           <view class='tableTop'>{{item.title}}</view>
-          <view class='tableBottom'>{{item.value}}</view>
+          <view class='tableBottom'>{{item.value}}单</view>
         </view>
       </view>
     </view>
@@ -58,7 +58,7 @@
       <view class='oBoxMain'>
         <view wx:for='{{groupNumInfo}}' wx:key='index' class='tableItem'>
           <view class='tableTop'>{{item.title}}</view>
-          <view class='tableBottom'>{{item.value}}</view>
+          <view class='tableBottom'>{{item.value}}人</view>
         </view>
       </view>
     </view>

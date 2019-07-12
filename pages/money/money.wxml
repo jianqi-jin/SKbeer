@@ -14,7 +14,10 @@
 
 <view class='mainBox'>
   <view class='navBox'>
-    <view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</view>
+    <view data-id='{{item.id}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>
+      <theme-view class='navItem' wx:if="{{item.id == showId}}" type="themeFont">{{item.title}}</theme-view>
+      <view wx:else class='navItem'>{{item.title}}</view>
+    </view>
   </view>
   <loading wx:if='{{loadingFlag}}' />
   <view wx:else class='listBox'>

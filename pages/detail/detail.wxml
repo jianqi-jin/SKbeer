@@ -48,7 +48,7 @@
 </view>
 <view class='footBtn' catchtouchmove='move'>
   <view wx:if='{{showIndex ==3}}' class='btnSpecialBlock' bindtap='closeOrder'>完成</view>
-  <view wx:else class='btnSpecialBlock' bindtap='{{disableFlag? "":"showOrder"}}'>立即购买</view>
+  <view wx:else class='btnSpecialBlock' bindtap='{{disableFlag? "":"showOrder"}}'><theme-view type="themeBack">立即购买</theme-view></view>
 </view>
 
 
@@ -90,7 +90,10 @@
         <view class='orderOption' wx:for='{{spec}}' wx:key='index' wx:for-index='i'>
           <view class='orderOptionTitle'>{{item.title}}</view>
           <view class='orderOptionContent'>
-            <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.specs}}' wx:key='index' class='"orderOptionItem "+{{ item.checked ? "optionActive" : ""}}'>{{item.title}}</view>
+            <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.specs}}' class='orderOptionItemAll' wx:key='index'>
+            <theme-view class='optionActive' wx:if='{{item.checked}}' type='themeBack'>{{item.title}}</theme-view>
+            <view wx:else class='orderOptionItem'>{{item.title}}</view>
+            </view>
           </view>
         </view>
       </view>

@@ -129,7 +129,6 @@
   width:133rpx;
   height:47rpx;
   background:rgba(255,255,255,1);
-  border:2rpx solid rgba(130, 76, 31, 1);
   border-radius:24rpx;
 
   font-size:28rpx;

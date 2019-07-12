@@ -1,8 +1,5 @@
 <!--pages/home/home.wxml-->
 
-<theme-view type='themeBorder'>确认发货</theme-view>
-<theme-view type='themeBack'>确认发货</theme-view>
-
 <image bindtap='navToDetail' wx:for='{{imgList}}' wx:key="index" data-goodid='{{item.id}}' class='imgItem' mode='widthFix' src='{{item.thumb}}'></image>
 
 

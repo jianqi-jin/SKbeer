@@ -3,17 +3,20 @@
 
 <view bindtap='navTo' data-flag='{{orderDetail.top.status == "3" ? true : false}}' class='statusBox'>
   <view class='titleBox'>
-    <view class='icon'><image src='./res/img/icon-order.png'></image></view>
+    <view class='icon'>
+      <image src='./res/img/icon-order.png'></image>
+    </view>
     <view class='fontTitle'>订单状态: {{orderDetail.top.status == -1 ? goodStatus[5].statusTitle : goodStatus[orderDetail.top.status].statusTitle}}</view>
   </view>
   <view wx:if='{{orderDetail.top.status == "0"}}' class='fontSpecial'>支付剩余时间:{{orderDetail.top.time}}</view>
-  <view  wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.AcceptStation?orderDetail.top.AcceptStation:"暂无物流消息"}}</view>
+  <view wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.AcceptStation?orderDetail.top.AcceptStation:"暂无物流消息"}}</view>
   <view wx:if='{{orderDetail.top.status == "3"}}' class='wuliuItemBox'>
     <view class='left'>
       <view class='fontSpecial'>快递已签收，签收人： {{orderDetail.top.realname}}</view>
       <view class='fontInfo'>{{orderDetail.top.finishtime}}</view>
     </view>
-    <view class='icon'><!--右箭头-->
+    <view class='icon'>
+      <!--右箭头-->
       <image src='/res/icon/icon_right_click.png'></image>
     </view>
 
@@ -24,27 +27,34 @@
 <view class='userBox'>
   <view class='userTitleBox'>
     <view class='realName'>
-      <view class='icon'><image src='./res/img/add.png'></image></view>
-      <view class='fontTitle'>{{orderDetail.address.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}<view class='typeClass'>{{addressInfo.type == "0"?  "家": "公司"}}</view></view>
+      <view class='icon'>
+        <image src='./res/img/add.png'></image>
+      </view>
+      <view class='fontTitle'>{{orderDetail.address.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}
+        <theme-view class='typeClass' type='themeBorder'><view>{{addressInfo.type == "0"? "家": "公司"}}</view></theme-view>
+      </view>
     </view>
     <view class='fontTitle'>{{orderDetail.address.mobile}}</view>
   </view>
   <view class='userContentBox'>
-    
-    <view class='fontTitle'><view wx:if='{{orderDetail.address.isdefault == "1"}}' class='addreType'>默认</view> {{orderDetail.address.province}} {{orderDetail.address.city}} {{orderDetail.address.area}} {{orderDetail.address.address}}</view>
+
+    <view class='fontTitle'>
+      <view wx:if='{{orderDetail.address.isdefault == "1"}}' class='addreType'>默认</view> {{orderDetail.address.province}} {{orderDetail.address.city}} {{orderDetail.address.area}} {{orderDetail.address.address}}</view>
   </view>
 </view>
 
 <view class='orderBox'>
   <view class='goodInfo'>
-    <view class='goodImg'><image mode='aspectFill' src='{{orderDetail.order.listimg}}'></image></view>
+    <view class='goodImg'>
+      <image mode='aspectFill' src='{{orderDetail.order.listimg}}'></image>
+    </view>
     <view class='goodInfoContentBox'>
       <view class='goodName'>{{orderDetail.order.title}}{{orderDetail.order.optionname}}</view>
       <view class='goodPrice'>
         <view class='priceStronge'>￥{{orderDetail.order.goodsprice}}</view>
         <view class='dedPrice'>x{{orderDetail.order.total}}</view>
       </view>
-      
+
     </view>
   </view>
 
@@ -66,7 +76,10 @@
   </view>
   <view class='orderPriceInfoBox'>
     <view class='title'>支付方式</view>
-    <view class='payType'><view class='icon'><image src='/res/icon/wechat.png'></image></view>{{payType[orderDetail.order.paytype]}}</view>
+    <view class='payType'>
+      <view class='icon'>
+        <image src='/res/icon/wechat.png'></image>
+      </view>{{payType[orderDetail.order.paytype]}}</view>
   </view>
 </view>
 
@@ -80,11 +93,19 @@
 -1取消订单0待付款1代发货2已发货3成功4退款申请
 -->
 <view class='btnFoot'>
-  <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'>删除订单</view>
-  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'>立即支付</view>
-  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view><!-->
+  
+    <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'><theme-view type="themeBack">删除订单</theme-view></view>
+  
+  
+    <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'><theme-view type="themeBack">立即支付</theme-view></view>
+  
+  <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>
+  <!-->
   <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>-->
-  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
-  <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
-  <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>再去逛逛</view>
+  
+    <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
+
+    <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
+    <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
+  
 </view>

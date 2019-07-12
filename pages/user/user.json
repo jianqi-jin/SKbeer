@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "nav-bottom": "../../components/navBottom/index",
-    "info-item": "../../components/infoItem/infoItem"
+    "info-item": "../../components/infoItem/infoItem",
+    "theme-view": "/components/themeView/themeView"
   }
 }

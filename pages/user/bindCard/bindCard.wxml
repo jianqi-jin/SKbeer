@@ -50,12 +50,12 @@
   <view class='inputItem sdwd'>
     <view class='fontTitle'>设为默认</view>
     <view class='input switchBox'>
-      <switch name='is_mr' color='#6C4127' bindchange="switch1Change"/>
+      <switch name='is_mr' color='{{color}}' bindchange="switch1Change"/>
     </view>
   </view>
 
 
-  <button form-type='submit' class='btnSpecialBlock' loading='{{loading}}'>保存</button>
+  <button form-type='submit' class='btnSpecialBlock' loading='{{loading}}'><theme-view type="themeBack">保存</theme-view></button>
 </form>
 
 

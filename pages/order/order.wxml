@@ -2,8 +2,9 @@
 
 <view class='navHeader'>
   <view class='navList'>
-    <view wx:for='{{navHeaderList}}' bindtap='changeNav' data-id='{{item.id}}' wx:key='index' class='"navItem "+{{currentShowPageId == item.id ? "activeNav" : ""}}'>
-      {{item.title}}
+    <view wx:for='{{navHeaderList}}' bindtap='changeNav' data-id='{{item.id}}' wx:key='index' class='"navItem "'>
+      <theme-view wx:if='{{currentShowPageId == item.id}}' type='themeFont'>{{item.title}}</theme-view>
+      <view wx:else>{{item.title}}</view>
     </view>
   </view>
 </view>
@@ -16,7 +17,9 @@
     <view class='titleBox'>
       <view class='ordNo'>{{item.ordersn}}</view>
       <view class='status'>
-        {{item.status == -1 ? goodStatus[5].statusTitle: goodStatus[item.status].statusTitle}}
+        <theme-view type='themeFont'>
+          {{item.status == -1 ? goodStatus[5].statusTitle: goodStatus[item.status].statusTitle}}
+        </theme-view>
       </view>
     </view>
     <view class='contentBox' data-item='{{item}}' bindtap='btnFun'>
@@ -47,9 +50,13 @@
       </view>
       <!--价格统计-->
     </view>
-    
+
     <view wx:if="{{(item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle) != ''}}" class='btnBox'>
-      <view class='btn' data-item='{{item}}' bindtap='btnFun'>{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</view>
+
+      <view class='btn' data-item='{{item}}' bindtap='btnFun'>
+        <theme-view type='themeBorder'>{{item.status == -1 ? goodStatus[5].btnTitle : goodStatus[item.status].btnTitle}}</theme-view>
+      </view>
+
     </view>
   </view>
 

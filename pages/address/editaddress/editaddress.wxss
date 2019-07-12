@@ -82,10 +82,13 @@ switch{
   margin-right: 36rpx;
   margin-top: 16rpx;
 }
-
+button{
+  padding: 0;
+}
 .btnSpecialBlock{
   margin: 56rpx 31rpx;
   width: auto;
+  background: #fff;
 }
 
 .picker{

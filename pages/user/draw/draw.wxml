@@ -35,7 +35,7 @@
     </navigator>
 
 
-    <button form-type='submit' class='Fuccccccbtn'>确认提现</button>
+    <button form-type='submit' class='Fuccccccbtn'><theme-view type="themeBack">确认提现</theme-view></button>
   </view>
 
   <view class='dialogMask' wx:if='{{dialogFlag}}'></view>

@@ -61,7 +61,11 @@
     <view>实付 ￥{{orderInfo.pay_money}}</view>
     <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
   </view>
-  <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>立即支付</button>
+  <theme-view type="themeBack">
+    <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>
+      立即支付
+    </button>
+  </theme-view>
 </view>
 
 <view class='payMask' wx:if='{{paySuccessFlag}}' wx:key='index'>
@@ -87,8 +91,12 @@
     <view class='yelooo'></view>
 
     <view class='btnBox'>
-      <view class='btn1' bindtap='navToHome'>继续购物</view>
-      <view class='btn2' bindtap='navToOrderDetail'>查看订单</view>
+      <theme-view class='btn1' type="themeBorder">
+        <view bindtap='navToHome'>继续购物</view>
+      </theme-view>
+      <theme-view class='btn2' type="themeBack">
+        <view bindtap='navToOrderDetail'>查看订单</view>
+      </theme-view>
     </view>
   </view>
 </view>

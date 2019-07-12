@@ -83,14 +83,11 @@
 .itemCard{
   width:219rpx;
   height:148rpx;
-  border:2rpx solid rgba(130,76,31,1);
   border-radius:6rpx;
   position: relative;
 }
 .itemCard .cardTitle{
-  padding: 0 10rpx;
   position: absolute;
-  background:rgba(130,76,31,1);
   border-radius:18rpx;
   font-size:18rpx;
   font-family:PingFang-SC-Medium;
@@ -100,6 +97,9 @@
   text-align: center;
   top: -13rpx;
   left: -10rpx;
+}
+.cardTitle theme-view view{
+  padding:0 10rpx;
 }
 
 
@@ -139,6 +139,7 @@ color:rgba(51,51,51,1);
   position: relative;
   width: 102rpx;
   height: 32rpx;
+  margin-bottom: 15rpx;
 }
 .cardImg image{
   width: 102rpx;

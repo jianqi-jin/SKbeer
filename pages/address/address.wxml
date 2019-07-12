@@ -6,7 +6,9 @@
     <view bindtap='navBack' data-item='{{item}}'>
       <view class='titleBox'>
         <view class='nameBox'>
-          <view class='fontTitle'>{{item.realname}} {{item.sex == "0" ? '（先生）' : '（女士）'}}<view class='typeClass'>{{item.type == "0"?  "家": "公司"}}</view></view>
+          <view class='fontTitle'>{{item.realname}} {{item.sex == "0" ? '（先生）' : '（女士）'}}
+            <theme-view type="themeBorder" class='typeClass'>{{item.type == "0"? "家": "公司"}}</theme-view>
+          </view>
         </view>
         <view class='mobile fontTitle'>{{item.mobile}}</view>
       </view>
@@ -42,7 +44,9 @@
   </view>
 </view>
 
-<view class='btnSpecialBlock' bindtap='navToEdit' data-type='newAddress'>添加收货地址</view>
+<view class='btnSpecialBlock' bindtap='navToEdit' data-type='newAddress'>
+  <theme-view type="themeBack">添加收货地址</theme-view>
+</view>
 
 
 

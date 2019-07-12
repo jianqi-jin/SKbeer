@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    color: app.globalData.themeColor,
     vCodeFlag: true,
     vCodeTime: 0,
     loading: false,

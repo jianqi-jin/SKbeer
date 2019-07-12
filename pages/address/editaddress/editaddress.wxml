@@ -14,7 +14,7 @@
 
     <radio-group name='sex' class="radio-group" data-obj='radioSex' bindchange="radioChange">
       <label class="radio" wx:for="{{radioSex}}">
-        <radio value="{{item.name}}" checked="{{item.checked}}"/>
+        <radio value="{{item.name}}" checked="{{item.checked}}" />
         <image class='radioIcon' src='{{item.checked ? "../res/img/icon-sel-pre.png": "../res/img/icon-sel-normal.png"}}'></image>
         <view class='radioText'>{{item.value}}</view>
       </label>
@@ -22,7 +22,7 @@
 
 
   </view>
-  
+
 
   <view class='inputItem'>
     <view class='fontTitle'>电话</view>
@@ -31,22 +31,22 @@
     </view>
   </view>
 
-  
+
   <view class='inputItem'>
     <view class='fontTitle'>地址</view>
     <view class='input'>
-    
+
       <view class="section">
         <picker name='address0' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
           <view class="picker">
-          <input disabled='true' placeholder='请选择收货地址' value='{{region[0].length > 0 ? region : ""}}'></input>
+            <input disabled='true' placeholder='请选择收货地址' value='{{region[0].length > 0 ? region : ""}}'></input>
           </view>
         </picker>
       </view>
 
-      
 
-      
+
+
 
     </view>
   </view>
@@ -61,7 +61,7 @@
 
       <radio-group name='type' class="radio-group" data-obj='radioLabel' bindchange="radioChange">
         <label class="radio" wx:for="{{radioLabel}}">
-          <radio value="{{item.name}}" checked="{{item.checked}}"/>
+          <radio value="{{item.name}}" checked="{{item.checked}}" />
           <image class='radioIcon' src='{{item.checked ? "../res/img/icon-sel-pre.png": "../res/img/icon-sel-normal.png"}}'></image>
           <view class='radioText'>{{item.value}}</view>
         </label>
@@ -71,14 +71,16 @@
   </view>
 
 
-    <view class='inputItem'>
+  <view class='inputItem'>
     <view class='fontTitle'>设为默认</view>
     <view class='input switchBox'>
-      <switch name='isdefault' checked='{{addressInfo.isdefault == "1"}}' color='#6C4127' bindchange="switch1Change"/>
+      <switch name='isdefault' checked='{{addressInfo.isdefault == "1"}}' color='{{color}}' bindchange="switch1Change" />
     </view>
   </view>
 
 
-<button class='btnSpecialBlock' loading='{{subLoading}}' form-type='submit'>保存</button>
+  <button class='btnSpecialBlock' loading='{{subLoading}}' form-type='submit'>
+    <theme-view type="themeBack">保存</theme-view>
+  </button>
 
 </form>

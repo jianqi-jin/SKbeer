@@ -1,6 +1,7 @@
 // pages/recommend/recommend.js
 const app = getApp()
 const util = require('../../utils/util.js');
+const api = require('../../utils/api.js');
 
 Page({
 
@@ -66,7 +67,7 @@ Page({
     let this_ = this;
     let user = wx.getStorageSync('userInfo');
     let newData = this.data.list[idx];
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=46&r=senke.tuijian.index&openid=${app.globalData.openid}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.index&openid=${app.globalData.openid}`, 'POST', {
       type: idx
     }).then((res) => {
       console.log(res.list)
@@ -132,7 +133,7 @@ Page({
     let newData = this.data.list[type].data;
     let imgList = newData[idx].tp_list;
 
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${postI}&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
       type: newData[idx].type
     }).then((res) => {
@@ -341,7 +342,7 @@ Page({
     })
     // this.setShare()
     this.setData({
-      color: '#824C1F' //app.globalData.color
+      color: app.globalData.themeColor //app.globalData.color
     })
     wx.setNavigationBarTitle({
       title: '推荐有奖'
@@ -391,7 +392,7 @@ Page({
   },
 
   statistics(id) {
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.fx&openid=${wx.getStorageSync('openid')}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=yktk.yq.fx&openid=${wx.getStorageSync('openid')}`, 'POST', {
       id: id
     }).then((res) => {
       console.log(res.res.img)
@@ -421,7 +422,7 @@ Page({
       let idx = e.target.dataset.idx;
       let newData = this.data.list[type].data;
       let id = newData[idx].tgy_id;
-      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.yq.fenxiang&openid=${wx.getStorageSync('openid')}`, 'POST', {
+      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=yktk.yq.fenxiang&openid=${wx.getStorageSync('openid')}`, 'POST', {
         id: id,
         type: 1
       }).then((res) => {

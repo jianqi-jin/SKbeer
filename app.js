@@ -80,16 +80,18 @@ App({
         value: "#000"
       },
     },
-    themeBack:'margin:4rpx;display:inline;padding:4rpx 20rpx;line-height:40rpx;text-align:center;background:linear-gradient(90deg,rgba(130,76,31,1),rgba(151,79,10,1));color:#fff;border-radius:400px;',//themeBack风格
-    themeBorder:'margin:4rpx;display:inline;padding:4rpx 20rpx;line-height:40rpx;text-align:center;border:2rpx solid rgba(108,65,39,1);border-radius:400rpx;color:rgba(108,65,39,1);',//themeBorder风格
-  color: '#824C1F',
-  userInfo: null,
-  navBottomList: [{
-    url: '',
-    img: '',
-    selectedImg: '',
-    select: false,
-    havT: true
-  }]
-}
+    themeBack: 'margin:0!important;background:#0000ff!important;color:#fff!important;border-radius:400px;', //themeBack风格
+    themeBorder: 'margin:0!important;border:2rpx solid #0000ff!important;border-color:#0000ff!important;border-radius:400rpx;color:#0000ff!important;', //themeBorder风格
+    themeFont: 'color:#0000ff;',
+    themeOnlyBorder:'border:2rpx solid #0000ff;',
+    themeColor: '#0000ff',
+    userInfo: null,
+    navBottomList: [{
+      url: '',
+      img: '',
+      selectedImg: '',
+      select: false,
+      havT: true
+    }]
+  }
 })

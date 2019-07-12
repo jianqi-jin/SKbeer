@@ -78,7 +78,6 @@ color:rgba(153,153,153,1);
 .cardTop view:last-child{
   width:156rpx;
   height:46rpx;
-  background:rgba(130,76,31,1);
   border-radius:23rpx;
 
   font-size:28rpx;
@@ -146,6 +145,10 @@ color:rgba(153,153,153,1);
   color:rgba(51,51,51,1);
   margin-top: 20rpx;
 }
+.otItem theme-view{
+  margin-top:20rpx;
+}
+
 .otItem view:last-child{
   background:rgba(130,76,31,0);
   border:2rpx solid rgba(130, 76, 31, 1);

@@ -81,5 +81,5 @@
 </view>
 
 <view class='footBtn'>
-  <view class='btnSpecialBlock' bindtap='showOrder'>{{btnTitle[status]}}</view>
+  <view class='btnSpecialBlock' bindtap='showOrder'><theme-view type="themeBack">{{btnTitle[status]}}</theme-view></view>
 </view>

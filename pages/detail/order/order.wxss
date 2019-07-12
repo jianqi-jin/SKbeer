@@ -35,11 +35,12 @@
   font-weight: 400;
   color: rgba(204, 0, 0, 1);
 }
-
+button{
+  background-color: rgba(0, 0, 0, 0);
+}
 .footRight {
   margin-right: 0;
-  padding: 0 40rpx;
-  background: linear-gradient(90deg, rgba(130, 76, 31, 1), rgba(151, 79, 10, 1));
+  
   border-radius: 100rpx;
   font-size: 32rpx;
   font-family: PingFang-SC-Medium;
@@ -247,21 +248,17 @@ image {
   border-radius: 30rpx;
 }
 
-.btnBox view:first-child {
-  background: rgba(0, 0, 0, 0);
-  border: 2rpx solid rgba(130, 76, 31, 1);
+.btnBox .btn1 {
   border-radius: 30rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
-  color: rgba(130, 76, 31, 1);
   line-height: 61rpx;
   text-align: center;
   margin-left: 53rpx;
 }
 
-.btnBox view:last-child {
-  background: linear-gradient(90deg, rgba(130, 76, 31, 1), rgba(151, 79, 10, 1));
+.btnBox .btn2 {
   border-radius: 30rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
