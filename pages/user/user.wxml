@@ -19,25 +19,25 @@
   <view class='chognzhiTitle'>选择充值方式</view>
   <view class='cardList'>
     <theme-view type="themeOnlyBorder" class='itemCard' data-index='{{item}}' wx:for="{{userInfo.card}}" wx:key="index">
-        <navigator bindtap='goPayChuZhi'>
-          <view class='cardTitle'>
-            <theme-view type='themeBack'>
-              首冲赠{{item.sc_money}}元
-            </theme-view>
+      <navigator bindtap='goPayChuZhi'>
+        <view class='cardTitle'>
+          <theme-view type='themeBack'>
+            首冲赠{{item.sc_money}}元
+          </theme-view>
+        </view>
+        <view class='cardContent'>
+          <view class='cardPrice'>
+            <view class='cardPrice0'>￥</view>
+            <view class='cardPrice1'>{{item.cz_money}}</view>
           </view>
-          <view class='cardContent'>
-            <view class='cardPrice'>
-              <view class='cardPrice0'>￥</view>
-              <view class='cardPrice1'>{{item.cz_money}}</view>
+          <view class='cardInfoBox'>
+            <view class='cardImg'>
+              <image src='./res/img/icon-coupon.png'></image>
             </view>
-            <view class='cardInfoBox'>
-              <view class='cardImg'>
-                <image src='./res/img/icon-coupon.png'></image>
-              </view>
-              <view class='cardInfo'>赠{{item.zs_money}}元</view>
-            </view>
+            <view class='cardInfo'>赠{{item.zs_money}}元</view>
           </view>
-        </navigator>
+        </view>
+      </navigator>
     </theme-view>
   </view>
 

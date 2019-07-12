@@ -22,8 +22,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-
     //从缓存读取orderInfo
     this.readOrderInfoFromStorage().then(res=>{
       console.log('res')
@@ -34,7 +32,6 @@ Page({
         console.log(res)
       })
     });
-
   },
   getOrderInfo(){
     this.setData({
@@ -135,7 +132,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
     if (app.globalData.currentAddress) {
       this.setData({
         addressInfo: app.globalData.currentAddress,

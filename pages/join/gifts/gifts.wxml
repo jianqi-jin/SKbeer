@@ -3,7 +3,7 @@
   <view>赠送精美</view>
   <view>礼品成为森客平台代理可获得精美礼品</view>
 </view>
-<view class='"back "+{{infoFlag || orderFlag ? "backDark" : ""}}' bindtap='closeInfo'></view>
+<view class='"back "+{{infoFlag || orderFlag ? "backDark" : ""}}+{{orderFlag ? " backDark2" : ""}}' bindtap='closeInfo'></view>
 <view class='mainBox'>
 
   <view class='cardList'>
@@ -26,11 +26,11 @@
   </view>
 </view>
 
-
-<view class='giftInfoPage' wx:if='{{infoFlag}}'>
-  <view bindtap='closeInfo' class='iconClose'>
+  <view wx:if='{{infoFlag}}' bindtap='closeInfo' class='iconClose'>
     <image src='/res/icon/icon-close-bg.png'></image>
   </view>
+
+<view class='giftInfoPage' wx:if='{{infoFlag}}'>
   <rich-text nodes='{{detailContent}}'></rich-text>
 </view>
 

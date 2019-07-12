@@ -133,7 +133,7 @@ Page({
     let newData = this.data.list[type].data;
     let imgList = newData[idx].tp_list;
 
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${postI}&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
       type: newData[idx].type
     }).then((res) => {
