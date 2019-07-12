@@ -18,8 +18,8 @@
 <view class='chongZhiBox'>
   <view class='chognzhiTitle'>选择充值方式</view>
   <view class='cardList'>
-    <theme-view type="themeOnlyBorder" class='itemCard' data-index='{{item}}' wx:for="{{userInfo.card}}" wx:key="index">
-      <navigator bindtap='goPayChuZhi'>
+    <theme-view type="themeOnlyBorder" class='itemCard' wx:for="{{userInfo.card}}" wx:key="index">
+      <view data-index='{{item}}' bindtap='goPayChuZhi'>
         <view class='cardTitle'>
           <theme-view type='themeBack'>
             首冲赠{{item.sc_money}}元
@@ -37,7 +37,7 @@
             <view class='cardInfo'>赠{{item.zs_money}}元</view>
           </view>
         </view>
-      </navigator>
+      </view>
     </theme-view>
   </view>
 

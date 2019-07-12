@@ -1,47 +1,49 @@
 <!--pages/join/gifts/gifts.wxml-->
-<view class='titleBox'>
-  <view>赠送精美</view>
-  <view>礼品成为森客平台代理可获得精美礼品</view>
-</view>
-<view class='"back "+{{infoFlag || orderFlag ? "backDark" : ""}}+{{orderFlag ? " backDark2" : ""}}' bindtap='closeInfo'></view>
-<view class='mainBox'>
+<view class='tempBox' class='tempClass + {{infoFlag?" tempClassActive":""}}'>
+  <view class='titleBox'>
+    <view>赠送精美</view>
+    <view>礼品成为森客平台代理可获得精美礼品</view>
+  </view>
+  <view class='"back "+{{infoFlag || orderFlag ? "backDark" : ""}}+{{orderFlag ? " backDark2" : ""}}' bindtap='closeInfo'></view>
+  <view class='mainBox'>
 
-  <view class='cardList'>
-    <view class='"cardItem " + {{item.checked ? "cardChacked" : ""}}' wx:for='{{giftList}}' wx:key='index'>
-      <view class='cardLeft' bindtap='showInfo' data-index='{{index}}'>
-        <view class='carImg'>
-          <image src='{{item.thumb}}'></image>
+    <view class='cardList'>
+      <view class='"cardItem " + {{item.checked ? "cardChacked" : ""}}' wx:for='{{giftList}}' wx:key='index'>
+        <view class='cardLeft' bindtap='showInfo' data-index='{{index}}'>
+          <view class='carImg'>
+            <image src='{{item.thumb}}'></image>
+          </view>
+          <view class='cardContext'>
+            <view class='cardContextTitle'>{{item.title}}</view>
+            <view class='cardContextText'>{{item.subtitle}}</view>
+          </view>
         </view>
-        <view class='cardContext'>
-          <view class='cardContextTitle'>{{item.title}}</view>
-          <view class='cardContextText'>{{item.subtitle}}</view>
+        <view class='cardRight' bindtap='chooseGift' data-index='{{index}}'>
+          <view class='icon'>
+            <image src='{{item.checked ? "/res/icon/icon-select-ok.png" : "/res/icon/icon-selet.png"}}'></image>
+          </view>
         </view>
       </view>
-      <view class='cardRight' bindtap='chooseGift' data-index='{{index}}'>
-        <view class='icon'>
-          <image src='{{item.checked ? "/res/icon/icon-select-ok.png" : "/res/icon/icon-selet.png"}}'></image>
-        </view>
-      </view>
+      
     </view>
   </view>
-</view>
 
   <view wx:if='{{infoFlag}}' bindtap='closeInfo' class='iconClose'>
     <image src='/res/icon/icon-close-bg.png'></image>
   </view>
 
-<view class='giftInfoPage' wx:if='{{infoFlag}}'>
-  <rich-text nodes='{{detailContent}}'></rich-text>
-</view>
-
-<view class='orderPage' wx:if='{{orderFlag}}'>
-  <view class='orderTitleBox'>
-    <view>确认订单</view>
-    <view bindtap='closeInfo' class='icon'>
-      <image src='/res/icon/icon-close-bg.png'></image>
-    </view>
+  <view class='giftInfoPage' wx:if='{{infoFlag}}'>
+    <rich-text nodes='{{detailContent}}'></rich-text>
   </view>
-  <!--
+
+  <view class='orderPage' wx:if='{{orderFlag}}'>
+    <view class='orderTitleBox'>
+      <view>确认订单</view>
+      <view bindtap='closeInfo' class='icon'>
+        <image src='/res/icon/icon-close-bg.png'></image>
+      </view>
+    </view>
+    <!--
   <view class='orderContent' wx:if='{{!addressInfo.realname}}'>
     <view class='orderContentLeft'>
       <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew'>
@@ -68,18 +70,22 @@
   </view>
 -->
 
-  <address-item addressInfo="{{addressInfo}}"></address-item>
-  <view class='border'><image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
-  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
-  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
-  <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+    <address-item addressInfo="{{addressInfo}}"></address-item>
+    <view class='border'>
+      <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+      <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+      <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+      <image mode='aspectFit' src='/res/icon/confirm-order-bg@3x.png'></image>
+    </view>
+    <view class='giftContentBox'>
+      <view>选择礼品</view>
+      <view>{{currentGift.title}}</view>
+    </view>
   </view>
-  <view class='giftContentBox'>
-    <view>选择礼品</view>
-    <view>{{currentGift.title}}</view>
-  </view>
-</view>
 
-<view class='footBtn'>
-  <view class='btnSpecialBlock' bindtap='showOrder'><theme-view type="themeBack">{{btnTitle[status]}}</theme-view></view>
+  <view class='footBtn'>
+    <view class='btnSpecialBlock' bindtap='showOrder'>
+      <theme-view type="themeBack">{{btnTitle[status]}}</theme-view>
+    </view>
+  </view>
 </view>

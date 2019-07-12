@@ -1,5 +1,7 @@
 /* pages/detail/detail.wxss */
-
+.pageView{
+  margin-bottom:-150rpx;
+}
 .footBtn {
   position: fixed;
   bottom: 0;
@@ -15,7 +17,6 @@
   width: auto;
   margin: 10rpx 25rpx;
 }
-
 swiper {
   height: 750rpx;
 }

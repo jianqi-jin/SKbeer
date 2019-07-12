@@ -81,11 +81,16 @@ Page({
     this.getUserInfo();
   },
   goPayChuZhi(ev) {
+    wx.showLoading({
+      title: '加载中...',
+      mask: true
+    })
     let index = ev.currentTarget.dataset.index;
-    console.log(index)
+    console.log(ev.currentTarget)
     api.chuZhiPay(app.globalData.openid, {
       card_id: index.id
     }).then(res => {
+      wx.hideLoading()
       console.log(res)
       if (res.data.error != "0") {
         wx.showToast({

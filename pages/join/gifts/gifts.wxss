@@ -104,7 +104,7 @@
 .giftInfoPage {
   height: 844rpx;
   position: fixed;
-  bottom: 200rpx;
+  top: 200rpx;
   background: #fff;
   z-index: 2;
   width: 80%;
@@ -127,7 +127,7 @@
 .iconClose {
   position: fixed;
   right: 88rpx;
-  top: 153rpx;
+  top: 213rpx;
   z-index: 5;
 }
 
@@ -138,6 +138,12 @@
 
 .giftInfoPage rich-text {
   height: 100%;
+}
+.tempClassActive{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .orderPage {
