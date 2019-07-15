@@ -45,6 +45,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      bgImg: app.globalData.my_bg
+    })
     wx.setNavigationBarTitle({
       title: '用户中心',
       success: function(res) {},

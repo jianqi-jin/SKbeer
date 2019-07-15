@@ -21,7 +21,7 @@ Page({
   },
   callPhone() {
     wx.makePhoneCall({
-      phoneNumber: '17724806779'
+      phoneNumber: wx.getStorageSync("kefu_phone")
     })
   },
 

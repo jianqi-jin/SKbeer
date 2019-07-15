@@ -1,11 +1,13 @@
 // pages/join/paySuccess/paySuccess.js
+const app = getApp()
+const api = require("../../../utils/api.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
@@ -18,6 +20,19 @@ Page({
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
       backgroundColor: '#824C1F'
+    })
+    this.setData({
+      order_id: 6
+    })
+    this.getOrderInfo()
+
+  },
+  getOrderInfo(){
+    api.getOrderInfo(app.globalData.openid,{order_id:this.data.order_id}).then(res => {
+      res.data.cwdl_money = wx.getStorageSync("upgreadInfo").cwdl_money;
+      this.setData({
+        info:res.data
+      })
     })
   },
 

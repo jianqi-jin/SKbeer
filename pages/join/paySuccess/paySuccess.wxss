@@ -124,6 +124,7 @@ color:rgba(51,51,51,1);
 .btnSpecialBlock{
   width: auto;
   margin: 0 46rpx;
+  background: #fff;
 }
 
 .footBox .info{

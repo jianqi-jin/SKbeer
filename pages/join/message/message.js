@@ -1,11 +1,13 @@
 // pages/join/message/message.js
+const app = getApp()
+const api = require('../../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    upgreadInfo: {}
   },
 
   /**
@@ -18,19 +20,20 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+    this.getUpgreadUpInfo()
   },
   getUpgreadUpInfo() {
     let upgreadInfo = wx.getStorageSync('upgreadInfo');
-    if (upgreadInfo) {
-    } else {
+    //if (upgreadInfo) {} else {
       api.getUpgreadUpInfo(app.globalData.openid).then(res => {
         console.log(res)
+        upgreadInfo = res.data;
         wx.setStorageSync('upgreadInfo', res.data)
+        this.setData({
+          upgreadInfo
+        })
       })
-    }
-    this.setData({
-      upgreadInfo
-    })
+    //}
   },
 
   /**

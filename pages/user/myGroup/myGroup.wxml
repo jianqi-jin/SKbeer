@@ -1,17 +1,17 @@
 <!--pages/user/myGroup/myGroup.wxml-->
 
 <view class='back'>
-  <image src='/res/icon/team-bg.png'></image>
+  <image mode='aspectFill' src='{{bgImg}}'></image>
 </view>
 
 
   <view class='userBox'>
     <view class='userImg'>
-      <image src='{{}}'></image>
+      <image src='{{teamInfo.top.avatar}}'></image>
     </view>
     <view class='nameBox'>
-      <view class='userName'>用户昵称</view>
-      <view class='userLevel'>董事合伙人</view>
+      <view class='userName'>{{teamInfo.top.nickname}}</view>
+      <view class='userLevel'>{{teamInfo.top.levelname}}</view>
     </view>
     <navigator open-type='navigate' url='./groupInfo/index' class='btnSSS'><theme-view type="themeBorder">查看团队业绩</theme-view></navigator>
   </view>

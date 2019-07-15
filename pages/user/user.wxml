@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 
 <view class='userBox'>
-  <image class='bgImg' src='/res/icon/user-bg.png'></image>
+  <image class='bgImg' mode='aspectFill' src='{{bgImg}}'></image>
   <view class='imgBox'>
     <image src='{{userInfo.info.avatar}}'></image>
   </view>

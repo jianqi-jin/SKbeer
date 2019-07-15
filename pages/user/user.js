@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bgImg: "",
     userInfo: {},
     kefuInfo: {
       iconImg: '/pages/user/res/img/icon-service.png',
@@ -40,11 +41,14 @@ Page({
     wx.setNavigationBarTitle({
       title: '用户中心'
     })
+    this.setData({
+      bgImg: app.globalData.my_bg
+    })
 
   },
   callPhone(){
     wx.makePhoneCall({
-      phoneNumber: '17724806779'
+      phoneNumber: this.data.userInfo.kefu_phone
     })
   },
   fun(ev) {
@@ -142,6 +146,7 @@ Page({
       this.setData({
         userInfo: res.data
       })
+      wx.setStorageSync("kefu_phone", res.data.kefu_phone)
 
       this.setData({
         ['infoList[0].showFlag']: res.data.type == "1"

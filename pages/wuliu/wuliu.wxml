@@ -7,34 +7,23 @@
   </view>
   <view class='titleItem'>
     <view class='title fontTitle'>快递公司：</view>
-    <view class='value fontTitle'>申通快递</view>
+    <view class='value fontTitle'>{{wuliuInfo.wuliu}}</view>
   </view>
   <view class='titleItem'>
     <view class='title fontTitle'>物流单号：</view>
-    <view class='value fontTitle'>23365446521325</view>
+    <view class='value fontTitle'>{{wuliuInfo.order_sn}}</view>
   </view>
 </view>
 
 
 <view class='mainBox'>
-  <view class='mainItem'>
+  <view class='mainItem' wx:for='{{wuliuInfo.AcceptStation}}' wx:key='index'>
     <view class='timeBox'>
-      <view class='time'>16:23</view>
-      <view class='date'>2019-03-03</view>
+      <view class='time'>{{item.AcceptTime.split(' ')[1]}}</view>
+      <view class='date'>{{item.AcceptTime.split(' ')[0]}}</view>
     </view>
     <view class='textBox'>
-      <view>快件已签收，签收人 李冰冰 1362362544
-有问题请联系发送人电话：136236202</view>
-    </view>
-  </view>
-  <view class='mainItem'>
-    <view class='timeBox'>
-      <view class='time'>16:23</view>
-      <view class='date'>2019-03-03</view>
-    </view>
-    <view class='textBox'>
-      <view>【杭州市】浙江省杭州市滨江区快递员正在
-为您派件 电话1234514542112</view>
+      <view>{{item.AcceptStation}}</view>
     </view>
   </view>
 </view>

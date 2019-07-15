@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bgImg: "",
     loadingFlag: false,
     showId: 0,
     navList: [{
@@ -22,6 +23,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      bgImg: app.globalData.mx_img
+    })
     wx.setNavigationBarTitle({
       title: '奖金明细'
     })

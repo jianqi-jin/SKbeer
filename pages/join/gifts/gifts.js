@@ -77,22 +77,22 @@ Page({
   },
   getUpgreadUpInfo() {
     let upgreadInfo = wx.getStorageSync('upgreadInfo');
-    if (upgreadInfo) {} else {
-      api.getUpgreadUpInfo(app.globalData.openid).then(res => {
-        console.log(res)
-        wx.setStorageSync('upgreadInfo', res.data)
+    //if (upgreadInfo) {} else {
+    api.getUpgreadUpInfo(app.globalData.openid).then(res => {
+      console.log(res)
+      wx.setStorageSync('upgreadInfo', res.data)
+      this.setData({
+        upgreadInfo,
+        ['btnTitle[1]']: '立即支付' + upgreadInfo.cwdl_money + '元'
       })
-    }
-    this.setData({
-      upgreadInfo,
-      ['btnTitle[1]']: '立即支付' + upgreadInfo.dlsj_money + '元'
     })
+    //}
   },
   agentPay() {
     return new Promise(resolve => {
 
       let data = {
-        pay_money: this.data.upgreadInfo.dlsj_money, //价格
+        pay_money: this.data.upgreadInfo.cwdl_money, //价格
         gift_id: this.data.currentGift.id,
         address_id: this.data.addressInfo.id
       }
@@ -108,6 +108,7 @@ Page({
           })
           return
         }
+        app.globalData.order_id = res.data.order_id;
 
         wx.requestPayment({
           timeStamp: res.data.wechat.timeStamp,

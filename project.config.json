@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -71,10 +71,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "wuliu",
 					"pathName": "pages/wuliu/wuliu",
-					"query": "",
+					"query": "order_sn=12",
 					"scene": null
 				},
 				{
@@ -249,6 +249,7 @@
 					"id": -1,
 					"name": "loading",
 					"pathName": "pages/loading/loading",
+					"query": "",
 					"scene": null
 				}
 			]

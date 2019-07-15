@@ -12,7 +12,7 @@
 }
 
 .mainBox{
-  padding: 60rpx;
+  padding: 60rpx 30rpx;
   background: #fff;
   margin-top: 16rpx;
 }
@@ -51,6 +51,7 @@
 }
 .date{
   font-size: 22rpx;
+  white-space:nowrap;
 }
 .timeBox{
   display: flex;

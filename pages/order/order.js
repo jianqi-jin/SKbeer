@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loadingFlag: false,//加载动画
+    loadingFlag: false, //加载动画
     goodStatus: [{
       statusTitle: '待付款',
       btnTitle: '去付款'
@@ -60,9 +60,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!options.id){
+    if (!options.id) {
       this.getorderList(5);
-    }else{
+    } else {
       this.setData({
         currentShowPageId: 2
       })
@@ -103,13 +103,14 @@ Page({
         }
       },
       fail: function(res) {},
-      complete: function (res) {
+      complete: function(res) {
         that.setData({
           loadingFlag: false
-        })},
+        })
+      },
     })
   },
-  btnFun(ev) {
+  itemFun(ev) {
     let item = ev.currentTarget.dataset.item;
     console.log(item);
     let id = parseInt(item.status);
@@ -151,7 +152,46 @@ Page({
           break;
         }
     }
+  },
+  btnFun(ev) {
 
+    let item = ev.currentTarget.dataset.item;
+    console.log(item);
+    let id = parseInt(item.status);
+    switch (id) {
+      case -1:
+        { //取消
+          break;
+        }
+      case 0:
+        { //待付款
+          break;
+        }
+      case 1:
+        { //待发货
+          break;
+        }
+      case 2:
+        { //待收货
+          break;
+        }
+      case 3:
+        { //已完成
+          break;
+        }
+      case 4:
+        { //申请退款
+          break;
+        } //申请退款？？
+      default:
+        {
+          showToast({
+            title: '获取错误',
+            icon: 'none'
+          })
+          break;
+        }
+    }
   },
   changeNav(item) {
     let id = item.currentTarget.dataset.id;

@@ -1,7 +1,7 @@
 <!--pages/money/money.wxml-->
 
 <view class='backBox'>
-  <image src='./res/img/bonus-bg.png'></image>
+  <image src='{{bgImg}}' mode='aspectFill'></image>
   <view class='textBox'>
     <view class='moneyBox'>
       <view>￥</view>

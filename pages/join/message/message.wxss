@@ -7,7 +7,9 @@
   text-align: center;
   margin-top: 60rpx;
 }
-
+image{
+  width: 100%;
+}
 .contentItem{
   font-size:28rpx;
   font-family:PingFang-SC-Medium;

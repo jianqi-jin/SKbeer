@@ -1,4 +1,5 @@
 //app.js
+const api = require('/utils/api.js')
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -7,6 +8,23 @@ App({
     wx.setStorageSync('logs', logs)
 
     let that = this;
+    //获取商城theme
+    api.getThemes().then(res => {
+      console.log(res)
+      this.globalData.themeBack = 'margin:0!important;background:' + res.data.style.bg_color + '!important;color:#fff!important;border-radius:400px;'; //themeBack风格
+      this.globalData.
+      themeBorder = 'margin:0!important;border:2rpx solid ' + res.data.style.bg_color + '!important;border-color:' + res.data.style.bg_color + '!important;border-radius:400rpx;color:' + res.data.style.bg_color + '!important;'; //themeBorder风格
+      this.globalData.themeFont = 'color:' + res.data.style.bg_color + ';';
+      this.globalData.themeColor = res.data.style.bg_color + ';';
+      this.globalData.themeOnlyBorder = 'border:2rpx solid ' + res.data.style.bg_color + ';';
+
+
+
+      this.globalData.my_bg = res.data.style.my_bg;
+      this.globalData.mx_img = res.data.style.mx_img;
+      this.globalData.my_team_img = res.data.style.my_team_img;
+    })
+
     // 登录
     wx.login({
       success: res => {
@@ -66,6 +84,35 @@ App({
     })
   },
   globalData: {
+    navBottom: [{
+        url: '/pages/home/home',
+        img: '/res/icon/nav-icon-home.png',
+        selectedImg: '/res/icon/nav-icon-home-pre.png',
+        title: '首页',
+        havT: true
+      },
+      {
+        url: '/pages/recommend/recommend',
+        img: '/res/icon/tuijian.png',
+        selectedImg: '/res/icon/tuijian.png',
+        title: '推荐有奖',
+        havT: false
+      }, {
+
+        url: '/pages/order/order',
+        img: '/res/icon/nav-icon-order.png',
+        selectedImg: '/res/icon/nav-icon-order-pre.png',
+        title: '订单',
+        havT: true
+      }, {
+
+        url: '/pages/user/user',
+        img: '/res/icon/nav-icon-user.png',
+        selectedImg: '/res/icon/nav-icon-user-pre.png',
+        title: '我的',
+        havT: true
+      }
+    ],
     themeInfo: {
       backgroundColor: { //背景颜色
         value: "#ccc"
@@ -80,11 +127,12 @@ App({
         value: "#000"
       },
     },
-    themeBack: 'margin:0!important;background:#0000ff!important;color:#fff!important;border-radius:400px;', //themeBack风格
-    themeBorder: 'margin:0!important;border:2rpx solid #0000ff!important;border-color:#0000ff!important;border-radius:400rpx;color:#0000ff!important;', //themeBorder风格
-    themeFont: 'color:#0000ff;',
-    themeOnlyBorder:'border:2rpx solid #0000ff;',
-    themeColor: '#0000ff',
+    /*
+        themeBack: 'margin:0!important;background:#0000ff!important;color:#fff!important;border-radius:400px;', //themeBack风格
+        themeBorder: 'margin:0!important;border:2rpx solid #0000ff!important;border-color:#0000ff!important;border-radius:400rpx;color:#0000ff!important;', //themeBorder风格
+        themeFont: 'color:#0000ff;',
+        themeOnlyBorder: 'border:2rpx solid #0000ff;',
+        themeColor: '#0000ff',*/
     userInfo: null,
     navBottomList: [{
       url: '',

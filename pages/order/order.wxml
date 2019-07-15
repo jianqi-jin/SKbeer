@@ -22,7 +22,7 @@
         </theme-view>
       </view>
     </view>
-    <view class='contentBox' data-item='{{item}}' bindtap='btnFun'>
+    <view class='contentBox' data-item='{{item}}' bindtap='itemFun'>
       <view class='infoBox'>
         <view class='imgBox'>
           <image mode='aspectFill' src='{{item.listimg}}'></image>

@@ -133,12 +133,11 @@ Page({
     let newData = this.data.list[type].data;
     let imgList = newData[idx].tp_list;
 
-    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
+    util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.save&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
       type: newData[idx].type
     }).then((res) => {
-
-      if (resourceType == '0') {
+      if (resourceType == '0' || true) {
         this_.download(newData[idx].sp).then((res) => {
           console.log(res)
           this_.keepNetworkVideo(res)
@@ -336,10 +335,26 @@ Page({
     this.getData(this.data.hinge)
     let userName = wx.getStorageSync('userName');
     let userImg = wx.getStorageSync('userImg');
-    this.setData({
-      userName: userName,
-      userImg: userImg
-    })
+    if(!userName || !userImg){
+      wx.getUserInfo({
+        withCredentials: true,
+        lang: '',
+        success:  (res) => {
+          console.log(res)
+          userName = res.userInfo.nickName
+          userImg = res.userInfo.avatarUrl
+          this.setData({
+            userName: userName,
+            userImg: userImg
+          })
+        },
+      })
+    }else{
+      this.setData({
+        userName: userName,
+        userImg: userImg
+      })
+    }
     // this.setShare()
     this.setData({
       color: app.globalData.themeColor //app.globalData.color

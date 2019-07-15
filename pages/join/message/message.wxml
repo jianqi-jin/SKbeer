@@ -1,26 +1,26 @@
 <!--pages/join/message/message.wxml-->
-<view class='back'>
-<view class='title'>
-  成为代理规则说明
-</view>
+<view class='back' wx:if='{{false}}'>
+  <view class='title'>
+    成为代理规则说明
+  </view>
 
-<view class='contentItem'>
-  <view class='contentTitle'>代理（合伙人）致辞： </view>
-  <text class='contentText'>产品，始终是代理商全部的寄托。 
+  <view class='contentItem'>
+    <view class='contentTitle'>代理（合伙人）致辞： </view>
+    <text class='contentText'>产品，始终是代理商全部的寄托。 
   选择怎样的产品，注定了代理商将进入怎样的市场角色； 
   中奇品牌源于高科专利，掌控市场脉动，自然成就每一位选择者的财富人生！
-  </text> 
-</view>
+  </text>
+  </view>
 
-<view class='contentItem'>
-  <view class='contentTitle'>代理（合伙人）致辞： </view>
-  <text class='contentText'>产品，始终是代理商全部的寄托。 
+  <view class='contentItem'>
+    <view class='contentTitle'>代理（合伙人）致辞： </view>
+    <text class='contentText'>产品，始终是代理商全部的寄托。 
   选择怎样的产品，注定了代理商将进入怎样的市场角色； 
   中奇品牌源于高科专利，掌控市场脉动，自然成就每一位选择者的财富人生！
-  </text> 
+  </text>
+  </view>
 </view>
-
-</view>
+<image src='{{upgreadInfo.cwdl_img}}' mode='widthFix'></image>
 <view class='footBtn'>
-  <navigator open-type='redirect' url='/pages/join/gifts/gifts' class='btnSpecialBlock'>去支付199元</navigator>
+  <navigator open-type='redirect' url='/pages/join/gifts/gifts' class='btnSpecialBlock'>去支付{{upgreadInfo.cwdl_money}}元</navigator>
 </view>

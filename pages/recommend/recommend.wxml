@@ -60,7 +60,7 @@
           <!-- 底部 -->
           <view class='footr'>
             <view class='left'>
-              <image wx:for="{{itemName.avatar}}" wx:key="{{index}}" src='{{item ? item: ""}}' class='portrait'></image>
+              <image wx:for="{{itemName.avatar}}" wx:if="{{index < 3}}" wx:key="{{index}}" src='{{item ? item: ""}}' class='portrait'></image>
               <text>等{{itemName.fx_num}}人已分享</text>
             </view>
             <view class='right'>
