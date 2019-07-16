@@ -30,8 +30,8 @@
       <view class='icon'>
         <image src='./res/img/add.png'></image>
       </view>
-      <view class='fontTitle'>{{orderDetail.address.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}
-        <theme-view class='typeClass' type='themeBorder'><view>{{addressInfo.type == "0"? "家": "公司"}}</view></theme-view>
+      <view class='fontTitle'>{{orderDetail.address.realname}} {{orderDetail.address.sex == "0" ? '（先生）' : '（女士）'}}
+        <theme-view class='typeClass' type='themeBorder'><view>{{orderDetail.address.type == "0"? "家": "公司"}}</view></theme-view>
       </view>
     </view>
     <view class='fontTitle'>{{orderDetail.address.mobile}}</view>
@@ -97,7 +97,7 @@
     <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'><theme-view type="themeBack">删除订单</theme-view></view>
   
   
-    <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'><theme-view type="themeBack">立即支付</theme-view></view>
+    <view bindtap='goPay' wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'><theme-view type="themeBack">立即支付</theme-view></view>
   
   <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>
   <!-->

@@ -1,5 +1,5 @@
 <!--pages/join/message/message.wxml-->
-<view class='back'>
+<!-- <view class='back'>
   <view class='title'>
     升级代理规则说明
   </view>
@@ -18,9 +18,14 @@
   选择怎样的产品，注定了代理商将进入怎样的市场角色； 
   中奇品牌源于高科专利，掌控市场脉动，自然成就每一位选择者的财富人生！
   </text>
-  </view>
+  </view> 
 
-</view>
+
+
+
+</view>-->
+<image src='{{upgreadInfo.dlsj_img}}' mode='widthFix'></image>
+
 <view class='footBtn'>
   <navigator bindtap='callPhone' class='btnSpecialBlock'>
     <theme-view type="themeBack">联系客服</theme-view>

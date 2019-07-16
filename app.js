@@ -9,21 +9,63 @@ App({
 
     let that = this;
     //获取商城theme
-    api.getThemes().then(res => {
-      console.log(res)
-      this.globalData.themeBack = 'margin:0!important;background:' + res.data.style.bg_color + '!important;color:#fff!important;border-radius:400px;'; //themeBack风格
-      this.globalData.
-      themeBorder = 'margin:0!important;border:2rpx solid ' + res.data.style.bg_color + '!important;border-color:' + res.data.style.bg_color + '!important;border-radius:400rpx;color:' + res.data.style.bg_color + '!important;'; //themeBorder风格
-      this.globalData.themeFont = 'color:' + res.data.style.bg_color + ';';
-      this.globalData.themeColor = res.data.style.bg_color + ';';
-      this.globalData.themeOnlyBorder = 'border:2rpx solid ' + res.data.style.bg_color + ';';
+    setTimeout(() => {
+      api.getThemes().then(res => {
+        console.log(res)
+        this.globalData.themeBack = 'margin:0!important;background:' + res.data.style.bg_color + '!important;color:#fff!important;border-radius:400px;'; //themeBack风格
+        this.globalData.
+        themeBorder = 'margin:0!important;border:2rpx solid ' + res.data.style.bg_color + '!important;border-color:' + res.data.style.bg_color + '!important;border-radius:400rpx;color:' + res.data.style.bg_color + '!important;'; //themeBorder风格
+        this.globalData.themeFont = 'color:' + res.data.style.bg_color + ';';
+        this.globalData.themeColor = res.data.style.bg_color + ';';
+        this.globalData.themeOnlyBorder = 'border:2rpx solid ' + res.data.style.bg_color + ';';
 
 
 
-      this.globalData.my_bg = res.data.style.my_bg;
-      this.globalData.mx_img = res.data.style.mx_img;
-      this.globalData.my_team_img = res.data.style.my_team_img;
-    })
+        this.globalData.my_bg = res.data.style.my_bg;
+        this.globalData.mx_img = res.data.style.mx_img;
+        this.globalData.my_team_img = res.data.style.my_team_img;
+
+
+
+        //设置navBottom
+        this.globalData.navBottom = [{
+            url: '/pages/home/home',
+            img: res.data.style.hd_ico,
+            selectedImg: res.data.style.hd_ico_xz,
+            title: '首页',
+            havT: true
+          },
+          {
+            url: '/pages/recommend/recommend',
+            img: res.data.style.yq_ico,
+            selectedImg: res.data.style.yq_ico_xz,
+            title: '推荐有奖',
+            havT: false
+          }, {
+
+            url: '/pages/order/order',
+            img: res.data.style.dd_ico,
+            selectedImg: res.data.style.dd_ico_xz,
+            title: '订单',
+            havT: true
+          }, {
+
+            url: '/pages/user/user',
+            img: res.data.style.my_ico,
+            selectedImg: res.data.style.my_ico_xz,
+            title: '我的',
+            havT: true
+          }
+        ]
+        if (this.homeReady) {
+          this.homeReady()
+        }
+        if (this.navReady) {
+          this.navReady()
+        }
+      })
+    }, 0)
+
 
     // 登录
     wx.login({
@@ -84,35 +126,7 @@ App({
     })
   },
   globalData: {
-    navBottom: [{
-        url: '/pages/home/home',
-        img: '/res/icon/nav-icon-home.png',
-        selectedImg: '/res/icon/nav-icon-home-pre.png',
-        title: '首页',
-        havT: true
-      },
-      {
-        url: '/pages/recommend/recommend',
-        img: '/res/icon/tuijian.png',
-        selectedImg: '/res/icon/tuijian.png',
-        title: '推荐有奖',
-        havT: false
-      }, {
 
-        url: '/pages/order/order',
-        img: '/res/icon/nav-icon-order.png',
-        selectedImg: '/res/icon/nav-icon-order-pre.png',
-        title: '订单',
-        havT: true
-      }, {
-
-        url: '/pages/user/user',
-        img: '/res/icon/nav-icon-user.png',
-        selectedImg: '/res/icon/nav-icon-user-pre.png',
-        title: '我的',
-        havT: true
-      }
-    ],
     themeInfo: {
       backgroundColor: { //背景颜色
         value: "#ccc"

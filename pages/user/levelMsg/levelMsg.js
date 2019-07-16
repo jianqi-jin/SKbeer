@@ -1,4 +1,6 @@
 // pages/join/message/message.js
+const app = getApp()
+const api = require('../../../utils/api.js')
 Page({
 
   /**
@@ -18,6 +20,7 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+    this.getUpgreadUpInfo()
   },
   callPhone() {
     wx.makePhoneCall({
@@ -25,6 +28,19 @@ Page({
     })
   },
 
+  getUpgreadUpInfo() {
+    let upgreadInfo = wx.getStorageSync('upgreadInfo');
+    //if (upgreadInfo) {} else {
+    api.getUpgreadUpInfo(app.globalData.openid, { type: 1 }).then(res => {
+      console.log(res)
+      upgreadInfo = res.data;
+      wx.setStorageSync('upgreadInfo', res.data)
+      this.setData({
+        upgreadInfo
+      })
+    })
+    //}
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -166,13 +166,13 @@ const gifts = {
       })
     })
   },
-  getUpgreadUpInfo: function(openid) {
+  getUpgreadUpInfo: function(openid,data) {
     return new Promise(resolve => {
       wx.request({
         url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=senke.my.dl_upgrade&openid=' + openid,
-        data: '',
+        data,
         header,
-        method: 'GET',
+        method: 'POST',
         dataType: 'json',
         responseType: 'text',
         success: function(res) {
@@ -356,6 +356,21 @@ const getWuliu = (openid, data) => {
   })
 }
 const refer = {
+  getShare:(openid,) =>{
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=senke.tuijian.get_share&openid=' + openid,
+        data: "",
+        header,
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          resolve(res)
+        }
+      })
+    })
+  },
   getMyTeam: (openid, data) => {
     return new Promise(resolve => {
       wx.request({
@@ -399,6 +414,21 @@ const good = {
         dataType: 'json',
         responseType: 'text',
         success: function(res) {
+          resolve(res)
+        }
+      })
+    })
+  },
+  payOrder:(openid,data) => {
+    return new Promise(resolve => {
+      wx.request({
+        url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=senke.order.order_detail_pay&openid=' + openid,
+        data,
+        header,
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
           resolve(res)
         }
       })
@@ -621,6 +651,7 @@ module.exports = {
   orderPay: good.orderPay,
   closeOrder: good.closeOrder,
   delOrder: good.delOrder,
+  payOrder: good.payOrder,
   getDrawHis: user.getDrawHis,
   getReferCenterInfo: user.getReferCenterInfo,
   addCard: bankCard.addCard,
@@ -631,6 +662,7 @@ module.exports = {
   delCard: bankCard.delCard,
   tixian: refer.tixian,
   getMyTeam: refer.getMyTeam,
+  getShare: refer.getShare,
   request,
   postI,
   getWuliu

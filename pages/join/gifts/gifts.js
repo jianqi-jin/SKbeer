@@ -116,7 +116,7 @@ Page({
           package: res.data.wechat.package,
           signType: res.data.wechat.signType,
           paySign: res.data.wechat.paySign,
-          success: (res) => {
+          success: (res2) => {
             wx.setNavigationBarColor({
               frontColor: '#000000',
               backgroundColor: '#7a7a7a'
@@ -125,7 +125,7 @@ Page({
               orderFlag: true
             })
             wx.redirectTo({
-              url: '/pages/join/paySuccess/paySuccess'
+              url: '/pages/join/paySuccess/paySuccess?id=' + res.data.order_id
             })
             console.log(res)
             resolve(res)

@@ -22,7 +22,7 @@ Page({
       backgroundColor: '#824C1F'
     })
     this.setData({
-      order_id: 6
+      order_id: options.id
     })
     this.getOrderInfo()
 

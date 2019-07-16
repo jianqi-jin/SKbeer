@@ -60,13 +60,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!options.id) {
-      this.getorderList(5);
-    } else {
-      this.setData({
-        currentShowPageId: 2
-      })
-      this.getorderList(options.id)
+    if (options.id) {
+      this.changeNav(options.id)
     }
     wx.setNavigationBarTitle({
       title: '我的订单'
@@ -154,7 +149,6 @@ Page({
     }
   },
   btnFun(ev) {
-
     let item = ev.currentTarget.dataset.item;
     console.log(item);
     let id = parseInt(item.status);
@@ -165,6 +159,9 @@ Page({
         }
       case 0:
         { //待付款
+          wx.navigateTo({
+            url: './orderdetail/orderdetail?orderId=' + item.id,
+          })
           break;
         }
       case 1:
@@ -194,7 +191,8 @@ Page({
     }
   },
   changeNav(item) {
-    let id = item.currentTarget.dataset.id;
+    let id = parseInt(item.currentTarget ? item.currentTarget.dataset.id : item);
+    console.log(id)
     this.setData({
       currentShowPageId: id
     })
@@ -231,7 +229,7 @@ Page({
         } //申请退款？？
       default:
         {
-          showToast({
+          wx.showToast({
             title: '获取错误',
             icon: 'none'
           })

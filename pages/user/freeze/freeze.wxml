@@ -1,6 +1,7 @@
 <!--pages/money/money.wxml-->
 <view class='backBox'>
-<image src='./res/img/bonus-bg.png'></image>
+<image src='{{bgImg}}'  mode='aspectFill'></image>
+<navigator url='/' open-type='navigate' class='jdgz'>解冻规则</navigator>
   <view class='textBox'>
     <view class='moneyBox'>
       <view>￥</view>

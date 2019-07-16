@@ -49,6 +49,58 @@ Page({
     this.getOrderDetail(this.data.orderId);
 
   },
+  goPay() {
+    wx.showLoading({
+      title: '加载中..',
+      mask: true,
+    })
+    let that = this;
+    api.payOrder(app.globalData.openid, {
+      order_sn: this.data.orderDetail.other.order_sn,
+      order_id: this.data.orderDetail.order.id
+    }).then(res => {
+      console.log(res)
+      if (res.data.error != "0") {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+        return
+      }
+      res.data.wechat.success = function(res) {
+        console.log(res)
+        wx.showToast({
+          title: '支付成功',
+          icon: '',
+          image: '',
+          duration: 100,
+          mask: true,
+        })
+        setTimeout(() => {
+        wx.redirectTo({
+          url: '/pages/order/order?id='+2,
+        })          
+        },1000)
+      }
+      res.data.wechat.fail = function(res) {
+        console.log(res)
+        wx.showToast({
+          title: '用户取消',
+          icon: 'none',
+          image: '',
+          duration: 800,
+        })
+      }
+      res.data.wechat.complete = function(res) {
+        
+      }
+      wx.hideLoading()
+      wx.requestPayment(res.data.wechat)
+    })
+  },
   closeOrder() {
     wx.showLoading({
       title: '取消',

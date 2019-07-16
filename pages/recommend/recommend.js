@@ -2,13 +2,16 @@
 const app = getApp()
 const util = require('../../utils/util.js');
 const api = require('../../utils/api.js');
-
+let allNum = 0;
+let nowNum = 0;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    AllNum: 0,
+    nowMun: 0,
     color: '#824C1F',
     coverHeight: "0rpx",
     codeHeight: "0rpx",
@@ -93,7 +96,7 @@ Page({
   download(url) {
     return new Promise(function(resolve, reject) {
       wx.showLoading({
-        title: '加载中',
+        title: '素材下载中...',
       })
       let path;
       const downloadTask = wx.downloadFile({
@@ -113,19 +116,22 @@ Page({
 
       downloadTask.onProgressUpdate((res1) => {
         wx.showLoading({
-          title: '正在保存...',
+          title: '素材下载中...',
           mask: true,
         })
-        if (res1.progress == 100){
+        if (res1.progress == 100) {
           wx.hideLoading()
         }
       })
 
-      
+
     })
   },
   // 存储
   storage(e) {
+    this.setData({
+      nowMum: 0
+    })
     let this_ = this;
     let type = e.currentTarget.dataset.type;
     let idx = e.currentTarget.dataset.idx;
@@ -137,33 +143,46 @@ Page({
       id: newData[idx].tgy_id,
       type: newData[idx].type
     }).then((res) => {
-      if (resourceType == '0' || true) {
+      if (resourceType == '0') {
         this_.download(newData[idx].sp).then((res) => {
           console.log(res)
-          this_.keepNetworkVideo(res)
+          this_.shear(newData[idx].tgy)
+          setTimeout(function() {
+            this_.keepNetworkVideo(res)
+          }, 500)
+
         });
       } else {
         console.log('请求回执', res)
         // 如果是一张图直接下载 否则 全下
         if (imgList.length > 1) {
-          imgList.push(res.res.img)
+          imgList.push(res.save_img)
+          allNum = imgList.length;
+          nowNum = 0;
           for (let i in imgList) {
             console.log(imgList[i])
             this_.download(imgList[i]).then((res) => {
               console.log(res)
-              this_.keepNetworkImg(res)
+              if (i == 0) {
+                this_.keepNetworkImg(res, newData[idx].tgy, true)
+              } else {
+                this_.keepNetworkImg(res, newData[idx].tgy)
+              }
+
             });
           }
           imgList.splice(imgList.length - 1, 1);
         } else {
+          allNum = imgList.length;
+          nowNum = 0;
           this_.download(res.res.img).then((res) => {
             console.log(res)
             this_.keepNetworkImg(res)
+            this_.shear(newData[idx].tgy)
           });
         }
 
       }
-      this_.shear(newData[idx].tgy)
       // 统计
       let key = `list[${type}].data`;
       let num = parseInt(newData[idx].xz_num);
@@ -175,7 +194,29 @@ Page({
       })
     }).catch(err => {
       console.log(err)
+      wx.showToast({
+        title: err.toString(),
+        icon: 'none',
+        image: '',
+        duration: 1000,
+        mask: true,
+      })
     });
+    console.log('storage End')
+  },
+
+  // 设置剪切板
+  shear: function(text) {
+    wx.setClipboardData({
+      data: text,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
   },
   // 获取网络图片
   getImageInfo(url) {
@@ -219,30 +260,38 @@ Page({
     })
   },
 
-  // 设置剪切板
-  shear: function(text) {
-    wx.setClipboardData({
-      data: text,
-      success(res) {
-        wx.getClipboardData({
-          success(res) {
-            console.log(res.data) // data
-          }
-        })
-      }
-    })
-  },
   // 图片保存到本地
-  keepNetworkImg: function(src) {
+  keepNetworkImg: function(src, datasw, flag) {
+    let this_ = this;
     let imgSrc = src;
     //图片保存到本地
     wx.saveImageToPhotosAlbum({
       filePath: imgSrc,
       success: function(data) {
         // util.showToast('保存成功', 'success')
+        nowNum += 1;
+
+        if (allNum <= nowNum) {
+
+          this_.shear(datasw)
+          setTimeout(function() {
+            wx.showToast({
+              title: '图片保存成功',
+              duration: 2000,
+              mask: true,
+            })
+          }, 500)
+        }
       },
       fail: function(err) {
         console.log(err);
+        wx.showToast({
+          title: err.errMsg,
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
         if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
           console.log("当初用户拒绝，再次发起授权")
           wx.openSetting({
@@ -264,6 +313,7 @@ Page({
   },
   // 视频保存到本地
   keepNetworkVideo: function(src) {
+    let this_ = this;
     let imgSrc = src;
     //图片保存到本地
     wx.saveVideoToPhotosAlbum({
@@ -271,10 +321,10 @@ Page({
       success: function(data) {
         // util.showToast('保存成功', 'success')
         wx.showToast({
-          title: '保存成功',
+          title: '视频保存成功',
           icon: '',
           image: '',
-          duration: 1000,
+          duration: 2000,
           mask: true
         })
       },
@@ -314,19 +364,25 @@ Page({
     })
   },
 
-  // setShare() {
-  //   let this_ = this;
-  //   util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.index.index&openid=${wx.getStorageSync('openid')}`, 'POST', {}).then((res) => {
-  //     console.log(res)
-  //     res.fx.title = '森客啤酒';
-  //     this_.setData({
-  //       shareInfo: res.fx,
-  //     })
+  setShare() { //
+    let this_ = this;
+    api.getShare(app.globalData.openid).then(res => {
+      console.log(res)
+      this_.setData({
+        shareInfo: res.data,
+      })
+    })
+    // util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=senke.tuijian.get_share&openid=${wx.getStorageSync('openid')}`, 'POST', {}).then((res) => { 
+    //   console.log(res)
+    //   res.fx.title = '森客啤酒';
+    //   this_.setData({
+    //     shareInfo: res.fx,
+    //   })
 
-  //   }).catch(err => {
-  //     console.log(err)
-  //   });
-  // },
+    // }).catch(err => {
+    //   console.log(err)
+    // });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -335,11 +391,11 @@ Page({
     this.getData(this.data.hinge)
     let userName = wx.getStorageSync('userName');
     let userImg = wx.getStorageSync('userImg');
-    if(!userName || !userImg){
+    if (!userName || !userImg) {
       wx.getUserInfo({
         withCredentials: true,
         lang: '',
-        success:  (res) => {
+        success: (res) => {
           console.log(res)
           userName = res.userInfo.nickName
           userImg = res.userInfo.avatarUrl
@@ -349,13 +405,14 @@ Page({
           })
         },
       })
-    }else{
+    } else {
       this.setData({
         userName: userName,
         userImg: userImg
       })
     }
-    // this.setShare()
+    console.log('SHARE')
+    this.setShare()
     this.setData({
       color: app.globalData.themeColor //app.globalData.color
     })
@@ -431,16 +488,19 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(e) {
+    console.log('share')
     let this_ = this;
     if (e.target) {
       let type = e.target.dataset.type;
       let idx = e.target.dataset.idx;
       let newData = this.data.list[type].data;
       let id = newData[idx].tgy_id;
-      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=yktk.yq.fenxiang&openid=${wx.getStorageSync('openid')}`, 'POST', {
+      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.fenxiang&openid=${app.globalData.openid}`, 'POST', {
         id: id,
         type: 1
       }).then((res) => {
+        console.log(res)
+        console.log('asdasdadsassssssssssssss')
         // 统计
         let key = `list[${type}].data`;
         newData[idx].num = res.res.num
@@ -449,15 +509,15 @@ Page({
         this_.setData({
           [key]: newData
         })
+
       }).catch(err => {
         console.log(err)
       });
     }
-
     return {
       title: this.data.shareInfo.title,
-      imageUrl: this.data.shareInfo.imgUrl,
-      path: `/pages/accredit/accredit?uid=${this.data.shareInfo.link}&store_id=${wx.getStorageSync('store_id')}`
+      imageUrl: this.data.shareInfo.icon,
+      path: `/pages/home/home`
     }
   }
 })

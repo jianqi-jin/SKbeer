@@ -6,6 +6,16 @@
   height: 265rpx;
 }
 
+.jdgz {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 192, 17, 1);
+}
+
 .backBox image {
   z-index: -1;
   position: absolute;
@@ -38,7 +48,7 @@
 
 .moneyBox view:last-child {
   font-family: PingFang-SC-Heavy;
-  font-weight: 800;
+  font-weight: 500;
   color: rgba(255, 255, 255, 1);
   margin-left: 10rpx;
   font-size: 46rpx;

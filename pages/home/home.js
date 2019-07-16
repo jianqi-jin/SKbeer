@@ -1,4 +1,5 @@
 // pages/home/home.js
+const app = getApp()
 Page({
 
   /**
@@ -9,33 +10,24 @@ Page({
     imgList: [{
       thumb: ''
     }],
-    navBtnList: [{
-      url: '',
-      img: '',
-      title: '首页',
-      havT: true
-    }, {
-      url: '',
-      img: '',
-      title: '推荐有奖',
-      havT: false
-    }, {
-      url: '',
-      img: '',
-      title: '推荐有奖',
-      havT: false
-    }]
+    navBtnList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //定义回调，防止加载顺序错误
+    app.homeReady = (res) => {
+      console.log('reload')
+      this.onLoad()
+    }
     this.checkLogin();
     this.getInfo();
     wx.setNavigationBarColor({
       frontColor: '#000000',
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      
     })
     wx.setNavigationBarTitle({
       title: '森客啤酒'
@@ -51,7 +43,7 @@ Page({
               console.log(res.userInfo)
             }
           })
-        }else{
+        } else {
           wx.redirectTo({
             url: '/pages/login/login'
           })
