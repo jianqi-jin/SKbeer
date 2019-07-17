@@ -42,29 +42,44 @@ Page({
     data.item_id = data.option_id;
     data.goods_money = data.goods_price;
     return new Promise(resolve => {
-      wx.request({
-        url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.order_show&openid='+app.globalData.openid,
-        data,
-        header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
-        method: 'POST',
-        dataType: 'json',
-        responseType: 'text',
-        success: function(res) {
-          console.log(res)
+      api.getGoodOrderInfo(data).then(res => {
 
-          that.setData({
-            ['orderInfo.order_price']: res.data.order.order_price,
-            ['orderInfo.pay_type']: res.data.order.pay_type,
-            ['orderInfo.dikou_money']: res.data.order.dikou_money,
-            ['orderInfo.pay_money']: res.data.order.pay_money
-          })
-          that.setData({
-            disableFlag: false
-          })
 
-          resolve(res)
-        }
+        that.setData({
+          ['orderInfo.order_price']: res.data.order.order_price,
+          ['orderInfo.pay_type']: res.data.order.pay_type,
+          ['orderInfo.dikou_money']: res.data.order.dikou_money,
+          ['orderInfo.pay_money']: res.data.order.pay_money
+        })
+        that.setData({
+          disableFlag: false
+        })
+
+        resolve(res)
       })
+      // wx.request({
+      //   url: serverUri + 'app/ewei_shopv2_api.php?i=46&r=senke.index.order_show&openid='+app.globalData.openid,
+      //   data,
+      //   header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
+      //   method: 'POST',
+      //   dataType: 'json',
+      //   responseType: 'text',
+      //   success: function(res) {
+      //     console.log(res)
+
+      //     that.setData({
+      //       ['orderInfo.order_price']: res.data.order.order_price,
+      //       ['orderInfo.pay_type']: res.data.order.pay_type,
+      //       ['orderInfo.dikou_money']: res.data.order.dikou_money,
+      //       ['orderInfo.pay_money']: res.data.order.pay_money
+      //     })
+      //     that.setData({
+      //       disableFlag: false
+      //     })
+
+      //     resolve(res)
+      //   }
+      // })
     })
   },
   readOrderInfoFromStorage() {

@@ -81,26 +81,35 @@ App({
           'X-ECAPI-UserAgent': 'Platform/Wechat',
           'X-ECAPI-Ver': '1.1.0',
         };
-        wx.request({
-          url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=wxapp.login',
-          data: data,
-          header,
-          method: 'POST',
-          dataType: 'json',
-          responseType: 'text',
-          success: function(res) {
-            console.log(res)
-            //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
-            that.globalData.session_key = res.data.data.session_key;
-            wx.setStorageSync('openid', that.globalData.openid)
-            that.globalData.openid = 'sns_wa_' + 　res.data.data.openid;
+        api.login(data).then(res => {
+
+          console.log(res)
+          //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
+          that.globalData.session_key = res.data.data.session_key;
+          wx.setStorageSync('openid', that.globalData.openid)
+          that.globalData.openid = 'sns_wa_' + res.data.data.openid;
             //请求用户数据
-
-
-          },
-          fail: function(res) {},
-          complete: function(res) {},
         })
+        // wx.request({
+        //   url: '/app/ewei_shopv2_api.php?i=46&r=wxapp.login',
+        //   data: data,
+        //   header,
+        //   method: 'POST',
+        //   dataType: 'json',
+        //   responseType: 'text',
+        //   success: function(res) {
+
+        //     console.log(res)
+        //     //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
+        //     that.globalData.session_key = res.data.data.session_key;
+        //     wx.setStorageSync('openid', that.globalData.openid)
+        //     that.globalData.openid = 'sns_wa_' + res.data.data.openid;
+        //     //请求用户数据
+
+        //   },
+        //   fail: function(res) {},
+        //   complete: function(res) {},
+        // })
       }
     })
 

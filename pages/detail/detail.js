@@ -39,6 +39,12 @@ Page({
     this.setData({
       goodsId: options.goodId
     })
+    wx.setNavigationBarTitle({
+      title: '订单详情',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   addOrderNum() {
     let num = this.data.orderInfo.num;

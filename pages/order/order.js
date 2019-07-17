@@ -1,5 +1,6 @@
 // pages/order/order.js
 const app = getApp();
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -72,38 +73,60 @@ Page({
       loadingFlag: true
     })
     let that = this;
-    wx.request({
-      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
-      data: {
-        status
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        let data = res.data
-        console.log(data)
-        if (res.data.error != "0") {
-          wx.showToast({
-            title: 'error: ' + res.data.error,
-            icon: 'none'
-          })
-        } else {
-          that.setData({
-            orderList: data.order_list
-          })
-        }
-      },
-      fail: function(res) {},
-      complete: function(res) {
-        that.setData({
-          loadingFlag: false
+    let data = {
+      status
+    }
+    api.getGoodOrderList(data).then(res => {
+      that.setData({
+        loadingFlag: false
+      })
+
+      let data = res.data
+      console.log(data)
+      if (res.data.error != "0") {
+        wx.showToast({
+          title: 'error: ' + res.data.error,
+          icon: 'none'
         })
-      },
+      } else {
+        that.setData({
+          orderList: data.order_list
+        })
+      }
     })
+
+    // wx.request({
+    //   url: '/app/ewei_shopv2_api.php?i=46&r=senke.order.index&openid=' + app.globalData.openid,
+    //   data: {
+    //     status
+    //   },
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    //   },
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+    //     let data = res.data
+    //     console.log(data)
+    //     if (res.data.error != "0") {
+    //       wx.showToast({
+    //         title: 'error: ' + res.data.error,
+    //         icon: 'none'
+    //       })
+    //     } else {
+    //       that.setData({
+    //         orderList: data.order_list
+    //       })
+    //     }
+    //   },
+    //   fail: function(res) {},
+    //   complete: function(res) {
+    //     that.setData({
+    //       loadingFlag: false
+    //     })
+    //   },
+    // })
   },
   itemFun(ev) {
     let item = ev.currentTarget.dataset.item;

@@ -13,7 +13,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setNavigationBarTitle({
       title: '推荐有奖',
       success: function(res) {},
@@ -22,32 +22,40 @@ Page({
     })
     this.getReferList();
   },
-  share(item){
+  share(item) {
     console.log(app.globalData)
     let id = item.currentTarget.dataset.id;
-    wx.request({
-      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid='+app.globalData.openid,
-      data: {id},
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        console.log(res)
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+    let data = {
+      id
+    }
+    api.shareclum(data).then(res => {
+      console.log(res)
     })
+    // wx.request({
+    //   url: '/app/ewei_shopv2_api.php?i=46&r=senke.tuijian.fenxiang&openid=' + app.globalData.openid,
+    //   data: {
+    //     id
+    //   },
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    //   },
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+    //     console.log(res)
+    //   },
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   },
-  changeNav(item){
+  changeNav(item) {
     let index = item.currentTarget.dataset.index;
     this.setData({
       showIndex: index
     })
   },
-  navToShare(){
+  navToShare() {
     wx.navigateTo({
       url: '/pages/share/share',
       success: function(res) {},
@@ -55,25 +63,34 @@ Page({
       complete: function(res) {},
     })
   },
-  getReferList(){
+  getReferList() {
     let that = this;
-    wx.request({
-      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.tuijian.index&openid=' + app.globalData.openid,
-      data: {
-        type: 0
-      },
-      header: {},
-      method: 'POST',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        console.log(res)
-        that.setData({
-          referList: res.data.list
-        })
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+    let data = {
+      type: 0
+    }
+    api.getReferList(data).then(res => {
+      console.log(res)
+      that.setData({
+        referList: res.data.list
+      })
     })
+    // wx.request({
+    //   url: 'app/ewei_shopv2_api.php?i=46&r=senke.tuijian.index&openid=' + app.globalData.openid,
+    //   data: {
+    //     type: 0
+    //   },
+    //   header: {},
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+    //     console.log(res)
+    //     that.setData({
+    //       referList: res.data.list
+    //     })
+    //   },
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   }
 })

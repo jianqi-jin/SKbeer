@@ -80,10 +80,10 @@ Page({
           mask: true,
         })
         setTimeout(() => {
-        wx.redirectTo({
-          url: '/pages/order/order?id='+2,
-        })          
-        },1000)
+          wx.redirectTo({
+            url: '/pages/order/order?id=' + 2,
+          })
+        }, 1000)
       }
       res.data.wechat.fail = function(res) {
         console.log(res)
@@ -95,7 +95,7 @@ Page({
         })
       }
       res.data.wechat.complete = function(res) {
-        
+
       }
       wx.hideLoading()
       wx.requestPayment(res.data.wechat)
@@ -174,39 +174,63 @@ Page({
   },
   getOrderDetail: function(orderId) {
     let that = this;
-    wx.request({
-      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.order.order_detail&openid=' + app.openid,
-      data: {
-        order_id: orderId
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
-      responseType: 'text',
-      success: (res) => {
-        console.log(res.data)
-        this.setData({
-          orderDetail: res.data
-        })
-        this.setData({
-          timer: setInterval(() => {
-            this.setData({
-              ['orderDetail.top.time']: this.data.orderDetail.top.time - 1
-            })
-            if (this.data.orderDetail.top.time < 0) {
-              clearInterval(this.data.timer)
+    let data = {
+      order_id: orderId
+    }
+    api.getOrderDetail(data).then(res => {
 
-              wx.navigateBack({
-                delta: 1,
-              })
-            }
-          }, 1000)
-        })
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+      console.log(res.data)
+      this.setData({
+        orderDetail: res.data
+      })
+      this.setData({
+        timer: setInterval(() => {
+          this.setData({
+            ['orderDetail.top.time']: this.data.orderDetail.top.time - 1
+          })
+          if (this.data.orderDetail.top.time < 0) {
+            clearInterval(this.data.timer)
+
+            wx.navigateBack({
+              delta: 1,
+            })
+          }
+        }, 1000)
+      })
     })
+    // wx.request({
+    //   url: '/app/ewei_shopv2_api.php?i=46&r=senke.order.order_detail&openid=' + app.openid,
+    //   data: {
+    //     order_id: orderId
+    //   },
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    //   },
+    //   method: 'POST',
+    //   responseType: 'text',
+    //   success: (res) => {
+    //     console.log(res.data)
+    //     this.setData({
+    //       orderDetail: res.data
+    //     })
+    //     this.setData({
+    //       timer: setInterval(() => {
+    //         this.setData({
+    //           ['orderDetail.top.time']: this.data.orderDetail.top.time - 1
+    //         })
+    //         if (this.data.orderDetail.top.time < 0) {
+    //           clearInterval(this.data.timer)
+
+    //           wx.navigateBack({
+    //             delta: 1,
+    //           })
+    //         }
+    //       }, 1000)
+    //     })
+    //   },
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   },
   onUnload() {
     clearInterval(this.data.timer)

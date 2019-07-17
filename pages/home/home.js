@@ -1,5 +1,6 @@
 // pages/home/home.js
 const app = getApp()
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -59,22 +60,29 @@ Page({
   },
   getInfo() {
     let that = this;
-    wx.request({
-      url: 'https://oa.yika.co/app/ewei_shopv2_api.php?i=46&r=senke.index.index',
-      data: '',
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        console.log(res)
-        that.setData({
-          imgList: res.data.goods_list
-        })
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+    api.getHomeInfo().then(res => {
+
+      console.log(res)
+      that.setData({
+        imgList: res.data.goods_list
+      })
     })
+    // wx.request({
+    //   url: serverUri+'/app/ewei_shopv2_api.php?i=46&r=senke.index.index',
+    //   data: '',
+    //   header: {},
+    //   method: 'GET',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+    //     console.log(res)
+    //     that.setData({
+    //       imgList: res.data.goods_list
+    //     })
+    //   },
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   }
 
 })
