@@ -103,7 +103,7 @@ Page({
           complete: function(res) {},
         })
       } else {
-        this.data.infoList[0].infoValue = "[" + res.data.info.levelname + "]" + res.data.info.nickname
+        this.data.infoList[0].infoValue = res.data.info.nickname?("[" + res.data.info.levelname + "]" + res.data.info.nickname):"无"
         this.data.infoList[1].infoValue = res.data.info.create_time
         this.data.infoList[2].infoValue = res.data.info.ytx_money
 

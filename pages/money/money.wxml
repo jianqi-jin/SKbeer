@@ -37,5 +37,6 @@
       </view>
     </view>
   </view>
+  <none wx:show='{{cardLsit.length < 1}}' />  
 
 </view>

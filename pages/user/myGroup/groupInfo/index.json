@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "loading": "/components/loading/loading"
+    "loading": "/components/loading/loading",
+    "none": "/components/none/none"
   }
 }

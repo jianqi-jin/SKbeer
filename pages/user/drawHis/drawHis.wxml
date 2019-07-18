@@ -10,3 +10,5 @@
     <view class='rightBottom'>{{status[item.status]}}</view>
   </view>
 </view>
+
+<none wx:if='{{drawHisList.length < 1}}' />

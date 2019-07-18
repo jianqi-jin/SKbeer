@@ -428,6 +428,9 @@ const getWuliu = (openid, data) => {
   })
 }
 const refer = {
+  getDjInfo:(data) => {
+    return request('senke.my.dj_money_log', data)
+  },
   getReferLsit: (data) => {
     return request('senke.tuijian.index', data)
   },
@@ -755,6 +758,7 @@ module.exports = {
   getShare: refer.getShare,
   shareclum: refer.shareclum,
   getReferLsit: refer.getReferLsit,
+  getDjInfo: refer.getDjInfo,
   postI,
   getWuliu,
   login: login.login,

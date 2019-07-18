@@ -17,7 +17,7 @@
   </view>
 
   <view class='listBox'>
-
+    <none wx:if='{{bonus_log.length < 1}}' />
     <view class='itemBox' wx:for='{{bonus_log}}' wx:key='index'>
       <view class='itemTop'>
       

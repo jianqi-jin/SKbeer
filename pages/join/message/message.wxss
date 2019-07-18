@@ -26,6 +26,7 @@ image{
 .btnSpecialBlock{
   width: auto;
   margin: 10rpx 22rpx;
+  background: #fff;
 }
 .footBtn{
   position: fixed;

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading: false,
     leiji_money: 0.00,
     fxType: ['直接','间接'],
     showId: 0,
@@ -30,8 +31,14 @@ Page({
 
   },
   getShouyi() {
+    this.setData({
+      loading: true
+    })
     api.getShouyi(app.globalData.openid, { type: this.data.showId }).then(res => {
       console.log(res)
+      this.setData({
+        loading: false
+      })
       if(res.data.error != "0"){
         wx.showToast({
           title: res.data.message,

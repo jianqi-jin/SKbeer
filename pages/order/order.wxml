@@ -13,7 +13,7 @@
 
 <view class='main'>
   <loading wx:if='{{loadingFlag}}'></loading>
-  <view wx:if='{{!loadingFlag}}' class='itemBox' wx:for='{{orderList}}' wx:key='index'>
+  <view wx:if='{{!loadingFlag && orderList.length > 0}}' class='itemBox' wx:for='{{orderList}}' wx:key='index'>
     <view class='titleBox'>
       <view class='ordNo'>{{item.ordersn}}</view>
       <view class='status'>
@@ -59,6 +59,8 @@
 
     </view>
   </view>
+
+  <none wx:if='{{!loadingFlag && orderList.length < 1}}'/>
 
 </view>
 

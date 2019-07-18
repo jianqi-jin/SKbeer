@@ -18,7 +18,7 @@
       <view wx:else type="themeFont">{{item.title}}</view>
     </view>
   </view>
-
+    <loading wx:if='{{loading}}' />
   <view class='listBox' wx:for='{{infoList}}' wx:key='index'>
     <view class='itemBox'>
       <view class='itemTop'>
@@ -78,5 +78,6 @@
     </view>
 
   </view>
+  <none wx:if='{{(!loading) && (infoList.length < 1)}}' />
 
 </view>

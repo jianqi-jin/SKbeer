@@ -27,5 +27,5 @@
 
   </view>
 
-
+  <none wx:if='{{(!loadFlag) && (infoList.length < 1)}}' />
 </view>

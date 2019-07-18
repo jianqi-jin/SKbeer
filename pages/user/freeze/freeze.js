@@ -32,7 +32,7 @@ Page({
     this.getDjInfo()
   },
   getDjInfo(){
-    api.request('senke.my.dj_money_log',app.globalData.openid).then(res=>{
+    api.getDjInfo().then(res => {
       console.log(res)
       this.setData({
         bonus_log: res.data.bonus_log

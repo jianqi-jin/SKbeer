@@ -2,6 +2,7 @@
   "usingComponents": {
     "nav-bottom": "../../components/navBottom/index",
     "loading": "../../components/loading/loading",
-    "theme-view": "../../components/themeView/themeView"
+    "theme-view": "../../components/themeView/themeView",
+    "none": "/components/none/none"
   }
 }
