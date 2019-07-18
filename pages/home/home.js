@@ -19,6 +19,9 @@ Page({
    */
   onLoad: function(options) {
     //定义回调，防止加载顺序错误
+    if (options && options.scene){
+      wx.setStorageSync('scene', options.scene)
+    }
     app.homeReady = (res) => {
       console.log('reload')
       this.onLoad()
@@ -31,7 +34,7 @@ Page({
       
     })
     wx.setNavigationBarTitle({
-      title: '森客啤酒'
+      title: '珈蓝优品'
     })
   },
   checkLogin() {

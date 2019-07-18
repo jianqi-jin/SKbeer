@@ -89,6 +89,7 @@ App({
           wx.setStorageSync('openid', that.globalData.openid)
           that.globalData.openid = 'sns_wa_' + res.data.data.openid;
             //请求用户数据
+          api.bindScene({str:wx.getStorageSync('scene')})
         })
         // wx.request({
         //   url: '/app/ewei_shopv2_api.php?i=46&r=wxapp.login',

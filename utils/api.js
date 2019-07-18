@@ -44,6 +44,9 @@ const login = {
   login: (data) => {
     return request('wxapp.login', data)
   },
+  bindScene: (data)=> {
+    return request('senke.login.index',data)
+  },
   reg: (data) => {
     return request('wxapp.auth', data)
     // //添加到数据库
@@ -755,6 +758,7 @@ module.exports = {
   postI,
   getWuliu,
   login: login.login,
+  bindScene: login.bindScene,
   reg: login.reg,
   getHomeInfo: home.getInfo
 }
