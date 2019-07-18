@@ -2,7 +2,10 @@
 
 <view class='mainBox'>
   <view class='navBox'>
-    <view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</view>
+  
+  
+  
+    <theme-view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' style='border-bottom: 6rpx solid {{item.id == showId ?color:"#fff"}}color:{{item.id == showId ?color:"rgba(153,153,153,1)"}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</theme-view>
   </view>
   <loading wx:if="{{loadFlag}}" />
   <view wx:else>

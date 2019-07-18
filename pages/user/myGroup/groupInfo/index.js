@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    color: '',
     loadFlag: false,
     showId: 0,
     navList: [{
@@ -23,6 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      color: app.globalData.themeColor
+    })
     wx.setNavigationBarTitle({
       title: '团队明细',
       success: function(res) {},
@@ -48,16 +52,16 @@ Page({
       })
       console.log(res)
       if (res.data.error != "0" || res.data.new_arr.length < 1) {
-        wx.showToast({
-          title: res.data.message || "未查找到相关信息",
-          icon: 'none',
-          image: '',
-          duration: 800,
-          mask: true,
-        })
+        // wx.showToast({
+        //   title: res.data.message || "未查找到相关信息",
+        //   icon: 'none',
+        //   image: '',
+        //   duration: 800,
+        //   mask: true,
+        // })
       }
 
-      
+
     })
   },
   changeNav(ev) {

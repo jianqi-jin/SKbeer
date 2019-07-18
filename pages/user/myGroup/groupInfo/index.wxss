@@ -22,8 +22,6 @@
 }
 .navActive{
   font-weight:800;
-  color:rgba(130,76,31,1);
-  border-bottom: 6rpx solid #824C1F;
 }
 .itemBox{
   display: flex;

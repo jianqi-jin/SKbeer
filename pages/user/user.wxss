@@ -32,7 +32,6 @@
 }
 .money{
   padding:0rpx 8rpx;
-  background: #3F230E;
   border-radius:100rpx;
   display: flex;
   flex-direction: row;
@@ -45,7 +44,6 @@
   font-family:HiraginoSansGB-W3;
   font-weight:normal;
   color:rgba(255,255,255,1);
-  opacity:0.31;
   margin-left: 10rpx;
   white-space: nowrap;
 }

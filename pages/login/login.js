@@ -9,6 +9,7 @@ let header = {
 };
 Page({
   data: {
+    bgImg: "https://oa.yika.co/attachment/images/17/2019/06/Wv60X0KVk6ESk0VY9EZ63Api0VyJ5w.jpg",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     loginFlag: false
   },

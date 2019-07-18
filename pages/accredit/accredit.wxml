@@ -1,0 +1,4 @@
+<!--pages/accredit/accredit.wxml 登录-->
+<view class='bgImg' style='background-image:url(https://oa.yika.co/attachment/images/17/2019/06/Wv60X0KVk6ESk0VY9EZ63Api0VyJ5w.jpg);'>
+  <button class='accreditBtn'  open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信用户快速登录</button>
+</view>

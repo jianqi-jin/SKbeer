@@ -1,8 +1,20 @@
 <!--pages/login/login.wxml-->
-<view class='img'>
+<!-- <view class='img'>
   <image src='/res/icon/sq-logo.png'></image>
 </view>
 
 
 
 <button class='btn' bindgetuserinfo="onGotUserInfo" open-type='getUserInfo'>立即授权</button>
+
+
+
+ -->
+
+
+<!--pages/accredit/accredit.wxml 登录-->
+
+<image class='bgImg' mode='widthFix' src='{{bgImg}}'></image>
+<view class='bgImgs'>
+  <button class='accreditBtn' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">微信用户快速登录</button>
+</view>

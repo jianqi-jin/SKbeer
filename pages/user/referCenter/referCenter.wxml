@@ -27,11 +27,11 @@
   </view>
   <view class='cardBottom'>
     <view class='cardBotmItem'>
-      <view>10</view>
+      <view>{{userInfo.team.today_order_count}}</view>
       <view>今日单量</view>
     </view>
     <view class='cardBotmItem'>
-      <view>10</view>
+      <view>{{userInfo.team.today_user_count}}</view>
       <view>团队规模</view>
     </view>
   </view>

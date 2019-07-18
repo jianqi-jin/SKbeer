@@ -6,7 +6,7 @@
     <image src='{{userInfo.info.avatar}}'></image>
   </view>
   <view class='userName'>{{userInfo.info.nickname}}</view>
-  <navigator class='money' url='/pages/money/money' open-type='navigate'>
+  <navigator style='background:{{color}}' class='money' url='/pages/money/money' open-type='navigate'>
     <view class='title'>储值金额</view>
     <view class='value'>{{userInfo.info.yue}}</view>
     <view class='icon'>

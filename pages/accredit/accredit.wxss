@@ -1,0 +1,18 @@
+/* pages/accredit/accredit.wxss */
+.logo{
+  margin-top:102rpx;
+  width: 275rpx;
+  display: block;
+  /* margin: 102rpx auto 180rpx auto; */
+}
+.accreditBtn{
+  background: #181818;
+  color: #fff;
+  border-radius:41rpx;
+  padding:7rpx 0rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  width: 88%;
+  margin:0rpx auto;
+  font-size: 26rpx;
+}

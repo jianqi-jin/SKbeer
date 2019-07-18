@@ -37,6 +37,6 @@
       </view>
     </view>
   </view>
-  <none wx:show='{{cardLsit.length < 1}}' />  
+  <none wx:if='{{(!loadingFlag)&&(!cardLsit.length || cardLsit.length < 1)}}' />
 
 </view>
