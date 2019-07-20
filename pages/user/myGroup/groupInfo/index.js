@@ -11,10 +11,10 @@ Page({
     loadFlag: false,
     showId: 0,
     navList: [{
-      id: 1,
+      id: 0,
       title: '代理团队'
     }, {
-      id: 0,
+      id: 1,
       title: '会员粉丝',
     }]
 

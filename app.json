@@ -29,7 +29,8 @@
     "pages/user/chooseCard/chooseCard",
     "pages/user/incomeInfo/incomeInfo",
     "pages/login/login",
-    "pages/recommend/recommend"
+    "pages/recommend/recommend",
+    "pages/djmx/djmx"
   ],
   "window": {
     "backgroundTextStyle": "light",

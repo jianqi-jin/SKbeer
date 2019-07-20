@@ -16,7 +16,7 @@ Page({
     coverHeight: "0rpx",
     codeHeight: "0rpx",
     // 顶部广告图
-    advertImg: "http://yika.oss-cn-shanghai.aliyuncs.com/qzoa/image/2019051397565110.png",
+    advertImg: "",
     // 推荐内容
     hinge: 0,
     list: [{

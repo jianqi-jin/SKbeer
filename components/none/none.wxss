@@ -6,7 +6,7 @@
 }
 .none_view{
   text-align: center;
-  font-size: 46rpx;
+  font-size: 30rpx;
   color: #ddd;
   font-weight: 100;
   margin-top: 40rpx;
