@@ -1,2 +1,2 @@
 <!--pages/djmx/djmx.wxml-->
-<text>pages/djmx/djmx.wxml</text>
+<image mode='widthFix' style='width:100%;' src='{{jdInfo.jd_img}}'></image>

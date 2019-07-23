@@ -1,1 +1,4 @@
 /* pages/djmx/djmx.wxss */
+page{
+  background: #fff;
+}

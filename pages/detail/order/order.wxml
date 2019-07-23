@@ -30,7 +30,7 @@
   </view>
   <view class='infoItem'>
     <view class='infoLeft'>商品金额</view>
-    <view class='caoNiMa2'>￥{{orderInfo.goods_price * orderInfo.num}}</view>
+    <view class='caoNiMa2'>￥{{orderInfo.pay_money}}</view>
   </view>
   <view class='infoItem'>
     <view class='infoLeft'>储值抵扣</view>

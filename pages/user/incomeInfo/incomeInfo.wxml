@@ -37,7 +37,7 @@
       </view>
 
 
-      <view class='itemBottom'>
+      <view class='itemBottom' wx:if='{{showId == 0}}' >
         <view class='itemBottomItem'>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>推荐人</view>
@@ -70,6 +70,46 @@
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>分红比例</view>
             <view class='bottonItemValue'>{{item.num}}%</view>
+          </view>
+        </view>
+
+      </view>
+
+
+
+      <view class='itemBottom' wx:else>
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>原有等级</view>
+            <view class='bottonItemValue'>{{item.old_level}}</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>现有等级</view>
+            <view class='bottonItemValue'>{{item.new_level}}</view>
+          </view>
+        </view>
+
+
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>推荐人</view>
+            <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level}}]</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>招募时间</view>
+            <view class='bottonItemValue'>{{item.create_time}}</view>
+          </view>
+        </view>
+
+
+        <view class='itemBottomItem'>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'>{{fxType[item.fx_type]}}招募奖励</view>
+            <view class='bottonItemValue'>{{item.money}}</view>
+          </view>
+          <view class='bottomItemBox'>
+            <view class='bottonItemTitle'></view>
+            <view class='bottonItemValue'></view>
           </view>
         </view>
 

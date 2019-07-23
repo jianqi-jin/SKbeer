@@ -45,6 +45,38 @@ Page({
       }
       api.reg(data).then(res => {
         console.log(res)
+        if (wx.getStorageSync('scene').length > 0) {
+          api.bindScene({
+            str: wx.getStorageSync('scene')
+          }).then(res => {
+            // setTimeout(function() {
+            //   wx.showToast({
+            //     title: wx.getStorageSync('scene') + res.data.message,
+            //     icon: 'none',
+            //     image: '',
+            //     duration: 2000,
+            //     mask: true,
+            //   })
+            // }, 1000)
+          })
+        }
+        if (wx.getStorageSync('referId').length > 0) {
+          api.parent({
+            parent_id: wx.getStorageSync('referId')
+          }).then(res => {
+            console.log(res)
+            // setTimeout(function() {
+            //   wx.showToast({
+            //     title: wx.getStorageSync('scene') + res.data.message,
+            //     icon: 'none',
+            //     image: '',
+            //     duration: 2000,
+            //     mask: true,
+            //   })
+            // }, 1000)
+          })
+        }
+
       })
       // //添加到数据库
       // wx.request({

@@ -43,7 +43,6 @@ page{
   /* margin: 102rpx auto 180rpx auto; */
 }
 .accreditBtn{
-  background: #181818;
   color: #fff;
   border-radius:41rpx;
   padding:7rpx 0rpx;

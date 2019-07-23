@@ -12,10 +12,10 @@ Page({
     showId: 0,
     navList: [{
       id: 0,
-      title: '代理团队'
+      title: '会员粉丝'
     }, {
       id: 1,
-      title: '会员粉丝',
+      title: '代理团队',
     }]
 
   },
@@ -33,7 +33,7 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
-    this.getTeamDetail()
+    this.getTeamDetail(0)
 
   },
   getTeamDetail(index) {

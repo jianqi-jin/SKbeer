@@ -19,8 +19,11 @@ Page({
    */
   onLoad: function(options) {
     //定义回调，防止加载顺序错误
-    if (options && options.scene){
+    if (options && options.scene) {
       wx.setStorageSync('scene', options.scene)
+    }
+    if (options && options.memberid) {
+      wx.setStorageSync('referId', options.memberid)
     }
     app.homeReady = (res) => {
       console.log('reload')
@@ -31,7 +34,7 @@ Page({
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
-      
+
     })
     wx.setNavigationBarTitle({
       title: '珈蓝优品'
@@ -67,8 +70,11 @@ Page({
 
       console.log(res)
       that.setData({
-        imgList: res.data.goods_list
+        imgList: res.data.goods_list,
+        shareInfo: res.data.fx_message,
+        member_id: res.data.member_id
       })
+      wx.setStorageSync('memberId', res.data.member_id)
     })
     // wx.request({
     //   url: serverUri+'/app/ewei_shopv2_api.php?i=46&r=senke.index.index',
@@ -86,6 +92,13 @@ Page({
     //   fail: function(res) {},
     //   complete: function(res) {},
     // })
+  },
+  onShareAppMessage(){
+    return {
+      title: this.data.shareInfo.title,
+      imageUrl: this.data.shareInfo.imgUrl,
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
+    }
   }
 
 })

@@ -88,6 +88,7 @@ Page({
           icon: 'none'
         })
       }else{
+        getApp().globalData.leiji_money = res.data.money.leiji_money;
         this.data.otList[0].num = res.data.money.ytx_money;
         this.data.otList[1].num = res.data.money.ktx_money;
         this.data.otList[2].num = res.data.money.dj_money;

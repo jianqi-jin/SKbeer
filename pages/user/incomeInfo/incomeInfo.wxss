@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: row;
   color: #fff;
-  align-items: flex-end;
+  align-items: baseline;
 }
 
 .backBox {
@@ -40,7 +40,7 @@
   margin-left: 10rpx;
   font-size: 46rpx;
   font-family: PingFang-SC-Heavy;
-  font-weight: 800;
+  font-weight: 500;
   color: rgba(255, 255, 255, 1);
 }
 

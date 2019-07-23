@@ -1,4 +1,5 @@
 // pages/djmx/djmx.js
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -12,7 +13,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    api.getUpgreadUpInfo({type: 2}).then(res=>{
+      console.log(res)
+      this.setData({
+        jdInfo: res.data
+      })
+    })
   },
 
   /**

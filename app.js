@@ -88,8 +88,20 @@ App({
           that.globalData.session_key = res.data.data.session_key;
           wx.setStorageSync('openid', that.globalData.openid)
           that.globalData.openid = 'sns_wa_' + res.data.data.openid;
-            //请求用户数据
-          api.bindScene({str:wx.getStorageSync('scene')})
+          //请求用户数据
+          // api.bindScene({
+          //   str: wx.getStorageSync('scene')
+          // }).then(res => {
+          //   setTimeout(function() {
+          //     wx.showToast({
+          //       title: wx.getStorageSync('scene') + res.data.message,
+          //       icon: 'none',
+          //       image: '',
+          //       duration: 2000,
+          //       mask: true,
+          //     })
+          //   }, 1000)
+          // })
         })
         // wx.request({
         //   url: '/app/ewei_shopv2_api.php?i=46&r=wxapp.login',

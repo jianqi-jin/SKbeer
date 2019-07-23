@@ -73,6 +73,7 @@ Page({
     util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.index&openid=${app.globalData.openid}`, 'POST', {
       type: idx
     }).then((res) => {
+      wx.setStorageSync('memberId', res.member_id)
       console.log(res.list)
       let key = `list[${idx}]`;
       newData.page++;
@@ -517,7 +518,7 @@ Page({
     return {
       title: this.data.shareInfo.title,
       imageUrl: this.data.shareInfo.icon,
-      path: `/pages/home/home`
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
     }
   }
 })

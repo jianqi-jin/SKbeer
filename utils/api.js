@@ -44,8 +44,8 @@ const login = {
   login: (data) => {
     return request('wxapp.login', data)
   },
-  bindScene: (data)=> {
-    return request('senke.login.index',data)
+  bindScene: (data) => {
+    return request('senke.login.index', data)
   },
   reg: (data) => {
     return request('wxapp.auth', data)
@@ -238,10 +238,10 @@ const gifts = {
       })
     })
   },
-  getUpgreadUpInfo: function(openid, data) {
+  getUpgreadUpInfo: function(data) {
     return new Promise(resolve => {
       wx.request({
-        url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=senke.my.dl_upgrade&openid=' + openid,
+        url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=senke.my.dl_upgrade&openid=' + getApp().globalData.openid,
         data,
         header,
         method: 'POST',
@@ -428,7 +428,7 @@ const getWuliu = (openid, data) => {
   })
 }
 const refer = {
-  getDjInfo:(data) => {
+  getDjInfo: (data) => {
     return request('senke.my.dj_money_log', data)
   },
   getReferLsit: (data) => {
@@ -714,6 +714,9 @@ const bankCard = {
 
 }
 
+const parent = (data) => {
+  return request('senke.tuijian.fenxiang_parent', data)
+}
 
 module.exports = {
   getThemes: theme.getThemes,
@@ -764,5 +767,6 @@ module.exports = {
   login: login.login,
   bindScene: login.bindScene,
   reg: login.reg,
-  getHomeInfo: home.getInfo
+  getHomeInfo: home.getInfo,
+  parent
 }

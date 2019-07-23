@@ -1,4 +1,7 @@
 /* pages/user/referCenter/referCenter.wxss */
+page{
+  padding: 0;
+}
 .userBox{
   margin:58rpx auto;
   display: flex;

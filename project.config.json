@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 30,
 			"list": [
 				{
 					"id": -1,
@@ -250,6 +250,13 @@
 					"name": "loading",
 					"pathName": "pages/loading/loading",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "home2",
+					"pathName": "pages/home/home",
+					"query": "memberid=1234321",
 					"scene": null
 				}
 			]
