@@ -1,14 +1,14 @@
 <!--pages/order/orderdetail/orderdetail.wxml-->
 
 
-<view bindtap='navTo' data-flag='{{orderDetail.top.status == "3" ? true : false}}' class='statusBox'>
+<view bindtap='navTo' data-flag='{{(orderDetail.top.status == "3" ||orderDetail.top.status == "2") ? true : false}}' class='statusBox'>
   <view class='titleBox'>
     <view class='icon'>
       <image src='./res/img/icon-order.png'></image>
     </view>
     <view class='fontTitle'>订单状态: {{orderDetail.top.status == -1 ? goodStatus[5].statusTitle : goodStatus[orderDetail.top.status].statusTitle}}</view>
   </view>
-  <view wx:if='{{orderDetail.top.status == "0"}}' class='fontSpecial'>支付剩余时间:{{orderDetail.top.time}}</view>
+  <view wx:if='{{orderDetail.top.status == "0"}}' class='fontSpecial'>支付剩余时间:{{timeStr}}</view>
   <view wx:if='{{orderDetail.top.status == "1" || orderDetail.top.status == "2"}}' class='fontSpecial'>物流信息: {{orderDetail.top.AcceptStation?orderDetail.top.AcceptStation:"暂无物流消息"}}</view>
   <view wx:if='{{orderDetail.top.status == "3"}}' class='wuliuItemBox'>
     <view class='left'>

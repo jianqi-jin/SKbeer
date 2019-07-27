@@ -1,0 +1,10 @@
+//计算相关js，应用到wxml
+
+function _parseInt(value){
+  return value.toFixed(2)
+}
+
+
+module.exports = {
+  _parseInt: _parseInt
+}

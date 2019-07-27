@@ -1,4 +1,8 @@
 <!--pages/detail/order/order.wxml-->
+
+<!-- 引入js计算方法 -->
+<wxs src='../../../utils/func.wxs' module="func"></wxs>
+
 <address-item addressInfo='{{addressInfo}}'></address-item>
 
 
@@ -30,7 +34,7 @@
   </view>
   <view class='infoItem'>
     <view class='infoLeft'>商品金额</view>
-    <view class='caoNiMa2'>￥{{orderInfo.pay_money}}</view>
+    <view class='caoNiMa2'>￥{{func._parseInt(orderInfo.goods_price * orderInfo.num)}}</view>
   </view>
   <view class='infoItem'>
     <view class='infoLeft'>储值抵扣</view>

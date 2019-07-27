@@ -19,7 +19,7 @@ App({
         this.globalData.themeColor = res.data.style.bg_color + ';';
         this.globalData.themeOnlyBorder = 'border:2rpx solid ' + res.data.style.bg_color + ';';
 
-
+        this.globalData.theme = '--themeBackC:' + res.data.style.bg_color + ';';
 
         this.globalData.my_bg = res.data.style.my_bg;
         this.globalData.mx_img = res.data.style.mx_img;

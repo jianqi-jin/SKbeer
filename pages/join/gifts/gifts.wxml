@@ -2,7 +2,7 @@
 <view class='tempBox' class='tempClass + {{infoFlag?" tempClassActive":""}}'>
   <view class='titleBox'>
     <view>赠送精美</view>
-    <view>礼品成为森客平台代理可获得精美礼品</view>
+    <view>礼品成为平台代理可获得精美礼品</view>
   </view>
   <view class='"back "+{{infoFlag || orderFlag ? "backDark" : ""}}+{{orderFlag ? " backDark2" : ""}}' bindtap='closeInfo'></view>
   <view class='mainBox'>

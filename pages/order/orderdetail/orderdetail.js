@@ -155,7 +155,7 @@ Page({
     let flag = ev.currentTarget.dataset.flag;
     if (flag) {
       wx.navigateTo({
-        url: '/pages/wuliu/wuliu'
+        url: '/pages/wuliu/wuliu?order_sn=' + this.data.orderDetail.other.order_sn
       })
     }
   },
@@ -186,7 +186,9 @@ Page({
       this.setData({
         timer: setInterval(() => {
           this.setData({
-            ['orderDetail.top.time']: this.data.orderDetail.top.time - 1
+            ['orderDetail.top.time']: this.data.orderDetail.top.time - 1,
+            timeStr: parseInt(this.data.orderDetail.top.time / 60) +
+              '分' + (this.data.orderDetail.top.time) % 60 + '秒'
           })
           if (this.data.orderDetail.top.time < 0) {
             clearInterval(this.data.timer)

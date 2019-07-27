@@ -97,7 +97,6 @@ Component({
 
     let type = this.data.type;
     //对type进行分割
-
     
     this.setData({
       styles: app.globalData[type]

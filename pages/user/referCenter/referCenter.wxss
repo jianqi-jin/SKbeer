@@ -97,6 +97,7 @@ color:rgba(153,153,153,1);
   font-family:PingFang-SC-Heavy;
   font-weight:800;
   color:rgba(51,51,51,1);
+  margin: 0;
 }
 .cardBottom{
   display: flex;
@@ -130,7 +131,7 @@ color:rgba(153,153,153,1);
 }
 .otBox{
   background: #fff;
-  padding: 276rpx 0 60rpx 0;
+  padding: 296rpx 0 60rpx 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

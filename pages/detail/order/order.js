@@ -179,7 +179,7 @@ Page({
     })*/
 
     wx.redirectTo({
-      url: '/pages/order/order?id=1',
+      url: '/pages/order/order?id=2',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
