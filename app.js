@@ -88,6 +88,13 @@ App({
           that.globalData.session_key = res.data.data.session_key;
           wx.setStorageSync('openid', that.globalData.openid)
           that.globalData.openid = 'sns_wa_' + res.data.data.openid;
+
+          if (this.homeReady) {
+            this.homeReady()
+          }
+          if (this.navReady) {
+            this.navReady()
+          }
           //请求用户数据
           // api.bindScene({
           //   str: wx.getStorageSync('scene')
