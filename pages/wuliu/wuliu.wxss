@@ -26,6 +26,7 @@
   font-weight:400;
   color:rgba(153,153,153,1);
   line-height:40rpx;
+  margin-left: 50rpx;
 }
 .mainItem:first-child .textBox view{
   font-size:28rpx;
@@ -52,20 +53,20 @@
 .date{
   font-size: 22rpx;
   white-space:nowrap;
+  margin-top: 20rpx;
 }
 .timeBox{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 150rpx;
-  padding: 10rpx 20rpx 20rpx 0;
+  align-items: center;
+  white-space:nowrap;
 }
 .timeBox::after{
   content: '';
   border-left: 2px solid rgba(245,245,245,1);
   height: 57rpx;
   width: 0rpx;
-  margin-left: 55rpx;
+  margin-left: 30rpx;
   margin-top: 20rpx;
 
 }

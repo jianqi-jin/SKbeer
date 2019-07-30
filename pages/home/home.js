@@ -99,6 +99,9 @@ Page({
       imageUrl: this.data.shareInfo.imgUrl,
       path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
     }
+  },
+  onShow(){
+    this.onLoad()
   }
 
 })

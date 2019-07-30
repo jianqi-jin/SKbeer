@@ -19,8 +19,8 @@
 <view class='mainBox'>
   <view class='mainItem' wx:for='{{wuliuInfo.AcceptStation}}' wx:key='index'>
     <view class='timeBox'>
-      <view class='time'>{{item.AcceptTime.split(' ')[1]}}</view>
-      <view class='date'>{{item.AcceptTime.split(' ')[0]}}</view>
+      <view class='time'>{{item.AcceptTime0}}</view>
+      <view class='date'>{{item.AcceptTime1}}</view>
     </view>
     <view class='textBox'>
       <view>{{item.AcceptStation}}</view>

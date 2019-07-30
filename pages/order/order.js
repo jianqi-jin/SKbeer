@@ -193,6 +193,9 @@ Page({
         }
       case 2:
         { //待收货
+          wx.navigateTo({
+            url: '/pages/wuliu/wuliu?order_sn=' + item.ordersn,
+          })
           break;
         }
       case 3:

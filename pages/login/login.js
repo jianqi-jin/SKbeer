@@ -9,6 +9,7 @@ let header = {
 };
 Page({
   data: {
+    loadingFlag:false,
     bgImg: "https://oa.yika.co/attachment/images/17/2019/06/Wv60X0KVk6ESk0VY9EZ63Api0VyJ5w.jpg",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     loginFlag: false
@@ -33,7 +34,15 @@ Page({
       }
     })
   },
+  loading(){
+    this.setData({
+      loadingFlag: true
+    })
+  },
   onGotUserInfo(res) {
+    this.setData({
+      loadingFlag: false
+    })
     console.log(res)
     if (res.detail.userInfo) {
       let userInfo = res.detail

@@ -35,12 +35,17 @@ Page({
           duration: 800,
           mask: true,
         })
-        setTimeout(function(){
+        setTimeout(function() {
           wx.navigateBack({
             delta: 1,
           })
         }, 800)
-      }else{
+      } else {
+        res.data.AcceptStation = res.data.AcceptStation.map((item) => {
+          item.AcceptTime0 = item.AcceptTime.split(' ')[0]
+          item.AcceptTime1 = item.AcceptTime.split(' ')[1]
+          return item
+        })
         this.setData({
           wuliuInfo: res.data
         })
