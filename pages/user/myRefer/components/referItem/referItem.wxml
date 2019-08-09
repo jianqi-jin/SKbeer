@@ -1,0 +1,13 @@
+<!--pages/user/myRefer/components/referItem/referItem.wxml-->
+<view class='itemBox'>
+  <view class='itemLeft'>
+    <image class='userImg' src=''></image>
+    <view class='userInfoBox'>
+      <view class='nameBox'>[会员]小刚</view>
+      <view class='info'>消费金额：0</view>
+    </view>
+  </view>
+  <view class='itemRight'>
+    2019.3.27 12
+  </view>
+</view>

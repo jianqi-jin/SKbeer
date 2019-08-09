@@ -37,7 +37,7 @@ Page({
 
     })
     wx.setNavigationBarTitle({
-      title: '珈蓝优品'
+      title: api.barTitle
     })
   },
   checkLogin() {
@@ -93,14 +93,14 @@ Page({
     //   complete: function(res) {},
     // })
   },
-  onShareAppMessage(){
+  onShareAppMessage() {
     return {
       title: this.data.shareInfo.title,
       imageUrl: this.data.shareInfo.imgUrl,
       path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
     }
   },
-  onShow(){
+  onShow() {
     this.onLoad()
   }
 

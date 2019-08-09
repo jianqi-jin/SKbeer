@@ -1,15 +1,13 @@
 <!--pages/user/myGroup/groupInfo/index.wxml-->
 
 <view class='mainBox'>
-  <view class='navBox'>
-  
-  
-  
-    <theme-view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' style='border-bottom: 6rpx solid {{item.id == showId ?color:"#fff"}}color:{{item.id == showId ?color:"rgba(153,153,153,1)"}}' bindtap='changeNav' wx:for='{{navList}}' wx:key='index'>{{item.title}}</theme-view>
+  <view class='navBox' wx:if='{{type==0}}'>
+    <theme-view class='navItem' class='"navItem "+ {{item.id == showId ? "navActive": ""}}' data-id='{{item.id}}' style='border-bottom: 6rpx solid {{item.id == showId ?color:"#fff"}}color:{{item.id == showId ?color:"rgba(153,153,153,1)"}}' bindtap='changeNav'
+      wx:for='{{navList}}' wx:key='index'>{{item.title}}</theme-view>
   </view>
   <loading wx:if="{{loadFlag}}" />
   <view wx:else>
-    <view class='itemBox' wx:for="{{infoList}}" wx:key='index'>
+    <view bindtap='onItemClick' data-item='{{item}}' class='itemBox' wx:for="{{infoList}}" wx:key='index'>
       <view class='itemLeft'>
         <view class='leftLeft'>
           <view class='userImg'>

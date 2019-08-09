@@ -23,17 +23,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(options) { //type==0 自己 1别人
+    options.showId = options.type == 1 ? 0 : 1 //0显示粉丝
     this.setData({
-      color: app.globalData.themeColor
+      color: app.globalData.themeColor,
+      ...options
     })
+
     wx.setNavigationBarTitle({
-      title: '团队明细',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      title: '团队明细'
     })
-    this.getTeamDetail(1)
+    this.getTeamDetail(options.showId)
 
   },
   getTeamDetail(index) {
@@ -62,6 +62,17 @@ Page({
       }
 
 
+    })
+  },
+  /**
+   * 列表点击事件 
+   * 跳转详情
+   */
+  onItemClick(e) {
+    if (this.data.type == 1) return //如果别人则不做跳转
+    let item = e.currentTarget.dataset.item;
+    wx.navigateTo({ //type=1表示不是自己
+      url: '/pages/user/myGroup/myGroup?type=1&member_id=' + item.member_id
     })
   },
   changeNav(ev) {

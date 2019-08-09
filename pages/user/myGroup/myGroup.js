@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    btnTitle: ['查看团队业绩', '查看推荐成员'],
     orderInfo: [{
         'title': '今日',
         'value': 0
@@ -80,16 +80,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (!options.type) {
+      options = {
+        type: 0
+      }
+    }
     this.setData({
-      bgImg: app.globalData.my_team_img
+      bgImg: app.globalData.my_team_img,
+      ...options
     })
-    wx.setNavigationBarTitle({
-      title: '我的团队'
-    })
-    this.getMyTeam()
+    if (options.type == '1') //我的下级
+    {
+      wx.setNavigationBarTitle({
+        title: '下级团队'
+      })
+      setTimeout(() => this.getMyTeam(1), 1000)
+
+    } else { //我自己
+
+      wx.setNavigationBarTitle({
+        title: '我的团队'
+      })
+      this.getMyTeam(0)
+    }
   },
-  getMyTeam() {
-    api.getMyTeam(app.globalData.openid).then(res => {
+  getMyTeam(type) {
+    const getTeam = type == 0 ? api.getMyTeam : api.getTeam
+    let data = {
+      member_id: this.data.member_id
+    }
+    getTeam(data).then(res => {
       console.log(res)
       if (res.data.error != "0") {
         wx.showToast({
@@ -103,7 +123,7 @@ Page({
           complete: function(res) {},
         })
       } else {
-        this.data.infoList[0].infoValue = res.data.info.nickname?("[" + res.data.info.levelname + "]" + res.data.info.nickname):"无"
+        this.data.infoList[0].infoValue = res.data.info.nickname ? ("[" + res.data.info.levelname + "]" + res.data.info.nickname) : "无"
         this.data.infoList[1].infoValue = res.data.info.create_time
         this.data.infoList[2].infoValue = res.data.info.ytx_money
 

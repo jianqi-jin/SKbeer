@@ -1,7 +1,9 @@
 /* pages/detail/detail.wxss */
-.pageView{
-  margin-bottom:-150rpx;
+
+.pageView {
+  margin-bottom: -150rpx;
 }
+
 .footBtn {
   position: fixed;
   bottom: 0;
@@ -10,16 +12,25 @@
   border-top: 2rpx solid #f6f6f6;
   z-index: 3;
 }
-.btnSpecialBlock{
+
+.video {
+  width: 100%;
+  height: 454rpx;
+}
+
+.btnSpecialBlock {
   background: #fff;
 }
+
 .btnSpecialBlock {
   width: auto;
   margin: 10rpx 25rpx;
 }
+
 swiper {
   height: 750rpx;
 }
+
 swiper image {
   width: 100%;
 }
@@ -175,8 +186,6 @@ image {
   width: 100%;
 }
 
-
-
 .goodBox {
   overflow-y: scroll;
 }
@@ -194,7 +203,7 @@ image {
   position: absolute;
   top: -55rpx;
   left: 30rpx;
-  border-radius:5rpx;
+  border-radius: 5rpx;
   overflow: hidden;
 }
 
@@ -228,10 +237,10 @@ image {
 
 .goodBox {
   overflow-y: scroll;
-  margin-bottom:100rpx;
+  margin-bottom: 100rpx;
 }
 
-.optionsBox{
+.optionsBox {
   max-height: 700rpx;
 }
 
@@ -261,7 +270,8 @@ image {
 .orderOptionItem {
   padding: 0rpx 26rpx;
 }
-.orderOptionItemAll{
+
+.orderOptionItemAll {
   background: rgba(245, 245, 245, 1);
   border-radius: 301rpx;
   font-size: 26rpx;
@@ -272,12 +282,13 @@ image {
   line-height: 62rpx;
   display: inline;
   margin-left: 24rpx;
-
 }
-.orderOptionItem:first-child{
+
+.orderOptionItem:first-child {
   margin-left: 0;
 }
-.optionActive view{
+
+.optionActive view {
   border-radius: 31rpx;
   font-size: 26rpx;
   font-family: PingFang-SC-Regular;
@@ -395,7 +406,7 @@ image {
   height: 36rpx;
 }
 
-.pageViewHidden{
+.pageViewHidden {
   position: absolute;
   height: 100%;
   overflow: hidden;

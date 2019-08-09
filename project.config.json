@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 32,
 			"list": [
 				{
 					"id": -1,
@@ -257,6 +257,20 @@
 					"name": "home2",
 					"pathName": "pages/home/home",
 					"query": "memberid=1234321",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myGroup",
+					"pathName": "pages/user/myGroup/myGroup",
+					"query": "type=1&member_id=123",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myRefer",
+					"pathName": "pages/user/myRefer/myRefer",
+					"query": "type=1&member_id=123",
 					"scene": null
 				}
 			]

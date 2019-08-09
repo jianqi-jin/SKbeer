@@ -28,6 +28,7 @@
     "pages/user/bindCard/bindCard",
     "pages/user/chooseCard/chooseCard",
     "pages/user/incomeInfo/incomeInfo",
+    "pages/user/myRefer/myRefer",
     "pages/login/login",
     "pages/recommend/recommend",
     "pages/djmx/djmx"

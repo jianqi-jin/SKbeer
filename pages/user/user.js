@@ -17,6 +17,12 @@ Page({
       url: '',
     },
     infoList: [{
+        iconImg: '/res/icon/refer@2x.png',
+        title: '我的推荐',
+        iconArr: '/res/icon/icon_right_click.png',
+        url: '/pages/user/myRefer/myRefer',
+        showFlag: true
+      }, {
         iconImg: '/res/icon/icon-extension.png',
         title: '推广中心',
         iconArr: '/res/icon/icon_right_click.png',
@@ -50,7 +56,7 @@ Page({
     })
 
   },
-  callPhone(){
+  callPhone() {
     wx.makePhoneCall({
       phoneNumber: this.data.userInfo.kefu_phone
     })
@@ -119,7 +125,9 @@ Page({
           duration: 800,
           mask: true,
         })
-        setTimeout(() => { this.onLoad()},800)
+        setTimeout(() => {
+          this.onLoad()
+        }, 800)
       }
       res.data.wechat.fail = (res) => {
         wx.showToast({
@@ -153,7 +161,7 @@ Page({
       wx.setStorageSync("kefu_phone", res.data.kefu_phone)
 
       this.setData({
-        ['infoList[0].showFlag']: res.data.type == "1"
+        ['infoList[1].showFlag']: res.data.type == "1"
       })
     })
   },

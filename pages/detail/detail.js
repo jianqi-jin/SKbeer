@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    videoFlag: true,
     disableFlag: false,
     showIndex: 0, //0 1 3详情
     indicatorDots: true,
@@ -28,7 +29,7 @@ Page({
       pay_type: null, //支付方式
       pay_money: null, //微信支付金额
       dikou_money: null, //抵扣金额
-      specInfo: {}//非表单信息
+      specInfo: {} //非表单信息
     } //下单信息
   },
 
@@ -44,6 +45,11 @@ Page({
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+  onVideoErr() {
+    this.setData({
+      videoFlag: false
     })
   },
   addOrderNum() {
@@ -102,13 +108,12 @@ Page({
     })
     this.getPriceByOption().then(res => {
       console.log(res)
-      if(res.data.error == "003"){
+      if (res.data.error == "003") {
         res.data.result = {};
         res.data.result.marketprice = this.data.goodInfo.marketprice;
       }
       this.setData({
-        orderInfo:
-        {
+        orderInfo: {
           option_id: this.data.spec_str, //323_325  规格id
           goods_id: this.data.goodInfo.id,
           goods_price: res.data.result.marketprice, //商品单价
@@ -117,8 +122,8 @@ Page({
           pay_type: 25, //支付方式
           pay_money: null, //微信支付金额
           dikou_money: 0, //抵扣金额
-          specInfo: res.data.result,//非表单信息
-          goodInfo: this.data.goodInfo//非表单信息
+          specInfo: res.data.result, //非表单信息
+          goodInfo: this.data.goodInfo //非表单信息
         } //下单信息
       })
 

@@ -1,0 +1,48 @@
+/* pages/user/myRefer/components/referItem/referItem.wxss */
+
+.itemBox {
+  height: 130rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 2rpx;
+  background: #fff;
+  padding: 0 30rpx;
+}
+
+.itemLeft {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userImg {
+  background: #ccc;
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 100%;
+}
+
+.info {
+  margin-top: 18rpx;
+}
+
+.userInfoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 22rpx;
+  font-size: 30rpx;
+}
+
+.itemBox {
+  padding-top: 32rpx;
+}
+
+.itemRight {
+  margin-top: 24rpx;
+  color: rgba(163, 163, 163, 1);
+  font-size: 28rpx;
+}

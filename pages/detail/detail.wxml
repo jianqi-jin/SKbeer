@@ -39,8 +39,12 @@
   </view>
 
   <view class='contentBox'>
+    <!-- video Start -->
+    <video wx:if='{{goodInfo.video && videoFlag}}' binderror='onVideoErr' class='video' src='{{goodInfo.video}}' />
+    <!-- video End -->
     <view class='contentTitle'>商品详情</view>
-    <rich-text nodes='{{goodInfo.content}}'></rich-text><!-->
+    <rich-text nodes='{{goodInfo.content}}'></rich-text>
+    <!-->
     <view wx:for="{{goodInfo.thumb_url}}" class='contentImage' wx:key='index'>
       <image mode='widthFix' src='{{item}}'></image>
     </view>-->
@@ -48,7 +52,9 @@
 </view>
 <view class='footBtn' catchtouchmove='move'>
   <view wx:if='{{showIndex ==3}}' class='btnSpecialBlock' bindtap='closeOrder'>完成</view>
-  <view wx:else class='btnSpecialBlock' bindtap='{{disableFlag? "":"showOrder"}}'><theme-view type="themeBack">立即购买</theme-view></view>
+  <view wx:else class='btnSpecialBlock' bindtap='{{disableFlag? "":"showOrder"}}'>
+    <theme-view type="themeBack">立即购买</theme-view>
+  </view>
 </view>
 
 
@@ -91,8 +97,8 @@
           <view class='orderOptionTitle'>{{item.title}}</view>
           <view class='orderOptionContent'>
             <view bindtap='chooseSpec' data-specindex='{{i}}' data-index='{{index}}' wx:for='{{item.specs}}' class='orderOptionItemAll' wx:key='index'>
-            <theme-view class='optionActive' wx:if='{{item.checked}}' type='themeBack'>{{item.title}}</theme-view>
-            <view wx:else class='orderOptionItem'>{{item.title}}</view>
+              <theme-view class='optionActive' wx:if='{{item.checked}}' type='themeBack'>{{item.title}}</theme-view>
+              <view wx:else class='orderOptionItem'>{{item.title}}</view>
             </view>
           </view>
         </view>

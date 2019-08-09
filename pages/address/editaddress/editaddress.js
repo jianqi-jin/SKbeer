@@ -1,6 +1,9 @@
 // pages/address/editaddress/editaddress.js
 const app = getApp();
 const api = require('../../../utils/api.js');
+const {
+  isPoneAvailable
+} = require('../../../utils/util.js')
 Page({
 
   /**
@@ -33,11 +36,18 @@ Page({
 
   },
   formSubmit(ev) {
-    console.log(ev)
+    let data = ev.detail.value;
+    if (!isPoneAvailable(data.mobile)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 800,
+      })
+      return
+    }
     this.setData({
       subLoading: true
     })
-    let data = ev.detail.value;
     console.log(data)
     let obj = {};
     for (let item in data) {
@@ -54,7 +64,7 @@ Page({
         }
       }
     }
-    if (this.data.addressId){
+    if (this.data.addressId) {
       obj.address_id = this.data.addressId;
       api.editAddress(app.globalData.openid, obj).then(res => {
         this.setData({
@@ -76,7 +86,7 @@ Page({
           })
         }
       })
-    }else{
+    } else {
       api.addAddress(app.globalData.openid, obj).then(res => {
         console.log(obj)
         this.setData({
@@ -99,7 +109,7 @@ Page({
         }
       })
     }
-    
+
 
   },
   bindRegionChange(ev) {
@@ -127,7 +137,7 @@ Page({
         pageTitle,
         addressInfo,
         radioLabel: this.data.radioLabel.map((val, index) => {
-          return val.checked = val.name == addressInfo.type ,val
+          return val.checked = val.name == addressInfo.type, val
         }),
         radioSex: this.data.radioSex.map((val, index) => {
           return val.checked = val.name == addressInfo.sex, val

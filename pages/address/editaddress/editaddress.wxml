@@ -27,7 +27,7 @@
   <view class='inputItem'>
     <view class='fontTitle'>电话</view>
     <view class='input'>
-      <input name='mobile' value='{{addressInfo.mobile}}' placeholder='手机号码'></input>
+      <input name='mobile' type='number' value='{{addressInfo.mobile}}' placeholder='手机号码'></input>
     </view>
   </view>
 
