@@ -1,6 +1,7 @@
 /* components/none/none.wxss */
 .none_image{
   width: 200rpx;
+  height: 200rpx;
   margin: 300rpx auto 0 auto;
   display: block;
 }

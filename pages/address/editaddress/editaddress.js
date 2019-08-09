@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    color: app.globalData.themeColor,
+    color: '',
     addressInfo: {},
     subLoading: false,
     address0: 'asd',
@@ -114,6 +114,9 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
+    this.setData({
+      color: app.globalData.themeColor.split(';')[0]
+    })
     let addressId = options.addressId;
     let pageTitle = '添加新地址';
     if (addressId) {

@@ -6,7 +6,7 @@
     <image src='{{userInfo.info.avatar}}'></image>
   </view>
   <view class='userName'>{{userInfo.info.nickname}}</view>
-  <navigator style='background:{{color}}' class='money' url='/pages/money/money' open-type='navigate'>
+  <navigator hover-class="none" style='background:{{color}}' class='money' url='/pages/money/money' open-type='navigate'>
     <view class='title'>储值金额</view>
     <view class='value'>{{userInfo.info.yue}}</view>
     <view class='icon'>
@@ -53,7 +53,7 @@
 <info-item bindtap='callPhone' info="{{kefuInfo}}"></info-item>
 <!--</button>-->
 
-<navigator wx:if='{{userInfo.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'><theme-view type="themeFont">加入合伙人</theme-view></navigator>
+<navigator hover-class="none" wx:if='{{userInfo.type == "0"}}' class='joinBtn' url='/pages/join/message/message' open-type='navigate'><theme-view type="themeFont">加入合伙人</theme-view></navigator>
 
 
 <nav-bottom selected-index='3'></nav-bottom>

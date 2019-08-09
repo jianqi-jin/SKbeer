@@ -13,7 +13,7 @@
     </view>
     <view class='info'>提现金额不低于1元，当日提现次数不超过10次</view>
 
-    <navigator open-type='navigate' wx:if='{{!bankCard.number ? true : false}}' url='/pages/user/bindCard/bindCard' class='ooooooooo'>
+    <navigator hover-class="none" open-type='navigate' wx:if='{{!bankCard.number ? true : false}}' url='/pages/user/bindCard/bindCard' class='ooooooooo'>
       <view class='cardTitle'>添加银行卡</view>
       <view class='icon'>
         <image src='/res/icon/icon_right_click.png'></image>
@@ -22,7 +22,7 @@
 
 
 
-    <navigator open-type='navigate' wx:else url='/pages/user/chooseCard/chooseCard' class='ooooooooo'>
+    <navigator hover-class="none" open-type='navigate' wx:else url='/pages/user/chooseCard/chooseCard' class='ooooooooo'>
       <view class='cardLeft'>
         <view class='cardImg'>
           <image mode='aspectFit' src="{{bankCard.image}}"></image>
@@ -43,7 +43,7 @@
   <view class='dialogBack' wx:if='{{dialogFlag}}'>
     <view class='dialogBox'>
       <view class='dialogTop'>提现申请已发出，财务人员正在审理，资金1-5个工作日到账</view>
-      <navigator open-type='navigateBack' delta='1' class='dialogBottom'>我知道了</navigator>
+      <navigator hover-class="none" open-type='navigateBack' delta='1' class='dialogBottom'>我知道了</navigator>
     </view>
   </view>
 

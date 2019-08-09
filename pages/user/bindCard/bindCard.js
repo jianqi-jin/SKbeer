@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    color: app.globalData.themeColor,
+    color: '',
     vCodeFlag: true,
     vCodeTime: 0,
     loading: false,
@@ -21,6 +21,9 @@ Page({
    */
   onLoad: function(options) {
     this.verCard()
+    this.setData({
+      color: app.globalData.themeColor.split(';')[0]
+    })
   },
   bindPhoneChange(e) {
     console.log(e)
