@@ -37,6 +37,7 @@ module.exports = {
   getUpgreadUpInfo: (data) => request('senke.my.dl_upgrade', data),
   getOrderInfo: (etc, data) => request('senke.my.agent_pay_ok', data),
   getTeamDetail: (etc, data) => request('senke.my.team_detail', data),
+  getTeamDetail2: (etc, data) => request('senke.my.team_detail2', data),
   chuZhiPay: (etc, data) => request('senke.my.chuzhi', data),
   getYueDetails: (etc, data) => request('senke.my.yue_details', data),
   getShouyi: (etc, data) => request('senke.my.shouyi_log', data),
@@ -74,7 +75,7 @@ module.exports = {
   login: data => request('wxapp.login', data),
   bindScene: data => request('senke.login.index', data),
   reg: data => request('wxapp.auth', data),
-  getHomeInfo: () => request('senke.index.index'),
+  getHomeInfo: (data) => request('senke.index.index', data),
   parent: data => request('senke.tuijian.fenxiang_parent', data),
   serverUri,
   barTitle

@@ -144,6 +144,11 @@ Page({
   getUserInfo() {
     api.getUserInfo(app.globalData.openid).then(res => {
       console.log(res)
+      if (res.error) {
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
+      }
       res.data.card = res.data.card.map((val, index) => {
         for (let i in val) {
           if (i == 'zs_money') {

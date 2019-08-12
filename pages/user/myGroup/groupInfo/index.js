@@ -41,8 +41,10 @@ Page({
     this.setData({
       loadFlag: true
     })
-    api.getTeamDetail(app.globalData.openid, {
-      type: index
+    let getTeamDetail = this.data.type == 0 ? 'getTeamDetail' : 'getTeamDetail2'
+    api[getTeamDetail](app.globalData.openid, {
+      type: index,
+      member_id: this.data.member_id
     }).then(res => {
       this.setData({
         infoList: res.data.new_arr || []

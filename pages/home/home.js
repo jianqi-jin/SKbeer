@@ -8,6 +8,7 @@ Page({
    */
   data: {
     loginFlag: false,
+    page: 0,
     imgList: [{
       thumb: ''
     }],
@@ -30,7 +31,7 @@ Page({
       this.onLoad()
     }
     this.checkLogin();
-    this.getInfo();
+    this.getInfo(0);
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
@@ -64,13 +65,33 @@ Page({
       url: '/pages/detail/detail?goodId=' + goodId
     })
   },
-  getInfo() {
+  getInfo(page) {
     let that = this;
-    api.getHomeInfo().then(res => {
-
+    wx.showLoading({
+      title: 'loading',
+      mask: true,
+    })
+    if (page == 0) {
+      this.setData({
+        imgList: []
+      })
+    }
+    api.getHomeInfo({
+      page
+    }).then(res => {
+      wx.hideLoading()
+      if (res.data.goods_list.length < 1) {
+        wx.showToast({
+          title: '没有更多了',
+          icon: 'none',
+          image: '',
+          duration: 800,
+          mask: true,
+        })
+      }
       console.log(res)
       that.setData({
-        imgList: res.data.goods_list,
+        imgList: that.data.imgList.concat(...res.data.goods_list),
         shareInfo: res.data.fx_message,
         member_id: res.data.member_id
       })
@@ -101,7 +122,14 @@ Page({
     }
   },
   onShow() {
-    this.onLoad()
+    // this.onLoad()
+  },
+  onReachBottom() {
+    let page = this.data.page + 1;
+    this.setData({
+      page
+    })
+    this.getInfo(page)
   }
 
 })

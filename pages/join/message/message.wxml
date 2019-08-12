@@ -23,8 +23,8 @@
 <image src='{{upgreadInfo.cwdl_img}}' mode='widthFix'></image>
 <view class='footBtn'>
 
-  <navigator open-type='redirect' url='/pages/join/gifts/gifts' class='btnSpecialBlock'>
+  <view bindtap='navTo' class='btnSpecialBlock'>
     <theme-view type='themeBack'>去支付{{upgreadInfo.cwdl_money}}元</theme-view>
-  </navigator>
+  </view>
 
 </view>

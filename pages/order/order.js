@@ -88,6 +88,9 @@ Page({
           title: 'error: ' + res.data.error,
           icon: 'none'
         })
+        wx.redirectTo({
+          url: '/pages/login/login',
+        })
       } else {
         that.setData({
           orderList: data.order_list
