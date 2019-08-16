@@ -138,8 +138,8 @@ Page({
     let idx = e.currentTarget.dataset.idx;
     let resourceType = e.currentTarget.dataset.form;
     let newData = this.data.list[type].data;
-    let imgList = newData[idx].tp_list;
-
+    //let imgList = newData[idx].tp_list;
+    let imgList = []
     util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${api.postI}&r=senke.tuijian.save&openid=${app.globalData.openid}`, 'POST', {
       id: newData[idx].tgy_id,
       type: newData[idx].type
@@ -156,8 +156,10 @@ Page({
       } else {
         console.log('请求回执', res)
         // 如果是一张图直接下载 否则 全下
+        res.save_img.map(val => {
+          imgList.push(val)
+        })
         if (imgList.length > 1) {
-          imgList.push(res.save_img)
           allNum = imgList.length;
           nowNum = 0;
           for (let i in imgList) {
@@ -176,7 +178,7 @@ Page({
         } else {
           allNum = imgList.length;
           nowNum = 0;
-          this_.download(res.res.img).then((res) => {
+          this_.download(imgList[0]).then((res) => {
             console.log(res)
             this_.keepNetworkImg(res)
             this_.shear(newData[idx].tgy)

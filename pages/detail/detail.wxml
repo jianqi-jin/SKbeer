@@ -40,7 +40,9 @@
 
   <view class='contentBox'>
     <!-- video Start -->
-    <video wx:if='{{goodInfo.video && videoFlag}}' binderror='onVideoErr' class='video' src='{{goodInfo.video}}' />
+    <video wx:if='{{goodInfo.video && videoFlag}}' binderror='onVideoErr' class='video' src='{{goodInfo.video}}'>
+      <cover-image wx:if='{{!playFlag}}' bindtap='play' src='{{goodInfo.thumb}}' mode='aspectFit'></cover-image>
+    </video>
     <!-- video End -->
     <view class='contentTitle'>商品详情</view>
     <rich-text nodes='{{goodInfo.content}}'></rich-text>

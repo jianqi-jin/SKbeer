@@ -42,6 +42,7 @@ Page({
     data.item_id = data.option_id;
     data.goods_money = data.goods_price;
     return new Promise(resolve => {
+      console.log(data)
       api.getGoodOrderInfo(data).then(res => {
 
 

@@ -15,6 +15,7 @@ Page({
     circular: true,
     interval: 5000,
     duration: 1000,
+    playFlag: false,
     spec_str: '',
     goodsId: '',
     goodInfo: {},
@@ -50,6 +51,11 @@ Page({
   onVideoErr() {
     this.setData({
       videoFlag: false
+    })
+  },
+  play() {
+    this.setData({
+      playFlag: !this.data.playFlag
     })
   },
   addOrderNum() {

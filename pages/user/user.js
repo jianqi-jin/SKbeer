@@ -144,7 +144,7 @@ Page({
   getUserInfo() {
     api.getUserInfo(app.globalData.openid).then(res => {
       console.log(res)
-      if (res.error) {
+      if (res.data.error != '0') {
         wx.redirectTo({
           url: '/pages/login/login',
         })

@@ -1,9 +1,15 @@
 const serverUri = 'https://oa.yika.co/';
-const postI = '58'
-const barTitle = '珈蓝优品'
-const header = {
-  'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-};
+
+
+const {
+  postI,
+  barTitle,
+  header,
+  appid
+} = require('./base/jiaLan.js')
+
+
+
 const request = (type, data) => {
   return new Promise(resolve => {
     wx.request({
