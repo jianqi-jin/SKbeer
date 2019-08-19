@@ -22,7 +22,7 @@
       <view data-index='{{item}}' bindtap='goPayChuZhi'>
         <view class='cardTitle'>
           <theme-view type='themeBack'>
-            首冲赠{{item.sc_money}}元
+            首充赠{{item.sc_money}}元
           </theme-view>
         </view>
         <view class='cardContent'>

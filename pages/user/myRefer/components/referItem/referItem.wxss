@@ -1,5 +1,7 @@
 /* pages/user/myRefer/components/referItem/referItem.wxss */
-
+page{
+  font-size: 28rpx;
+}
 .itemBox {
   height: 130rpx;
   display: flex;
@@ -45,4 +47,10 @@
   margin-top: 24rpx;
   color: rgba(163, 163, 163, 1);
   font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemRight view:last-child {
+  margin-top: 10rpx;
 }

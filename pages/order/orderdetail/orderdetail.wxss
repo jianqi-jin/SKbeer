@@ -27,9 +27,11 @@
   font-family: PingFang-SC-Medium;
   font-weight: 500;
   line-height: 24rpx;
+  margin-left: 20rpx;
 }
 .typeClass view{
   padding: 0rpx 10rpx;
+  display: inline;
 }
 .otherBox{
   padding: 44rpx 0 44rpx 28rpx;
@@ -58,7 +60,8 @@
 .userTitleBox{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  font-weight: 800;
 }
 .userContentBox{
   margin: 10rpx 0 0 40rpx;
@@ -69,11 +72,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 20rpx;
 }
 .userContentBox .fontTitle{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 .realName{
   display: flex;
@@ -100,7 +101,7 @@
 }
 .addreType{
   display: inline;
-  padding:4rpx 13rpx;
+  padding:0rpx 13rpx;
   margin-right: 15rpx;
   align-self: center;
   text-align: center;

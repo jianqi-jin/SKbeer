@@ -13,7 +13,7 @@
     <view class='userName'>{{teamInfo.top.nickname}}</view>
     <view class='userLevel'>{{teamInfo.top.levelname}}</view>
   </view>
-  <navigator open-type='navigate' url='./groupInfo/index?type={{type}}&member_id={{member_id}}' class='btnSSS'>
+  <navigator wx:if='{{type == 0}}' open-type='navigate' url='./groupInfo/index?type={{type}}&member_id={{member_id}}' class='btnSSS'>
     <theme-view type="themeBorder">{{btnTitle[type]}}</theme-view>
   </navigator>
 </view>

@@ -18,7 +18,7 @@ Page({
     },
     infoList: [{
         iconImg: '/res/icon/refer@2x.png',
-        title: '我的推荐',
+        title: '我的粉丝',
         iconArr: '/res/icon/icon_right_click.png',
         url: '/pages/user/myRefer/myRefer',
         showFlag: true

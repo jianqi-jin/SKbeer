@@ -16,13 +16,13 @@
         </view>
         <view class='leftRight'>
           <view class='name'>{{item.level}} {{item.nickname}}</view>
-          <view class='info'>团队
+          <view class='info'>{{showId == 0 ? '推荐':'团队'}}
             <view class='specialFont'>{{item.xiaji_num}}</view> 人</view>
         </view>
       </view>
       <view class='itemRight'>
         <view class='time'>{{item.time}}</view>
-        <view class='ooInfo'>今日新增{{item.today_count}}人 本月新增{{item.month_count}}人</view>
+        <view class='ooInfo'>{{showId == 0 ? '消费'+item.money_sum+'元':'今日新增'+item.today_count+'人 本月新增'+item.month_count+'人'}}</view>
       </view>
     </view>
 

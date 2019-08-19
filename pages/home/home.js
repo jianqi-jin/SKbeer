@@ -8,7 +8,7 @@ Page({
    */
   data: {
     loginFlag: false,
-    page: 0,
+    page: 1,
     imgList: [{
       thumb: ''
     }],
@@ -28,10 +28,13 @@ Page({
     }
     app.homeReady = (res) => {
       console.log('reload')
+      this.setData({
+        imgList: []
+      })
       this.onLoad()
     }
     this.checkLogin();
-    this.getInfo(0);
+    this.getInfo(1);
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
@@ -71,7 +74,7 @@ Page({
       title: 'loading',
       mask: true,
     })
-    if (page == 0) {
+    if (page == 1) {
       this.setData({
         imgList: []
       })
@@ -91,7 +94,7 @@ Page({
       }
       console.log(res)
       that.setData({
-        imgList: that.data.imgList.concat(...res.data.goods_list),
+        imgList: page == 1 ? res.data.goods_list:that.data.imgList.concat(...res.data.goods_list),
         shareInfo: res.data.fx_message,
         member_id: res.data.member_id
       })

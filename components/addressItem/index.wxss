@@ -1,12 +1,11 @@
 .orderContentLeft {
   flex-grow: 1;
-  padding: 0 22rpx;
+  padding: 37rpx 24rpx;
 }
 
 .orderContent {
   background: #fff;
   flex-grow: 1;
-  height: 138rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -18,7 +17,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 137rpx;
 }
 
 .addressNew view:last-child {
@@ -36,6 +34,7 @@
 
 .typeClass {
   display: inline;
+  margin-left: 17rpx;
 }
 
 .typeClass view {
@@ -56,23 +55,26 @@
 .orderContentLeftTop {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
-  font-weight: 500;
+  font-weight: 800;
   color: rgba(51, 51, 51, 1);
   align-items: center;
+}
+
+.mobile {
+  margin-left: 15rpx;
 }
 
 .orderContentLeftBottom {
   font-size: 28rpx;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
-  color: rgba(153, 153, 153, 1);
+  color: rgba(51, 51, 51, 1);
   line-height: 44rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  margin-top: 17rpx;
+  margin-left: -5rpx;
 }
 
 .icon {
@@ -85,9 +87,9 @@
   height: 100%;
 }
 
-.orderContentLeftBottom view {
+.mrView {
   display: inline;
-  padding: 4rpx 17rpx;
+  padding: 0rpx 17rpx;
   background: rgba(204, 0, 0, 1);
   border-radius: 500rpx;
   font-size: 20rpx;
@@ -96,4 +98,7 @@
   color: rgba(255, 255, 255, 1);
   line-height: 24rpx;
   margin-right: 15rpx;
+}
+.hoverClass{
+  background: #fff;
 }

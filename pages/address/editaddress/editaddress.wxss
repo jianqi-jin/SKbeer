@@ -65,12 +65,13 @@ radio{
 }
 
 .inputItem .text{
-  padding-left: 123rpx;
+  padding-left: 143rpx;
   font-size:28rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
-  color:rgba(153,153,153,1);
+  color:#1c1c1c;
   line-height:90rpx;
+  flex-grow: 1;
 }
 
 .switchBox{

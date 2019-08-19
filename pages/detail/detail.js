@@ -79,24 +79,21 @@ Page({
     })
   },
   chooseSpec(ev) {
-    console.log(ev.currentTarget.dataset)
     let specIndex = ev.currentTarget.dataset.specindex;
     let index = ev.currentTarget.dataset.index;
     let spec_str = ''
     this.setData({
-      spec: this.data.spec.map((val, i) => {
-        return val.specs.map((val2, i2) => {
+      spec: this.data.spec.map((val, i) => (
+        val.specs.map((val2, i2) => {
           if (specIndex != i) {
-            // if (index == i2)
-            //spec_str += '_' + val2.id;
             return val2
           }
 
           let flag = specIndex == i && index == i2;
           val2.checked = flag
           return val2;
-        }), val;
-      })
+        }), val
+      ))
     })
     this.data.spec.map((val1, index1) => {
       val1.specs.map((val2, index2) => {
@@ -188,6 +185,16 @@ Page({
               "title": "默认"
             }]
           }]
+          setTimeout(() => {
+            this.chooseSpec({
+              currentTarget: {
+                dataset: {
+                  index: 0,
+                  specindex: 0
+                }
+              }
+            })
+          }, 0)
         }
         this.setData({
           spec: res.data.specs
@@ -198,38 +205,38 @@ Page({
       this.setData({
         showIndex: 1
       })
-    } else {
-      //navTo orderPage
-      let specAllNum = 0;
-      let specNowNum = 0;
-      this.data.spec.map((val, index) => {
-        specAllNum += 1;
-        var checked = false;
-        val.specs.map(val => {
-          checked = val.checked ? true : checked
-        })
-        if (checked) {
-          specNowNum += 1;
-        }
-      })
-      console.log(specAllNum, specNowNum)
-      if (specAllNum == specNowNum) {
-        //ok
-        wx.setStorageSync('orderInfo', this.data.orderInfo)
-        wx.navigateTo({
-          url: './order/order'
-        })
-      } else {
-        wx.showToast({
-          title: '请选择规格',
-          icon: 'none',
-          image: '',
-          duration: 800,
-          mask: true,
-        })
-      }
-
+      return
     }
+    //navTo orderPage
+    let specAllNum = 0;
+    let specNowNum = 0;
+    this.data.spec.map((val, index) => {
+      specAllNum += 1;
+      var checked = false;
+      val.specs.map(val => {
+        checked = val.checked ? true : checked
+      })
+      if (checked) {
+        specNowNum += 1;
+      }
+    })
+    console.log(specAllNum, specNowNum)
+    if (specAllNum == specNowNum) {
+      //ok
+      wx.setStorageSync('orderInfo', this.data.orderInfo)
+      wx.navigateTo({
+        url: './order/order'
+      })
+    } else {
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'none',
+        image: '',
+        duration: 800,
+        mask: true,
+      })
+    }
+
   },
   closeOrder() {
     wx.setNavigationBarColor({

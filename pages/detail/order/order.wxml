@@ -66,7 +66,7 @@
     <view>储值抵扣 -￥{{orderInfo.dikou_money}}</view>
   </view>
   <theme-view type="themeBack">
-    <button loading='{{disableFlag}}' class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>
+    <button class='footRight' bindtap='{{disableFlag ? "": "goPay"}}'>
       立即支付
     </button>
   </theme-view>

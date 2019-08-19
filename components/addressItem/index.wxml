@@ -1,19 +1,24 @@
 <view class='orderContent'>
   <view class='orderContentLeft'>
-    <navigator open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew' wx:if='{{!addressInfo.realname}}'>
+    <navigator hover-class='hoverClass' open-type='navigate' url='/pages/address/editaddress/editaddress' class='addressNew' wx:if='{{!addressInfo.realname}}'>
       <view class='icon'>
         <image src='/res/icon/icon-new-add.png'></image>
       </view>
       <view>新增地址</view>
     </navigator>
 
-    <navigator open-type='navigate' url='/pages/address/address?type=2' class='address' wx:else>
+    <navigator hover-class='hoverClass' open-type='navigate' url='/pages/address/address?type=2' class='address' wx:else>
       <view class='orderContentLeftTop'>
-        <view class='nameBox'>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}<theme-view type="themeBorder" class='typeClass'>{{addressInfo.type == "0"?  "家": "公司"}}</theme-view></view>
+        <view class='nameBox'>
+          <view class='mrView' wx:if="{{addressInfo.isdefault == '1'}}">{{addressInfo.isdefault == "1" ? '默认' : ''}}</view>{{addressInfo.realname}} {{addressInfo.sex == "0" ? '（先生）' : '（女士）'}}
+
+        </view>
         <view class='mobile'>{{addressInfo.mobile}}</view>
       </view>
       <view class='orderContentLeftBottom'>
-        <view wx:if="{{addressInfo.isdefault == '1'}}">{{addressInfo.isdefault == "1" ? '默认' : ''}}</view> {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}</view>
+        {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}
+        <theme-view type="themeBorder" class='typeClass'>{{addressInfo.type == "0"? "家": "公司"}}</theme-view>
+      </view>
     </navigator>
   </view>
   <view class='orderContentRight'>

@@ -153,7 +153,7 @@ Page({
           title: '收货地址空',
           icon: 'none'
         })
-      } else if (!this.data.currentGift || !this.data.currentGift.title) {
+      } else if ((!this.data.currentGift || !this.data.currentGift.title) && (this.data.giftList.length > 0)) {
         wx.showToast({
           title: '礼物空',
           icon: 'none'

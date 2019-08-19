@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fxType: ['直接', '间接'],
     bgImg: "",
     bonus_log: [],
     showId: 0,

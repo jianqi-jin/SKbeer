@@ -41,7 +41,7 @@
         <view class='itemBottomItem'>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>推荐人</view>
-            <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level}}]</view>
+            <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level||'会员'}}]</view>
           </view>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>{{fxType[item.fx_type]}}消费奖励</view>
@@ -93,7 +93,7 @@
         <view class='itemBottomItem'>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>推荐人</view>
-            <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level}}]</view>
+            <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level||'会员'}}]</view>
           </view>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>招募时间</view>

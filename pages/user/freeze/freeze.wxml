@@ -40,8 +40,8 @@
             <view class='bottonItemValue'>{{item.tjr_nickname}}[{{item.tjr_level}}]</view>
           </view>
           <view class='bottomItemBox'>
-            <view class='bottonItemTitle'>{{item.fx_type}}消费奖励</view>
-            <view class='bottonItemValue' style='color:rgba(130,76,31,1)!important;'>????</view>
+            <view class='bottonItemTitle'>{{fxType[item.fx_type]}}消费奖励</view>
+            <view class='bottonItemValue' style='color:rgba(130,76,31,1)!important;'>{{item.money}}</view>
           </view>
         </view>
 
@@ -49,7 +49,7 @@
         <view class='itemBottomItem'>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>消费金额</view>
-            <view class='bottonItemValue'>????</view>
+            <view class='bottonItemValue'>{{item.order_money}}</view>
           </view>
           <view class='bottomItemBox'>
             <view class='bottonItemTitle'>下单时间</view>

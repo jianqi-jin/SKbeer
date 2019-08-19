@@ -1,5 +1,5 @@
 const postI = '63'
-const barTitle = '美甲秀妍'
+const barTitle = '美佳秀妍'
 const header = {
   'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
 };

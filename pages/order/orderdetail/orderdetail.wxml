@@ -30,8 +30,9 @@
       <view class='icon'>
         <image src='./res/img/add.png'></image>
       </view>
-      <view class='fontTitle'>{{orderDetail.address.realname}} {{orderDetail.address.sex == "0" ? '（先生）' : '（女士）'}}
-        <theme-view class='typeClass' type='themeBorder'><view>{{orderDetail.address.type == "0"? "家": "公司"}}</view></theme-view>
+      <view class='fontTitle'>
+        <view wx:if='{{orderDetail.address.isdefault == "1"}}' class='addreType'>默认</view>{{orderDetail.address.realname}} {{orderDetail.address.sex == "0" ? '（先生）' : '（女士）'}}
+
       </view>
     </view>
     <view class='fontTitle'>{{orderDetail.address.mobile}}</view>
@@ -39,7 +40,11 @@
   <view class='userContentBox'>
 
     <view class='fontTitle'>
-      <view wx:if='{{orderDetail.address.isdefault == "1"}}' class='addreType'>默认</view> {{orderDetail.address.province}} {{orderDetail.address.city}} {{orderDetail.address.area}} {{orderDetail.address.address}}</view>
+      {{orderDetail.address.province}} {{orderDetail.address.city}} {{orderDetail.address.area}} {{orderDetail.address.address}}
+      <theme-view class='typeClass' type='themeBorder'>
+        <view>{{orderDetail.address.type == "0"? "家": "公司"}}</view>
+      </theme-view>
+    </view>
   </view>
 </view>
 
@@ -93,19 +98,29 @@
 -1取消订单0待付款1代发货2已发货3成功4退款申请
 -->
 <view class='btnFoot'>
-  
-    <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'><theme-view type="themeBack">删除订单</theme-view></view>
-  
-  
-    <view bindtap='goPay' wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'><theme-view type="themeBack">立即支付</theme-view></view>
-  
+
+  <view wx:if='{{orderDetail.top.status == "-1" ? true : false}}' bindtap='delOrder' class='btnSpecial'>
+    <theme-view type="themeBack">删除订单</theme-view>
+  </view>
+
+
+  <view bindtap='goPay' wx:if='{{orderDetail.top.status == "0" ? true : false}}' class='btnSpecial'>
+    <theme-view type="themeBack">立即支付</theme-view>
+  </view>
+
   <view wx:if='{{orderDetail.top.status == "0" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>
   <!-->
   <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' bindtap='closeOrder' class='btnCancel'>取消订单</view>-->
-  
-    <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
 
-    <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
-    <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'><theme-view type="themeBack">再去逛逛</theme-view></view>
-  
+  <view wx:if='{{orderDetail.top.status == "1" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>
+    <theme-view type="themeBack">再去逛逛</theme-view>
+  </view>
+
+  <view wx:if='{{orderDetail.top.status == "2" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>
+    <theme-view type="themeBack">再去逛逛</theme-view>
+  </view>
+  <view wx:if='{{orderDetail.top.status == "3" ? true : false}}' class='btnSpecialBlock' bindtap='navToHome'>
+    <theme-view type="themeBack">再去逛逛</theme-view>
+  </view>
+
 </view>

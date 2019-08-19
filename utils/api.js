@@ -84,5 +84,6 @@ module.exports = {
   getHomeInfo: (data) => request('senke.index.index', data),
   parent: data => request('senke.tuijian.fenxiang_parent', data),
   serverUri,
-  barTitle
+  barTitle,
+  getReferList: () => request('senke.my.tuijian_log')
 }
