@@ -37,14 +37,30 @@ Page({
   },
   formSubmit(ev) {
     let data = ev.detail.value;
-    if (!isPoneAvailable(data.mobile)) {
+    try {
+
+      if (!isPoneAvailable(data.mobile)) {
+        throw '手机号格式错误'
+      }
+      if (!data.realname) {
+        throw '联系人不能为空'
+      }
+      if (!data.address) {
+        throw '详细地址不能为空'
+      }
+      if (!data.address0[0]){
+        throw '地址不能为空'
+      }
+    } catch (e) {
       wx.showToast({
-        title: '手机号格式错误',
+        title: e.toString(),
         icon: 'none',
+        image: '',
         duration: 800,
       })
       return
     }
+
     this.setData({
       subLoading: true
     })

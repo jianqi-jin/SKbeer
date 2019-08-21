@@ -37,6 +37,5 @@
       </view>
     </view>
   </view>
-  <none wx:if='{{(!loadingFlag)&&(!cardLsit.length || cardLsit.length < 1)}}' />
-
+  <none wx:if='{{(!loadingFlag)&&(cardList.length < 1)}}' />
 </view>

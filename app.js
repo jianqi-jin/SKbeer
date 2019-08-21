@@ -24,7 +24,7 @@ App({
         this.globalData.my_bg = res.data.style.my_bg;
         this.globalData.mx_img = res.data.style.mx_img;
         this.globalData.my_team_img = res.data.style.my_team_img;
-
+        wx.setStorageSync('shop_name', res.data.style.shop_name)
 
 
         //设置navBottom

@@ -3,10 +3,9 @@ const serverUri = 'https://oa.yika.co/';
 
 const {
   postI,
-  barTitle,
   header,
   appid
-} = require('./base/jiaLan.js')
+} = require('./base/yuFang.js')
 
 
 
@@ -84,6 +83,5 @@ module.exports = {
   getHomeInfo: (data) => request('senke.index.index', data),
   parent: data => request('senke.tuijian.fenxiang_parent', data),
   serverUri,
-  barTitle,
   getReferList: () => request('senke.my.tuijian_log')
 }

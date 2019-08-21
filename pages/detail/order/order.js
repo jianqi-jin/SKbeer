@@ -39,7 +39,7 @@ Page({
     })
     let that = this;
     let data = this.data.orderInfo;
-    data.item_id = data.option_id;
+    // data.item_id = data.option_id;
     data.goods_money = data.goods_price;
     return new Promise(resolve => {
       console.log(data)

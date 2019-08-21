@@ -117,7 +117,8 @@ Page({
       }
       this.setData({
         orderInfo: {
-          option_id: this.data.spec_str, //323_325  规格id
+          option_id: res.data.result.id, //
+          item_id: this.data.spec_str, //323_325  规格id
           goods_id: this.data.goodInfo.id,
           goods_price: res.data.result.marketprice, //商品单价
           address_id: null, //地址id

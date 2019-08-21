@@ -31,7 +31,9 @@ Page({
   getUpgreadUpInfo() {
     let upgreadInfo = wx.getStorageSync('upgreadInfo');
     //if (upgreadInfo) {} else {
-    api.getUpgreadUpInfo(app.globalData.openid, { type: 1 }).then(res => {
+    api.getUpgreadUpInfo({
+      type: 1
+    }).then(res => {
       console.log(res)
       upgreadInfo = res.data;
       wx.setStorageSync('upgreadInfo', res.data)

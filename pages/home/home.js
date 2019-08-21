@@ -41,7 +41,7 @@ Page({
 
     })
     wx.setNavigationBarTitle({
-      title: api.barTitle
+      title: wx.getStorageSync('shop_name')
     })
   },
   checkLogin() {
