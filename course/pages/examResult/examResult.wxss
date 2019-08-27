@@ -1,0 +1,59 @@
+/* pages/examResult/examResult.wxss */
+.header{
+  position: relative;
+}
+.header .bgImg{
+  width: 100%;
+}
+.header .title{
+  position: absolute;
+  color: #fff;
+  font-size: 48rpx;
+  bottom: 40rpx;
+  left: 57rpx;
+}
+.result{
+  padding:46rpx 49rpx; 
+}
+.result .title{
+  font-size: 32rpx;
+  margin-bottom: 32rpx;
+}
+.result .bable .tr{
+  display: flex;
+  color: #999999;
+  box-sizing:border-box;
+}
+.result .bable .tr{
+  border:1px solid #E6E6E6;
+  text-align: center;
+  line-height: 76rpx;
+  height: 76rpx;
+}
+.result .bable .tr:nth-child(1){
+  background: #F5F5F5;
+  border:1px solid #E6E6E6;
+  text-align: center;
+  line-height: 76rpx;
+  height: 76rpx;
+}
+.result .tr .td:nth-child(1){
+  width: 50%;
+  border-right: 1rpx solid #E6E6E6;
+  box-sizing:border-box;
+}
+.result .tr .td:nth-child(2){
+  width: 17%;
+  border-right: 1rpx solid #E6E6E6;
+  box-sizing:border-box;
+}
+.result .tr .td:nth-child(3){
+  width: 33%;
+  box-sizing:border-box;
+}
+.blue{
+  color: #518ECC;
+}
+.gold{
+  color: #DDB77B;
+}

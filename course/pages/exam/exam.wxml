@@ -1,0 +1,65 @@
+<!--pages/exam/exam.wxml-->
+<view>
+  <view class='header'>
+    <view wx:if="{{state==1}}">员工考核</view>
+    <view wx:if="{{state!=1}}" class='title'>
+      <text>姓名:{{name}}</text>
+      <text class='totalScore' wx:if="{{state==2}}">分数：{{total}}</text> 
+    </view>    
+    <view class='time'>考试时间：{{time}}</view>
+  </view>
+  <view>
+    <view class='scheduleNum'><text class='golden'>{{schedule}}</text>/{{topicNum}}</view>
+    <view class='scheduleStrip'>
+      <view class='pointer' style='width:{{schedule/topicNum*100}}%;'></view>
+    </view>
+  </view>
+  <view>
+    <view class='topicTitle'>选择题</view>
+    <inputCheckbox 
+    wx:for="{{xzt}}" 
+    wx:key="{{index}}"
+    data-inx="{{index}}"
+    data-key="xzt"
+    num="{{index+1}}" 
+    parameter="{{item}}" 
+    state="{{state}}"
+    bind:result="result"
+    />
+    <view class='topicTitle'>判断题</view>
+    <inputJudge
+      wx:for="{{pdt}}" 
+      wx:key="{{index}}"
+      data-inx="{{index}}"
+      data-key="pdt"
+      num="{{index+1}}" 
+      parameter="{{item}}" 
+      state="{{state}}"
+      bind:result="result"
+    />
+    <view class='topicTitle'>简答题</view>
+    <shortAnswer
+      wx:for="{{shortAnswer}}" 
+      wx:key="{{index}}"
+      data-inx="{{index}}"
+      data-key="shortAnswer"
+      num="{{index}}" 
+      parameter="{{item}}" 
+      state="{{state}}"
+      bind:result="shortResult"
+    />
+  </view>
+  <view class='topicTitle' wx:if="{{state==3}}">评语</view>
+  <textarea wx:if="{{state==3}}" placeholder="请输入对员工的评价" value='{{py}}' bindinput="evaluate" class='examineeText'/>
+  <view wx:if="{{state==2}}" class='evaluateSee'>
+    <view class='title'>领导评语</view>
+    {{py}}
+  </view>
+
+
+
+  <view class='sub' bindtap='sub' wx:if="{{state==1}}" style='background-color:{{ color}};'>提交试卷</view>
+   <view class='sub' bindtap='subScore' wx:if="{{state==3}}" style='background-color:{{ color}};'>提交评分</view>
+
+
+</view>

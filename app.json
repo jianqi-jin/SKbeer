@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/home/homeShow/homeShow",
+    "pages/home/class/class",
     "pages/index/index",
     "pages/logs/logs",
     "pages/refer/refer",
@@ -32,6 +34,18 @@
     "pages/login/login",
     "pages/recommend/recommend",
     "pages/djmx/djmx"
+  ],
+  "subPackages": [
+    {
+      "root": "course",
+      "pages": [
+        "pages/course/course",
+        "pages/comment/comment",
+        "pages/exam/exam",
+        "pages/examResult/examResult",
+        "pages/examUserList/examUserList"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "light",

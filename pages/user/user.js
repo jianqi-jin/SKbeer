@@ -17,6 +17,13 @@ Page({
       url: '',
     },
     infoList: [{
+        iconImg: '/res/icon/yunketang.png',
+        title: '云课堂',
+        iconArr: '/res/icon/icon_right_click.png',
+        url: '/course/pages/course/course',
+      showFlag: false
+      },
+      {
         iconImg: '/res/icon/refer@2x.png',
         title: '我的推荐',
         iconArr: '/res/icon/icon_right_click.png',
@@ -166,7 +173,8 @@ Page({
       wx.setStorageSync("kefu_phone", res.data.kefu_phone)
 
       this.setData({
-        ['infoList[1].showFlag']: res.data.type == "1"
+        ['infoList[2].showFlag']: res.data.type == "1",
+        ['infoList[0].showFlag']: res.data.type == "1"
       })
     })
   },

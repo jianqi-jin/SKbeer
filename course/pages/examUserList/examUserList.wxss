@@ -1,0 +1,57 @@
+/* pages/examUserList/examUserList.wxss */
+/* 切换栏 */
+.label{
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #F5F5F5;
+}
+.label>view{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.label>view text{
+  padding: 34rpx 0rpx;
+  border-bottom:2px solid #fff;
+}
+
+.list{
+  padding:40rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  border-bottom: 1px solid #F5F5F5;
+}
+.list .left{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .photo{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  /* border-image:linear-gradient(0deg, rgba(207,174,109,1), rgba(225,206,168,1)) 4 4; */
+  border-image:linear-gradient(0deg,rgba(207,174,109,1),rgba(225,206,168,1)) 1 10;
+}
+.list .info{
+  padding-left: 22rpx;
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
+.list .info .name{
+  font-size: 32rpx;
+  margin-bottom: 18rpx;
+}
+.list .info .time{
+  color: #999;
+}
+.list .info .icon{
+  font-size: 30rpx;
+  color: #999;
+}
+page{
+  background: #fff;
+}

@@ -1,0 +1,4 @@
+<!--component/floatButton/floatButton.wxml-->
+<view class='floatButton' bindtap='scan' style='background-color:{{color}};' wx:if="{{show}}">
+  <slot></slot>
+</view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "inputCheckbox":"../../component/inputCheckbox/inputCheckbox",
+    "inputJudge":"../../component/inputJudge/inputJudge",
+    "shortAnswer":"../../component/shortAnswer/shortAnswer"
+  }
+}

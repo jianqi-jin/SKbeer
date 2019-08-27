@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -14,7 +14,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wxdbd4827fc15ed308",
+	"appid": "wxe8b5c6bfb6ba07ea",
 	"projectname": "%E8%BF%AD%E4%BB%A3%E7%89%88%E6%9C%AC",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 33,
+			"current": 35,
 			"list": [
 				{
 					"id": -1,
@@ -277,6 +277,20 @@
 					"id": -1,
 					"name": "order",
 					"pathName": "pages/detail/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "homeShow",
+					"pathName": "pages/home/homeShow/homeShow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "class",
+					"pathName": "pages/home/class/class",
 					"scene": null
 				}
 			]

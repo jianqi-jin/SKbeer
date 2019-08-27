@@ -1,0 +1,11 @@
+<!--pages/comment/comment.wxml-->
+<view>
+  <view class='p49'>
+    <view class='header'>
+      <view>提交问题</view>
+      <!-- <image class='logo' src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560304581558wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.WxohW0Va0sLi0904aed4ee8c0a3efc7fea86764374ac.png'></image> -->
+    </view>
+    <textarea class='box' data-name="replyText" bindinput="onChange"    placeholder="请输入有效问题内容，我们会尽快处理" name="textarea"/>
+    <view class='sub' bindtap='sub' style='background-color:{{color}};'>提交</view>
+  </view>
+</view>

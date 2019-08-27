@@ -1,0 +1,55 @@
+<view>
+  <video src='{{play.video}}' bindtimeupdate="percentage" id="myVideo" autoplay="{{autoplay}}" poster="{{play.image}}" class='video'></video>
+  <view>
+    <view class='label'>
+      <view data-val='0' bindtap='switchHinge'>
+        <text style='{{hinge==0?"color:"+color+";border-color:"+color+";":""}}'>课程目录</text>
+      </view>
+      <view data-val='1' bindtap='switchHinge'>
+        <text style='{{hinge==1?"color:"+color+";border-color:"+color+";":""}}'>在线问答</text>
+      </view>
+    </view>
+    <!-- 视频 -->
+    <view wx:if="{{hinge==0}}">
+      <view class='videoList' wx:for="{{videoList}}" wx:key="{{item.id}}" data-idx='{{index}}' bindtap='playVideo'>
+        <view class='cover'>
+          <image class='img' src='{{item.image}}'></image>
+          <image class='icon' src='../../ui/images/bofang.png'></image>
+        </view>
+        <view class='info'>
+          <view class='name'>{{item.kc_name}}</view>
+          <view class='time'>{{item.creatime}}</view>
+          <view class='number'>{{item.num}}次学习</view>
+        </view>
+      </view>
+    </view>
+    <!-- 评论 -->
+    <view wx:if="{{hinge==1}}">
+      <view class='discussList' wx:for="{{discussList}}" wx:key="{{item.id}}">
+        <view class='info'>
+          <view class='header'>
+            <view class='user'>
+              <image class='photo' src='{{item.avatar}}'></image>
+              <view class='whole'>
+                <view class='name'>{{item.nickname}}</view>
+                <view class='time'>{{item.creatime}}</view>
+              </view>
+            </view>
+            <view class='iconfont icon-zan1 size32' style='{{item.status?"color:#999;":"color:#D51C1C;"}}' bindtap='save' data-idx='{{index}}'>{{item.total}}</view>
+          </view>
+          <view class='pl77'>
+            <view class='message'>{{item.content}}</view>
+            <view class='replyText' wx:for="{{item.arr}}" wx:key="{{index}}" wx:for-item="itemName">
+              <text class='name'>{{itemName.nickname}}：</text>{{itemName.content}} 
+            </view>
+            <view wx:if="{{member_status == '3'}}" class='reply mt' bindtap='reply' data-id='{{item.id}}'>回复</view>          
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class='replyInput'>
+  <textarea adjust-position="true" ></textarea>
+  <span class="sure">回复</span>
+</view> -->

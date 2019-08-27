@@ -1,0 +1,100 @@
+/* pages/exam/exam.wxss */
+.header{
+  background-image: url("https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1559637570670wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.GafUvJJrp90Xeb81224728e125ec73aca325336b19ec.png");
+  background-size: 100% 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+}
+.header .time{
+  margin-top: 24rpx;
+  color: #858585;
+}
+.header .title{
+  font-size: 36rpx;
+}
+.topicTitle{
+  width:165rpx;
+  height:63rpx;
+  background-image:url(https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560307942951wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.28opHmKYEtYj4f8a4a8782a11f2fa36caf785c9b7677.png);
+  background-size: 100% 100%;
+  color: #fff;
+  line-height:63rpx;
+  font-size:32rpx;
+  padding-left: 27rpx;
+  margin-top:26rpx;
+}
+.ml28{
+  margin-left: 28rpx;
+}
+.giltFont{
+  background:linear-gradient(0deg,rgba(208,175,111,1) 0%, rgba(225,205,167,1) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sub{
+  margin: 40rpx auto 10rpx auto;
+  width:calc(100% - 48rpx);
+  height:98rpx;
+  font-size:32rpx;
+  color:#fff;
+  line-height:98rpx;
+  text-align: center;
+  border-radius:10rpx;
+}
+.examineeText{
+  margin-left: 30rpx;
+  margin-top:20rpx;
+  width:calc(100% - 80rpx);
+  min-height:80rpx;
+  background:rgba(245,245,245,1);
+  border-radius:3px;
+  color:#999;
+  padding:10rpx;
+}
+.totalScore{
+  margin-left: 28rpx;
+  font-size:32rpx;
+  background:linear-gradient(0deg,rgba(208,175,111,1) 0%, rgba(225,205,167,1) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.evaluateSee{
+  margin-top: 25rpx;
+  width:100%;
+  height:178rpx;
+  background:rgba(221,183,123,0.2);
+  text-align: center;
+  padding:45rpx 0;
+}
+.evaluateSee .title{
+  font-size:32rpx;
+  /* width: calc(100% - 90rpx); */
+}
+
+/* 进度条 */
+.scheduleNum{
+  text-align: right;
+  padding:25rpx;
+  font-size: 32rpx;
+}
+.scheduleStrip{
+  width:100%;
+  height:6rpx;
+  background:rgba(245,245,245,1);
+  border-radius:3rpx;
+}
+.pointer{
+  height:6rpx;
+  background:linear-gradient(-90deg,rgba(207,174,108,1),rgba(225,206,168,1));
+  border-radius:3rpx;
+}
+.golden{
+  color: #DEB980;
+}
+page{
+  background: #fff;
+}

@@ -1,0 +1,21 @@
+<!--component/inputCheckbox/inputCheckbox.wxml-->
+<view class='topic'>
+  <view class='title'>
+    <view>{{num +"、"}}{{parameter.title}}<text class='totalScore'>({{parameter.total}})</text></view>
+    <view wx:if="{{state==2}}">{{parameter.df}}</view>    
+  </view>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{parameter.xx}}" wx:key="{{index}}">
+      <view class='option'>
+        <!-- {{parameter.dtda}} -->
+        <image class="icon" src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560136821646wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.VuI7nWbLaOM2019366de5822a55c4be8b736b731b626.png' wx:if="{{item.checked}}"></image>
+        <image class="icon" src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560136833067wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.6I6VwKqCRY5Tace7d0737e51ef60ef09243f34d2f8d5.png' wx:else="{{item.checked}}"></image>
+        <checkbox value="{{item.key}}" class='hide' checked="{{item.checked}}" disabled="{{state != 1}}"/>
+        <view class='answer {{item.checked?"text-gradient":"" }}'><view>{{item.key}}{{item.value}}</view></view> 
+      </view>
+
+    </label>
+  </checkbox-group>
+
+
+</view>

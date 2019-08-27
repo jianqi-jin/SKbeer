@@ -1,0 +1,44 @@
+/* component/tabBar/tabBar.wxss */
+.tabBar{
+  display: flex;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  background: #fff;
+  padding:10rpx 0rpx;
+  box-shadow:0px 0px 21px 0px rgba(7,0,2,0.12);
+}
+.tabBar navigator{
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  flex-grow:1;
+}
+.tabBar navigator image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.tabBar navigator .reward{
+  position: relative;
+}
+.tabBar .reward image{
+  position: absolute;
+  width: 100rpx;
+  height:100rpx;
+  top:-14rpx;
+}
+.tabBar navigator text {
+  font-size: 22rpx;
+}
+.fix-iphonex-button{
+  bottom: 34rpx !important;
+}
+.fix-iphonex-button::after{
+  content: ' ';
+  position: fixed;
+  bottom: 0!important;
+  height: 34rpx!important;
+  width: 100%;
+  background: #fff;
+}

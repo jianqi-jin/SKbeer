@@ -4,4 +4,4 @@
 
 
 
-<nav-bottom selected-index='0'></nav-bottom>
+<nav-bottom wx:if='{{indexType == 0}}' selected-index='0'></nav-bottom>

@@ -1,0 +1,15 @@
+<!-- pages/home/class/class.wxml -->
+<view class='mainBox'>
+  <view bindtap='navToDetail' data-item='{{item}}' class='itemBox' wx:for='{{goodsList}}' wx:key='{{item.id}}'>
+    <view class='imgBox'>
+      <image mode='widthFix' class='img' src="{{item.thumb}}"></image>
+    </view>
+    <view class='titleBox'>
+      <view class='title'>
+        <view class='price'>￥{{item.marketprice}}</view>
+        <view class='priceOld'>￥{{item.productprice}}</view>
+      </view>
+      <view class='info'>{{item.title}}</view>
+    </view>
+  </view>
+</view>

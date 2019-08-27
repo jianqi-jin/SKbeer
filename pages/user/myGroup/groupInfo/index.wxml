@@ -22,7 +22,7 @@
       </view>
       <view class='itemRight'>
         <view class='time'>{{item.time}}</view>
-        <view class='ooInfo'>{{showId == 0 ? '消费'+item.money_sum+'元':'今日新增'+item.today_count+'人 本月新增'+item.month_count+'人'}}</view>
+        <view class='ooInfo'>{{showId == 0 ? '消费'+(item.money_sum||0)+'元':'今日新增'+item.today_count+'人 本月新增'+item.month_count+'人'}}</view>
       </view>
     </view>
 

@@ -1,0 +1,30 @@
+/**app.wxss**/
+@import '/ui/font_vqulen3ohj/icon.wxss';
+image{
+  display:block;
+}
+page{
+  font-size: 28rpx;
+  color: #333;
+}
+.grayPage{
+  background: #F5F5F5;
+  min-height: 100vh;
+  padding:0rpx;
+}
+.window{
+  padding-bottom:100rpx; 
+}
+.grayPage.window{
+  min-height:calc(100vh - 100rpx);
+}
+/* 遮罩 */
+.mask{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}

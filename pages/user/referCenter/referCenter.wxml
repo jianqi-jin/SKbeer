@@ -25,12 +25,12 @@
       </navigator>
     </view>
   </view>
-  <view class='cardBottom'>
+  <view bindtap='navToIncomeInfo' class='cardBottom'>
     <view class='cardBotmItem'>
       <view>{{userInfo.team.today_order_count}}</view>
       <view>今日单量</view>
     </view>
-    <view class='cardBotmItem'>
+    <view bindtap='navToGroupInfo' class='cardBotmItem'>
       <view>{{userInfo.team.today_user_count}}</view>
       <view>团队规模</view>
     </view>
@@ -43,7 +43,7 @@
 
   <view class='otBox'>
 
-    <navigator  hover-class="none" open-type='navigate' url='{{item.url}}' class='otItem' wx:for='{{otList}}' wx:key="index">
+    <navigator hover-class="none" open-type='navigate' url='{{item.url}}' class='otItem' wx:for='{{otList}}' wx:key="index">
       <view>{{item.title}}</view>
       <view class='22num'>￥{{item.num}}</view>
       <theme-view type="themeBorder">{{item.btnTitle}}</theme-view>

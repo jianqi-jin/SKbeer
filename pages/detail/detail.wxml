@@ -40,7 +40,7 @@
 
   <view class='contentBox'>
     <!-- video Start -->
-    <video poster='{{goodInfo.thumb}}' wx:if='{{goodInfo.video && videoFlag}}' binderror='onVideoErr' class='video' src='{{goodInfo.video}}'>
+    <video poster='{{goodInfo.thumb}}' wx:if='{{goodInfo.video != "https://oa.yika.co/attachment/" && videoFlag}}' binderror='onVideoErr' class='video' src='{{goodInfo.video}}'>
       <!-- <cover-image wx:if='{{!playFlag}}' bindtap='play' src='{{goodInfo.thumb}}' mode='aspectFit'></cover-image> -->
     </video>
     <!-- video End -->

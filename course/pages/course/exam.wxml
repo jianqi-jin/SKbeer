@@ -1,0 +1,13 @@
+<view class='examHeader'>
+  <image class="bgImg" mode="widthFix"
+src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1561088816935wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.pxwldeRGeYkh4f9c13f45a5b9a0c027855ee3de9aa88.png'></image>
+  <image src='../../ui/images/xiangyou@2x.png' class='Arrow'></image>
+  <!-- <navigator url="../examUserList/examUserList" class='stafPaper'>
+    <image src='../../ui/images/biaodan@2x.png'></image> 查看员工试卷
+  </navigator> -->
+  <navigator url='../exam/exam?type=1' class='start'>开始考试</navigator>  
+</view>
+<navigator class='seeButton' style='background:{{color}};' url="../examResult/examResult">
+  <image src='../../ui/images/lishi.png' class='icon'></image>
+  <text class='sure'>查询成绩</text>
+</navigator>

@@ -1,7 +1,9 @@
 /* pages/user/myRefer/components/referItem/referItem.wxss */
-page{
+
+page {
   font-size: 28rpx;
 }
+
 .itemBox {
   height: 130rpx;
   display: flex;
@@ -49,6 +51,14 @@ page{
   font-size: 28rpx;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+}
+
+.nameBox {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 250rpx;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+  text-overflow: ellipsis;
 }
 
 .itemRight view:last-child {

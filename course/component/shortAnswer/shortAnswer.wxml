@@ -1,0 +1,41 @@
+<!--component/shortAnswer/shortAnswer.wxml-->
+<view class='topic' >
+  <view class='title'>
+    <view>{{num +1 +"、"}}{{parameter.title}}<text class='totalScore'>({{parameter.total}})</text></view>
+    <view wx:if="{{state==2}}">{{parameter.df}}</view>    
+  </view>
+  <view>
+    <textarea class='examineeText' disabled="{{state != 1}}"   bindinput="bindTextAreaBlur" auto-height value='{{parameter.dtda.con}}' />
+  </view>
+  <view class=''>
+    <view class='sound' wx:for="{{parameter.dtda.vid}}" wx:key="{{index}}" wx:for-item="itemName">
+      <image class="icon"  data-url="{{itemName}}" bindtap="play" src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560145588949wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.RU19JUoLaLyeaf89a438994a8add445a5672a4bfd971.png'></image>
+      <image  src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560147184569wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.Vs932XWFb3uic7135b4fa26d70cb1a4ffdc97159bfca.png' class='del' data-index='{{index}}' wx:if='{{state != 2}}' bindtap='delAudio'></image>
+      <!-- <view>18″</view> -->
+    </view>
+  </view>
+  <view class='transcribe' wx:if="{{state == 1}}" bindtap='soundRecording' ><image src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1560145385032wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.Z98ohr5nlvji86812e5cc70c78bd9fae87259261a60c.png'></image><text>语音描述</text></view>
+
+  <view wx:if="{{state!=1}}">
+    <view class='answerTitle'>正确答案：</view>
+    <textarea class='correct' disabled="{{state != 3}}" value="{{parameter.zqda}}" placeholder='请输入正确答案' bindinput="answer" auto-height  />
+    <input type="digit" class='fraction' wx:if="{{state == 3}}" disabled="{{state != 3}}" value="{{parameter.ksdf}}" placeholder='请输入分数' bindinput="fraction" auto-height  />
+  </view>
+
+  <!-- <audio class='hide' poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio> -->
+</view>
+
+<view class='mask' wx:if="{{transcribeWindow}}" catchtouchmove="true"  catchtouchmove="preventD"></view>
+<view class='transcribeWindow' wx:if="{{transcribeWindow}}" catchtouchmove="true" catchtouchmove="preventD">
+  <view class='tips'>留言最多5分钟</view>
+  <view class='start'>正在录音...</view>
+  <image class="tipsIcon"  src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1561363133251wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.PuEWUylrnE9ja2040106ed5764526e80bbccf94bddb6.png'></image>
+  <view class='operation'>
+    <view class='' bindtap='cancelRecording' catchtouchmove="true">
+      <image src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1561363155382wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.efl1ZU5Zhcm7007614d8956e85dc27bda845325ac0c2.png'></image>
+    </view>
+    <view bindtap='endSoundRecording' catchtouchmove="true">
+      <image src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1561363166054wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.SGt3J03FLWvu6b790e1c84b5ec6a91de8e7cfe335a1b.png'></image>
+    </view>
+  </view>
+</view>

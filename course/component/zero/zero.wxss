@@ -1,0 +1,9 @@
+/* component/zero/zero.wxss */
+.box{
+
+}
+.icon{
+  width: 300rpx;
+  display: block;
+  margin:100rpx auto 0rpx auto;
+}

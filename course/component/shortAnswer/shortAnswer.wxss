@@ -1,0 +1,130 @@
+/* component/shortAnswer/shortAnswer.wxss */
+@import '/ui/font_vqulen3ohj/icon.wxss';
+.topic{
+  padding: 0rpx 15rpx 0rpx 30rpx;
+  background: #fff;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  padding:30rpx 0rpx;
+}
+.sound{
+  position: relative;
+  display: inline-block;
+  background-color: #EBEBEB;
+  padding:5rpx 18rpx;
+  font-size: 18rpx;
+  text-align: center;
+  margin-top: 24rpx;
+  margin-right: 24rpx;
+}
+.sound .icon{
+  width: 39rpx;
+  height: 39rpx;
+  margin-bottom: 5rpx;
+}
+.del{
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  right: -12rpx;
+  top: -12rpx;
+}
+.transcribe{
+  width:148rpx;
+  height:45rpx;
+  background:rgba(226,201,161,1);
+  border-radius:22rpx;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  color: #fff;
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+.transcribe image{
+  width: 27rpx;
+  height: 27rpx;
+  margin-right: 5rpx;
+}
+.correct ,.fraction{
+  margin-top: 20rpx;
+  width: calc(100% - 40rpx);
+  min-height: 80rpx;
+  background:rgba(245,245,245,1);
+  border-radius:3px;
+  color: #999;
+  padding: 10rpx;
+}
+.answerTitle{
+  margin: 20rpx 0rpx;
+}
+.examineeText{
+  width: calc(100% - 40rpx);
+  min-height: 80rpx;
+  background:rgba(245,245,245,1);
+  border-radius:3px;
+  color: #999;
+  padding: 10rpx;
+}
+.totalScore{
+  margin-left: 25rpx;
+}
+
+.hide{
+  display: none;
+}
+
+/* 遮罩 */
+.mask{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+.transcribeWindow{
+  position: fixed;
+  z-index: 10;
+  width:414rpx;
+  transform:translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius:24px;
+  background: #fff;
+  color: #333;
+  overflow: hidden;
+}
+.transcribeWindow .tips{
+  margin:40rpx auto 0rpx auto;
+  text-align: center;
+}
+.transcribeWindow .start{
+  margin:27rpx auto 0rpx auto;
+  text-align: center;
+}
+.transcribeWindow .tipsIcon{
+  width: 290rpx;
+  height: 126rpx;
+  display: block;
+  margin:39rpx auto 100rpx auto;
+}
+.transcribeWindow .operation{
+  height:86rpx;
+  background:rgba(245,245,245,1);
+  display: flex;
+}
+.transcribeWindow .operation>view{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.transcribeWindow .operation>view>image{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+}

@@ -52,7 +52,27 @@
       </view>
     </view>
   </view>
+<view class='ooooItem'>
+    <view class='oBoxTitle'>招募奖励
+    </view>
+    <view class='oBoxMain'>
+      <view wx:for='{{zmMoneyInfo}}' wx:key='index' class='tableItem'>
+        <view class='tableTop'>{{item.title}}</view>
+        <view class='tableBottom'>{{item.value}}元</view>
+      </view>
+    </view>
+  </view>
 
+  <view class='ooooItem'>
+    <view class='oBoxTitle'>招募人数
+    </view>
+    <view class='oBoxMain'>
+      <view wx:for='{{zmNumInfo}}' wx:key='index' class='tableItem'>
+        <view class='tableTop'>{{item.title}}</view>
+        <view class='tableBottom'>{{item.value}}人</view>
+      </view>
+    </view>
+  </view>
 
   <view class='ooooItem'>
     <view class='oBoxTitle'>团队人数

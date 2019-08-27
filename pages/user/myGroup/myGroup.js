@@ -43,7 +43,38 @@ Page({
         'value': 0
       }
     ],
-
+    zmNumInfo: [{
+      'title': '今日',
+      'value': 0
+    },
+      {
+        'title': '本周',
+        'value': 0
+      },
+      {
+        'title': '本月',
+        'value': 0
+      },
+      {
+        'title': '累计',
+        'value': 0
+      }],
+    zmMoneyInfo: [{
+      'title': '今日',
+      'value': 0
+    },
+      {
+        'title': '本周',
+        'value': 0
+      },
+      {
+        'title': '本月',
+        'value': 0
+      },
+      {
+        'title': '累计',
+        'value': 0
+      }],
     groupNumInfo: [{
         'title': '今日',
         'value': 0
@@ -130,10 +161,14 @@ Page({
         let orderInfoNet = res.data.order_money
         let groupNet = res.data.team_order
         let groupNumInfoNet = res.data.team_user
+        let zmNumInfoNet = res.data.zmnum
+        let zmMoneyInfoNet = res.data.zm_money
 
         let orderInfo = this.data.orderInfo
         let groupInfo = this.data.groupInfo
         let groupNumInfo = this.data.groupNumInfo
+        let zmNumInfo = this.data.zmNumInfo
+        let zmMoneyInfo = this.data.zmMoneyInfo
 
         orderInfo[0].value = orderInfoNet.today
         orderInfo[1].value = orderInfoNet.week
@@ -145,6 +180,16 @@ Page({
         groupInfo[2].value = groupNet.month_order
         groupInfo[3].value = groupNet.all_order
 
+        zmNumInfo[0].value = zmNumInfoNet.today
+        zmNumInfo[1].value = zmNumInfoNet.week
+        zmNumInfo[2].value = zmNumInfoNet.month
+        zmNumInfo[3].value = zmNumInfoNet.all
+
+        zmMoneyInfo[0].value = zmMoneyInfoNet.today
+        zmMoneyInfo[1].value = zmMoneyInfoNet.week
+        zmMoneyInfo[2].value = zmMoneyInfoNet.month
+        zmMoneyInfo[3].value = zmMoneyInfoNet.all
+
         groupNumInfo[0].value = groupNumInfoNet.today_team
         groupNumInfo[1].value = groupNumInfoNet.week_team
         groupNumInfo[2].value = groupNumInfoNet.month_team
@@ -155,7 +200,9 @@ Page({
           infoList: this.data.infoList,
           orderInfo,
           groupInfo,
-          groupNumInfo
+          groupNumInfo,
+          zmNumInfo,
+          zmMoneyInfo,
         })
 
       }

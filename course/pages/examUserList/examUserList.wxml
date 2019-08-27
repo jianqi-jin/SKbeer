@@ -1,0 +1,33 @@
+<!--pages/examUserList/examUserList.wxml-->
+<view>
+  <view class='label'>
+    <view data-val='0' bindtap='switchHinge'>
+      <text style='{{hinge==0?"color:"+color+";border-color:"+color+";":""}}'>待评分</text>
+    </view>
+    <view data-val='1' bindtap='switchHinge'>
+      <text style='{{hinge==1?"color:"+color+";border-color:"+color+";":""}}'>已评分</text>
+    </view>
+  </view>
+  <view>
+    <view  wx:for="{{list}}" wx:key="{{index}}" wx:if="{{index == hinge}}">
+      <view class='list' 
+      wx:for="{{item.data}}" 
+      wx:for-item="itemName" 
+      wx:for-index="idx"
+      wx:key="{{itemName.id}}" 
+      data-id='{{itemName.id}}'
+      data-type='{{index}}'
+      bindtap='see'>
+        <view class='left'>
+          <image class='photo' src='{{itemName.avatar}}'></image>
+          <view class='info'>
+            <view class='name'>{{itemName.nickname}}</view>
+            <view class='time'>考试时间：{{itemName.creatime}}</view>
+          </view>
+        </view>
+        <text class='icon iconfont icon-you'></text>
+      </view>    
+    </view>
+
+  </view>
+</view>

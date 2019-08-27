@@ -1,0 +1,5 @@
+<!--component/zero/zero.wxml-->
+<view class='box'>
+  <image class="icon" mode="widthFix" src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1554620085383wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.mYicUhh7KENw250afdb60fbe826fa62adb9735f789f9.png'></image>
+</view>
+

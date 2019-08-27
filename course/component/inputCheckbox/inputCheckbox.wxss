@@ -1,0 +1,45 @@
+/* component/inputCheckbox/inputCheckbox.wxss */
+.topic{
+  padding: 0rpx 15rpx 0rpx 30rpx;
+  background: #fff;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  padding:30rpx 0rpx;
+}
+.option{
+  margin: 20rpx 0rpx;
+  /* display: flex;
+  justify-content:flex-start;
+  align-items: center; */
+  color: #999999;
+  width: 100%;
+  overflow: hidden;
+}
+.option .icon{
+  width: 42rpx;
+  height: 42rpx;
+  display:block;
+  margin-right: 20rpx;
+  float: left;
+}
+.option .answer{
+  width: calc(100% - 62rpx);
+  float: left;
+  word-break:break-all;
+  color:rgba(153,153,153,1);
+}
+
+.totalScore{
+  margin-left: 25rpx;
+}
+
+.hide{
+  display: none;
+}
+.text-gradient{
+  /* background:linear-gradient(0deg,rgba(207,174,108,1) 0%, rgba(225,206,168,1) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; */
+}

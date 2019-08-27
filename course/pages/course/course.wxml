@@ -1,0 +1,28 @@
+<!--pages/course/course.wxml-->
+<view class='grayPage window bgf'>
+  <view class='header'>
+    <view class='switch'>
+      <view class='button' 
+      style='background-color:{{color}};{{pattern=="学习"?"transform:translateX(0%)":"transform:translateX(100%)"}}'>
+      {{pattern}}
+      </view>
+      <view class='val' data-val='学习' bindtap='switchPattern'>学习</view>
+      <view class='val' data-val='考核' bindtap='switchPattern'>考核</view>
+    </view>
+  </view>
+    <include wx:if="{{pattern=='学习'}}" src="study.wxml"/>
+    <include wx:if="{{pattern=='考核'}}" src="exam.wxml"/>
+  <!-- <floatButton bindtap="ask">
+    <view class='center'>
+      <text class='iconfont icon-tousutiwen'></text>
+      <text>提问</text>
+    </view>
+  </floatButton> -->
+  <view class='floatButton' bindtap="ask" style='background-color:{{color}};'>
+    <view class='center'>
+      <text class='iconfont icon-tousutiwen'></text>
+      <text>提问</text>
+    </view>
+  </view>
+
+</view>

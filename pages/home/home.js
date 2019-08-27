@@ -1,4 +1,19 @@
 // pages/home/home.js
+
+//首页跳转逻辑
+
+// indexType: 0无 1少 2多
+
+// 0
+// tabbar home
+
+// 1 2
+// homeShow
+
+// classType: 1少  0多 
+
+
+
 const app = getApp()
 const api = require('../../utils/api.js')
 Page({
@@ -20,6 +35,9 @@ Page({
    */
   onLoad: function(options) {
     //定义回调，防止加载顺序错误
+    // this.setData({
+    //   indexType: wx.getStorageSync('indexType')
+    // })
     if (options && options.scene) {
       wx.setStorageSync('scene', options.scene)
     }
@@ -34,7 +52,6 @@ Page({
       this.onLoad()
     }
     this.checkLogin();
-    this.getInfo(1);
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',
@@ -43,6 +60,28 @@ Page({
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('shop_name')
     })
+
+    //判断indexType进行跳转
+    let indexType = wx.getStorageSync('indexType')
+    this.setData({
+      indexType,
+      cate: options ? options.cate : ''
+    })
+    if (!options || !options.cate) {
+
+      if (indexType == 0) { //无分类
+        // wx.redirectTo({
+        //   url: '/pages/home/class/class'
+        // })
+      } else {
+        //多酚类
+        wx.redirectTo({
+          url: '/pages/home/homeShow/homeShow'
+        })
+        return
+      }
+    }
+    this.getInfo(1)
   },
   checkLogin() {
     wx.getSetting({
@@ -80,7 +119,9 @@ Page({
       })
     }
     api.getHomeInfo({
-      page
+      page,
+      fl: wx.getStorageSync('indeType'),
+      cate: this.data.cate
     }).then(res => {
       wx.hideLoading()
       if (res.data.goods_list.length < 1) {
@@ -94,7 +135,7 @@ Page({
       }
       console.log(res)
       that.setData({
-        imgList: page == 1 ? res.data.goods_list:that.data.imgList.concat(...res.data.goods_list),
+        imgList: page == 1 ? res.data.goods_list : that.data.imgList.concat(...res.data.goods_list),
         shareInfo: res.data.fx_message,
         member_id: res.data.member_id
       })

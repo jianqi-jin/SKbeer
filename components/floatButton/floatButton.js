@@ -36,7 +36,7 @@ Component({
     // 获取数据
     getData() {
       let this_ = this;
-      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.my.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
+      util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=senke.my.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
       }).then((res) => {
         wx.setStorageSync('member_status', res.member_status)
         wx.setStorageSync('member_type', res.member_type)
@@ -77,7 +77,7 @@ Component({
 
           if (arr[0] == "1" || arr[0] == "3") {
             console.log("阐述", parameter[0].scene)
-            util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.hx.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
+            util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=senke.hx.index&openid=${wx.getStorageSync('openid')}`, 'POST', {
               str: parameter[0].scene
             }).then((res) => {
               console.log("返回值", res.res)
@@ -100,7 +100,7 @@ Component({
             });
           } else {
             console.log("活动", parameter[0].scene)
-            util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=yktk.index.hexiao&openid=${wx.getStorageSync('openid')}`, 'POST', {
+            util.request(util.apiUrl + `app/ewei_shopv2_api.php?i=${util.posId}&r=senke.index.hexiao&openid=${wx.getStorageSync('openid')}`, 'POST', {
               str: parameter[0].scene
             }).then((res) => {
               console.log('韩磊', res)

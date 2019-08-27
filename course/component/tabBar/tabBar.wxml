@@ -1,0 +1,15 @@
+<!--component/tabBar/tabBar.wxml-->
+<!-- <view class="bot_btns {{isIphoneX ? 'iphonex_bottom':''}}"> -->
+<view class="tabBar {{isIphoneX?'fix-iphonex-button':''}}">
+  <navigator
+    wx:for="{{navList}}" 
+    url="{{item.url}}"
+    open-type="redirect"
+    wx:if="{{item.show}}" 
+    hover-class="none">
+    <image src='{{item.icon}}' wx:if="{{page==item.name}}"></image>
+    <image src='{{item.selectIcon}}' wx:else></image>
+    <text style='color:{{ page==item.name?color:"#707070"}}'>{{item.name}}</text>
+  </navigator>
+  
+</view>

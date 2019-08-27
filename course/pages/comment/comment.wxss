@@ -1,0 +1,36 @@
+/* pages/comment/comment.wxss */
+.p49{
+  padding: 49rpx;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.header .logo{
+  width: 72rpx;
+  height: 72rpx;
+}
+.box{
+  width: calc(100% - 98rpx);
+  margin-top: 15rpx;
+  display: block;
+  height:382rpx;
+  background:rgba(245,245,245,1);
+  border:1px solid rgba(230,230,230,1);
+  padding: 30rpx;
+}
+.sub{
+  height:98rpx;
+  border-radius:10rpx;
+  line-height: 98rpx;
+  text-align: center;
+  margin-top: 40rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+page{
+  background: #fff;
+}

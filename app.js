@@ -12,13 +12,18 @@ App({
     setTimeout(() => {
       api.getThemes().then(res => {
         console.log(res)
+
+        //设置首页类型
+        wx.setStorageSync('indexType', res.data.style.fl) //0默认无分类1少分类2多分类
+        wx.setStorageSync('classType', res.data.style.cp) //0默认无分类1少分类2多分类
+        
         this.globalData.themeBack = 'margin:0!important;background:' + res.data.style.bg_color + '!important;color:#fff!important;border-radius:400px;'; //themeBack风格
         this.globalData.
         themeBorder = 'margin:0!important;border:2rpx solid ' + res.data.style.bg_color + '!important;border-color:' + res.data.style.bg_color + '!important;border-radius:400rpx;color:' + res.data.style.bg_color + '!important;'; //themeBorder风格
         this.globalData.themeFont = 'color:' + res.data.style.bg_color + ';';
         this.globalData.themeColor = res.data.style.bg_color + ';';
         this.globalData.themeOnlyBorder = 'border:2rpx solid ' + res.data.style.bg_color + ';';
-
+        this.globalData.color = res.data.style.bg_color;
         this.globalData.theme = '--themeBackC:' + res.data.style.bg_color + ';';
 
         this.globalData.my_bg = res.data.style.my_bg;
@@ -88,8 +93,8 @@ App({
           console.log(res)
           //that.globalData.openid = 'sns_wa_octwZ40XJPc6_V8U2iy9wJrx34Xg' //res.data.data.openid;
           that.globalData.session_key = res.data.data.session_key;
-          wx.setStorageSync('openid', that.globalData.openid)
           that.globalData.openid = 'sns_wa_' + res.data.data.openid;
+          wx.setStorageSync('openid', that.globalData.openid)
 
           if (this.homeReady) {
             this.homeReady()
@@ -157,7 +162,9 @@ App({
     })
   },
   globalData: {
-
+    themeData: {
+      title: '云课堂',
+    },
     themeInfo: {
       backgroundColor: { //背景颜色
         value: "#ccc"

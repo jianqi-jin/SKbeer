@@ -1,0 +1,22 @@
+<!--pages/examResult/examResult.wxml-->
+<view>
+  <view class='header'>
+    <image class='bgImg' mode='widthFix' src='https://yika.oss-cn-shanghai.aliyuncs.com/ykoa/xcx/image/1559630363615wx4b1c53a29fa6eafb.o6zAJs4TGZ_QXEvlNhvRROo62Ymo.roWuvWL2tPVue54452f0434ddf5aebece663f73af8f5.png'></image>
+    <text class='title'>成绩查询</text>
+  </view>
+  <view class='result'>
+    <view class='title'>考试成绩查询结果</view>
+    <view class='bable'>
+      <view class='tr'>
+        <view class='td'>考试时间</view>
+        <view class='td'>分数</view>
+        <view class='td'>操作</view>
+      </view>
+      <view class='tr' wx:for="{{list}}" wx:key="{{item.id}}" >
+        <view class='td'>{{item.creatime}}</view>
+        <view class='td'>{{item.total}}</view>
+        <view class='td {{item.status==0?"blue":"gold"}}' data-id='{{item.id}}' bindtap='seeResult'>{{item.status==0?"审核中":"查看成绩"}}</view>
+      </view>
+    </view>
+  </view>
+</view>
