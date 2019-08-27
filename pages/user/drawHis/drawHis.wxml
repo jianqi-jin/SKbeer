@@ -1,5 +1,5 @@
 <!--pages/user/drawHis/drawHis.wxml-->
-<view class='ssitem' wx:for="{{drawHisList}}" wx:key='index'>
+<view class='ssitem' bindtap='navTo' data-item='{{item}}' wx:for="{{drawHisList}}" wx:key='index'>
 
   <view class='leftBox'>
     <view class='leftTop'>提现</view>

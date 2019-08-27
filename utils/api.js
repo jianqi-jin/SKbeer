@@ -4,7 +4,7 @@ const {
   postI,
   header,
   appid
-} = require('./base/jiaLan.js')
+} = require('./base/senKe.js')
 
 
 
@@ -83,5 +83,6 @@ module.exports = {
   parent: data => request('senke.tuijian.fenxiang_parent', data),
   serverUri,
   getReferList: () => request('senke.my.tuijian_log'),
-  getHomeShowInfo: data => request('senke.index.indexfl', data)
+  getHomeShowInfo: data => request('senke.index.indexfl', data),
+  getTxDetail: data => request('senke.my.tixian_log_img', data)
 }

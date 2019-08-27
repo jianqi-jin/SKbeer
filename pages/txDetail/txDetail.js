@@ -1,7 +1,7 @@
-// pages/home/homeShow/homeShow.js
+// pages/txDetail/txDetail.js
 const {
-  getHomeShowInfo
-} = require('../../../utils/api')
+  getTxDetail
+} = require('../../utils/api.js')
 Page({
 
   /**
@@ -15,35 +15,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('shop_name')
-    })
     this.setData({
-      indexType: wx.getStorageSync('indexType')
+      ...options
     })
-    this.getInfo()
-  },
-  navToClass(e) {
-    let {
-      item
-    } = e.currentTarget.dataset;
-    let url = (wx.getStorageSync('classType') == 1 ? '/pages/home/home' : '/pages/home/class/class') + '?cate=' + item.id //cate是类别的id
-    wx.navigateTo({
-      url
-    })
-  },
-  getInfo() {
-    getHomeShowInfo({
-      fl: wx.getStorageSync('indexType')
+    getTxDetail({
+      id: this.data.id
     }).then(res => {
       console.log(res)
       this.setData({
-        goodsList: res.data.data,
-        banner: res.data.banner
+        ...res.data
       })
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

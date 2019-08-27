@@ -3,18 +3,10 @@
 <view wx:if='{{indexType == 2}}'>
 
   <swiper autoplay circular duration='{{800}}'>
-    <swiper-item class='swipterItem'>
-      <image></image>
-    </swiper-item>
-    <swiper-item class='swipterItem'>
-      <image></image>
-    </swiper-item>
-    <swiper-item class='swipterItem'>
-      <image></image>
+    <swiper-item class='swipterItem' wx:for='{{banner}}'>
+      <image style='width:100%;' src='{{item}}' mode='widthFix'></image>
     </swiper-item>
   </swiper>
-
-
   <view class='title'>
 
     <view class='titleFont'>品牌类别</view>
@@ -26,9 +18,7 @@
 
 
 <view class='mainBox'>
-  <view bindtap='navToClass' data-item='{{item}}' wx:for='{{goodsList}}' wx:key='{{item.id}}' class='{{"itemBox "+(indexType == 1?"itemLess":"")}}' style='{{indexType == 1?"width: calc(100% - 10rpx);":""}}'>
-    <image class='img' src='{{item.advimg}}' mode='aspetFill'></image>
-  </view>
+  <image bindtap='navToClass' data-item='{{item}}' wx:for='{{goodsList}}' wx:key='{{item.id}}' class='{{"itemBox "+(indexType == 1?"itemLess":"itemMore")}}' style='{{indexType == 1?"width: calc(100% - 10rpx);":""}}' src='{{item.advimg}}' mode='{{indexType == 1?"widthFix":"aspectFill"}}'></image>
 
 </view>
 

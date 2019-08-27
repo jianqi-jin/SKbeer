@@ -14,9 +14,9 @@ App({
         console.log(res)
 
         //设置首页类型
-        wx.setStorageSync('indexType', res.data.style.fl) //0默认无分类1少分类2多分类
-        wx.setStorageSync('classType', res.data.style.cp) //0默认无分类1少分类2多分类
-        
+        wx.setStorageSync('indexType', res.data.style.fl || 0) //0默认无分类1少分类2多分类
+        wx.setStorageSync('classType', res.data.style.cp || 0) //0默认无分类1少分类2多分类
+
         this.globalData.themeBack = 'margin:0!important;background:' + res.data.style.bg_color + '!important;color:#fff!important;border-radius:400px;'; //themeBack风格
         this.globalData.
         themeBorder = 'margin:0!important;border:2rpx solid ' + res.data.style.bg_color + '!important;border-color:' + res.data.style.bg_color + '!important;border-radius:400rpx;color:' + res.data.style.bg_color + '!important;'; //themeBorder风格

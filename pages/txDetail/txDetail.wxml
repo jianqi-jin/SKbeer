@@ -1,0 +1,2 @@
+<!--pages/txDetail/txDetail.wxml-->
+<image src='{{img}}' mode='widthFix' style='width:100%;'></image>

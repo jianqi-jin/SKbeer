@@ -19,7 +19,7 @@
 }
 
 .titleBox {
-  margin-left: 15rpx;
+  margin-left: 0rpx;
 }
 
 .price {
@@ -47,7 +47,7 @@
   font-weight: 800;
   color: rgba(51, 51, 51, 1);
   margin-left: 20rpx;
-  margin-top: 26rpx;
+  margin-top: 16rpx;
   margin-bottom: 32rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -61,7 +61,7 @@
 
 .imgBox {
   width: 100%;
-  height: 355rpx;
+  height: 405rpx;
   overflow: hidden;
-  margin: 0rpx auto 50rpx auto;
+  margin: 0rpx auto 30rpx auto;
 }

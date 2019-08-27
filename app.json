@@ -33,7 +33,8 @@
     "pages/user/myRefer/myRefer",
     "pages/login/login",
     "pages/recommend/recommend",
-    "pages/djmx/djmx"
+    "pages/djmx/djmx",
+    "pages/txDetail/txDetail"
   ],
   "subPackages": [
     {
