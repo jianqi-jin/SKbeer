@@ -1,10 +1,10 @@
 const serverUri = 'https://oa.yika.co/';
-
+const header = {
+  'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+};
 const {
-  postI,
-  header,
-  appid
-} = require('./base/senKe.js')
+  postI
+} = require('../config.js')
 
 
 
