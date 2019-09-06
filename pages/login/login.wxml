@@ -17,4 +17,5 @@
 <image class='bgImg' mode='widthFix' src='{{bgImg}}'></image>
 <view class='bgImgs'>
   <button type='primary' loading='{{loadingFlag}}' bindtap='loading' class='accreditBtn' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">微信用户快速登录</button>
+  <button loading='{{loadingFlag}}' bindtap='loginCancel' class='accreditBtn cancel'>取消登录</button>
 </view>

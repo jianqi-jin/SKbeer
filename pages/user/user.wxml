@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-
+<!-- <view bindtap="login">登录</view> -->
 <view class='userBox'>
   <image class='bgImg' mode='aspectFill' src='{{bgImg}}'></image>
   <view class='imgBox'>

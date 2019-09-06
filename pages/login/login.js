@@ -34,6 +34,11 @@ Page({
       }
     })
   },
+  loginCancel() {
+    wx.redirectTo({
+      url: '/pages/home/home',
+    })
+  },
   loading() {
     this.setData({
       loadingFlag: true

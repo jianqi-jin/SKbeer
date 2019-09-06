@@ -1,6 +1,7 @@
 // pages/home/homeShow/homeShow.js
 const {
-  getHomeShowInfo
+  getHomeShowInfo,
+  getShare
 } = require('../../../utils/api')
 Page({
 
@@ -14,8 +15,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  getShare() {
+    getShare(getApp().globalData.openid).then(res => {
+      console.log(res)
+      res.data.imgUrl = res.data.icon
+      this.setData({
+        shareInfo: res.data,
 
+      })
+    })
+  },
+  onShareAppMessage() {
+    return {
+      title: this.data.shareInfo.title,
+      imageUrl: this.data.shareInfo.imgUrl,
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
+    }
+  },
+  onLoad: function(options) {
+    this.getShare()
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('shop_name')
     })
@@ -89,7 +107,4 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
-  }
 })

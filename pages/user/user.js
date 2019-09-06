@@ -21,7 +21,7 @@ Page({
         title: '云课堂',
         iconArr: '/res/icon/icon_right_click.png',
         url: '/course/pages/course/course',
-      showFlag: false
+        showFlag: false
       },
       {
         iconImg: '/res/icon/refer@2x.png',
@@ -51,7 +51,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  getShare() {
+    api.getShare(app.globalData.openid).then(res => {
+      console.log(res)
+      res.data.imgUrl = res.data.icon
+      this.setData({
+        shareInfo: res.data,
+
+      })
+    })
+  },
+  onShareAppMessage() {
+    return {
+      title: this.data.shareInfo.title,
+      imageUrl: this.data.shareInfo.imgUrl,
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
+    }
+  },
   onLoad: function(options) {
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {} else {
+          wx.redirectTo({
+            url: '/pages/login/login',
+          })
+          return
+        }
+      }
+    })
+    this.getShare()
     this.setData({
       color: app.globalData.themeColor
     })

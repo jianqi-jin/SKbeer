@@ -112,6 +112,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: this.data.shareInfo.title,
+      imageUrl: this.data.shareInfo.imgUrl,
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
+    }
   }
 })

@@ -65,7 +65,7 @@ Page({
     let indexType = wx.getStorageSync('indexType')
     this.setData({
       indexType,
-      cate: options ? options.cate : ''
+      cate: options ? options.cate||'' : ''
     })
     if (!options || !options.cate) {
 
@@ -83,6 +83,14 @@ Page({
     }
     this.getInfo(1)
   },
+  // getShare() {
+  //   api.getShare(app.globalData.openid).then(res => {
+  //     console.log(res)
+  //     this_.setData({
+  //       shareInfo: res.data,
+  //     })
+  //   })
+  // },
   checkLogin() {
     wx.getSetting({
       success(res) {
@@ -94,9 +102,9 @@ Page({
             }
           })
         } else {
-          wx.redirectTo({
-            url: '/pages/login/login'
-          })
+          // wx.redirectTo({
+          //   url: '/pages/login/login'
+          // })
         }
       }
     })

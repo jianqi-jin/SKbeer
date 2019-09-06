@@ -56,11 +56,38 @@ Page({
     }]
 
   },
+  getShare() {
+    api.getShare(app.globalData.openid).then(res => {
+      console.log(res)
+      res.data.imgUrl = res.data.icon
+      this.setData({
+        shareInfo: res.data,
 
+      })
+    })
+  },
+  onShareAppMessage() {
+    return {
+      title: this.data.shareInfo.title,
+      imageUrl: this.data.shareInfo.imgUrl,
+      path: `/pages/home/home?memberid=${wx.getStorageSync('memberId')}`
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) { } else {
+          wx.redirectTo({
+            url: '/pages/login/login',
+          })
+          return
+        }
+      }
+    })
+    this.getShare()
     if (options.id) {
       this.changeNav(options.id)
     }
