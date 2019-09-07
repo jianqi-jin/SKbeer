@@ -180,7 +180,7 @@ Page({
   showOrder() {
     if (!this.data.loginFlag) {
       wx.redirectTo({
-        url: '/pages/login/login',
+        url: '/pages/user/user',
         success: () => {
           wx.showToast({
             title: '请授权登录哟~',

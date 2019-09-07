@@ -4,7 +4,7 @@ const header = {
 };
 const {
   postI
-} = require('./base/jiaLan.js')
+} = require('../config.js')
 
 
 
