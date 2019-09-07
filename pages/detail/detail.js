@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loginFlag: true,
     videoFlag: true,
     disableFlag: false,
     showIndex: 0, //0 1 3详情
@@ -38,6 +39,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {} else {
+          this.setData({
+            loginFlag: false
+          })
+        }
+      }
+    })
     this.setData({
       goodsId: options.goodId
     })
@@ -168,6 +178,19 @@ Page({
 
   },
   showOrder() {
+    if (!this.data.loginFlag) {
+      wx.redirectTo({
+        url: '/pages/login/login',
+        success: () => {
+          wx.showToast({
+            title: '请授权登录哟~',
+            icon: 'none',
+            duration: 800,
+          })
+        }
+      })
+      return
+    }
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#7F7F7F'

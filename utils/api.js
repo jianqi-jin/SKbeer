@@ -4,14 +4,14 @@ const header = {
 };
 const {
   postI
-} = require('../config.js')
+} = require('./base/jiaLan.js')
 
 
 
 const request = (type, data) => {
   return new Promise(resolve => {
     wx.request({
-      url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=' + type + '&openid=' + ((getApp() == undefined) ? "" : getApp().globalData.openid),
+      url: serverUri + 'app/ewei_shopv2_api.php?i=' + postI + '&r=' + type + '&openid=' + ((getApp() == undefined) ? "" : getApp().globalData.openid) || wx.getStorageSync('openid'),
       data: data ? data : '',
       header,
       method: data ? 'POST' : 'GET',

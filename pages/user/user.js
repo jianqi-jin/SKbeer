@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loginFlag: true,
     color: '',
     bgImg: "",
     userInfo: {},
@@ -70,12 +71,15 @@ Page({
   },
   onLoad: function(options) {
     wx.getSetting({
-      success(res) {
+      success: res => {
         if (res.authSetting['scope.userInfo']) {} else {
-          wx.redirectTo({
-            url: '/pages/login/login',
+          this.setData({
+            loginFlag: false
           })
-          return
+          // wx.redirectTo({
+          //   url: '/pages/login/login',
+          // })
+          // return
         }
       }
     })
@@ -96,7 +100,20 @@ Page({
       phoneNumber: this.data.userInfo.kefu_phone
     })
   },
+  navLogin() {
+    wx.redirectTo({
+      url: '/pages/login/login'
+    })
+  },
   fun(ev) {
+    if (!this.data.loginFlag) {
+      wx.showToast({
+        title: '请授权登录哟~',
+        icon: 'none',
+        duration: 800,
+      })
+      return
+    }
     let item = ev.currentTarget.dataset.ev;
     console.log(item)
     if (item.title == "联系客服") {

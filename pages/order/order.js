@@ -77,16 +77,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) { } else {
-          wx.redirectTo({
-            url: '/pages/login/login',
-          })
-          return
-        }
-      }
-    })
     this.getShare()
     if (options.id) {
       this.changeNav(options.id)

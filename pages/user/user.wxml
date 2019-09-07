@@ -3,14 +3,17 @@
 <view class='userBox'>
   <image class='bgImg' mode='aspectFill' src='{{bgImg}}'></image>
   <view class='imgBox'>
-    <image src='{{userInfo.info.avatar}}'></image>
+    <image src='{{loginFlag?userInfo.info.avatar:"/res/icon/noLogin.png"}}'></image>
   </view>
-  <view class='userName'>{{userInfo.info.nickname}}</view>
+  <view class='userName'>{{loginFlag?userInfo.info.nickname:'未登录'}}</view>
   <navigator hover-class="none" style='background:{{color}}' class='money' url='/pages/money/money' open-type='navigate'>
-    <view class='title'>储值金额</view>
-    <view class='value'>{{userInfo.info.yue}}</view>
-    <view class='icon'>
-      <image src='./res/img/icon_right_click.png'></image>
+    <view bindtap="navLogin" class="login" wx:if='{{!loginFlag}}'>点击登录</view>
+    <view wx:else>
+      <view class='title'>储值金额</view>
+      <view class='value'>{{userInfo.info.yue}}</view>
+      <view class='icon'>
+        <image src='./res/img/icon_right_click.png'></image>
+      </view>
     </view>
   </navigator>
 </view>
